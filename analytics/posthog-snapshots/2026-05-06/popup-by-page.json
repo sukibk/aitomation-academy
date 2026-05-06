@@ -1,0 +1,17 @@
+{
+  "window_start": "2026-04-29",
+  "window_end": "2026-05-06",
+  "owner_ip_filtered": true,
+  "query": "SELECT page, shown, submitted, dismissed FROM popup events grouped by pathname",
+  "columns": ["page", "shown", "submitted", "dismissed"],
+  "results": [
+    ["/", 17, 2, 12],
+    ["/blog/is-claude-ai-free-pricing-guide", 14, 1, 7],
+    ["/skool-redirect", 2, 0, 0],
+    ["/blog/claude-prompts-for-business", 2, 0, 2],
+    ["/blog/chatgpt-vs-claude-summarizing-transcripts", 2, 0, 1],
+    ["/blog/5-claude-workflows-for-non-technical-professionals", 1, 0, 1],
+    ["/blog/claude-for-content-creation", 1, 0, 0],
+    ["/blog/claude-vs-chatgpt-for-writing", 1, 0, 1]
+  ]
+}

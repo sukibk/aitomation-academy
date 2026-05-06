@@ -1,0 +1,11 @@
+{
+  "window_start": "2026-04-29",
+  "window_end": "2026-05-06",
+  "owner_ip_filtered": true,
+  "columns": ["source", "count"],
+  "results": [
+    ["chatgpt", 4],
+    ["gemini", 1],
+    ["claude", 1]
+  ]
+}

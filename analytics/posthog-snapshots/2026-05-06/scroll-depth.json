@@ -1,0 +1,16 @@
+{
+  "window_start": "2026-04-29",
+  "window_end": "2026-05-06",
+  "owner_ip_filtered": true,
+  "columns": ["page", "percent", "visitors"],
+  "results": [
+    ["/", 25, 6],
+    ["/", 50, 3],
+    ["/", 75, 3],
+    ["/", 100, 3],
+    ["/blog/is-claude-ai-free-pricing-guide", 25, 3],
+    ["/blog/is-claude-ai-free-pricing-guide", 50, 1],
+    ["/blog/is-claude-ai-free-pricing-guide", 75, 1],
+    ["/blog/is-claude-ai-free-pricing-guide", 100, 1]
+  ]
+}

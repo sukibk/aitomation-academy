@@ -1,0 +1,18 @@
+{
+  "window_start": "2026-04-29",
+  "window_end": "2026-05-06",
+  "owner_ip_filtered": true,
+  "columns": ["entry", "sessions"],
+  "results": [
+    ["/blog/is-claude-ai-free-pricing-guide", 27],
+    ["/", 19],
+    ["/blog/chatgpt-vs-claude-summarizing-transcripts", 15],
+    ["/blog/claude-vs-chatgpt-for-real-work", 4],
+    ["/privacy", 2],
+    ["/blog/claude-prompts-for-business", 2],
+    ["/blog/claude-vs-chatgpt-for-writing", 2],
+    ["/blog/claude-vs-chatgpt-vs-gemini", 2],
+    ["/about", 1],
+    ["/blog/5-claude-workflows-for-non-technical-professionals", 1]
+  ]
+}

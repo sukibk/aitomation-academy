@@ -1,0 +1,19 @@
+{
+  "window_start": "2026-04-29",
+  "window_end": "2026-05-06",
+  "owner_ip_filtered": true,
+  "query": "SELECT CASE ... END as source, count() as pageviews FROM events WHERE event = '$pageview' AND timestamp >= now() - INTERVAL 7 DAY AND properties.$ip != '137.103.50.217' GROUP BY source ORDER BY pageviews DESC",
+  "columns": ["source", "pageviews"],
+  "results": [
+    ["Direct", 54],
+    ["Google Organic", 14],
+    ["YouTube", 4],
+    ["www.linkedin.com", 4],
+    ["ChatGPT", 3],
+    ["Instagram", 3],
+    ["www.bing.com", 2],
+    ["www.paraform.com", 2],
+    ["Claude", 1],
+    ["gemini.google.com", 1]
+  ]
+}
