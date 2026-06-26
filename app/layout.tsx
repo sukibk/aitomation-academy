@@ -9,7 +9,6 @@ import { PostHogProvider } from "@/components/posthog-provider";
 import { AnalyticsEvents } from "@/components/analytics-events";
 import { EntryPopup } from "@/app/components/entry-popup";
 import { Analytics } from "@vercel/analytics/next";
-import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -59,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
+    <html lang="en" className={`font-sans ${geist.variable}`}>
       <body className={`${barlow.variable} ${barlow.className}`} suppressHydrationWarning>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CWZ738MZYH"
