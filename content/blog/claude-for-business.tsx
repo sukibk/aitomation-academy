@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude for Business: Why Teams Switch",
   description: "Why non-technical teams switch from ChatGPT to Claude. Better writing, Projects, memory, security, and a migration guide.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude Guides",
   tags: [
@@ -91,7 +92,7 @@ export const post: BlogPost = {
           <p className="text-xs font-semibold uppercase tracking-wider text-orange-600 mb-2">
             Claude Team Plan
           </p>
-          <p className="text-2xl font-bold text-slate-900 mb-4">$25/user/mo</p>
+          <p className="text-2xl font-bold text-slate-900 mb-4">$20/user/mo</p>
           <ul className="space-y-2 text-sm text-slate-700">
             <li>Higher usage limits than Pro</li>
             <li>Shared Projects across the team</li>
@@ -111,7 +112,7 @@ export const post: BlogPost = {
             <li>Custom instructions per Project</li>
             <li>Upload files as persistent knowledge</li>
             <li>Memory across conversations</li>
-            <li>1M token context window (Opus 4.6)</li>
+            <li>1M token context window on the top-tier model</li>
             <li>Your data is never used for training</li>
           </ul>
         </div>
@@ -129,8 +130,8 @@ export const post: BlogPost = {
         is what transforms Claude from a personal tool into a business one.
         You get everything in Pro, plus shared Projects, admin controls,
         centralized billing, and higher usage limits. For a team of five,
-        that&apos;s $125/month — less than a single hour of most
-        consultants&apos; time.
+        that&apos;s $100/month billed annually (or $125/month billed
+        monthly) — less than a single hour of most consultants&apos; time.
       </p>
 
       <h2>
@@ -316,7 +317,7 @@ export const post: BlogPost = {
       {/* ── CTA 1 ── */}
       <div className="not-prose mt-10 mb-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
         <p className="text-sm text-amber-900">
-          See how 700+ professionals are using Claude for business workflows every day.{" "}
+          See how 1200+ professionals are using Claude for business workflows every day.{" "}
           <a
             href="/skool-redirect"
             className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-800 transition-colors"
@@ -457,16 +458,35 @@ export const post: BlogPost = {
         week, that is hours saved across a team.
       </p>
 
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip building these Projects from scratch
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has ready-made prompts for proposals, SOPs, client
+          updates, and strategy docs — 550+ recipes total, sorted by your
+          job, so your team can paste in a finished workflow instead of
+          drafting Project instructions from a blank page.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
+
       <h2>The Team plan: what you get and how to set it up</h2>
       <p>
-        The Claude Team plan costs $25 per user per month (billed annually) and
-        is designed for teams of 2 or more. Here is what you actually get above
-        the Pro plan:
+        The Claude Team plan costs $20 per user per month billed annually (or
+        $25 per user per month billed monthly) and is designed for teams of 2
+        or more. Here is what you actually get above the Pro plan:
       </p>
       <ul>
         <li>
-          <strong>Higher usage limits</strong> — More messages with Opus 4.6,
-          so your team does not hit walls during busy weeks
+          <strong>Higher usage limits</strong> — More messages with
+          Claude&apos;s premium models, so your team does not hit walls during
+          busy weeks
         </li>
         <li>
           <strong>Shared Projects</strong> — Create Projects that everyone on
@@ -851,7 +871,7 @@ export const post: BlogPost = {
 
       <h3>How many people can use Claude&apos;s Team plan?</h3>
       <p>
-        The Team plan requires a minimum of 2 seats and scales up from there, with no maximum. Each seat costs $30 per month billed annually or $35 monthly. Team admins can add or remove members at any time from the admin dashboard, and all members get shared access to Projects.
+        The Team plan requires a minimum of 2 seats and scales up from there, with no maximum. Each seat costs $20 per month billed annually or $25 monthly. Team admins can add or remove members at any time from the admin dashboard, and all members get shared access to Projects.
       </p>
 
       <h3>Can Claude integrate with our existing business tools like Slack or Salesforce?</h3>

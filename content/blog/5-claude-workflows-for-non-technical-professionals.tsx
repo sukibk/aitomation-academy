@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "5 Claude Workflows You Can Copy-Paste Today",
   description: "Five practical Claude workflows for writing, research, content, decisions, and meeting prep. Copy, paste, and get useful output.",
   publishedAt: "2026-04-02",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude Workflows",
   tags: ["Claude", "workflows", "productivity", "non-technical", "prompts"],
@@ -54,6 +55,23 @@ export const post: BlogPost = {
         </p>
       </blockquote>
       <p>One long piece becomes a week of content. You wrote it once. For more on this, check out our <a href="/blog/claude-for-content-creation">content creation workflows</a>.</p>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip building your own workflow library
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
+          your job — draft-from-chaos, research digests, repurposing, and
+          dozens more ready to copy-paste.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>4. The Decision Clarity workflow</h2>
       <p><strong>Best for:</strong> making better decisions when you have too much in your head</p>

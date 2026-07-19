@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "AI for Consultants: Save 5+ Hours Per Week",
   description: "Five AI workflows for consultants — research, proposals, deliverables, meeting prep, and biz dev. Includes prompt templates and ROI math.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Use Cases",
   tags: [
@@ -296,7 +297,7 @@ LENGTH: 4-6 pages when formatted.`}</code></pre>
           See the exact workflows consultants use in our free community
         </p>
         <p className="text-sm text-amber-800">
-          700+ consultants and professionals are already sharing prompt templates, proposal frameworks, and time-saving setups inside AItomation Academy.
+          1200+ consultants and professionals are already sharing prompt templates, proposal frameworks, and time-saving setups inside AItomation Academy.
         </p>
         <a
           href="/skool-redirect"
@@ -370,6 +371,24 @@ FORMATTING REQUIREMENTS:
         You are still doing the hard thinking — Claude handles the
         structured writing.
       </p>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip writing the prompts yourself
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has a consultant section pre-built — recipes for
+          research, proposals, deliverables, and meeting prep, each producing
+          a finished document. 550+ Claude prompts &amp; skills total, sorted
+          by your job.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>Workflow 4: Meeting prep and follow-up</h2>
       <p>
@@ -461,7 +480,7 @@ OUTPUT 2: INTERNAL ENGAGEMENT NOTES
       {/* ── CTA 2 ── */}
       <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/70 p-4 md:p-6">
         <p className="text-sm font-semibold text-amber-900 mb-1">
-          700+ consultants and professionals are already saving hours weekly
+          1200+ consultants and professionals are already saving hours weekly
         </p>
         <p className="text-sm text-amber-800">
           Get access to ready-made prompt libraries, live workflow demos, and a community of people who actually use these tools daily.
@@ -541,10 +560,11 @@ ALSO GENERATE:
             <p className="font-semibold text-blue-800 mb-2">1M Token Context Window</p>
             <p className="text-sm text-blue-700">
               Upload 50-page RFPs, annual reports, and multi-document research
-              decks. Claude Opus 4.6 can hold up to 1 million tokens (~1,500
-              pages) in a single conversation without truncating or losing
-              details — critical for consulting work where nuance in a single
-              paragraph can change a recommendation.
+              decks. Claude Fable 5, Anthropic&apos;s flagship model, can hold
+              up to 1 million tokens (~1,500 pages) in a single conversation
+              without truncating or losing details — critical for consulting
+              work where nuance in a single paragraph can change a
+              recommendation.
             </p>
           </div>
           <div className="rounded-lg border-2 border-green-200 bg-green-50 p-4 md:p-5">

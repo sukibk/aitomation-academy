@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude vs ChatGPT: What's Actually Different",
   description: "A practical comparison for professionals who want to know which AI helps more with writing, research, and daily work.",
   publishedAt: "2026-04-03",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude vs ChatGPT",
   tags: ["Claude", "ChatGPT", "comparison", "AI for work", "productivity"],
@@ -33,6 +34,23 @@ export const post: BlogPost = {
       <p>
         Claude is unusually good at helping you think. Give it a genuinely complex situation — a business decision with competing factors, a communication problem with a difficult stakeholder — and it will actually engage with the nuance rather than giving you a generic framework.
       </p>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Already sold on Claude? Skip the trial and error
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
+          your job, so you get a finished draft instead of a blank prompt
+          box.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>Where ChatGPT has an edge</h2>
 

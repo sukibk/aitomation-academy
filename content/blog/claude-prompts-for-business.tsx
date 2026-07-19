@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "15 Claude Prompts for Business That Work",
   description: "15 Claude prompts built for real business work — research, writing, strategy, and operations. Copy, paste, customize.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude Prompts",
   tags: [
@@ -261,7 +262,7 @@ Format as a table with columns:
 
       <div className="not-prose my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
         <p className="text-sm text-amber-900">
-          These prompts are just the start. <strong>700+ professionals</strong> share their best Claude workflows in our free community.{" "}
+          These prompts are just the start. <strong>1200+ professionals</strong> share their best Claude workflows in our free community.{" "}
           <a href="/skool-redirect" className="font-semibold text-amber-700 underline underline-offset-2">
             Join the free AItomation Academy community &rarr;
           </a>
@@ -358,6 +359,23 @@ ANALYZE FOR:
 - What messaging changes would better match how customers actually think about us?
 
 Be direct in your analysis. If the data is inconclusive, say so. If only one person said something, don't present it as a pattern.`}</code></pre>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip writing prompts like these from scratch
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
+          your job — proposals, SOPs, pricing analysis, sales prep, and more,
+          each ready to copy and customize.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>8. Standard operating procedure (SOP) builder</h2>
       <p>
@@ -562,7 +580,7 @@ CREATE A QBR WITH:
 - A senior leader should get 80% of the story from this paragraph
 
 2. SCORECARD
-- Table format: Goal | Target | Actual | Status (🟢 🟡 🔴) | Commentary
+- Table format: Goal | Target | Actual | Status (On track / At risk / Off track) | Commentary
 - For each goal, a one-line explanation of why we hit or missed
 
 3. WINS (top 3-5)
@@ -626,7 +644,7 @@ THEN SYNTHESIZE:
 
 4. GAP MAP
 - Table format: Topic/Question | Competitor A | Competitor B | Competitor C | Our Opportunity
-- Mark each cell: ✅ (covered well), 🟡 (covered poorly), ❌ (not covered)
+- Mark each cell: Strong (covered well), Weak (covered poorly), Gap (not covered)
 - Sort by opportunity size
 
 5. CONTENT PLAYS

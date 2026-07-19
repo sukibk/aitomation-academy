@@ -1,0 +1,59 @@
+"use client";
+
+import { useState } from "react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import posthog from "posthog-js";
+
+export function CheckoutButton({
+  label = "Get instant access",
+  className = "",
+}: {
+  label?: string;
+  className?: string;
+}) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function start() {
+    setLoading(true);
+    setError(null);
+    try {
+      posthog.capture("vault_checkout_start");
+    } catch {}
+    try {
+      const res = await fetch("/api/checkout", { method: "POST" });
+      const data = await res.json();
+      if (res.ok && data.url) {
+        window.location.href = data.url as string;
+      } else {
+        setError(data.error || "Checkout is not available right now.");
+        setLoading(false);
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+      setLoading(false);
+    }
+  }
+
+  return (
+    <div className={className}>
+      <button
+        onClick={start}
+        disabled={loading}
+        className="group inline-flex w-full items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600 disabled:opacity-70 sm:w-auto"
+      >
+        {loading ? (
+          <>
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Starting checkout…
+          </>
+        ) : (
+          <>
+            {label}
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </>
+        )}
+      </button>
+      {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
+    </div>
+  );
+}

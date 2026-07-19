@@ -1,0 +1,6 @@
+[mcp_servers.semrush]
+args = ["semrush-mcp"]
+command = "npx"
+
+[mcp_servers.semrush.env]
+SEMRUSH_API_KEY = "af98629595ea76e275f5a0726ecee8d7"

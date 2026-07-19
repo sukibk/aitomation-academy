@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude Pricing in 2026: Free vs Pro vs Max",
   description: "A clear breakdown of Claude AI pricing: free plan, Pro, Max, Team, and Enterprise. What each tier includes and whether upgrading is worth it.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude Guides",
   tags: [
@@ -50,9 +51,10 @@ export const post: BlogPost = {
           claude.ai
         </a>{" "}
         with a Google account, Apple ID, or email address. No payment required.
-        You get immediate access to Claude Sonnet 4.5 — which is a genuinely
-        capable model — along with features like Projects, file uploads, and
-        Memory.
+        You get immediate access to Claude Sonnet 5 — which is a genuinely
+        capable model and, since June 30, 2026, the default model on both the
+        Free and Pro plans — along with features like Projects, file uploads,
+        and Memory.
       </p>
       <p>
         The free plan is not a watered-down demo. It is a real, functional
@@ -61,11 +63,23 @@ export const post: BlogPost = {
         feature restrictions that are worth understanding before you hit them
         mid-task.
       </p>
+      <div className="not-prose my-6 rounded-xl border border-slate-200 bg-slate-50 p-4 sm:p-5">
+        <p className="text-sm text-slate-600">
+          <strong className="text-slate-900">Update, July 2026:</strong> Claude
+          Sonnet 5 became the default model on the Free and Pro plans on June
+          30, 2026, replacing Sonnet 4.5. Separately, Claude Fable 5 —
+          Anthropic&apos;s new flagship model, a tier above Opus — was
+          temporarily taken offline from June 12 to July 1 following a U.S.
+          export-control directive, then fully restored on July 1, 2026 after
+          Anthropic added a safety classifier addressing the underlying
+          concern. Pricing and plan details below reflect the current lineup.
+        </p>
+      </div>
 
       <h2>Claude pricing tiers at a glance</h2>
       <p>
         Before we go deep on each plan, here is the full pricing landscape as of
-        April 2026:
+        July 2026:
       </p>
 
       {/* --------------- Pricing Tier Cards --------------- */}
@@ -82,7 +96,7 @@ export const post: BlogPost = {
           <ul className="mt-5 space-y-3 text-sm text-slate-600 flex-1">
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-emerald-500 font-bold">&#10003;</span>
-              Sonnet 4.5 access
+              Sonnet 5 access (default model)
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-emerald-500 font-bold">&#10003;</span>
@@ -106,7 +120,7 @@ export const post: BlogPost = {
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-slate-300 font-bold">&#10007;</span>
-              <span className="text-slate-400">No Opus 4.6 / no custom Styles</span>
+              <span className="text-slate-400">No Opus / Fable access, no custom Styles</span>
             </li>
           </ul>
         </div>
@@ -131,7 +145,7 @@ export const post: BlogPost = {
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-emerald-500 font-bold">&#10003;</span>
-              All models incl. Opus 4.6
+              Opus &amp; Fable access via usage credits
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-0.5 text-emerald-500 font-bold">&#10003;</span>
@@ -235,10 +249,11 @@ export const post: BlogPost = {
 
       <h2>What you actually get on the free plan</h2>
       <p>
-        The free plan gives you access to Claude Sonnet 4.5 — not the most
-        powerful model in the lineup, but a very capable one that handles writing,
-        analysis, summarization, and creative work well. Here is what you can do
-        without paying anything:
+        The free plan gives you access to Claude Sonnet 5 — the default model
+        on Free and Pro since June 30, 2026. It is not the most powerful model
+        in the lineup, but a very capable one that handles writing, analysis,
+        summarization, and creative work well. Here is what you can do without
+        paying anything:
       </p>
       <p>
         <strong>Message limits.</strong> You get roughly 30 to 100 messages per
@@ -268,11 +283,12 @@ export const post: BlogPost = {
         clients every time you start a new chat.
       </p>
       <p>
-        <strong>What you do NOT get on free:</strong> no access to Opus 4.6 (the
-        most powerful model), no priority access during peak times, no custom
-        Styles, and only 5 Projects. You do get Artifacts and extended thinking
-        on free, but with lower usage limits. When usage is high, free-tier
-        users wait in a queue while paying users get served first.
+        <strong>What you do NOT get on free:</strong> no access to Opus 4.8 or
+        Claude Fable 5 (the higher, paid-tier models), no priority access
+        during peak times, no custom Styles, and only 5 Projects. You do get
+        Artifacts and extended thinking on free, but with lower usage limits.
+        When usage is high, free-tier users wait in a queue while paying users
+        get served first.
       </p>
 
       {/* --------------- Subtle CTA 1 --------------- */}
@@ -303,20 +319,23 @@ export const post: BlogPost = {
         heavy, extended sessions all day to consistently hit the Pro limit.
       </p>
       <p>
-        <strong>Opus 4.6 access.</strong> This is Anthropic&apos;s most advanced
-        model. It has a 1 million token context window (roughly 700,000 words),
-        which means you can feed it an entire book, a full codebase, or months of
-        meeting notes in a single conversation. It is also significantly better at
-        complex reasoning, nuanced writing, and multi-step tasks compared to
-        Sonnet.
+        <strong>Opus and Fable access, via usage credits.</strong> Pro unlocks
+        Claude Opus 4.8, the premium tier below Fable, and gives you
+        usage-credit-metered access to Claude Fable 5 — Anthropic&apos;s most
+        capable model, sitting a tier above Opus. Fable 5 has a 1 million token
+        context window (roughly 700,000 words), which means you can feed it an
+        entire book, a full codebase, or months of meeting notes in a single
+        conversation. Both are significantly better at complex reasoning,
+        nuanced writing, and multi-step tasks than Sonnet, for the tasks where
+        that extra depth is worth the usage cost.
       </p>
       <p>
-        <strong>Extended thinking / Adaptive thinking.</strong> This feature lets
-        Opus 4.6 &quot;think through&quot; a problem before responding. It
-        produces noticeably better results for complex tasks — building a
+        <strong>Extended thinking.</strong> This feature lets Claude&apos;s
+        premium models &quot;think through&quot; a problem before responding.
+        It produces noticeably better results for complex tasks — building a
         financial model, planning a content strategy, analyzing a competitive
-        landscape. You can see the thinking process in a collapsible section above
-        the response.
+        landscape. You can see the thinking process in a collapsible section
+        above the response.
       </p>
       <p>
         <strong>Priority access.</strong> No more waiting in queues during peak
@@ -361,9 +380,9 @@ export const post: BlogPost = {
           <tbody className="divide-y divide-slate-100">
             <tr>
               <td className="py-3 px-4 sm:px-5 text-slate-600">Model access</td>
-              <td className="py-3 px-3 sm:px-4 text-center text-slate-600">Sonnet 4.5</td>
-              <td className="py-3 px-3 sm:px-4 text-center text-slate-900 font-medium bg-orange-50/50">All models incl. Opus 4.6</td>
-              <td className="py-3 px-3 sm:px-4 text-center text-slate-600">All models incl. Opus 4.6</td>
+              <td className="py-3 px-3 sm:px-4 text-center text-slate-600">Sonnet 5 (default)</td>
+              <td className="py-3 px-3 sm:px-4 text-center text-slate-900 font-medium bg-orange-50/50">+ Opus 4.8 &amp; Fable 5 via usage credits</td>
+              <td className="py-3 px-3 sm:px-4 text-center text-slate-600">+ Opus 4.8 &amp; Fable 5, higher limits</td>
             </tr>
             <tr>
               <td className="py-3 px-4 sm:px-5 text-slate-600">Daily usage</td>
@@ -374,8 +393,8 @@ export const post: BlogPost = {
             <tr>
               <td className="py-3 px-4 sm:px-5 text-slate-600">Context window</td>
               <td className="py-3 px-3 sm:px-4 text-center text-slate-600">200K tokens</td>
-              <td className="py-3 px-3 sm:px-4 text-center text-slate-900 font-medium bg-orange-50/50">1M tokens (Opus)</td>
-              <td className="py-3 px-3 sm:px-4 text-center text-slate-600">1M tokens (Opus)</td>
+              <td className="py-3 px-3 sm:px-4 text-center text-slate-900 font-medium bg-orange-50/50">1M tokens (Fable 5)</td>
+              <td className="py-3 px-3 sm:px-4 text-center text-slate-600">1M tokens (Fable 5)</td>
             </tr>
             <tr>
               <td className="py-3 px-4 sm:px-5 text-slate-600">Extended thinking</td>
@@ -423,6 +442,23 @@ export const post: BlogPost = {
         </table>
       </div>
 
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Whichever plan you pick, get more out of every message
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has 550+ prompts and skills, sorted by your job —
+          consultant, marketer, founder, freelancer, or operator. Copy-paste
+          recipes that work on Free, Pro, or Max.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
+
       <h2>Who should stay on the free plan</h2>
       <p>
         The free plan is a genuine fit if you are exploring Claude for the first
@@ -444,7 +480,7 @@ export const post: BlogPost = {
           cap is not a problem.
         </li>
         <li>
-          You do not need the most powerful model — Sonnet 4.5 handles your tasks
+          You do not need the most powerful model — Sonnet 5 handles your tasks
           well enough.
         </li>
       </ul>
@@ -467,15 +503,16 @@ export const post: BlogPost = {
           Pro eliminates that friction.
         </li>
         <li>
-          <strong>You need Opus 4.6 for complex work.</strong> Strategy documents,
-          detailed analysis, long-form content, financial modeling — Opus is
-          meaningfully better at tasks that require deep reasoning.
+          <strong>You need Opus 4.8 or Fable 5 for complex work.</strong>{" "}
+          Strategy documents, detailed analysis, long-form content, financial
+          modeling — both are meaningfully better than Sonnet at tasks that
+          require deep reasoning, accessed through Pro&apos;s usage credits.
         </li>
         <li>
           <strong>You work with large documents.</strong> The 1 million token
-          context window on Opus means you can paste an entire 200-page report
-          into a conversation and ask questions about it. On the free plan with
-          Sonnet, you are limited to roughly 200K tokens.
+          context window on Fable 5 means you can paste an entire 200-page
+          report into a conversation and ask questions about it. On the free
+          plan with Sonnet, you are limited to roughly 200K tokens.
         </li>
         <li>
           <strong>You manage multiple clients or projects.</strong> Unlimited
@@ -538,7 +575,7 @@ export const post: BlogPost = {
       {/* --------------- Subtle CTA 2 --------------- */}
       <div className="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
         <p className="text-sm text-amber-900">
-          700+ professionals in our free community are already using these
+          1200+ professionals in our free community are already using these
           workflows daily to get more from Claude.{" "}
           <a
             href="/skool-redirect"
@@ -599,7 +636,23 @@ export const post: BlogPost = {
       <div className="not-prose my-10 grid gap-4 sm:grid-cols-2">
         <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-            Opus 4.6 (API)
+            Fable 5 (API)
+          </p>
+          <div className="flex items-baseline gap-2">
+            <span className="text-xl font-bold text-slate-900">$10</span>
+            <span className="text-sm text-slate-500">/ 1M input tokens</span>
+          </div>
+          <div className="flex items-baseline gap-2 mt-1.5">
+            <span className="text-xl font-bold text-slate-900">$50</span>
+            <span className="text-sm text-slate-500">/ 1M output tokens</span>
+          </div>
+          <p className="text-xs text-slate-400 mt-2">
+            Flagship model, 1M-token context.
+          </p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
+            Opus 4.8 (API)
           </p>
           <div className="flex items-baseline gap-2">
             <span className="text-xl font-bold text-slate-900">$5</span>
@@ -612,12 +665,27 @@ export const post: BlogPost = {
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
           <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
-            Sonnet 4.6 (API)
+            Sonnet 5 (API)
           </p>
           <p className="text-sm text-slate-600 mt-2">
-            Significantly cheaper than Opus. Best for high-volume tasks where
-            you do not need the most powerful model.
+            Intro pricing of $2 / 1M input and $10 / 1M output tokens through
+            August 31, 2026, then $3 / $15. Significantly cheaper than Opus or
+            Fable — best for high-volume tasks.
           </p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white p-4 sm:p-6">
+          <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">
+            Haiku 4.5 (API)
+          </p>
+          <div className="flex items-baseline gap-2">
+            <span className="text-xl font-bold text-slate-900">$1</span>
+            <span className="text-sm text-slate-500">/ 1M input tokens</span>
+          </div>
+          <div className="flex items-baseline gap-2 mt-1.5">
+            <span className="text-xl font-bold text-slate-900">$5</span>
+            <span className="text-sm text-slate-500">/ 1M output tokens</span>
+          </div>
+          <p className="text-xs text-slate-400 mt-2">Fastest and cheapest.</p>
         </div>
       </div>
 
@@ -669,12 +737,13 @@ export const post: BlogPost = {
 
       <h3>Extended thinking</h3>
       <p>
-        When extended thinking is enabled, Opus 4.6 spends time reasoning through
-        a problem before giving you an answer. You can see a summary of its
-        thinking process. This produces significantly better results for complex
-        tasks — multi-step analysis, strategy recommendations, detailed planning.
-        It uses more of your message allocation per query, but the quality
-        improvement is worth it for important work.
+        When extended thinking is enabled, Claude&apos;s premium models — Opus
+        4.8 or Fable 5 — spend time reasoning through a problem before giving
+        you an answer. You can see a summary of the thinking process. This
+        produces significantly better results for complex tasks — multi-step
+        analysis, strategy recommendations, detailed planning. It uses more of
+        your message allocation per query, but the quality improvement is
+        worth it for important work.
       </p>
 
       <h3>Styles</h3>
@@ -754,9 +823,10 @@ export const post: BlogPost = {
         moderate use. If you are a professional who relies on Claude as a daily
         work tool — for writing, analysis, strategy, client work, or content
         creation — the $20/month Pro plan is the clear recommendation. Wondering <a href="/blog/claude-vs-chatgpt-for-real-work">how Claude compares to ChatGPT</a> for real work? We break that down separately. You get
-        Opus 4.6, extended thinking, priority access, unlimited Projects,
-        Artifacts, and enough usage to work with Claude throughout your day
-        without interruption.
+        Sonnet 5 by default plus usage-credit access to Opus 4.8 and Fable 5,
+        extended thinking, priority access, unlimited Projects, Artifacts, and
+        enough usage to work with Claude throughout your day without
+        interruption.
       </p>
       <p>
         Max is for power users. Team is for organizations. Enterprise is for
@@ -782,12 +852,12 @@ export const post: BlogPost = {
 
       <h3>Is Claude Pro worth it if I only use AI a few times a week?</h3>
       <p>
-        Probably not. The free plan is generous enough for occasional use. Pro makes sense when you hit the free usage limit regularly, need priority access during peak hours, or rely on Claude&apos;s most capable model (Opus) for high-stakes work like proposals and strategy documents.
+        Probably not. The free plan is generous enough for occasional use. Pro makes sense when you hit the free usage limit regularly, need priority access during peak hours, or rely on Claude&apos;s premium models (Opus 4.8 or Fable 5) for high-stakes work like proposals and strategy documents.
       </p>
 
       <h3>Does Claude offer student or nonprofit discounts?</h3>
       <p>
-        Not currently. Anthropic does not offer discounted pricing tiers for students, educators, or nonprofits as of April 2026. The free plan is the most cost-effective option for budget-constrained users, and it covers most light-to-moderate use cases well.
+        Not currently. Anthropic does not offer discounted pricing tiers for students, educators, or nonprofits as of July 2026. The free plan is the most cost-effective option for budget-constrained users, and it covers most light-to-moderate use cases well.
       </p>
 
       <div className="not-prose my-12 rounded-2xl bg-slate-900 p-6 sm:p-10 text-center">

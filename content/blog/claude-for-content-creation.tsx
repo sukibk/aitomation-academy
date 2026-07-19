@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude for Content Creation: 5 Workflows",
   description: "Five Claude workflows for content creation — blogs, social media, newsletters, repurposing, and SEO drafts. Copy-paste prompts included.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude Workflows",
   tags: [
@@ -309,7 +310,7 @@ Do NOT write the other sections yet — just this one.`}</code></pre>
       {/* ── Mid-article CTA 1 ── */}
       <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 md:p-6">
         <p className="text-sm text-amber-900">
-          These workflows are part of what 700+ professionals use inside our free community to create content faster with Claude.{" "}
+          These workflows are part of what 1200+ professionals use inside our free community to create content faster with Claude.{" "}
           <a
             href="/skool-redirect"
             className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
@@ -406,6 +407,24 @@ Create the following assets from this source material:
    - Write it as spoken words — casual, direct, no written-English formality
 
 For each piece, explain which idea from the source content you chose to highlight and why it works best for that platform.`}</code></pre>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip writing the prompts yourself
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has a content creator&apos;s section pre-built —
+          recipes for blog posts, repurposing, newsletters, and SEO drafts,
+          each producing a finished deliverable. 550+ recipes total, sorted
+          by your job.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>Workflow 3: Social media content calendar</h2>
       <p>

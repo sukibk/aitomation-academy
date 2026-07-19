@@ -11,6 +11,7 @@ import { RelatedArticles } from "@/app/components/related-articles";
 import { CodeCopyEnhancer } from "@/app/components/code-copy-enhancer";
 import { BlogPostFooter } from "@/app/components/blog-post-footer";
 import { LeadCaptureTrigger } from "@/app/components/lead-capture-trigger";
+import { VaultStickyCta } from "@/app/components/vault-sticky-cta";
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -151,6 +152,7 @@ export default async function BlogPostPage({
           }}
         />
       </main>
+      <VaultStickyCta />
       <Footer />
     </>
   );

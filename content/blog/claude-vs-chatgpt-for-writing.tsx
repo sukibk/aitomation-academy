@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude vs ChatGPT for Writing: 5 Real Tests",
   description: "Head-to-head comparison of Claude and ChatGPT for writing. Blog posts, emails, proposals, creative copy, and editing — with a clear verdict.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Comparisons",
   tags: [
@@ -277,7 +278,7 @@ export const post: BlogPost = {
       {/* ── CTA 1 ── */}
       <div className="my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
         <p className="text-sm text-slate-700">
-          See the Claude writing workflows 700+ professionals use daily.{" "}
+          See the Claude writing workflows 1200+ professionals use daily.{" "}
           <a
             href="/skool-redirect"
             className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
@@ -285,6 +286,23 @@ export const post: BlogPost = {
             Join the free community &rarr;
           </a>
         </p>
+      </div>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip writing the prompts yourself
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has a section built for exactly this — proposal,
+          email, and long-form writing prompts that produce a finished draft,
+          not a rough one. 550+ recipes total, sorted by your job.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
       </div>
 
       <h2>Test 3: Client proposal</h2>
@@ -576,10 +594,10 @@ export const post: BlogPost = {
 
       <h2>The context window advantage: holding your entire body of work</h2>
       <p>
-        Claude Opus 4.6 has a 1 million token context window — roughly
-        750,000 words in a single conversation. That&apos;s an entire
-        book-length manuscript. A full year&apos;s worth of blog posts. Your
-        entire client proposal archive. (We break down <a href="/blog/chatgpt-vs-claude-summarizing-transcripts">how they handle long documents</a> in a separate comparison.)
+        Claude Fable 5, Anthropic&apos;s flagship model, has a 1 million token
+        context window — roughly 750,000 words in a single conversation.
+        That&apos;s an entire book-length manuscript. A full year&apos;s worth
+        of blog posts. Your entire client proposal archive. (We break down <a href="/blog/chatgpt-vs-claude-summarizing-transcripts">how they handle long documents</a> in a separate comparison.)
       </p>
       <p>
         Why does this matter for writing? Because good writing is consistent
@@ -591,14 +609,17 @@ export const post: BlogPost = {
         development, maintaining argument threads.
       </p>
       <p>
-        ChatGPT&apos;s standard context window is 272K tokens — roughly a
-        quarter of Claude&apos;s. For short tasks, this doesn&apos;t matter.
-        But for anyone working on long documents — books, research papers,
-        comprehensive reports, or even a series of related blog posts —
-        ChatGPT is more likely to lose track. It forgets what
-        you established in earlier sections. It contradicts itself. You end up
-        doing the consistency work manually, which defeats the purpose of
-        using AI in the first place.
+        ChatGPT&apos;s context windows have grown too, and OpenAI&apos;s
+        newest models now advertise up to 1 million tokens at the API level.
+        But the context you actually get inside the ChatGPT app is still
+        tiered by plan and mode, and on Free and Plus it&apos;s meaningfully
+        smaller than that headline API number. For anyone working on long
+        documents — books, research papers, comprehensive reports, or a
+        series of related blog posts — that gap still shows up in practice.
+        ChatGPT is more likely to lose track mid-document, forget what you
+        established in earlier sections, or contradict itself, leaving you to
+        do the consistency work manually, which defeats the purpose of using
+        AI in the first place.
       </p>
 
       {/* ── CTA 3 ── */}

@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "ChatGPT vs Claude for Summarizing Documents",
   description: "Hands-on comparison of ChatGPT and Claude for summarizing transcripts, research papers, and contracts. Real tests, clear winner.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Comparisons",
   tags: [
@@ -75,7 +76,7 @@ export const post: BlogPost = {
           {/* Claude */}
           <div>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-sm font-bold text-slate-900">Claude Opus 4.6</span>
+              <span className="text-sm font-bold text-slate-900">Claude Fable 5</span>
               <span className="text-sm font-semibold text-orange-600">1,000,000 tokens</span>
             </div>
             <div className="h-8 w-full rounded-lg bg-orange-500 flex items-center px-3">
@@ -118,7 +119,7 @@ export const post: BlogPost = {
         </div>
 
         <p className="text-xs text-slate-400">
-          Note: GPT-5.4 supports up to 1M tokens via API/Codex, but the standard ChatGPT interface uses 272K. Claude&apos;s 1M context is available directly in the chat interface on Pro.
+          Note: GPT-5.4 supports up to 1M tokens via API/Codex, but the standard ChatGPT interface uses 272K. Claude Fable 5&apos;s 1M context is available directly in the chat interface, though Fable 5 usage on Pro is usage-credit metered — Sonnet 5 is the default model on Free and Pro plans, with Fable 5 available on top for the heaviest document work.
         </p>
       </div>
 
@@ -187,6 +188,24 @@ export const post: BlogPost = {
         </p>
       </div>
 
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip writing the prompts yourself
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has a summarization and document-analysis section
+          pre-built — recipes for transcripts, research papers, and contract
+          review, each producing a finished deliverable. 550+ recipes total,
+          sorted by your job.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
+
       <h2>Test 2: Research paper analysis</h2>
       <p>
         Next test: a 50-page academic research paper on market entry strategy
@@ -244,7 +263,7 @@ export const post: BlogPost = {
             href="/skool-redirect"
             className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
           >
-            See how 700+ professionals use Claude for document analysis &rarr;
+            See how 1200+ professionals use Claude for document analysis &rarr;
           </a>
         </p>
       </div>
@@ -745,7 +764,7 @@ Be specific — reference section numbers and quote exact language when identify
             href="/skool-redirect"
             className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
           >
-            Join 700+ professionals mastering Claude for real business workflows &rarr;
+            Join 1200+ professionals mastering Claude for real business workflows &rarr;
           </a>
         </p>
       </div>
@@ -801,7 +820,7 @@ Be specific — reference section numbers and quote exact language when identify
       {/* ── Reference links ── */}
       <div className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-4 sm:p-6 text-sm text-slate-600">
         <p className="font-semibold text-slate-700 mb-3">
-          Official resources (verified April 2026):
+          Official resources (verified July 2026):
         </p>
         <ul className="space-y-2">
           <li>

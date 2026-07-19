@@ -73,6 +73,36 @@ Published articles:
 - AI for Consultants: Save 5+ Hours Per Week — https://www.aitomationacademy.com/blog/ai-for-consultants
 - Claude for Business: Why Teams Switch — https://www.aitomationacademy.com/blog/claude-for-business
 - Claude vs ChatGPT for Writing: 5 Real Tests — https://www.aitomationacademy.com/blog/claude-vs-chatgpt-for-writing
+https://www.aitomationacademy.com/blog/claude-for-marketers
+https://www.aitomationacademy.com/blog/what-are-claude-skills
+https://www.aitomationacademy.com/blog/how-to-build-a-claude-skill
+https://www.aitomationacademy.com/blog/claude-code-skills
+https://www.aitomationacademy.com/blog/claude-skills-marketplace
+https://www.aitomationacademy.com/blog/claude-skill-for-obsidian
+https://www.aitomationacademy.com/blog/claude-design-skills
+https://www.aitomationacademy.com/blog/claude-pdf-skill
+https://www.aitomationacademy.com/blog/claude-linkedin-skill
+https://www.aitomationacademy.com/blog/claude-skills-vs-mcp
+https://www.aitomationacademy.com/blog/claude-skill-creator
+https://www.aitomationacademy.com/blog/claude-prompt-generator
+https://www.aitomationacademy.com/blog/claude-prompt-library
+https://www.aitomationacademy.com/blog/best-claude-prompts
+https://www.aitomationacademy.com/blog/best-claude-skills
+https://www.aitomationacademy.com/blog/claude-prompt-templates
+https://www.aitomationacademy.com/blog/claude-system-prompt-guide
+https://www.aitomationacademy.com/blog/what-is-claude-cowork
+https://www.aitomationacademy.com/blog/claude-cowork-pricing
+https://www.aitomationacademy.com/blog/claude-cowork-vs-claude-code
+https://www.aitomationacademy.com/blog/claude-cowork-automations
+https://www.aitomationacademy.com/blog/claude-ai-use-cases
+https://www.aitomationacademy.com/blog/claude-for-creators
+https://www.aitomationacademy.com/blog/claude-templates
+https://www.aitomationacademy.com/blog/best-claude-courses
+https://www.aitomationacademy.com/blog/claude-certification
+https://www.aitomationacademy.com/blog/how-to-learn-claude
+https://www.aitomationacademy.com/blog/claude-code-course
+https://www.aitomationacademy.com/blog/claude-cowork-course
+https://www.aitomationacademy.com/blog/anthropic-courses
 
 ## Canonical pages
 - https://www.aitomationacademy.com/
@@ -84,6 +114,7 @@ Published articles:
 
 ## About the instructor
 Marko Sudar — AI Engineer at AUVSI. Founding Engineer behind a GenAI startup acquired for $1.8M. Former Cloud Engineer at Oracle. BS in Computer Science (4.0 GPA) from Catawba College. Published researcher on Generative AI for uncrewed systems. Writes production code with Claude daily.
+Claude Vault (550+ prompts & skills): https://www.aitomationacademy.com/vault
 About page: https://www.aitomationacademy.com/about
 
 ## Contact

@@ -27,8 +27,38 @@ import { post as post10 } from "@/content/blog/claude-prompting-guide";
 import { post as post11 } from "@/content/blog/ai-for-consultants";
 import { post as post12 } from "@/content/blog/claude-for-business";
 import { post as post13 } from "@/content/blog/claude-vs-chatgpt-for-writing";
+import { post as post14 } from "@/content/blog/claude-for-marketers";
+import { post as post15 } from "@/content/blog/what-are-claude-skills";
+import { post as post17 } from "@/content/blog/how-to-build-a-claude-skill";
+import { post as post18 } from "@/content/blog/claude-code-skills";
+import { post as post19 } from "@/content/blog/claude-skills-marketplace";
+import { post as post20 } from "@/content/blog/claude-skill-for-obsidian";
+import { post as post21 } from "@/content/blog/claude-design-skills";
+import { post as post22 } from "@/content/blog/claude-pdf-skill";
+import { post as post23 } from "@/content/blog/claude-linkedin-skill";
+import { post as post24 } from "@/content/blog/claude-skills-vs-mcp";
+import { post as post25 } from "@/content/blog/claude-skill-creator";
+import { post as post26 } from "@/content/blog/claude-prompt-generator";
+import { post as post27 } from "@/content/blog/claude-prompt-library";
+import { post as post28 } from "@/content/blog/best-claude-prompts";
+import { post as post29 } from "@/content/blog/best-claude-skills";
+import { post as post30 } from "@/content/blog/claude-prompt-templates";
+import { post as post31 } from "@/content/blog/claude-system-prompt-guide";
+import { post as post32 } from "@/content/blog/what-is-claude-cowork";
+import { post as post33 } from "@/content/blog/claude-cowork-pricing";
+import { post as post34 } from "@/content/blog/claude-cowork-vs-claude-code";
+import { post as post35 } from "@/content/blog/claude-cowork-automations";
+import { post as post36 } from "@/content/blog/claude-ai-use-cases";
+import { post as post37 } from "@/content/blog/claude-for-creators";
+import { post as post38 } from "@/content/blog/claude-templates";
+import { post as post39 } from "@/content/blog/best-claude-courses";
+import { post as post40 } from "@/content/blog/claude-certification";
+import { post as post41 } from "@/content/blog/how-to-learn-claude";
+import { post as post42 } from "@/content/blog/claude-code-course";
+import { post as post43 } from "@/content/blog/claude-cowork-course";
+import { post as post44 } from "@/content/blog/anthropic-courses";
 
-const allPosts: BlogPost[] = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13].sort(
+const allPosts: BlogPost[] = [post1, post2, post3, post4, post5, post6, post7, post8, post9, post10, post11, post12, post13, post14, post15, post17, post18, post19, post20, post21, post22, post23, post24, post25, post26, post27, post28, post29, post30, post31, post32, post33, post34, post35, post36, post37, post38, post39, post40, post41, post42, post43, post44].sort(
   (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
 );
 

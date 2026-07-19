@@ -23,6 +23,9 @@ export function Navbar() {
           <Link href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             Home
           </Link>
+          <Link href="/vault" className="text-sm font-medium text-orange-600 hover:text-orange-700 transition-colors">
+            The Vault
+          </Link>
           <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             Blog
           </Link>
@@ -37,7 +40,7 @@ export function Navbar() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
             </span>
             <span className="text-sm text-slate-500">
-              700+ professionals already learning
+              1200+ professionals already learning
             </span>
           </div>
           <Link

@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude vs ChatGPT vs Gemini (2026)",
   description: "An honest comparison of Claude, ChatGPT, and Gemini for professionals. Real verdict per use case with comparison tables.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Comparisons",
   tags: [
@@ -71,7 +72,7 @@ export const post: BlogPost = {
               <td className="py-3 px-4 font-medium text-slate-700">
                 Top model
               </td>
-              <td className="py-3 px-4 text-slate-600">Opus 4.6</td>
+              <td className="py-3 px-4 text-slate-600">Fable 5</td>
               <td className="py-3 px-4 text-slate-600">GPT-5.4 Thinking</td>
               <td className="py-3 px-4 text-slate-600">Gemini 3 Pro</td>
             </tr>
@@ -176,6 +177,17 @@ export const post: BlogPost = {
         about what each tool <em>does well</em> — because features and
         performance are very different things.
       </p>
+      <p>
+        A quick note on the Claude lineup shown above: Fable 5 is
+        Anthropic&apos;s flagship model, a tier above Opus 4.8, which remains
+        a strong premium option in its own right. Sonnet 5 is now the default
+        model on Claude&apos;s Free and Pro plans and holds up well against
+        Opus 4.8 on plenty of everyday work. There is also Mythos 5, a
+        sibling model with certain safeguards lifted, but it has restricted
+        availability for approved organizations only — it is not something
+        most professionals will ever touch, so the comparisons below are
+        about the models you can actually use.
+      </p>
 
       <h2>Writing quality: Claude wins, and the gap is real</h2>
       <p>
@@ -247,7 +259,7 @@ export const post: BlogPost = {
       {/* ── Subtle CTA 1 ── */}
       <div className="not-prose mt-10 mb-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
         <p className="text-sm text-amber-900">
-          Want to see Claude in action? 700+ professionals are already using these workflows.{" "}
+          Want to see Claude in action? 1200+ professionals are already using these workflows.{" "}
           <a
             href="/skool-redirect"
             className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
@@ -444,6 +456,23 @@ export const post: BlogPost = {
         the tool. If you can&apos;t predict output quality, you spend mental
         energy checking and correcting instead of doing your actual work.
       </p>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Already decided on Claude? Don&apos;t start from a blank page
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has 550+ prompts and skills, sorted by your job —
+          proposals, research, strategy, client work, and more, ready to
+          copy-paste instead of built from scratch.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>Value for money: it depends on what you do</h2>
       <p>
@@ -908,7 +937,7 @@ export const post: BlogPost = {
       {/* ── Official links ── */}
       <div className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-4 sm:p-6 text-sm text-slate-600">
         <p className="font-semibold text-slate-700 mb-2">
-          Official pages (verified April 2026):
+          Official pages (verified July 2026):
         </p>
         <ul className="space-y-1">
           <li>

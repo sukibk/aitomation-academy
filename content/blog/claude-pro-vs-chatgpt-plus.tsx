@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude Pro vs ChatGPT Plus: Which Is Worth It?",
   description: "A no-fluff comparison of Claude Pro and ChatGPT Plus. Real differences in writing, context, and daily work — with a clear verdict.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Comparisons",
   tags: [
@@ -66,7 +67,7 @@ export const post: BlogPost = {
                 Top model
               </td>
               <td className="py-3 px-4 sm:px-6 text-slate-600">
-                Opus 4.6 (1M context)
+                Fable 5 (1M context)
               </td>
               <td className="py-3 px-4 sm:px-6 text-slate-600">
                 GPT-5.4 Thinking
@@ -260,7 +261,7 @@ export const post: BlogPost = {
       {/* ── CTA: Writing workflows ── */}
       <div className="not-prose mt-10 mb-8 rounded-lg border border-orange-200 bg-amber-50/60 p-4 sm:p-6">
         <p className="text-sm text-slate-700">
-          See the exact Claude writing workflows 700+ professionals use daily.{" "}
+          See the exact Claude writing workflows 1200+ professionals use daily.{" "}
           <a
             href="/skool-redirect"
             className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
@@ -272,7 +273,7 @@ export const post: BlogPost = {
 
       <h2>Context window: the most underrated advantage</h2>
       <p>
-        Claude Opus 4.6 has a 1,000,000 token context window. To put that in
+        Claude Fable 5 has a 1,000,000 token context window. To put that in
         practical terms: you can paste an entire 300-page book, a full
         quarterly report, or months of meeting notes into a single
         conversation — and Claude will actually use all of it.
@@ -388,6 +389,23 @@ export const post: BlogPost = {
         material and I need to find the answer&quot; — Claude wins
         decisively.
       </p>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip the trial and error of figuring out what to ask Claude
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has 550+ prompts &amp; skills, sorted by your job —
+          proposals, client research, reports, and everything else this
+          comparison covers, ready to paste in and run.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>Memory and personalization</h2>
       <p>
@@ -662,7 +680,7 @@ export const post: BlogPost = {
       {/* ── CTA: Post-verdict ── */}
       <div className="my-8 rounded-lg border border-orange-200 bg-amber-50/60 p-4 sm:p-6">
         <p className="text-sm text-slate-700">
-          Ready to make the switch? Join our free community for Claude workflow templates and see how 700+ professionals use Claude Pro daily.{" "}
+          Ready to make the switch? Join our free community for Claude workflow templates and see how 1200+ professionals use Claude Pro daily.{" "}
           <a
             href="/skool-redirect"
             className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
@@ -898,7 +916,7 @@ export const post: BlogPost = {
 
       <h3>Can I share my Claude Pro subscription with my team?</h3>
       <p>
-        No. Claude Pro is a single-user plan. If you need multiple seats, Anthropic offers a Team plan at $30 per person per month (billed annually) with shared Projects, higher usage limits, and admin controls. There is no family or shared plan for individual Pro accounts.
+        No. Claude Pro is a single-user plan. If you need multiple seats, Anthropic offers a Team plan starting at $20 per person per month (billed annually, or $25/mo billed monthly) with shared Projects, higher usage limits, and admin controls. There is no family or shared plan for individual Pro accounts.
       </p>
 
       <h3>Will my ChatGPT conversations transfer to Claude?</h3>
@@ -909,7 +927,7 @@ export const post: BlogPost = {
       {/* ── Pricing links reference ── */}
       <div className="mt-10 rounded-lg border border-slate-200 bg-slate-50 p-4 sm:p-6 text-sm text-slate-600">
         <p className="font-semibold text-slate-700 mb-2">
-          Official pricing pages (verified April 2026):
+          Official pricing pages (verified July 2026):
         </p>
         <ul className="space-y-2">
           <li>

@@ -19,6 +19,37 @@ export function organizationSchema() {
         description: siteConfig.description,
         inLanguage: "en-US",
       },
+      {
+        "@type": "Course",
+        name: "Claude Code Academy",
+        description:
+          "Practice-first Claude education for non-technical professionals: the 7-Day Claude Challenge, Claude Cowork course, Claude Code course, the 550+ recipe Claude Vault, and a weekly live call. 1,200+ member community.",
+        provider: {
+          "@type": "Organization",
+          name: siteConfig.name,
+          url: siteConfig.url,
+        },
+        url: `${siteConfig.url}/skool-redirect`,
+        courseMode: "online",
+        educationalLevel: "Beginner to Advanced",
+        teaches: [
+          "Claude",
+          "Claude Cowork",
+          "Claude Code",
+          "AI workflows for professionals",
+        ],
+        offers: {
+          "@type": "Offer",
+          category: "Subscription",
+          priceCurrency: "USD",
+          price: "69",
+        },
+        hasCourseInstance: {
+          "@type": "CourseInstance",
+          courseMode: "online",
+          courseWorkload: "PT3H",
+        },
+      },
     ],
   };
 }

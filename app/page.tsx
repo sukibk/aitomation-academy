@@ -1,8 +1,10 @@
 import { Hero } from "./sections/hero";
 import { SocialProof } from "./sections/social-proof";
+import { VaultOffer } from "./sections/vault-offer";
 import { WhatYouGet } from "./sections/what-you-get";
 import { HowItWorks } from "./sections/how-it-works";
 import { CommunityWins } from "./sections/community-wins";
+import { FounderPricing } from "./sections/founder-pricing";
 import { LeadMagnetSection } from "./sections/lead-magnet-section";
 import { FAQ } from "./sections/faq";
 import { FinalCTA } from "./sections/final-cta";
@@ -19,10 +21,12 @@ export default function Home() {
         <Navbar />
         <Hero />
         <SocialProof />
-        <LeadMagnetSection />
+        <VaultOffer />
         <WhatYouGet />
         <HowItWorks />
         <CommunityWins />
+        <FounderPricing />
+        <LeadMagnetSection />
         <FAQ />
         <FinalCTA />
         <Footer />

@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude for Writing: A Practical Guide",
   description: "Learn how to use Claude to turn rough notes into polished drafts. No coding or prompting expertise needed.",
   publishedAt: "2026-04-04",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude Workflows",
   tags: ["Claude", "writing", "workflows", "productivity", "non-technical"],
@@ -52,6 +53,23 @@ export const post: BlogPost = {
         <li><strong>Starting from scratch instead of from your material.</strong> Claude is better at shaping what you already have than inventing from nothing.</li>
         <li><strong>Asking for a final draft in one go.</strong> Break it into structure → draft → refinement. You'll get better output and stay in control.</li>
       </ul>
+
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip writing the prompts yourself
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has a writing section pre-built — structure,
+          draft, and refinement prompts you can copy in and run today.
+          550+ recipes total, sorted by your job.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
 
       <h2>What this looks like in practice</h2>
       <p>

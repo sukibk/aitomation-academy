@@ -5,6 +5,7 @@ export const post: BlogPost = {
   title: "Claude Prompting Guide for Professionals",
   description: "The 5 elements of great Claude prompts, before/after examples, and the prompt improver technique. Built for business professionals.",
   publishedAt: "2026-04-05",
+  updatedAt: "2026-07-19",
   author: "Marko Sudar",
   category: "Claude Guides",
   tags: [
@@ -498,6 +499,23 @@ export const post: BlogPost = {
         reference it every time.
       </p>
 
+      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
+        <p className="font-semibold text-slate-900">
+          Skip building these prompts from scratch
+        </p>
+        <p className="mt-2 text-slate-700">
+          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
+          your job &mdash; ready to paste in and adapt instead of writing the
+          5-element framework yourself every time.
+        </p>
+        <a
+          href="/vault"
+          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+        >
+          See the Vault
+        </a>
+      </div>
+
       <h2>How to use Styles to maintain consistent voice</h2>
       <p>
         Even with great prompts, Claude&apos;s default voice might not match
@@ -569,10 +587,10 @@ export const post: BlogPost = {
         >
           extended thinking
         </a>{" "}
-        feature is a significant upgrade. (On the latest Opus 4.6 and Sonnet
-        4.6 models, this has evolved into &quot;adaptive thinking&quot; where
-        Claude automatically decides how deeply to think based on the
-        complexity of your request.)
+        feature is a significant upgrade. On the current Claude models,
+        including Fable and Sonnet, this has evolved into &quot;adaptive
+        thinking,&quot; where Claude automatically decides whether and how
+        deeply to think based on the complexity of your request.
       </p>
       <p>
         When extended thinking is active, Claude reasons through the problem
@@ -704,7 +722,7 @@ export const post: BlogPost = {
       {/* ── CTA 2 ── */}
       <div className="my-8 rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-4 md:p-6">
         <p className="text-sm md:text-base text-slate-800">
-          700+ professionals are using these techniques daily in our free community. See what they are building with Claude.
+          1200+ professionals are using these techniques daily in our free community. See what they are building with Claude.
         </p>
         <a
           href="/skool-redirect"
