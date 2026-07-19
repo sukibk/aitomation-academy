@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { X, ArrowRight } from "lucide-react";
 import posthog from "posthog-js";
+import { VAULT } from "@/lib/pricing";
 
 const DISMISS_KEY = "vault_sticky_dismissed";
 
@@ -24,7 +25,7 @@ export function VaultStickyCta() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (dismissed || !visible) return null;
+  if (VAULT.salesPaused || dismissed || !visible) return null;
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-700 bg-slate-900/95 backdrop-blur supports-[backdrop-filter]:bg-slate-900/85">

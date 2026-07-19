@@ -12,6 +12,12 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
+  if (VAULT.salesPaused) {
+    return NextResponse.json(
+      { error: "Purchases are paused for a few days — check back shortly." },
+      { status: 503 },
+    );
+  }
   const key = process.env.STRIPE_SECRET_KEY;
   if (!key) {
     return NextResponse.json(

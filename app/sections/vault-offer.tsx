@@ -11,6 +11,7 @@ const BULLETS = [
 
 // Homepage band that sells the Vault as the flagship product.
 export function VaultOffer() {
+  if (VAULT.salesPaused) return null;
   return (
     <section className="px-6 py-20 sm:px-12" data-section="vault_offer">
       <div className="mx-auto grid max-w-5xl items-center gap-10 rounded-3xl border border-slate-200 bg-slate-50 p-8 sm:p-12 lg:grid-cols-2">

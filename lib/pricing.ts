@@ -3,6 +3,8 @@
 // Edit LADDER + member count as the community grows.
 
 export const VAULT = {
+  salesPaused: true, // TEMP: flip to false to reopen sales
+
   name: "The Claude Vault",
   tagline: "550+ Claude skills, prompts & workflows for real work",
   anchorPrice: 49, // list price — launch $17 rises toward this; keep Stripe list price at $49 so the discount stays honest

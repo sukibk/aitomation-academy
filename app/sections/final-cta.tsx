@@ -21,6 +21,7 @@ export function FinalCTA() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            {!VAULT.salesPaused && (
             <Link
               href="/vault"
               data-cta="final_vault"
@@ -29,6 +30,7 @@ export function FinalCTA() {
               Get the Vault — ${VAULT.launchPrice}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
+            )}
             <LeadCaptureTrigger className="inline-flex items-center justify-center rounded-xl border border-slate-600 px-8 py-4 text-base font-semibold text-slate-200 cursor-pointer hover:bg-slate-800 transition-colors">
               Or grab a free taste first
             </LeadCaptureTrigger>

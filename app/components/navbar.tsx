@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { VAULT } from "@/lib/pricing";
 import Image from "next/image";
 
 export function Navbar() {
@@ -23,9 +24,11 @@ export function Navbar() {
           <Link href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <Link href="/vault" className="text-sm font-medium text-orange-600 hover:text-orange-700 transition-colors">
-            The Vault
-          </Link>
+          {!VAULT.salesPaused && (
+            <Link href="/vault" className="text-sm font-medium text-orange-600 hover:text-orange-700 transition-colors">
+              The Vault
+            </Link>
+          )}
           <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             Blog
           </Link>
