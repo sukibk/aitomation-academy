@@ -35,6 +35,31 @@ function verifyStripeSignature(payload: string, header: string | null, secret: s
   }
 }
 
+// POST the buyer's email to Skool's invite webhook (Group Settings -> Invite -> Automate via Webhook).
+// Sends the email both as a query param and in a JSON body to tolerate either accepted format.
+async function skoolInvite(email: string, name?: string): Promise<boolean> {
+  const url = process.env.SKOOL_INVITE_WEBHOOK;
+  if (!url) return false;
+  try {
+    const u = new URL(url);
+    u.searchParams.set("email", email);
+    if (name) u.searchParams.set("name", name);
+    const res = await fetch(u.toString(), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, name }),
+    });
+    if (!res.ok) {
+      console.error("skool invite webhook non-OK:", res.status, await res.text());
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("skool invite webhook failed:", err);
+    return false;
+  }
+}
+
 function deliveryEmail(firstName: string): string {
   const hi = firstName ? `Hey ${firstName},` : "Hey,";
   return `<div style="max-width:560px;margin:0 auto;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#2a2420">
@@ -119,6 +144,9 @@ export async function POST(req: NextRequest) {
 
   const isSubscription = session.mode === "subscription";
 
+  // Auto-invite the buyer to Skool (no-op until SKOOL_INVITE_WEBHOOK is set)
+  const invited = await skoolInvite(email, name);
+
   try {
     await upsertContact(
       email,
@@ -150,8 +178,8 @@ export async function POST(req: NextRequest) {
         ? `NEW MEMBER ($69/mo via site) — grant full Skool access: ${email}`
         : `Vault sale — unlock Skool for ${email}`,
       htmlContent: isSubscription
-        ? `<p>New site-billed membership.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>To do: when they join Skool, unlock ALL premium courses (Vault, 7DC, Cowork, Claude Code) on their account. They pay via Stripe, not Skool — make sure they never also subscribe inside Skool.</p>`
-        : `<p>New Vault purchase.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>To do (2 min): when they join Skool, unlock the Claude Vault course on their account. Buyer was told access appears within a few hours.</p>`,
+        ? `<p>New site-billed membership.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>Skool auto-invite: <b>${invited ? "SENT" : "NOT SENT (webhook not configured/failed)"}</b>.</p><p>To do: when they join Skool, unlock ALL premium courses (Vault, 7DC, Cowork, Claude Code) on their account. They pay via Stripe, not Skool — make sure they never also subscribe inside Skool.</p>`
+        : `<p>New Vault purchase.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>Skool auto-invite: <b>${invited ? "SENT" : "NOT SENT (webhook not configured/failed)"}</b>.</p><p>To do (2 min): when they join Skool, unlock the Claude Vault course on their account.</p>`,
       tag: isSubscription ? "membership-sale-admin" : "vault-sale-admin",
     });
   } catch (err) {
