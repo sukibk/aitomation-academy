@@ -16,8 +16,10 @@ export default function VaultSuccess() {
         <CheckCircle2 className="mx-auto h-16 w-16 text-orange-400" />
         <h1 className="mt-6 text-3xl font-bold text-white">You&apos;re in. Check your inbox.</h1>
         <p className="mt-4 text-slate-300">
-          Your payment went through and your Claude Vault access is on its way to your email
-          (give it a minute). Start with your job&apos;s section — copy one recipe and run it today.
+          Your payment went through. Within a few minutes you&apos;ll get an email with your
+          next steps: join the community space, and your Vault access gets unlocked on your
+          account — usually within the hour. Then start with your job&apos;s section: copy one
+          recipe and run it today.
         </p>
         <div className="mt-8 rounded-2xl border border-slate-700 bg-slate-800/40 p-6 text-left">
           <p className="font-semibold text-white">Want everything, not just the Vault?</p>
