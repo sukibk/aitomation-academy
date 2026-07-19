@@ -102,8 +102,8 @@ export function Hero() {
 
           {/* Headline */}
           <h1 className="mb-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display tracking-tight text-slate-900">
-            Are you still doing work{" "}
-            <span className="text-orange-600">Claude could be doing for you?</span>
+            Claude can do half your workday.{" "}
+            <span className="text-orange-600">We show you exactly how.</span>
           </h1>
 
           {/* Video container — keeps space when PIP */}
@@ -177,7 +177,9 @@ export function Hero() {
 
           {/* Subheadline */}
           <p className="mx-auto mb-5 max-w-2xl text-base text-slate-600 md:text-lg leading-relaxed">
-            Join AItomation Academy and learn how to use Claude for real work with practical workflows, free training, and a community built for non-technical professionals.
+            Most people piece Claude together from YouTube and get stuck in two weeks — no order,
+            no feedback, no results. The Academy gives you the exact recipes, courses, and weekly
+            calls that 1,200+ non-technical professionals use to get finished work out of Claude.
           </p>
 
           {/* CTA — two paths */}

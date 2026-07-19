@@ -13,8 +13,8 @@ export function SocialProof() {
               <div className="mt-2 text-sm text-slate-400 uppercase tracking-wider">Community Members</div>
             </div>
             <div className="text-center py-6 sm:py-0">
-              <div className="text-5xl font-bold text-orange-400 tracking-tight">5+</div>
-              <div className="mt-2 text-sm text-slate-400 uppercase tracking-wider">Hours Saved Per Week</div>
+              <div className="text-5xl font-bold text-orange-400 tracking-tight">550+</div>
+              <div className="mt-2 text-sm text-slate-400 uppercase tracking-wider">Recipes in the Vault</div>
             </div>
             <div className="text-center py-6 sm:py-0">
               <div className="text-5xl font-bold text-white tracking-tight">Zero</div>

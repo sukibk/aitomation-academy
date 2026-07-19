@@ -37,7 +37,7 @@ export function VaultOffer() {
         </div>
         <div className="rounded-2xl bg-slate-900 p-8 text-center">
           <p className="text-slate-400">
-            Sells for <span className="line-through">${VAULT.anchorPrice}</span> elsewhere
+            List price <span className="line-through">${VAULT.anchorPrice}</span> — launch pricing
           </p>
           <p className="mt-2 text-5xl font-bold text-white">
             ${VAULT.launchPrice}

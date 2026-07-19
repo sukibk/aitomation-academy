@@ -7,7 +7,8 @@ const PERKS = [
   "The Claude Cowork & Claude Code courses",
   "The full Claude Vault, included (updated weekly)",
   "Weekly live call — bring your project, we fix it live",
-  "1,200+ professionals building alongside you",
+  "Marko in the community daily — questions get answers, not a ghost town",
+  "1,200+ professionals at your stage, building the same systems",
 ];
 
 // Circle-style rising "level" pricing: lock the current founder rate before it climbs.
@@ -81,7 +82,9 @@ export function FounderPricing() {
           label={`Lock $${current.price}/mo — join the Academy`}
           className="mt-10 flex justify-center"
         />
-        <p className="mt-4 text-sm text-slate-500">Cancel anytime. Your rate never rises.</p>
+        <p className="mt-4 text-sm text-slate-500">
+          Cancel in two clicks — no emails, no retention forms. Your rate never rises.
+        </p>
       </div>
     </section>
   );

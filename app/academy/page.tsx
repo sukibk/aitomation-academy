@@ -33,7 +33,7 @@ const STACK = [
   {
     icon: Wrench,
     title: `The Claude Vault — ${VAULT.itemCount} recipes`,
-    desc: `Every skill, prompt, and workflow, sorted by your job and updated weekly. Sells for $${VAULT.anchorPrice} on its own — included.`,
+    desc: `Every skill, prompt, and workflow, sorted by your job and updated weekly. $${VAULT.anchorPrice} list price on its own — included.`,
   },
   {
     icon: Calendar,
@@ -48,6 +48,7 @@ const STACK = [
 ];
 
 const FAQ = [
+  ["Why not just learn from YouTube?", "You can — most members tried. The problem isn't information, it's order and feedback: YouTube has no path, nobody looks at your work, and you quit in week two. The Academy is a sequence that ends with things built, plus a weekly call where your actual project gets fixed."],
   ["Do I need to be technical?", "No. Everything is built for non-technical professionals. The Challenge assumes zero coding and ends with a live website."],
   ["Which Claude plan do I need?", "Any paid Claude plan covers most of the curriculum. Each lesson says what it needs."],
   ["What does it cost?", "Your rate locks for life at the level you join — see the ladder below. Cancel anytime."],
@@ -71,8 +72,9 @@ export default function AcademyPage() {
               <span className="text-orange-400">Start delegating to it.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
-              Courses that end with something built, a {VAULT.itemCount} recipe library,
-              and a weekly call where we fix your real work — for professionals, not programmers.
+              The exact courses, recipes, and weekly calls 1,200+ non-technical professionals
+              use to put real work on Claude — every course ends with something built,
+              not something watched.
             </p>
             <Link
               href="#membership"
@@ -110,7 +112,7 @@ export default function AcademyPage() {
               {[
                 "You use Claude, but you know you're getting 5% of what it can do",
                 "You want finished deliverables — reports, pages, automations — not chat replies",
-                "You'd rather follow a path with people in it than piece together YouTube videos",
+                "You've tried free communities and found beginners and spammers — you want people at your stage, actually building",
                 "You don't code, and you don't want to learn to",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-3 text-lg text-slate-700">

@@ -11,7 +11,9 @@ export const VAULT = {
   // Launch/front-end price (what checkout charges). Change here + in Stripe.
   launchPrice: 17,
   currency: "usd",
-  guaranteeDays: 7,
+  // 30 days (was 7): every serious prompt-pack competitor offers 7, AppSumo offers 60;
+  // at $17 the refund risk is trivial and the longer window kills the objection page-wide.
+  guaranteeDays: 30,
   itemCount: "550+",
   sectionCount: 20,
 };

@@ -37,10 +37,10 @@ export function CommunityWins() {
             <p className="mt-10 text-slate-600">
               Want wins like these?{" "}
               <a
-                href="#join"
+                href="/academy"
                 className="font-semibold text-orange-500 hover:text-orange-600 cursor-pointer transition-colors"
               >
-                Get The Claude Content System free →
+                See what&apos;s inside the Academy →
               </a>
             </p>
           </div>

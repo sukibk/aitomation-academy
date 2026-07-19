@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Star, ShieldCheck, RefreshCw } from "lucide-react";
+import { Check, Star, ShieldCheck, RefreshCw, Zap } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { VAULT, currentLevel } from "@/lib/pricing";
 import { CheckoutButton } from "./checkout-button";
@@ -20,18 +20,38 @@ const INSIDE = [
   ["New recipes every week", "The Vault grows every Tuesday. A prompt pack goes stale the month you buy it — this one doesn't."],
 ];
 
+// Concrete outcomes — each one is a real recipe category in the Vault.
+const OUTCOMES = [
+  ["A client-ready report", "Paste the research-report recipe with your notes. Minutes later: a structured document with an executive summary, findings, and next steps — formatted, not a wall of chat text."],
+  ["A working dashboard", "The dashboard recipe returns a live artifact — KPI cards, breakdowns by category, a working filter — from a description and a CSV. No code, no installation."],
+  ["A week of content", "One recipe takes your topic and voice notes and returns seven platform-ready posts with hooks, not \"here are some ideas for posts.\""],
+];
+
+// Honest value stack: named packs with real item counts. No invented dollar values —
+// the market anchor below (competitor bundle prices) does the price work truthfully.
+const STACK = [
+  ["35 installable Cowork skills", "inbox triage, meeting prep, weekly review, file organizer, content repurposer…"],
+  ["Role packs for 6 professions", "consultant, marketer, creator, founder, agency, operations — your job has its own section"],
+  ["Multi-step workflow recipes", "research → draft → polish chains that produce deliverables, not replies"],
+  ["The artifacts cookbook", "dashboards, calculators, landing pages, decks — built in the chat window"],
+  ["Claude Projects setups", "reusable project instructions for recurring client and content work"],
+  ["Weekly updates, forever", "new recipes every Tuesday, included — the pack that doesn't go stale"],
+];
+
 const PAINS = [
-  "You know Claude can do more, but every prompt feels hit-or-miss.",
+  "You try a prompt from some free list, get a mediocre result, spend 20 minutes fixing it — and think you could've just asked Claude normally.",
   "You keep starting from a blank box and rewriting the same asks.",
-  "You bought a \"1,000 prompts\" pack and never opened it twice.",
-  "You don't have time to figure out which of the 550 things matters for your job.",
+  "You bought a \"10,000 prompts\" pack and never opened it twice.",
+  "You know Claude can do more — you just don't know where to start for your job.",
 ];
 
 const FAQ = [
+  ["Why pay when there are free prompts everywhere?", "Because free prompt lists are written for ChatGPT and dumped in bulk — untested, unorganized, and generic. The Vault is 550 recipes curated for how Claude actually works, sorted by your job, and updated weekly. You aren't buying prompts; you're buying the filing system and the hours back."],
+  ["Isn't Anthropic's own prompt library free?", "It is, and it's good — for learning what Claude can do. It's a general-purpose showcase, not a work system: it isn't organized by profession, it doesn't cover Cowork skills or multi-step client workflows, and it doesn't grow with your job. The Vault starts where the free library stops."],
+  ["Isn't prompt engineering dead?", "The magic-words era is, yes — Claude understands plain language fine. What still separates a chat reply from finished work is context, structure, and the right ask: skills, project setups, multi-step workflows. That's what a Vault recipe is — the system around the prompt, not a clever sentence."],
   ["Which Claude plan do I need?", "Any paid Claude plan works for most recipes. A few Cowork and Claude Code recipes assume the desktop app — each recipe says what it needs."],
-  ["Is this just for ChatGPT prompts?", "No — and that's the point. Every recipe is written for how Claude actually works (skills, artifacts, projects), not recycled ChatGPT lists."],
   ["Do I need to be technical?", "No. The Vault is built for non-technical professionals. You paste a recipe, fill the blanks, and get finished work."],
-  [`What if it's not for me?`, `${VAULT.guaranteeDays}-day no-questions refund. If it doesn't save you real time, email ${siteConfig.email} and we refund you.`],
+  [`What if it's not for me?`, `Use it for ${VAULT.guaranteeDays} days. If it doesn't save you real time, email ${siteConfig.email} and we refund you — no questions, no forms.`],
   ["Is this affiliated with Anthropic?", "No. AItomation Academy is independent and not endorsed by Anthropic."],
 ];
 
@@ -76,13 +96,35 @@ export default function VaultPage() {
             ))}
           </ul>
           <p className="mt-6 text-lg text-slate-700">
-            The problem was never Claude. It was never having the right recipe for the job in front of you.
+            The problem was never Claude, and it isn&apos;t you. Collecting prompts doesn&apos;t work —
+            running systems does. The Vault is the system: recipes that carry context, chain steps,
+            and end in a deliverable.
           </p>
         </div>
       </section>
 
-      {/* What's inside */}
+      {/* Concrete outcomes */}
       <section className="bg-slate-50 px-6 py-16 sm:px-12">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="text-center text-3xl font-bold text-slate-900">
+            Paste a recipe. Minutes later:
+          </h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {OUTCOMES.map(([t, d]) => (
+              <div key={t} className="rounded-2xl border border-slate-200 bg-white p-6">
+                <div className="flex items-center gap-2 text-orange-500">
+                  <Zap className="h-5 w-5" />
+                  <h3 className="font-semibold text-slate-900">{t}</h3>
+                </div>
+                <p className="mt-3 text-slate-600">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What's inside */}
+      <section className="px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-center text-3xl font-bold text-slate-900">What&apos;s inside the Vault</h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
@@ -99,12 +141,38 @@ export default function VaultPage() {
         </div>
       </section>
 
+      {/* Value stack + market anchor */}
+      <section className="bg-slate-50 px-6 py-16 sm:px-12">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="text-2xl font-bold text-slate-900">Everything you get for ${VAULT.launchPrice}</h2>
+          <ul className="mt-6 space-y-4">
+            {STACK.map(([t, d]) => (
+              <li key={t} className="flex items-start gap-3">
+                <Check className="mt-1 h-5 w-5 shrink-0 text-orange-500" />
+                <span className="text-slate-700">
+                  <span className="font-semibold text-slate-900">{t}</span> — {d}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-slate-600">
+            &ldquo;Complete AI bundles&rdquo; with less Claude in them sell for $99–$150.
+            You don&apos;t need 30,000 generic prompts. You need the {VAULT.itemCount} recipes
+            that actually work in Claude — for ${VAULT.launchPrice}.
+          </p>
+        </div>
+      </section>
+
       {/* Anchor + guarantee */}
       <section className="px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-2xl rounded-2xl bg-slate-900 p-10 text-center">
-          <p className="text-slate-300">Vault access sells for <span className="line-through">${VAULT.anchorPrice}</span> on its own.</p>
+          <p className="text-slate-300">List price <span className="line-through">${VAULT.anchorPrice}</span> — launch pricing while the Vault is new.</p>
           <p className="mt-2 text-5xl font-bold text-white">${VAULT.launchPrice}<span className="text-lg font-normal text-slate-400"> one-time</span></p>
           <div className="mt-6"><CheckoutButton label={`Get instant access — $${VAULT.launchPrice}`} /></div>
+          <p className="mx-auto mt-6 max-w-md text-sm text-slate-300">
+            Try three recipes from your section in the next {VAULT.guaranteeDays} days.
+            If they don&apos;t save you real time, reply to your receipt and we refund you.
+          </p>
           <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
             <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> {VAULT.guaranteeDays}-day refund</span>
             <span className="flex items-center gap-2"><RefreshCw className="h-4 w-4" /> Free weekly updates</span>
@@ -130,7 +198,7 @@ export default function VaultPage() {
           </div>
           <p className="mt-10 text-center text-sm text-slate-500">
             Prefer the free taste first?{" "}
-            <Link href="/#join" className="text-orange-600 underline">Grab the free Claude starter</Link>{" "}
+            <Link href="/free" className="text-orange-600 underline">Grab the free Claude starter</Link>{" "}
             — you can grab the full Vault ({current.label.toLowerCase()} pricing) any time.
           </p>
         </div>
