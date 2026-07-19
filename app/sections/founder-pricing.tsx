@@ -14,7 +14,7 @@ const PERKS = [
 export function FounderPricing() {
   const { current, next, spotsToNext } = currentLevel();
   return (
-    <section className="bg-slate-900 px-6 py-20 sm:px-12" data-section="founder_pricing">
+    <section id="membership" className="bg-slate-900 px-6 py-20 sm:px-12" data-section="founder_pricing">
       <div className="mx-auto max-w-3xl text-center">
         <span className="inline-flex items-center gap-2 rounded-full bg-orange-500/15 px-4 py-1 text-sm font-medium text-orange-400">
           <TrendingUp className="h-4 w-4" /> The price only goes up

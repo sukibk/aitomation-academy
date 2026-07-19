@@ -71,6 +71,7 @@ function deliveryEmail(firstName: string): string {
 <p><b>3. Start with your job's section.</b> Consultant, marketer, creator, founder, or agency — copy one recipe and run it today. That first 10 minutes is where the "oh, THAT's how this works" moment happens.</p>
 <p>Any problem at all — just reply to this email. 7-day money-back guarantee, no questions.</p>
 <p>— Marko</p>
+<p style="margin-top:20px;padding:14px;background:#f4efe8;border-radius:6px"><b>P.S.</b> The Vault is the library — membership is the whole workshop: every course (the 7-Day Challenge, Cowork, Claude Code), the weekly live call where we fix your project together, and your rate locked for life before it rises. <a href="${siteConfig.url}/#membership" style="color:#C2571B;font-weight:600">See what members get</a>.</p>
 <hr style="border:none;border-top:1px solid #e6dfd6;margin:28px 0 12px">
 <p style="font-size:12px;color:#8a8078">AItomation Academy · You're receiving this because you purchased the Claude Vault at ${siteConfig.url}/vault</p>
 </div>`;
