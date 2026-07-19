@@ -3,7 +3,7 @@
 // Edit LADDER + member count as the community grows.
 
 export const VAULT = {
-  salesPaused: true, // TEMP: flip to false to reopen sales
+  salesPaused: false, // flip to true to pause sales
 
   name: "The Claude Vault",
   tagline: "550+ Claude skills, prompts & workflows for real work",
