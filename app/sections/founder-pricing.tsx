@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { CheckoutButton } from "@/app/vault/checkout-button";
 import { TrendingUp, Check } from "lucide-react";
 import { LADDER, MEMBER_COUNT, currentLevel } from "@/lib/pricing";
 
@@ -76,13 +76,11 @@ export function FounderPricing() {
           ))}
         </ul>
 
-        <Link
-          href="/skool-redirect"
-          data-cta="founder_join"
-          className="mt-10 inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
-        >
-          Lock ${current.price}/mo — join the Academy
-        </Link>
+        <CheckoutButton
+          product="membership"
+          label={`Lock $${current.price}/mo — join the Academy`}
+          className="mt-10 flex justify-center"
+        />
         <p className="mt-4 text-sm text-slate-500">Cancel anytime. Your rate never rises.</p>
       </div>
     </section>

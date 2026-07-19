@@ -8,9 +8,11 @@ import { VAULT } from "@/lib/pricing";
 export function CheckoutButton({
   label = "Get instant access",
   className = "",
+  product = "vault",
 }: {
   label?: string;
   className?: string;
+  product?: "vault" | "membership";
 }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -19,10 +21,14 @@ export function CheckoutButton({
     setLoading(true);
     setError(null);
     try {
-      posthog.capture("vault_checkout_start");
+      posthog.capture("vault_checkout_start", { product });
     } catch {}
     try {
-      const res = await fetch("/api/checkout", { method: "POST" });
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ product }),
+      });
       const data = await res.json();
       if (res.ok && data.url) {
         window.location.href = data.url as string;

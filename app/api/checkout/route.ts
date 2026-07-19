@@ -1,11 +1,12 @@
-// Creates a Stripe hosted Checkout Session for the Claude Vault.
-// Calls Stripe's REST API directly (no SDK dependency). Card handling stays on Stripe.
-// Env required (Marko adds in Vercel):
-//   STRIPE_SECRET_KEY   — sk_live_... or sk_test_...
-//   STRIPE_VAULT_PRICE  — a Stripe Price ID (price_...) for the Vault. Optional:
-//                         if unset, we create an inline price from lib/pricing VAULT.launchPrice.
+// Creates Stripe hosted Checkout Sessions for:
+//   - product "vault":      one-time $ (VAULT.launchPrice)
+//   - product "membership": recurring $/month (MEMBERSHIP.price)
+// Direct REST calls, no SDK. Env:
+//   STRIPE_SECRET_KEY        — required
+//   STRIPE_VAULT_PRICE       — optional price_... for the Vault (else inline price)
+//   STRIPE_MEMBERSHIP_PRICE  — optional recurring price_... (else inline monthly price)
 import { NextRequest, NextResponse } from "next/server";
-import { VAULT } from "@/lib/pricing";
+import { VAULT, MEMBERSHIP } from "@/lib/pricing";
 import { siteConfig } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -27,35 +28,55 @@ export async function POST(req: NextRequest) {
   }
 
   let email: string | undefined;
+  let product: "vault" | "membership" = "vault";
   try {
     const body = await req.json();
-    email = typeof body?.email === "string" ? body.email : undefined;
+    if (typeof body?.email === "string") email = body.email;
+    if (body?.product === "membership") product = "membership";
   } catch {
-    // no body is fine
+    // no body is fine — defaults to vault
   }
 
   const base = siteConfig.url;
   const form = new URLSearchParams();
-  form.set("mode", "payment");
-  form.set("success_url", `${base}/vault/success?session_id={CHECKOUT_SESSION_ID}`);
-  form.set("cancel_url", `${base}/vault?cancelled=1`);
   form.set("allow_promotion_codes", "true");
   form.set("billing_address_collection", "auto");
   if (email) form.set("customer_email", email);
 
-  const priceId = process.env.STRIPE_VAULT_PRICE;
-  if (priceId) {
-    form.set("line_items[0][price]", priceId);
+  if (product === "membership") {
+    form.set("mode", "subscription");
+    form.set("success_url", `${base}/vault/success?sub=1&session_id={CHECKOUT_SESSION_ID}`);
+    form.set("cancel_url", `${base}/vault/success?sub_cancelled=1`);
+    const priceId = process.env.STRIPE_MEMBERSHIP_PRICE;
+    if (priceId) {
+      form.set("line_items[0][price]", priceId);
+    } else {
+      form.set("line_items[0][price_data][currency]", MEMBERSHIP.currency);
+      form.set("line_items[0][price_data][unit_amount]", String(MEMBERSHIP.price * 100));
+      form.set("line_items[0][price_data][recurring][interval]", "month");
+      form.set("line_items[0][price_data][product_data][name]", MEMBERSHIP.name);
+      form.set(
+        "line_items[0][price_data][product_data][description]",
+        MEMBERSHIP.tagline,
+      );
+    }
     form.set("line_items[0][quantity]", "1");
   } else {
-    // Inline price fallback so checkout works before a Price is created in Stripe.
-    form.set("line_items[0][price_data][currency]", VAULT.currency);
-    form.set("line_items[0][price_data][unit_amount]", String(VAULT.launchPrice * 100));
-    form.set("line_items[0][price_data][product_data][name]", VAULT.name);
-    form.set(
-      "line_items[0][price_data][product_data][description]",
-      VAULT.tagline,
-    );
+    form.set("mode", "payment");
+    form.set("success_url", `${base}/vault/success?session_id={CHECKOUT_SESSION_ID}`);
+    form.set("cancel_url", `${base}/vault?cancelled=1`);
+    const priceId = process.env.STRIPE_VAULT_PRICE;
+    if (priceId) {
+      form.set("line_items[0][price]", priceId);
+    } else {
+      form.set("line_items[0][price_data][currency]", VAULT.currency);
+      form.set("line_items[0][price_data][unit_amount]", String(VAULT.launchPrice * 100));
+      form.set("line_items[0][price_data][product_data][name]", VAULT.name);
+      form.set(
+        "line_items[0][price_data][product_data][description]",
+        VAULT.tagline,
+      );
+    }
     form.set("line_items[0][quantity]", "1");
   }
 

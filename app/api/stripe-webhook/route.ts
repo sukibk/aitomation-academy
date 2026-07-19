@@ -51,6 +51,23 @@ function deliveryEmail(firstName: string): string {
 </div>`;
 }
 
+function membershipEmail(firstName: string): string {
+  const hi = firstName ? `Hey ${firstName},` : "Hey,";
+  return `<div style="max-width:560px;margin:0 auto;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#2a2420">
+<p>${hi}</p>
+<p>Welcome to Claude Code Academy — you're a full member, and your founder rate is locked for life. Two steps:</p>
+<p><b>1. Join the community space (1 minute):</b></p>
+<p><a href="${SKOOL_INVITE}" style="background:#C2571B;color:#fff;padding:12px 22px;border-radius:6px;text-decoration:none;font-weight:600;display:inline-block">Join here</a></p>
+<p><b>2. Full access gets switched on for your account</b> — every course (the 7-Day Claude Challenge, Cowork, Claude Code), the complete Claude Vault, and the weekly live call. Usually within the hour.</p>
+<p>Start with Day 1 of the Challenge tonight — by next week you'll have built something real.</p>
+<p>One important note: your billing runs through our site, not Skool — so ignore any upgrade prompts inside Skool. You're already covered.</p>
+<p>Any problem — reply to this email.</p>
+<p>— Marko</p>
+<hr style="border:none;border-top:1px solid #e6dfd6;margin:28px 0 12px">
+<p style="font-size:12px;color:#8a8078">AItomation Academy · You're receiving this because you became a member at ${siteConfig.url}</p>
+</div>`;
+}
+
 export async function POST(req: NextRequest) {
   const secret = process.env.STRIPE_WEBHOOK_SECRET;
   if (!secret) {
@@ -69,6 +86,22 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "bad payload" }, { status: 400 });
   }
 
+  // Subscription cancelled -> notify admin to remove Skool access
+  if (event.type === "customer.subscription.deleted") {
+    const sub = event.data?.object ?? {};
+    try {
+      await sendEmail({
+        to: siteConfig.email,
+        subject: "Membership cancelled — remove Skool access",
+        htmlContent: `<p>A site-billed membership was cancelled (Stripe customer: ${String(sub.customer || "?")}). Remove their premium access in Skool.</p>`,
+        tag: "membership-cancelled-admin",
+      });
+    } catch (err) {
+      console.error("stripe-webhook: cancel notify failed", err);
+    }
+    return NextResponse.json({ received: true });
+  }
+
   if (event.type !== "checkout.session.completed") {
     return NextResponse.json({ received: true });
   }
@@ -84,10 +117,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ received: true });
   }
 
+  const isSubscription = session.mode === "subscription";
+
   try {
     await upsertContact(
       email,
-      { FIRSTNAME: firstName, MEMBER_STATUS: "free" },
+      { FIRSTNAME: firstName, MEMBER_STATUS: isSubscription ? "paid" : "free" },
       [VAULT_BUYERS_LIST],
     );
   } catch (err) {
@@ -98,9 +133,11 @@ export async function POST(req: NextRequest) {
     await sendEmail({
       to: email,
       name: firstName || undefined,
-      subject: "Your Claude Vault access — next steps inside",
-      htmlContent: deliveryEmail(firstName),
-      tag: "vault-delivery",
+      subject: isSubscription
+        ? "Welcome to Claude Code Academy — your access steps"
+        : "Your Claude Vault access — next steps inside",
+      htmlContent: isSubscription ? membershipEmail(firstName) : deliveryEmail(firstName),
+      tag: isSubscription ? "membership-delivery" : "vault-delivery",
     });
   } catch (err) {
     console.error("stripe-webhook: delivery email failed", err);
@@ -109,9 +146,13 @@ export async function POST(req: NextRequest) {
   try {
     await sendEmail({
       to: siteConfig.email,
-      subject: `Vault sale — unlock Skool for ${email}`,
-      htmlContent: `<p>New Vault purchase.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>To do (2 min): when they join Skool, unlock the Claude Vault course on their account. Buyer was told access appears within a few hours.</p>`,
-      tag: "vault-sale-admin",
+      subject: isSubscription
+        ? `NEW MEMBER ($69/mo via site) — grant full Skool access: ${email}`
+        : `Vault sale — unlock Skool for ${email}`,
+      htmlContent: isSubscription
+        ? `<p>New site-billed membership.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>To do: when they join Skool, unlock ALL premium courses (Vault, 7DC, Cowork, Claude Code) on their account. They pay via Stripe, not Skool — make sure they never also subscribe inside Skool.</p>`
+        : `<p>New Vault purchase.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>To do (2 min): when they join Skool, unlock the Claude Vault course on their account. Buyer was told access appears within a few hours.</p>`,
+      tag: isSubscription ? "membership-sale-admin" : "vault-sale-admin",
     });
   } catch (err) {
     console.error("stripe-webhook: admin notify failed", err);

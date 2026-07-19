@@ -16,6 +16,13 @@ export const VAULT = {
   sectionCount: 20,
 };
 
+export const MEMBERSHIP = {
+  name: "Claude Code Academy — Membership",
+  tagline: "Every course, the full Claude Vault, and the weekly live call",
+  price: 69, // $/mo — keep in sync with LADDER current level
+  currency: "usd",
+};
+
 // Current member count (update from Skool; ~1,200 as of 2026-07). Drives the ladder.
 export const MEMBER_COUNT = 1200;
 
