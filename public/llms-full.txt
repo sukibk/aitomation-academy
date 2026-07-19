@@ -114,7 +114,9 @@ https://www.aitomationacademy.com/blog/anthropic-courses
 
 ## About the instructor
 Marko Sudar — AI Engineer at AUVSI. Founding Engineer behind a GenAI startup acquired for $1.8M. Former Cloud Engineer at Oracle. BS in Computer Science (4.0 GPA) from Catawba College. Published researcher on Generative AI for uncrewed systems. Writes production code with Claude daily.
+Claude Code Academy membership (courses + Vault + weekly calls): https://www.aitomationacademy.com/academy
 Claude Vault (550+ prompts & skills): https://www.aitomationacademy.com/vault
+Free Claude resources: https://www.aitomationacademy.com/free
 About page: https://www.aitomationacademy.com/about
 
 ## Contact

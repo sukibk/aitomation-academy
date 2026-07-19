@@ -5,7 +5,6 @@ import { WhatYouGet } from "./sections/what-you-get";
 import { HowItWorks } from "./sections/how-it-works";
 import { CommunityWins } from "./sections/community-wins";
 import { FounderPricing } from "./sections/founder-pricing";
-import { LeadMagnetSection } from "./sections/lead-magnet-section";
 import { FAQ } from "./sections/faq";
 import { FinalCTA } from "./sections/final-cta";
 import { Footer } from "./sections/footer";
@@ -26,7 +25,6 @@ export default function Home() {
         <HowItWorks />
         <CommunityWins />
         <FounderPricing />
-        <LeadMagnetSection />
         <FAQ />
         <FinalCTA />
         <Footer />

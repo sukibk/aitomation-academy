@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { LeadCaptureTrigger } from "@/app/components/lead-capture-trigger";
 import { VAULT } from "@/lib/pricing";
 
 export function FinalCTA() {
@@ -31,9 +30,13 @@ export function FinalCTA() {
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
             )}
-            <LeadCaptureTrigger className="inline-flex items-center justify-center rounded-xl border border-slate-600 px-8 py-4 text-base font-semibold text-slate-200 cursor-pointer hover:bg-slate-800 transition-colors">
-              Or grab a free taste first
-            </LeadCaptureTrigger>
+            <Link
+              href="/academy"
+              data-cta="final_academy"
+              className="inline-flex items-center justify-center rounded-xl border border-slate-600 px-8 py-4 text-base font-semibold text-slate-200 cursor-pointer hover:bg-slate-800 transition-colors"
+            >
+              Or join the Academy
+            </Link>
           </div>
 
           <p className="mt-6 text-sm text-slate-500">

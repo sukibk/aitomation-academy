@@ -24,6 +24,9 @@ export function Navbar() {
           <Link href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             Home
           </Link>
+          <Link href="/academy" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+            Academy
+          </Link>
           {!VAULT.salesPaused && (
             <Link href="/vault" className="text-sm font-medium text-orange-600 hover:text-orange-700 transition-colors">
               The Vault
@@ -31,6 +34,9 @@ export function Navbar() {
           )}
           <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             Blog
+          </Link>
+          <Link href="/free" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+            Free
           </Link>
           <Link href="/about" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             About

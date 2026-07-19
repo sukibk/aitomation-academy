@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Volume2, X } from "lucide-react";
 import posthog from "posthog-js";
-import { LeadMagnetForm } from "../components/lead-magnet-form";
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -181,35 +180,29 @@ export function Hero() {
             Join AItomation Academy and learn how to use Claude for real work with practical workflows, free training, and a community built for non-technical professionals.
           </p>
 
-          {/* CTA */}
-          <div className="flex items-center justify-center">
+          {/* CTA — two paths */}
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
             <Link
-              href="/skool-redirect"
+              href="/academy"
+              data-cta="hero_academy"
               className="group inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-3.5 text-base font-semibold text-white cursor-pointer hover:bg-orange-600 transition-colors"
             >
-              JOIN THE FREE COMMUNITY
+              Explore the Academy
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/vault"
+              data-cta="hero_vault"
+              className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
+            >
+              Get the Vault — $17
             </Link>
           </div>
 
           {/* Trust signal */}
           <p className="mt-3 text-sm text-slate-500">
-            Join 1200+ members. No credit card required.
+            1,200+ members · courses, 550+ recipes, weekly live calls
           </p>
-
-          {/* Secondary path — lead magnet email capture */}
-          <div className="mx-auto mt-8 max-w-md">
-            <div className="mb-3 flex items-center gap-3 text-xs uppercase tracking-widest text-slate-400">
-              <div className="h-px flex-1 bg-slate-200" />
-              <span>Or grab the free PDF</span>
-              <div className="h-px flex-1 bg-slate-200" />
-            </div>
-            <LeadMagnetForm
-              variant="hero"
-              source="website_lead_magnet"
-              postHogSource="hero"
-            />
-          </div>
 
         </div>
       </div>
