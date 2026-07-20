@@ -48,12 +48,9 @@ export async function POST(req: NextRequest) {
   form.set("expires_at", String(Math.floor(Date.now() / 1000) + 2 * 60 * 60)); // 2h
   form.set("after_expiration[recovery][enabled]", "true");
   form.set("after_expiration[recovery][allow_promotion_codes]", "true");
-  // Promotions consent checkbox requires accepting Stripe's ToS at
-  // dashboard.stripe.com/settings/checkout first. Enable via env flag once done;
-  // until then abandoned-cart emails go only to already-known contacts.
-  if (process.env.STRIPE_CONSENT_PROMOTIONS === "1") {
-    form.set("consent_collection[promotions]", "auto");
-  }
+  // Promotions consent checkbox (Stripe ToS accepted 2026-07-21): buyers can
+  // opt in to marketing email at checkout; opted-in abandoners get recovery emails.
+  form.set("consent_collection[promotions]", "auto");
   form.set("metadata[product]", product);
 
   if (product === "membership") {
