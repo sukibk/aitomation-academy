@@ -32,7 +32,7 @@ export function VaultStickyCta() {
       <div className="mx-auto flex max-w-4xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
         <p className="text-sm text-slate-200">
           <span className="font-semibold text-white">550+ Claude prompts &amp; skills</span>
-          <span className="hidden sm:inline"> — sorted by your job, updated weekly.</span>
+          <span className="hidden sm:inline">, sorted by your job, updated weekly.</span>
         </p>
         <div className="flex items-center gap-2">
           <Link
@@ -45,7 +45,7 @@ export function VaultStickyCta() {
             }}
             className="inline-flex items-center whitespace-nowrap rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
           >
-            <s className="mr-1 text-orange-200/80">${VAULT.anchorPrice}</s> ${VAULT.launchPrice} — Get it
+            <s className="mr-1 text-orange-200/80">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}: Get it
             <ArrowRight className="ml-1.5 h-4 w-4" />
           </Link>
           <button

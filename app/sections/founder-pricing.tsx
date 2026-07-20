@@ -3,11 +3,11 @@ import { TrendingUp, Check } from "lucide-react";
 import { LADDER, MEMBER_COUNT, currentLevel } from "@/lib/pricing";
 
 const PERKS = [
-  "The 7-Day Claude Challenge — zero to a live website",
+  "The 7-Day Claude Challenge: zero to a live website",
   "The Claude Cowork & Claude Code courses",
   "The full Claude Vault, included (updated weekly)",
-  "Weekly live call — bring your project, we fix it live",
-  "Marko in the community daily — questions get answers, not a ghost town",
+  "Weekly live call: bring your project, we fix it live",
+  "Marko in the community daily: questions get answers, not a ghost town",
   "1,200+ professionals at your stage, building the same systems",
 ];
 
@@ -25,7 +25,7 @@ export function FounderPricing() {
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-slate-300">
           Academy membership includes the Vault plus every course and the weekly call.
-          Members lock their rate for life — and the rate rises as the community grows.
+          Members lock their rate for life, and the rate rises as the community grows.
         </p>
 
         {/* Ladder */}
@@ -63,7 +63,7 @@ export function FounderPricing() {
           <p className="mt-6 text-sm text-slate-400">
             {MEMBER_COUNT.toLocaleString()} members in. Just{" "}
             <span className="font-semibold text-white">{spotsToNext.toLocaleString()} more</span>{" "}
-            until the rate rises to ${next.price}/mo — new members only. Lock ${current.price}
+            until the rate rises to ${next.price}/mo for new members. Lock ${current.price}
             /mo for life today.
           </p>
         )}
@@ -79,11 +79,11 @@ export function FounderPricing() {
 
         <CheckoutButton
           product="membership"
-          label={`Lock $${current.price}/mo — join the Academy`}
+          label={`Lock $${current.price}/mo and join the Academy`}
           className="mt-10 flex justify-center"
         />
         <p className="mt-4 text-sm text-slate-500">
-          Cancel in two clicks — no emails, no retention forms. Your rate never rises.
+          Cancel in two clicks. No emails, no retention forms. Your rate never rises.
         </p>
       </div>
     </section>

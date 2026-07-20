@@ -9,7 +9,7 @@ import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
 
 export const metadata: Metadata = {
-  title: "Claude Code Academy — Courses, Vault & Weekly Calls",
+  title: "Claude Code Academy: Courses, Vault & Weekly Calls",
   description:
     "The membership for non-technical professionals: Claude courses that end with something built, the 550+ prompt & skill Vault, and a weekly live call.",
   alternates: { canonical: `${siteConfig.url}/academy` },
@@ -29,17 +29,17 @@ const STACK = [
   {
     icon: BookOpen,
     title: "The Claude Code course",
-    desc: "Build real tools and apps with no coding background. Releasing mid-August — included with your membership.",
+    desc: "Build real tools and apps with no coding background. Releasing mid-August, included with your membership.",
   },
   {
     icon: Wrench,
-    title: `The Claude Vault — ${VAULT.itemCount} prompts & skills`,
-    desc: `Every skill, prompt, and workflow, sorted by your job and updated weekly. $${VAULT.anchorPrice} list price on its own — included.`,
+    title: `The Claude Vault: ${VAULT.itemCount} prompts & skills`,
+    desc: `Every skill, prompt, and workflow, sorted by your job and updated weekly. $${VAULT.anchorPrice} list price on its own, included.`,
   },
   {
     icon: Calendar,
     title: "The weekly live call",
-    desc: "Bring your project, your question, or the automation that almost works — we fix it live. Consistently the most valuable hour of the week.",
+    desc: "Bring your project, your question, or the automation that almost works, and we fix it live. Consistently the most valuable hour of the week.",
   },
   {
     icon: Users,
@@ -49,11 +49,11 @@ const STACK = [
 ];
 
 const FAQ = [
-  ["Why not just learn from YouTube?", "You can — most members tried. The problem isn't information, it's order and feedback: YouTube has no path, nobody looks at your work, and you quit in week two. The Academy is a sequence that ends with things built, plus a weekly call where your actual project gets fixed."],
+  ["Why not just learn from YouTube?", "You can, and most members tried. The problem isn't information, it's order and feedback: YouTube has no path, nobody looks at your work, and you quit in week two. The Academy is a sequence that ends with things built, plus a weekly call where your actual project gets fixed."],
   ["Do I need to be technical?", "No. Everything is built for non-technical professionals. The Challenge assumes zero coding and ends with a live website."],
   ["Which Claude plan do I need?", "Any paid Claude plan covers most of the curriculum. Each lesson says what it needs."],
-  ["What does it cost?", "Your rate locks for life at the level you join — see the ladder below. Cancel anytime."],
-  ["How is this different from the Vault?", `The Vault ($${VAULT.launchPrice}) is the prompt & skill library. The Academy is the whole workshop: the courses, the live calls, the community — with the Vault included.`],
+  ["What does it cost?", "Your rate locks for life at the level you join. See the ladder below. Cancel anytime."],
+  ["How is this different from the Vault?", `The Vault ($${VAULT.launchPrice}) is the prompt & skill library. The Academy is the whole workshop: the courses, the live calls, the community, with the Vault included.`],
   ["Is this affiliated with Anthropic?", "No. AItomation Academy is independent and not endorsed by Anthropic."],
 ];
 
@@ -74,14 +74,14 @@ export default function AcademyPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
               The exact courses, prompts, and weekly calls 1,200+ non-technical professionals
-              use to put real work on Claude — every course ends with something built,
+              use to put real work on Claude. Every course ends with something built,
               not something watched.
             </p>
             <Link
               href="#membership"
               className="mt-8 inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
             >
-              Join at ${current.price}/mo — locked for life
+              Join at ${current.price}/mo, locked for life
             </Link>
             <p className="mt-4 text-sm text-slate-500">${MEMBERSHIP.price}/mo · cancel anytime</p>
           </div>
@@ -112,8 +112,8 @@ export default function AcademyPage() {
             <ul className="mt-6 space-y-3">
               {[
                 "You use Claude, but you know you're getting 5% of what it can do",
-                "You want finished deliverables — reports, pages, automations — not chat replies",
-                "You've tried free communities and found beginners and spammers — you want people at your stage, actually building",
+                "You want finished deliverables (reports, pages, automations), not chat replies",
+                "You've tried free communities and found beginners and spammers. You want people at your stage, actually building",
                 "You don't code, and you don't want to learn to",
               ].map((line) => (
                 <li key={line} className="flex items-start gap-3 text-lg text-slate-700">
@@ -145,7 +145,7 @@ export default function AcademyPage() {
               <Link href="/vault" className="text-orange-600 underline">
                 Get the Vault for ${VAULT.launchPrice}
               </Link>{" "}
-              — you can upgrade any time.
+              and upgrade any time.
             </p>
           </div>
         </section>

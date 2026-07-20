@@ -6,7 +6,7 @@ import { Footer } from "@/app/sections/footer";
 import { LeadMagnetSection } from "@/app/sections/lead-magnet-section";
 
 export const metadata: Metadata = {
-  title: "Free Claude Resources — Guides, Prompts & the Content System",
+  title: "Free Claude Resources: Guides, Prompts & the Content System",
   description:
     "Free Claude resources for non-technical professionals: The Claude Content System PDF, practical guides, and copy-paste prompts.",
   alternates: { canonical: `${siteConfig.url}/free` },
@@ -31,7 +31,7 @@ export default function FreePage() {
         <section className="px-6 py-16 sm:px-12">
           <div className="mx-auto max-w-3xl">
             <h2 className="text-center text-2xl font-bold text-slate-900">
-              More free value — start with these guides
+              More free value: start with these guides
             </h2>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {GUIDES.map(([slug, title]) => (

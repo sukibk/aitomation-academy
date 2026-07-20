@@ -177,7 +177,7 @@ export function Hero() {
 
           {/* Subheadline */}
           <p className="mx-auto mb-5 max-w-2xl text-base text-slate-600 md:text-lg leading-relaxed">
-            Most people piece Claude together from YouTube and get stuck in two weeks — no order,
+            Most people piece Claude together from YouTube and get stuck in two weeks. No order,
             no feedback, no results. The Academy gives you the exact prompts, skills, courses, and
             weekly calls that 1,200+ non-technical professionals use to get finished work out of Claude.
           </p>
@@ -197,7 +197,7 @@ export function Hero() {
               data-cta="hero_vault"
               className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
             >
-              550+ Claude prompts — <s className="mx-1 text-slate-400">$49</s> $17
+              550+ Claude prompts for <s className="mx-1 text-slate-400">$49</s> $17
             </Link>
           </div>
 

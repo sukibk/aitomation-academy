@@ -1,10 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { VAULT } from "@/lib/pricing";
 import Image from "next/image";
 
+const NAV = [
+  ["/", "Home"],
+  ["/academy", "Academy"],
+  ["/vault", "The Vault"],
+  ["/blog", "Blog"],
+  ["/free", "Free"],
+  ["/about", "About"],
+] as const;
+
 export function Navbar() {
+  const pathname = usePathname();
+  const linkCls = (href: string) => {
+    const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
+    return `text-sm font-medium transition-colors ${
+      active ? "text-orange-600" : "text-slate-600 hover:text-slate-900"
+    }`;
+  };
   return (
     <header data-section="navbar" className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8 relative">
@@ -21,26 +38,13 @@ export function Navbar() {
         </Link>
         {/* Desktop nav — absolutely centered */}
         <nav className="hidden md:flex items-center gap-6 absolute left-1/2 -translate-x-1/2">
-          <Link href="/" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-            Home
-          </Link>
-          <Link href="/academy" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-            Academy
-          </Link>
-          {!VAULT.salesPaused && (
-            <Link href="/vault" className="text-sm font-medium text-orange-600 hover:text-orange-700 transition-colors">
-              The Vault
-            </Link>
+          {NAV.map(([href, label]) =>
+            href === "/vault" && VAULT.salesPaused ? null : (
+              <Link key={href} href={href} className={linkCls(href)}>
+                {label}
+              </Link>
+            )
           )}
-          <Link href="/blog" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-            Blog
-          </Link>
-          <Link href="/free" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-            Free
-          </Link>
-          <Link href="/about" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-            About
-          </Link>
         </nav>
         <div className="hidden md:flex items-center gap-5">
           <div className="flex items-center gap-2">

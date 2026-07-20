@@ -7,7 +7,7 @@ const benefits = [
   "The exact prompts to build an SEO content machine",
   "Keyword research workflow using real data",
   "A blog writer skill that creates articles on autopilot",
-  "Instant PDF download — no email wait",
+  "Instant PDF download, no email wait",
 ];
 
 export function LeadMagnetSection() {
@@ -33,7 +33,7 @@ export function LeadMagnetSection() {
 
               <p className="mb-10 text-lg text-slate-400 leading-relaxed max-w-lg">
                 The complete system I use to turn Claude into a content machine
-                — from SEO research to automated publishing. Prompts, skills,
+                from SEO research to automated publishing. Prompts, skills,
                 and setup included.
               </p>
 
