@@ -4,6 +4,7 @@ import { VaultOffer } from "./sections/vault-offer";
 import { WhatYouGet } from "./sections/what-you-get";
 import { HowItWorks } from "./sections/how-it-works";
 import { CommunityWins } from "./sections/community-wins";
+import { MemberStories } from "./sections/member-stories";
 import { FounderPricing } from "./sections/founder-pricing";
 import { FAQ } from "./sections/faq";
 import { FinalCTA } from "./sections/final-cta";
@@ -24,6 +25,7 @@ export default function Home() {
         <WhatYouGet />
         <HowItWorks />
         <CommunityWins />
+        <MemberStories />
         <FounderPricing />
         <FAQ />
         <FinalCTA />
