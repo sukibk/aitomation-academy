@@ -11,7 +11,7 @@ import { Footer } from "@/app/sections/footer";
 export const metadata: Metadata = {
   title: "Claude Code Academy — Courses, Vault & Weekly Calls",
   description:
-    "The membership for non-technical professionals: Claude courses that end with something built, the 550+ recipe Vault, and a weekly live call.",
+    "The membership for non-technical professionals: Claude courses that end with something built, the 550+ prompt & skill Vault, and a weekly live call.",
   alternates: { canonical: `${siteConfig.url}/academy` },
 };
 
@@ -33,7 +33,7 @@ const STACK = [
   },
   {
     icon: Wrench,
-    title: `The Claude Vault — ${VAULT.itemCount} recipes`,
+    title: `The Claude Vault — ${VAULT.itemCount} prompts & skills`,
     desc: `Every skill, prompt, and workflow, sorted by your job and updated weekly. $${VAULT.anchorPrice} list price on its own — included.`,
   },
   {
@@ -53,7 +53,7 @@ const FAQ = [
   ["Do I need to be technical?", "No. Everything is built for non-technical professionals. The Challenge assumes zero coding and ends with a live website."],
   ["Which Claude plan do I need?", "Any paid Claude plan covers most of the curriculum. Each lesson says what it needs."],
   ["What does it cost?", "Your rate locks for life at the level you join — see the ladder below. Cancel anytime."],
-  ["How is this different from the Vault?", `The Vault ($${VAULT.launchPrice}) is the recipe library. The Academy is the whole workshop: the courses, the live calls, the community — with the Vault included.`],
+  ["How is this different from the Vault?", `The Vault ($${VAULT.launchPrice}) is the prompt & skill library. The Academy is the whole workshop: the courses, the live calls, the community — with the Vault included.`],
   ["Is this affiliated with Anthropic?", "No. AItomation Academy is independent and not endorsed by Anthropic."],
 ];
 
@@ -73,7 +73,7 @@ export default function AcademyPage() {
               <span className="text-orange-400">Start delegating to it.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
-              The exact courses, recipes, and weekly calls 1,200+ non-technical professionals
+              The exact courses, prompts, and weekly calls 1,200+ non-technical professionals
               use to put real work on Claude — every course ends with something built,
               not something watched.
             </p>
@@ -141,7 +141,7 @@ export default function AcademyPage() {
               ))}
             </div>
             <p className="mt-10 text-center text-sm text-slate-500">
-              Just want the recipe library?{" "}
+              Just want the prompt library?{" "}
               <Link href="/vault" className="text-orange-600 underline">
                 Get the Vault for ${VAULT.launchPrice}
               </Link>{" "}

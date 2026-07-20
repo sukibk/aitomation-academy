@@ -178,8 +178,8 @@ export function Hero() {
           {/* Subheadline */}
           <p className="mx-auto mb-5 max-w-2xl text-base text-slate-600 md:text-lg leading-relaxed">
             Most people piece Claude together from YouTube and get stuck in two weeks — no order,
-            no feedback, no results. The Academy gives you the exact recipes, courses, and weekly
-            calls that 1,200+ non-technical professionals use to get finished work out of Claude.
+            no feedback, no results. The Academy gives you the exact prompts, skills, courses, and
+            weekly calls that 1,200+ non-technical professionals use to get finished work out of Claude.
           </p>
 
           {/* CTA — two paths */}
@@ -197,13 +197,13 @@ export function Hero() {
               data-cta="hero_vault"
               className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
             >
-              Get the Vault — $17
+              550+ Claude prompts — <s className="mx-1 text-slate-400">$49</s> $17
             </Link>
           </div>
 
           {/* Trust signal */}
           <p className="mt-3 text-sm text-slate-500">
-            1,200+ members · courses, 550+ recipes, weekly live calls
+            1,200+ members · courses, 550+ Claude prompts &amp; skills, weekly live calls
           </p>
 
         </div>

@@ -15,8 +15,8 @@ export function FinalCTA() {
             <span className="text-orange-400">blank box</span>
           </h2>
           <p className="mb-10 text-lg text-slate-400 max-w-2xl mx-auto">
-            {VAULT.itemCount} Claude recipes, sorted by your job, that turn a blank prompt
-            into finished work. Join 1,200+ professionals already using them.
+            {VAULT.itemCount} Claude prompts &amp; skills, sorted by your job, that turn a blank
+            chat into finished work. Join 1,200+ professionals already using them.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -26,7 +26,7 @@ export function FinalCTA() {
               data-cta="final_vault"
               className="group inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
             >
-              Get the Vault — ${VAULT.launchPrice}
+              Get 550+ prompts — <s className="mx-1 text-orange-200/80">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
             )}
