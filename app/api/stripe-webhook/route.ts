@@ -146,11 +146,13 @@ export async function POST(req: NextRequest) {
     try {
       const allowed = consent.promotions === "opt_in" || (await contactExists(email));
       if (allowed) {
+        // Adding to list 23 triggers the Brevo "Checkout abandon" automation
+        // (list trigger is more reliable than the custom-event trigger in the builder).
         await upsertContact(email, {
           ABANDONED_AT: new Date().toISOString().slice(0, 10),
           CART: cart,
           RECOVERY_URL: recovery?.url || "",
-        } as never, []);
+        } as never, [23]);
         await trackEvent(email, "cart_abandoned", {
           product: cart,
           recovery_url: recovery?.url || "",
