@@ -42,6 +42,14 @@ export async function POST(req: NextRequest) {
   form.set("allow_promotion_codes", "true");
   form.set("billing_address_collection", "auto");
   if (email) form.set("customer_email", email);
+  // Abandoned-checkout recovery: keep the session recoverable after it expires
+  // and collect marketing consent so Brevo may email non-completers.
+  // checkout.session.expired then carries the typed email + a recovery_url.
+  form.set("expires_at", String(Math.floor(Date.now() / 1000) + 2 * 60 * 60)); // 2h
+  form.set("after_expiration[recovery][enabled]", "true");
+  form.set("after_expiration[recovery][allow_promotion_codes]", "true");
+  form.set("consent_collection[promotions]", "auto");
+  form.set("metadata[product]", product);
 
   if (product === "membership") {
     form.set("mode", "subscription");

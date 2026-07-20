@@ -4,7 +4,7 @@
 // Env required: STRIPE_WEBHOOK_SECRET (from the Stripe webhook endpoint), BREVO_API_KEY (set).
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
-import { upsertContact, sendEmail } from "@/lib/brevo";
+import { upsertContact, sendEmail, trackEvent, contactExists } from "@/lib/brevo";
 import { siteConfig } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -128,6 +128,40 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ received: true });
   }
 
+  // Abandoned checkout -> arm the Brevo recovery flow (only for contacts we may
+  // email: existing contacts/members, or visitors who ticked the promotions consent).
+  if (event.type === "checkout.session.expired") {
+    const session = event.data?.object ?? {};
+    const details = (session.customer_details ?? {}) as { email?: string };
+    const email = (details.email || (session.customer_email as string) || "").toLowerCase();
+    if (!email) return NextResponse.json({ received: true });
+
+    const consent = (session.consent ?? {}) as { promotions?: string };
+    const recovery = ((session.after_expiration ?? {}) as {
+      recovery?: { url?: string };
+    }).recovery;
+    const meta = (session.metadata ?? {}) as { product?: string };
+    const cart = meta.product === "membership" ? "membership" : "vault";
+
+    try {
+      const allowed = consent.promotions === "opt_in" || (await contactExists(email));
+      if (allowed) {
+        await upsertContact(email, {
+          ABANDONED_AT: new Date().toISOString().slice(0, 10),
+          CART: cart,
+          RECOVERY_URL: recovery?.url || "",
+        } as never, []);
+        await trackEvent(email, "cart_abandoned", {
+          product: cart,
+          recovery_url: recovery?.url || "",
+        });
+      }
+    } catch (err) {
+      console.error("stripe-webhook: abandoned-cart handling failed", err);
+    }
+    return NextResponse.json({ received: true });
+  }
+
   if (event.type !== "checkout.session.completed") {
     return NextResponse.json({ received: true });
   }
@@ -147,6 +181,15 @@ export async function POST(req: NextRequest) {
 
   // Auto-invite the buyer to Skool (no-op until SKOOL_INVITE_WEBHOOK is set)
   const invited = await skoolInvite(email, name);
+
+  // Purchase event: exits every Brevo automation (upgrade, win-back, abandon, visitor).
+  try {
+    await trackEvent(email, "purchased", {
+      product: isSubscription ? "membership" : "vault",
+    });
+  } catch (err) {
+    console.error("stripe-webhook: purchased event failed", err);
+  }
 
   try {
     await upsertContact(

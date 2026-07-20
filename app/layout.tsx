@@ -77,6 +77,32 @@ export default function RootLayout({
             gtag('config', 'AW-18023480264');
           `}
         </Script>
+        {/* Brevo tracker: identifies contacts on-site so Brevo Automations can
+            trigger on page visits (e.g. visited /vault, no purchase -> email). */}
+        <Script id="brevo-tracker" strategy="afterInteractive">
+          {`
+            (function() {
+              window.sib = { equeue: [], client_key: "bu1hf4790qcjdznj0vp1gkym" };
+              window.sendinblue = {};
+              for (var j = ['track', 'identify', 'trackLink', 'page'], i = 0; i < j.length; i++) {
+                (function(k) {
+                  window.sendinblue[k] = function() {
+                    var arg = Array.prototype.slice.call(arguments);
+                    (window.sib[k] || function() {
+                      var t = {}; t[k] = arg; window.sib.equeue.push(t);
+                    })(arg[0], arg[1], arg[2], arg[3]);
+                  };
+                })(j[i]);
+              }
+              var n = document.createElement("script"),
+                  s = document.getElementsByTagName("script")[0];
+              n.type = "text/javascript"; n.id = "sendinblue-js"; n.async = true;
+              n.src = "https://sibautomation.com/sa.js?key=bu1hf4790qcjdznj0vp1gkym";
+              s.parentNode.insertBefore(n, s);
+              window.sendinblue.page();
+            })();
+          `}
+        </Script>
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`

@@ -118,3 +118,33 @@ export async function sendEmail(params: {
     throw new Error(`Brevo sendEmail ${res.status}: ${txt}`);
   }
 }
+
+// Track a custom event on a contact (used by Brevo Automation triggers/exits,
+// e.g. cart_abandoned and purchased).
+export async function trackEvent(
+  email: string,
+  eventName: string,
+  properties: Record<string, unknown> = {},
+): Promise<void> {
+  const res = await fetch(`${BREVO}/events`, {
+    method: "POST",
+    headers: headers(),
+    body: JSON.stringify({
+      event_name: eventName,
+      identifiers: { email_id: email },
+      event_properties: properties,
+    }),
+  });
+  if (!res.ok) {
+    const txt = await res.text();
+    throw new Error(`Brevo trackEvent ${res.status}: ${txt}`);
+  }
+}
+
+// True if this email already exists as a Brevo contact.
+export async function contactExists(email: string): Promise<boolean> {
+  const res = await fetch(`${BREVO}/contacts/${encodeURIComponent(email)}`, {
+    headers: headers(),
+  });
+  return res.ok;
+}
