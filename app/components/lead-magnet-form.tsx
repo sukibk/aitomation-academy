@@ -35,6 +35,13 @@ export function LeadMagnetForm({
       if (!res.ok) throw new Error("Subscribe failed");
       posthog.identify(email, { name, email });
       posthog.capture("lead_form_submitted", { name, email, source: postHogSource });
+      // Link this browser to the contact in Brevo so page-visit automations
+      // (e.g. visited /vault, didn't buy) can reach them by email.
+      try {
+        (window as unknown as {
+          sendinblue?: { identify: (email: string) => void };
+        }).sendinblue?.identify(email);
+      } catch {}
       setStatus("success");
     } catch {
       setStatus("error");
