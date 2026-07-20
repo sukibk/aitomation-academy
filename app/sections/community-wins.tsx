@@ -1,7 +1,8 @@
-"use client";
-
 import Image from "next/image";
+import { Trophy, ArrowRight } from "lucide-react";
+import { Mark } from "@/app/components/mark";
 
+// Real screenshots of member posts from inside the community.
 const wins = [
   { src: "/images/creatives/wins/win1.png", alt: "Community win from member" },
   { src: "/images/creatives/wins/win2.png", alt: "Community win from member" },
@@ -10,66 +11,54 @@ const wins = [
   { src: "/images/creatives/wins/win5.png", alt: "Community win from member" },
 ];
 
-// Duplicate for seamless loop
-const loopedWins = [...wins, ...wins];
-
 export function CommunityWins() {
   return (
-    <section data-section="community_wins" className="relative py-28 bg-slate-100">
+    <section data-section="community_wins" className="bg-slate-100 py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-          {/* Left — text */}
+        {/* Header */}
+        <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-px w-12 bg-orange-400" />
-              <span className="text-sm font-medium tracking-wide text-orange-600 uppercase">
-                Community Wins
+            <div className="flex items-center gap-3">
+              <span className="h-0.5 w-8 rounded bg-orange-400" />
+              <span className="text-sm font-semibold uppercase tracking-widest text-orange-600">
+                Live from the community
               </span>
             </div>
-            <h2 className="text-3xl font-display tracking-tight text-slate-900 sm:text-4xl lg:text-5xl leading-[1.1]">
-              Real Results from Real Members
+            <h2 className="mt-4 flex items-center gap-3 text-3xl font-display tracking-tight text-slate-900 sm:text-4xl lg:text-5xl">
+              <span>
+                Member <Mark>wins</Mark>
+              </span>
+              <Trophy className="h-8 w-8 text-amber-500" />
             </h2>
-            <p className="mt-5 text-lg text-slate-500">
-              These are actual wins shared in the community. No hype, no fabricated
-              numbers. Just professionals using Claude in their real work.
-            </p>
-            <p className="mt-10 text-slate-600">
-              Want wins like these?{" "}
-              <a
-                href="/academy"
-                className="font-semibold text-orange-500 hover:text-orange-600 cursor-pointer transition-colors"
-              >
-                See what&apos;s inside the Academy →
-              </a>
+            <p className="mt-4 max-w-xl text-lg text-slate-500">
+              Real posts shared inside the community. No hype, no fabricated numbers.
             </p>
           </div>
+          <a
+            href="/academy"
+            className="inline-flex items-center gap-2 font-semibold text-orange-600 transition-colors hover:text-orange-700"
+          >
+            Want wins like these? See the Academy
+            <ArrowRight className="h-4 w-4" />
+          </a>
+        </div>
 
-          {/* Right — auto-scrolling carousel */}
-          <div className="relative h-[480px] overflow-hidden rounded-2xl">
-            {/* Top fade */}
-            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-slate-100 to-transparent z-10 pointer-events-none" />
-            {/* Bottom fade */}
-            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-slate-100 to-transparent z-10 pointer-events-none" />
-
-            <div className="animate-scroll-up">
-              {loopedWins.map((win, i) => (
-                <div
-                  key={i}
-                  className="mb-4 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
-                >
-                  <Image
-                    src={win.src}
-                    alt={win.alt}
-                    width={600}
-                    height={600}
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-              ))}
+        {/* Masonry grid of post screenshots */}
+        <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+          {wins.map((win) => (
+            <div
+              key={win.src}
+              className="mb-4 break-inside-avoid overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+            >
+              <Image
+                src={win.src}
+                alt={win.alt}
+                width={600}
+                height={600}
+                className="h-auto w-full object-contain"
+              />
             </div>
-          </div>
-
+          ))}
         </div>
       </div>
     </section>

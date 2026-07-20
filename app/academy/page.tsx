@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Check, Calendar, BookOpen, Wrench, Users } from "lucide-react";
+import { Mark } from "@/app/components/mark";
+import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
 import { MEMBERSHIP, VAULT, currentLevel } from "@/lib/pricing";
 import { FounderPricing } from "@/app/sections/founder-pricing";
@@ -131,14 +133,19 @@ export default function AcademyPage() {
 
         <section className="px-6 py-16 sm:px-12">
           <div className="mx-auto max-w-2xl">
-            <h2 className="text-2xl font-bold text-slate-900">Questions</h2>
-            <div className="mt-6 space-y-6">
-              {FAQ.map(([q, a]) => (
-                <div key={q}>
-                  <h3 className="font-semibold text-slate-900">{q}</h3>
-                  <p className="mt-1 text-slate-600">{a}</p>
-                </div>
-              ))}
+            <div className="text-center">
+              <div className="flex items-center justify-center gap-3">
+                <span className="h-0.5 w-8 rounded bg-orange-400" />
+                <span className="text-sm font-semibold uppercase tracking-widest text-orange-600">
+                  Before you join
+                </span>
+              </div>
+              <h2 className="mt-4 text-3xl font-bold text-slate-900">
+                Common <Mark>questions</Mark>
+              </h2>
+            </div>
+            <div className="mt-8">
+              <FaqAccordion items={FAQ} />
             </div>
             <p className="mt-10 text-center text-sm text-slate-500">
               Just want the prompt library?{" "}

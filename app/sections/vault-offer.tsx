@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, Lock } from "lucide-react";
+import { Mark } from "@/app/components/mark";
 import { VAULT } from "@/lib/pricing";
 
 const BULLETS = [
@@ -35,25 +36,44 @@ export function VaultOffer() {
             ))}
           </ul>
         </div>
-        <div className="rounded-2xl bg-slate-900 p-8 text-center">
-          <p className="text-slate-400">
-            List price <span className="line-through">${VAULT.anchorPrice}</span>. Launch pricing
-          </p>
-          <p className="mt-2 text-5xl font-bold text-white">
-            ${VAULT.launchPrice}
-            <span className="text-base font-normal text-slate-400"> one-time</span>
-          </p>
-          <Link
-            href="/vault"
-            data-cta="vault_offer"
-            className="group mt-6 inline-flex w-full items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
-          >
-            Get 550+ prompts for <s className="mx-1 text-orange-200/80">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Link>
-          <p className="mt-4 text-sm text-slate-500">
-            {VAULT.guaranteeDays}-day refund · instant access · no subscription
-          </p>
+        <div className="overflow-hidden rounded-3xl bg-white text-center shadow-xl ring-1 ring-slate-200">
+          <div className="h-2 w-full bg-orange-400" />
+          <div className="px-8 py-10">
+            <div className="flex items-end justify-center gap-8">
+              <div className="pb-2 text-center">
+                <div className="text-3xl font-bold text-slate-400">
+                  <s className="decoration-red-400 decoration-2">${VAULT.anchorPrice}</s>
+                </div>
+                <div className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                  list price
+                </div>
+              </div>
+              <div>
+                <div className="text-6xl font-extrabold tracking-tight text-slate-900">
+                  <Mark>${VAULT.launchPrice}</Mark>
+                </div>
+                <div className="mt-2 text-slate-500">one-time · yours forever</div>
+              </div>
+            </div>
+            <div className="mt-5 flex justify-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
+                <Lock className="h-4 w-4" /> Launch price, locked when you buy
+              </span>
+            </div>
+            <Link
+              href="/vault"
+              data-cta="vault_offer"
+              className="group mt-7 inline-flex w-full flex-col items-center justify-center rounded-full bg-orange-500 px-10 py-4 font-semibold text-white transition-colors hover:bg-orange-600"
+            >
+              <span className="inline-flex items-center text-lg">
+                Get 550+ prompts for ${VAULT.launchPrice}
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </span>
+              <span className="mt-0.5 text-xs font-medium text-orange-100">
+                Instant access · {VAULT.guaranteeDays}-day money-back guarantee
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

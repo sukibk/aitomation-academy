@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Check, Star, ShieldCheck, RefreshCw, Zap } from "lucide-react";
+import { Check, Star, ShieldCheck, RefreshCw, Zap, Lock } from "lucide-react";
+import { Mark } from "@/app/components/mark";
+import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
 import { VAULT, currentLevel } from "@/lib/pricing";
 import { CheckoutButton } from "./checkout-button";
@@ -168,19 +170,46 @@ export default function VaultPage() {
       </section>
 
       {/* Anchor + guarantee */}
-      <section className="px-6 py-16 sm:px-12">
-        <div className="mx-auto max-w-2xl rounded-2xl bg-slate-900 p-10 text-center">
-          <p className="text-slate-300">List price <span className="line-through">${VAULT.anchorPrice}</span>. Launch pricing while the Vault is new.</p>
-          <p className="mt-2 text-5xl font-bold text-white">${VAULT.launchPrice}<span className="text-lg font-normal text-slate-400"> one-time</span></p>
-          <div className="mt-6"><CheckoutButton label={`Get instant access for $${VAULT.launchPrice}`} /></div>
-          <p className="mx-auto mt-6 max-w-md text-sm text-slate-300">
-            Try three prompts from your section in the next {VAULT.guaranteeDays} days.
-            If they don&apos;t save you real time, reply to your receipt and we refund you.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-400">
-            <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> {VAULT.guaranteeDays}-day refund</span>
-            <span className="flex items-center gap-2"><RefreshCw className="h-4 w-4" /> Free weekly updates</span>
-            <span className="flex items-center gap-2"><Star className="h-4 w-4" /> 1,200+ members</span>
+      <section className="bg-slate-50 px-6 py-16 sm:px-12">
+        <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white text-center shadow-xl ring-1 ring-slate-200">
+          <div className="h-2 w-full bg-orange-400" />
+          <div className="px-8 py-10">
+            <div className="flex items-end justify-center gap-8 sm:gap-12">
+              <div className="pb-2 text-center">
+                <div className="text-3xl font-bold text-slate-400 sm:text-4xl">
+                  <s className="decoration-red-400 decoration-2">${VAULT.anchorPrice}</s>
+                </div>
+                <div className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                  list price
+                </div>
+              </div>
+              <div>
+                <div className="text-6xl font-extrabold tracking-tight text-slate-900 sm:text-7xl">
+                  <Mark>${VAULT.launchPrice}</Mark>
+                </div>
+                <div className="mt-2 text-slate-500">one-time · yours forever</div>
+              </div>
+            </div>
+            <div className="mt-6 flex justify-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
+                <Lock className="h-4 w-4" /> Launch price, locked when you buy
+              </span>
+            </div>
+            <div className="mt-8">
+              <CheckoutButton
+                label={`Get instant access for $${VAULT.launchPrice}`}
+                sublabel={`Instant access · ${VAULT.guaranteeDays}-day money-back guarantee`}
+              />
+            </div>
+            <p className="mx-auto mt-6 max-w-md text-sm text-slate-600">
+              Try three prompts from your section in the next {VAULT.guaranteeDays} days.
+              If they don&apos;t save you real time, reply to your receipt and we refund you.
+            </p>
+            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-orange-500" /> {VAULT.guaranteeDays}-day refund</span>
+              <span className="flex items-center gap-2"><RefreshCw className="h-4 w-4 text-orange-500" /> Free weekly updates</span>
+              <span className="flex items-center gap-2"><Star className="h-4 w-4 text-orange-500" /> 1,200+ members</span>
+            </div>
           </div>
         </div>
       </section>
@@ -191,14 +220,19 @@ export default function VaultPage() {
       {/* FAQ */}
       <section className="px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-2xl">
-          <h2 className="text-2xl font-bold text-slate-900">Questions</h2>
-          <div className="mt-6 space-y-6">
-            {FAQ.map(([q, a]) => (
-              <div key={q}>
-                <h3 className="font-semibold text-slate-900">{q}</h3>
-                <p className="mt-1 text-slate-600">{a}</p>
-              </div>
-            ))}
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-3">
+              <span className="h-0.5 w-8 rounded bg-orange-400" />
+              <span className="text-sm font-semibold uppercase tracking-widest text-orange-600">
+                Before you buy
+              </span>
+            </div>
+            <h2 className="mt-4 text-3xl font-bold text-slate-900">
+              Common <Mark>questions</Mark>
+            </h2>
+          </div>
+          <div className="mt-8">
+            <FaqAccordion items={FAQ} />
           </div>
           <p className="mt-10 text-center text-sm text-slate-500">
             Prefer the free taste first?{" "}

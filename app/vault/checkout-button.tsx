@@ -7,10 +7,12 @@ import { VAULT } from "@/lib/pricing";
 
 export function CheckoutButton({
   label = "Get instant access",
+  sublabel,
   className = "",
   product = "vault",
 }: {
   label?: string;
+  sublabel?: string;
   className?: string;
   product?: "vault" | "membership";
 }) {
@@ -58,11 +60,21 @@ export function CheckoutButton({
       <button
         onClick={start}
         disabled={loading}
-        className="group inline-flex w-full items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600 disabled:opacity-70 sm:w-auto"
+        className={`group inline-flex w-full items-center justify-center bg-orange-500 font-semibold text-white transition-colors hover:bg-orange-600 disabled:opacity-70 sm:w-auto ${
+          sublabel ? "flex-col rounded-full px-10 py-4" : "rounded-xl px-8 py-4 text-base"
+        }`}
       >
         {loading ? (
-          <>
+          <span className="inline-flex items-center text-base">
             <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Starting checkout…
+          </span>
+        ) : sublabel ? (
+          <>
+            <span className="inline-flex items-center text-lg">
+              {label}
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </span>
+            <span className="mt-0.5 text-xs font-medium text-orange-100">{sublabel}</span>
           </>
         ) : (
           <>
