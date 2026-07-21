@@ -81,6 +81,17 @@ export async function GET(req: NextRequest) {
         .filter((s) => s.day > lastDay && s.day <= days)
         .sort((x, y) => x.day - y.day)[0];
 
+      // Drip timing: the Day-0 welcome goes out on the first run after joining
+      // (any hour), but later steps send only in the 14:00-15:00 UTC window
+      // (US morning / EU afternoon) so everyone gets a consistent, well-timed
+      // daily email instead of a midnight-UTC delivery. Also caps catch-up
+      // sends at ~2/day for anyone who fell behind.
+      const hourUtc = new Date().getUTCHours();
+      if (due && due.day > 0 && hourUtc !== 14 && hourUtc !== 15) {
+        skipped++;
+        continue;
+      }
+
       if (!due) {
         // No due step. If they've cleared the last day, mark the series done.
         if (lastDay >= LAST_DAY) {
