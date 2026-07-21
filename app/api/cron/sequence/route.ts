@@ -9,6 +9,7 @@ import {
   FREE_LIST_ID,
 } from "@/lib/brevo";
 import { SEQUENCE, LAST_DAY, type Ctx } from "@/lib/sequence";
+import { siteConfig } from "@/lib/site";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -108,6 +109,21 @@ export async function GET(req: NextRequest) {
       sent++;
     } catch (err) {
       errors.push(`${c.email}: ${(err as Error).message}`);
+    }
+  }
+
+  // Digest to the admin whenever something actually happened (sends or errors),
+  // so silent failures and daily activity are visible without checking logs.
+  if (sent > 0 || errors.length > 0) {
+    try {
+      await sendEmail({
+        to: siteConfig.email,
+        subject: `Nurture cron: ${sent} sent${errors.length ? `, ${errors.length} ERRORS` : ""}`,
+        htmlContent: `<p>Sequence run finished.</p><ul><li>Scanned: ${contacts.length}</li><li>Sent: ${sent}</li><li>Advanced: ${advanced}</li><li>Skipped: ${skipped}</li></ul>${errors.length ? `<p><b>Errors:</b></p><pre>${errors.slice(0, 20).join("\n")}</pre>` : ""}`,
+        tag: "cron-digest",
+      });
+    } catch (err) {
+      console.error("cron digest email failed", err);
     }
   }
 
