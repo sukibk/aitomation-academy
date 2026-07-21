@@ -52,6 +52,14 @@ export async function GET(req: NextRequest) {
       // long-time members after the 2026-07 import.
       const status = (attr(a, "SEQ_STATUS") || "").toLowerCase();
       const member = (attr(a, "MEMBER_STATUS") || "free").toLowerCase();
+      // Self-heal: a website membership buyer who later joins Skool gets
+      // overwritten to free/active by the join Zap. PURCHASED survives that
+      // overwrite, so restore their paid state instead of nurturing them.
+      if (attr(a, "PURCHASED") === "membership" && (member !== "paid" || status === "active")) {
+        await updateContact(c.email, { MEMBER_STATUS: "paid", SEQ_STATUS: "paid" });
+        skipped++;
+        continue;
+      }
       if (c.emailBlacklisted || member === "paid" || status !== "active") {
         skipped++;
         continue;

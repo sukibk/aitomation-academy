@@ -196,7 +196,14 @@ export async function POST(req: NextRequest) {
   try {
     await upsertContact(
       email,
-      { FIRSTNAME: firstName, MEMBER_STATUS: isSubscription ? "paid" : "free" },
+      {
+        FIRSTNAME: firstName,
+        MEMBER_STATUS: isSubscription ? "paid" : "free",
+        // PURCHASED is the tamper-proof purchase record: the join Zap overwrites
+        // MEMBER_STATUS/SEQ_STATUS with free/active when a buyer later joins
+        // Skool, but never touches this field. The cron self-heals from it.
+        PURCHASED: isSubscription ? "membership" : "vault",
+      } as never,
       [VAULT_BUYERS_LIST],
     );
   } catch (err) {
