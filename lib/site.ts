@@ -11,7 +11,7 @@ export const siteConfig = {
   companyName: "AITOMATION LLC",
   social: {
     youtube: "https://www.youtube.com/@MarcoSudar",
-    skool: "https://www.skool.com/claude-academy-5969",
+    skool: "https://www.skool.com/claude-academy",
   },
   keywords: [
     "Claude for real work",
