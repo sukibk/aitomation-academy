@@ -111,7 +111,7 @@ export function LeadMagnetForm({
           Check your email!
         </h3>
         <p className="text-green-700">
-          The Claude Content System PDF is on its way to <strong>{email}</strong>.
+          The Claude Starter System PDF is on its way to <strong>{email}</strong>.
         </p>
         <p className="mt-2 text-sm text-green-600">
           Check your spam folder if you don&apos;t see it in a few minutes.

@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/site";
 
 const footerLinks = {
   product: [
-    { label: "Free Content System PDF", href: "#join" },
+    { label: "Free Starter System PDF", href: "/free" },
     { label: "Blog", href: "/blog" },
     { label: "Community", href: "/skool-redirect" },
     { label: "YouTube", href: siteConfig.social.youtube },

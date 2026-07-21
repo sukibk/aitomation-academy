@@ -6,9 +6,9 @@ import { Footer } from "@/app/sections/footer";
 import { LeadMagnetSection } from "@/app/sections/lead-magnet-section";
 
 export const metadata: Metadata = {
-  title: "Free Claude Resources: Guides, Prompts & the Content System",
+  title: "Free Claude Resources: Guides, Prompts & the Starter System",
   description:
-    "Free Claude resources for non-technical professionals: The Claude Content System PDF, practical guides, and copy-paste prompts.",
+    "Free Claude resources for non-technical professionals: The Claude Starter System PDF, practical guides, and copy-paste prompts.",
   alternates: { canonical: `${siteConfig.url}/free` },
 };
 

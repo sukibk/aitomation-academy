@@ -28,13 +28,13 @@ export function LeadMagnetSection() {
 
               <h2 className="mb-6 text-3xl font-display tracking-tight sm:text-4xl lg:text-5xl leading-[1.1]">
                 Get{" "}
-                <span className="text-orange-400">The Claude Content System</span>
+                <span className="text-orange-400">The Claude Starter System</span>
               </h2>
 
               <p className="mb-10 text-lg text-slate-400 leading-relaxed max-w-lg">
-                The complete system I use to turn Claude into a content machine
-                from SEO research to automated publishing. Prompts, skills,
-                and setup included.
+                20 copy-paste prompts, installable skills, and five-minute
+                guides that turn Claude into a coworker that hands you
+                finished work. Reports, dashboards, content, proposals. No coding.
               </p>
 
               <ul className="space-y-4">
@@ -55,7 +55,7 @@ export function LeadMagnetSection() {
                 Download the free PDF
               </h3>
               <p className="mb-6 text-slate-500">
-                Enter your details below and download The Claude Content System
+                Enter your details below and download The Claude Starter System
                 instantly.
               </p>
               <LeadMagnetForm />

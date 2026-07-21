@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 const steps = [
   {
     number: "01",
-    title: "Download The Claude Content System",
+    title: "Download The Claude Starter System",
     titleHref: "#join",
     description:
       "Get the free PDF with the exact prompts, skills, and automation setup to turn Claude into your content machine.",

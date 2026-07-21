@@ -82,7 +82,7 @@ export function EntryPopup() {
                 <Mail className="h-7 w-7 text-green-600" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">Check your email!</h3>
-              <p className="text-slate-500">The Claude Content System PDF is on its way to <strong>{email}</strong>.</p>
+              <p className="text-slate-500">The Claude Starter System PDF is on its way to <strong>{email}</strong>.</p>
               <p className="mt-2 text-sm text-slate-400">Check your spam folder if you don&apos;t see it in a few minutes.</p>
             </div>
           ) : (
@@ -90,7 +90,7 @@ export function EntryPopup() {
               <div className="mb-6">
                 <p className="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-2">Free PDF</p>
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
-                  Get The Claude Content System
+                  Get The Claude Starter System
                 </h2>
                 <p className="text-sm text-slate-500">
                   The complete system to turn Claude into your content machine. Delivered to your inbox.

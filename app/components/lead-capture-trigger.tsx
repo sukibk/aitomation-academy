@@ -65,7 +65,7 @@ export function LeadCaptureTrigger({
                 Free PDF
               </span>
               <h3 className="text-xl font-bold text-slate-900 normal-case">
-                Get The Claude Content System
+                Get The Claude Starter System
               </h3>
               <p className="text-sm text-slate-500 mt-1">
                 The complete system to turn Claude into your content machine. Delivered to your inbox.

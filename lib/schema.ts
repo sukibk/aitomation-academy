@@ -134,7 +134,7 @@ export function homePageSchema() {
             name: "Is this really free?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. The Claude Content System is a free PDF download that includes the exact prompts, skills, and automation setup to turn Claude into your content machine — plus an invitation to the free community.",
+              text: "Yes. The Claude Starter System is a free PDF with 20 copy-paste prompts, installable skills, and quick guides that turn Claude into a coworker for real work, plus an invitation to the free community.",
             },
           },
         ],

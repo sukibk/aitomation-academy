@@ -36,7 +36,7 @@ export function BlogPostFooter({ blogSlug }: { blogSlug?: string }) {
           Grab the playbook
         </h3>
         <p className="mb-4 text-sm text-slate-500">
-          The Claude Content System — free PDF to your inbox.
+          The Claude Starter System — free PDF to your inbox.
         </p>
         <LeadMagnetForm
           variant="hero"

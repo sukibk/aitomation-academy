@@ -99,7 +99,7 @@ export default async function BlogPostPage({
             <div className="mb-10 rounded-2xl bg-slate-900 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <h2 className="text-lg font-display text-white mb-1 normal-case">
-                  Get The Claude Content System
+                  Get The Claude Starter System
                 </h2>
                 <p className="text-sm text-slate-400">
                   The complete system to turn Claude into your content machine. Free PDF.

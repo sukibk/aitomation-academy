@@ -225,7 +225,7 @@ export function BlogPostLayout({ children, blogSlug }: { children: ReactNode; bl
                 Grab the free Claude playbook
               </p>
               <p className="truncate text-xs text-slate-500 sm:text-sm">
-                The complete Claude Content System — PDF to your inbox.
+                The complete Claude Starter System — PDF to your inbox.
               </p>
             </div>
             <LeadCaptureTrigger
