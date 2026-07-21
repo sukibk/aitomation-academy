@@ -170,6 +170,10 @@ export default function VaultPage() {
         </div>
       </section>
 
+      {/* Social proof: real member posts (+ consent-gated quote wall) */}
+      <CommunityWins />
+      <MemberStories />
+
       {/* Anchor + guarantee */}
       <section className="bg-slate-50 px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white text-center shadow-xl ring-1 ring-slate-200">
@@ -214,10 +218,6 @@ export default function VaultPage() {
           </div>
         </div>
       </section>
-
-      {/* Social proof: real member posts (+ consent-gated quote wall) */}
-      <CommunityWins />
-      <MemberStories />
 
       {/* Compact cross-link instead of a second pricing block: one page, one job */}
       <section className="px-6 py-12 text-center sm:px-12">

@@ -5,15 +5,15 @@ import { Mark } from "@/app/components/mark";
 // Real screenshots of member posts and comments from inside the community.
 const wins = [
   { src: "/images/creatives/wins/win6.png", alt: "Member comment: landed a big commercial deal using the Claude setup learned here" },
-  { src: "/images/creatives/wins/win7.png", alt: "Member post: 5 pages on page 1 of Google 27 days after launching a Claude-built site" },
-  { src: "/images/creatives/wins/win1.png", alt: "Member post: custom CRM and sales tracker built with Claude in an hour" },
   { src: "/images/creatives/wins/win8.png", alt: "Member post: digital art business website and marketing system built with Claude Code" },
   { src: "/images/creatives/wins/win9.png", alt: "Member post: first-ever project, a billing system for a small business built with Claude Code" },
+  { src: "/images/creatives/wins/win7.png", alt: "Member post: 5 pages on page 1 of Google 27 days after launching a Claude-built site" },
   { src: "/images/creatives/wins/win5.png", alt: "Member post: skeptic converted after trying Claude Cowork" },
   { src: "/images/creatives/wins/win10.png", alt: "Member post: AI trading bot built with Claude Code running on a Raspberry Pi" },
-  { src: "/images/creatives/wins/win4.png", alt: "Member post: lead generation and CRM automation flow built with Claude over a weekend" },
+  { src: "/images/creatives/wins/win1.png", alt: "Member post: custom CRM and sales tracker built with Claude in an hour" },
   { src: "/images/creatives/wins/win11.png", alt: "Member post: CLAUDE.md setup called a total game-changer for a clean workflow" },
   { src: "/images/creatives/wins/win12.png", alt: "Member comment: the course path is exactly the next step I need" },
+  { src: "/images/creatives/wins/win4.png", alt: "Member post: lead generation and CRM automation flow built with Claude over a weekend" },
   { src: "/images/creatives/wins/win2.png", alt: "Member post: free AI slide generator tool built as a Claude artifact and shared with the community" },
   { src: "/images/creatives/wins/win3.png", alt: "Member post: automating weekly Wordpress blog posts with a Claude Code workflow" },
 ];
@@ -66,6 +66,17 @@ export function CommunityWins() {
               />
             </div>
           ))}
+        </div>
+
+        {/* End-of-wall CTA */}
+        <div className="mt-10 text-center">
+          <a
+            href="/skool-redirect"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-colors hover:border-orange-400 hover:text-orange-600"
+          >
+            Read hundreds more member posts inside the community
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

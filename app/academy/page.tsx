@@ -7,6 +7,7 @@ import { siteConfig } from "@/lib/site";
 import { MEMBERSHIP, VAULT, currentLevel } from "@/lib/pricing";
 import { FounderPricing } from "@/app/sections/founder-pricing";
 import { MemberStories } from "@/app/sections/member-stories";
+import { CommunityWins } from "@/app/sections/community-wins";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
 
@@ -126,6 +127,8 @@ export default function AcademyPage() {
             </ul>
           </div>
         </section>
+
+        <CommunityWins />
 
         <MemberStories />
 
