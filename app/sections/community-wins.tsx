@@ -6,6 +6,7 @@ import { VAULT } from "@/lib/pricing";
 // Real screenshots of member posts and comments from inside the community.
 const wins = [
   { src: "/images/creatives/wins/win6.png", alt: "Member comment: landed a big commercial deal using the Claude setup learned here" },
+  { src: "/images/creatives/wins/win13.png", alt: "Member post: non-developer turned Claude Code into a personal assistant running a 14-person service operation" },
   { src: "/images/creatives/wins/win8.png", alt: "Member post: digital art business website and marketing system built with Claude Code" },
   { src: "/images/creatives/wins/win9.png", alt: "Member post: first-ever project, a billing system for a small business built with Claude Code" },
   { src: "/images/creatives/wins/win7.png", alt: "Member post: 5 pages on page 1 of Google 27 days after launching a Claude-built site" },
