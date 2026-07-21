@@ -93,7 +93,7 @@ export function EntryPopup() {
                   Get The Claude Starter System
                 </h2>
                 <p className="text-sm text-slate-500">
-                  The complete system to turn Claude into your content machine. Delivered to your inbox.
+                  20 prompts, skills, and guides that get finished work out of Claude. Delivered to your inbox.
                 </p>
               </div>
 

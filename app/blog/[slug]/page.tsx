@@ -102,7 +102,7 @@ export default async function BlogPostPage({
                   Get The Claude Starter System
                 </h2>
                 <p className="text-sm text-slate-400">
-                  The complete system to turn Claude into your content machine. Free PDF.
+                  20 prompts, skills, and guides that get finished work out of Claude. Free PDF.
                 </p>
               </div>
               <LeadCaptureTrigger blogSlug={slug} className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-600 transition-colors shrink-0 cursor-pointer">

@@ -9,7 +9,7 @@ const steps = [
     title: "Download The Claude Starter System",
     titleHref: "#join",
     description:
-      "Get the free PDF with the exact prompts, skills, and automation setup to turn Claude into your content machine.",
+      "Get the free PDF: 20 copy-paste prompts, skills, and guides that get finished work out of Claude.",
   },
   {
     number: "02",

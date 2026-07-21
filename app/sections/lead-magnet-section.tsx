@@ -4,7 +4,7 @@ import { LeadMagnetForm } from "../components/lead-magnet-form";
 import { Check } from "lucide-react";
 
 const benefits = [
-  "The exact prompts to build an SEO content machine",
+  "12 prompts that end in a deliverable, not a chat reply",
   "Keyword research workflow using real data",
   "A blog writer skill that creates articles on autopilot",
   "Instant PDF download, no email wait",
