@@ -19,9 +19,9 @@ export function Navbar() {
   // Header CTA matches the page's job: sell on sales pages, free elsewhere.
   const cta = (() => {
     if (pathname.startsWith("/vault") && !VAULT.salesPaused)
-      return { href: "/vault#buy", label: `Get the Vault · $${VAULT.launchPrice}` };
+      return { href: "#buy", label: `Get the Vault · $${VAULT.launchPrice}` };
     if (pathname.startsWith("/academy"))
-      return { href: "/academy#membership", label: "Lock $69/mo" };
+      return { href: "#membership", label: "Lock $69/mo" };
     return { href: "/skool-redirect", label: "Get Free Access" };
   })();
 
@@ -65,22 +65,22 @@ export function Navbar() {
               1200+ professionals already learning
             </span>
           </div>
-          <Link
+          <a
             href={cta.href}
             className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
           >
             {cta.label}
-          </Link>
+          </a>
         </div>
 
         {/* Mobile — CTA only */}
         <div className="md:hidden">
-          <Link
+          <a
             href={cta.href}
             className="inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-600 transition-colors"
           >
             {cta.label}
-          </Link>
+          </a>
         </div>
       </div>
     </header>

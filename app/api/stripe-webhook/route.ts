@@ -204,7 +204,9 @@ export async function POST(req: NextRequest) {
         // Skool, but never touches this field. The cron self-heals from it.
         PURCHASED: isSubscription ? "membership" : "vault",
       } as never,
-      [VAULT_BUYERS_LIST],
+      // 20 = all paid customers; 24/25 split by product so the Zapier
+      // course-unlock Zaps can trigger per product without filter steps.
+      [VAULT_BUYERS_LIST, isSubscription ? 25 : 24],
     );
   } catch (err) {
     console.error("stripe-webhook: brevo upsert failed", err);
