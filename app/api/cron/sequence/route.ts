@@ -46,10 +46,13 @@ export async function GET(req: NextRequest) {
   for (const c of contacts) {
     try {
       const a = c.attributes || {};
-      const status = (attr(a, "SEQ_STATUS") || "active").toLowerCase();
+      // Only contacts EXPLICITLY marked active by the join webhook enter the
+      // nurture. Contacts without SEQ_STATUS (e.g. bulk imports) are never
+      // dripped — defaulting to active once nearly welcome-mailed 1,150
+      // long-time members after the 2026-07 import.
+      const status = (attr(a, "SEQ_STATUS") || "").toLowerCase();
       const member = (attr(a, "MEMBER_STATUS") || "free").toLowerCase();
-      if (c.emailBlacklisted || member === "paid" ||
-          status === "paid" || status === "done" || status === "unsub") {
+      if (c.emailBlacklisted || member === "paid" || status !== "active") {
         skipped++;
         continue;
       }
