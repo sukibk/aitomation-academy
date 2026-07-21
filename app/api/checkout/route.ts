@@ -29,17 +29,41 @@ export async function POST(req: NextRequest) {
 
   let email: string | undefined;
   let product: "vault" | "membership" = "vault";
+  let promo: string | undefined;
   try {
     const body = await req.json();
     if (typeof body?.email === "string") email = body.email;
     if (body?.product === "membership") product = "membership";
+    if (typeof body?.promo === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(body.promo))
+      promo = body.promo;
   } catch {
     // no body is fine — defaults to vault
   }
 
+  // ?promo=CODE on the page auto-applies a Stripe promotion code at checkout.
+  // Stripe forbids combining `discounts` with `allow_promotion_codes`, so the
+  // manual code field is only shown when no code came in via the link.
+  let promoId: string | undefined;
+  if (promo) {
+    try {
+      const lookup = await fetch(
+        `https://api.stripe.com/v1/promotion_codes?code=${encodeURIComponent(promo)}&active=true&limit=1`,
+        { headers: { Authorization: `Bearer ${key}` } },
+      );
+      const found = (await lookup.json()) as { data?: { id: string }[] };
+      promoId = found.data?.[0]?.id;
+    } catch {
+      // invalid/expired code: fall through to normal checkout
+    }
+  }
+
   const base = siteConfig.url;
   const form = new URLSearchParams();
-  form.set("allow_promotion_codes", "true");
+  if (promoId) {
+    form.set("discounts[0][promotion_code]", promoId);
+  } else {
+    form.set("allow_promotion_codes", "true");
+  }
   form.set("billing_address_collection", "auto");
   if (email) form.set("customer_email", email);
   // Abandoned-checkout recovery: keep the session recoverable after it expires

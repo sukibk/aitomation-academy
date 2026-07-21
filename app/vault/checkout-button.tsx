@@ -26,10 +26,11 @@ export function CheckoutButton({
       posthog.capture("vault_checkout_start", { product });
     } catch {}
     try {
+      const promo = new URLSearchParams(window.location.search).get("promo") || undefined;
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product }),
+        body: JSON.stringify({ product, promo }),
       });
       const data = await res.json();
       if (res.ok && data.url) {
