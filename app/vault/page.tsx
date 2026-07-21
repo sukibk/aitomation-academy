@@ -172,7 +172,7 @@ export default function VaultPage() {
       <CommunityWins />
 
       {/* Anchor + guarantee */}
-      <section className="bg-slate-50 px-6 py-16 sm:px-12">
+      <section id="buy" className="bg-slate-50 px-6 py-16 sm:px-12">
         <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white text-center shadow-xl ring-1 ring-slate-200">
           <div className="h-2 w-full bg-orange-400" />
           <div className="px-8 py-10">
