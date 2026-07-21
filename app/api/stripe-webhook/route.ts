@@ -69,7 +69,7 @@ function deliveryEmail(firstName: string): string {
 <p><a href="${SKOOL_INVITE}" style="background:#C2571B;color:#fff;padding:12px 22px;border-radius:6px;text-decoration:none;font-weight:600;display:inline-block">Join here</a></p>
 <p><b>2. Your Vault access gets unlocked on your account</b> — within a few hours, usually much faster. You'll see "Claude Vault" open up in the Classroom tab: 550+ skills, prompts, and workflows sorted by your job, updated weekly.</p>
 <p><b>3. Start with your job's section.</b> Consultant, marketer, creator, founder, or agency — copy one recipe and run it today. That first 10 minutes is where the "oh, THAT's how this works" moment happens.</p>
-<p>Any problem at all — just reply to this email. 30-day money-back guarantee, no questions.</p>
+<p>Any problem at all — just reply to this email. 7-day money-back guarantee, no questions.</p>
 <p>— Marko</p>
 <p style="margin-top:20px;padding:14px;background:#f4efe8;border-radius:6px"><b>P.S.</b> The Vault is the library — membership is the whole workshop: every course (the 7-Day Challenge, Cowork, Claude Code), the weekly live call where we fix your project together, and your rate locked for life before it rises. <a href="${siteConfig.url}/#membership" style="color:#C2571B;font-weight:600">See what members get</a>.</p>
 <hr style="border:none;border-top:1px solid #e6dfd6;margin:28px 0 12px">

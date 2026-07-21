@@ -61,7 +61,7 @@ export function CheckoutButton({
         onClick={start}
         disabled={loading}
         className={`group inline-flex w-full items-center justify-center bg-orange-500 font-semibold text-white transition-colors hover:bg-orange-600 disabled:opacity-70 sm:w-auto ${
-          sublabel ? "flex-col rounded-full px-10 py-4" : "rounded-xl px-8 py-4 text-base"
+          sublabel ? "flex-col rounded-full px-6 py-3.5 sm:px-10 sm:py-4" : "rounded-xl px-6 py-3.5 text-base sm:px-8 sm:py-4"
         }`}
       >
         {loading ? (
@@ -70,11 +70,11 @@ export function CheckoutButton({
           </span>
         ) : sublabel ? (
           <>
-            <span className="inline-flex items-center text-lg">
+            <span className="inline-flex items-center text-center text-base leading-snug sm:text-lg">
               {label}
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
             </span>
-            <span className="mt-0.5 text-xs font-medium text-orange-100">{sublabel}</span>
+            <span className="mt-0.5 hidden text-xs font-medium text-orange-100 sm:block">{sublabel}</span>
           </>
         ) : (
           <>
@@ -83,6 +83,9 @@ export function CheckoutButton({
           </>
         )}
       </button>
+      {sublabel && (
+        <p className="mt-2 text-center text-xs text-slate-400 sm:hidden">{sublabel}</p>
+      )}
       {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
     </div>
   );

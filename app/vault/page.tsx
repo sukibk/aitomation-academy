@@ -83,7 +83,7 @@ export default function VaultPage() {
               <span className="text-4xl font-bold text-white">${VAULT.launchPrice}</span>
               <span className="text-slate-400">one-time</span>
             </div>
-            <CheckoutButton label={`Get 550+ prompts for $${VAULT.launchPrice} (was $${VAULT.anchorPrice})`} />
+            <CheckoutButton label={`Get ${VAULT.itemCount} prompts · $${VAULT.launchPrice}`} />
             <p className="text-sm text-slate-500">
               {VAULT.guaranteeDays}-day refund. Instant access. No subscription.
             </p>
@@ -199,7 +199,7 @@ export default function VaultPage() {
             </div>
             <div className="mt-8">
               <CheckoutButton
-                label={`Get instant access for $${VAULT.launchPrice}`}
+                label={`Get instant access · $${VAULT.launchPrice}`}
                 sublabel={`Instant access · ${VAULT.guaranteeDays}-day money-back guarantee`}
               />
             </div>
