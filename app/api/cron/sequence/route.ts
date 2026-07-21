@@ -57,8 +57,14 @@ export async function GET(req: NextRequest) {
         continue;
       }
 
-      const days = daysSince(attr(a, "SKOOL_JOINED_AT"));
-      if (days < 0) { skipped++; continue; }
+      let days = daysSince(attr(a, "SKOOL_JOINED_AT"));
+      if (days < 0) {
+        // Zap-created contacts may arrive without a join date. Active status is
+        // only ever set at join time, so treat them as joined today.
+        const todayStr = new Date().toISOString().slice(0, 10);
+        await updateContact(c.email, { SKOOL_JOINED_AT: todayStr });
+        days = 0;
+      }
       const lastDay = Number(attr(a, "SEQ_LAST_DAY") ?? -1);
 
       // Next unsent step that is now due.
