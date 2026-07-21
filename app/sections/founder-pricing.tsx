@@ -19,7 +19,7 @@ const PERKS = [
 export function FounderPricing() {
   const { current, next, spotsToNext } = currentLevel();
   return (
-    <section id="membership" className="bg-slate-50 px-6 py-20 sm:px-12" data-section="founder_pricing">
+    <section id="membership" className="scroll-mt-20 bg-slate-50 px-6 py-20 sm:px-12" data-section="founder_pricing">
       <div className="mx-auto max-w-3xl">
         {/* Header */}
         <div className="text-center">

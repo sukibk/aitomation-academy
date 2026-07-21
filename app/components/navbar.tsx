@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { VAULT } from "@/lib/pricing";
+import { VAULT, MEMBER_COUNT } from "@/lib/pricing";
 import Image from "next/image";
 
 const NAV = [
@@ -24,6 +24,17 @@ export function Navbar() {
       return { href: "#membership", label: "Lock $69/mo" };
     return { href: "/skool-redirect", label: "Get Free Access" };
   })();
+
+  // Same-page hash CTAs: scroll ourselves and replace (not push) the history
+  // entry, so repeated clicks don't stack #buy/#membership in the back stack.
+  const handleCta = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!cta.href.startsWith("#")) return;
+    const target = document.getElementById(cta.href.slice(1));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", cta.href);
+  };
 
   const linkCls = (href: string) => {
     const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -62,11 +73,12 @@ export function Navbar() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
             </span>
             <span className="text-sm text-slate-500">
-              1200+ professionals already learning
+              {MEMBER_COUNT.toLocaleString()}+ professionals already learning
             </span>
           </div>
           <a
             href={cta.href}
+            onClick={handleCta}
             className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
           >
             {cta.label}
@@ -77,6 +89,7 @@ export function Navbar() {
         <div className="md:hidden">
           <a
             href={cta.href}
+            onClick={handleCta}
             className="inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-600 transition-colors"
           >
             {cta.label}
