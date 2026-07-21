@@ -1,0 +1,21 @@
+name: Hourly sequence cron
+# Vercel Hobby cron is once daily; this free hourly ping keeps the new-joiner
+# welcome sequence near-real-time (D0 lands within the hour of joining).
+# The stepper is idempotent, so extra runs never double-send.
+
+on:
+  schedule:
+    - cron: "10 * * * *" # every hour at :10
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger sequence stepper
+        run: |
+          code=$(curl -s -o /tmp/out.json -w "%{http_code}" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            "https://www.aitomationacademy.com/api/cron/sequence")
+          cat /tmp/out.json
+          test "$code" = "200"
