@@ -148,3 +148,14 @@ export async function contactExists(email: string): Promise<boolean> {
   });
   return res.ok;
 }
+
+// Fetch a contact (attributes + list memberships), or null if not found.
+export async function getContact(
+  email: string,
+): Promise<(BrevoContact & { listIds?: number[] }) | null> {
+  const res = await fetch(`${BREVO}/contacts/${encodeURIComponent(email)}`, {
+    headers: headers(),
+  });
+  if (!res.ok) return null;
+  return (await res.json()) as BrevoContact & { listIds?: number[] };
+}

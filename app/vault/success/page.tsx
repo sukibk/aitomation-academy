@@ -14,11 +14,44 @@ export const metadata: Metadata = {
 export default async function VaultSuccess({
   searchParams,
 }: {
-  searchParams: Promise<{ sub?: string; sub_cancelled?: string }>;
+  searchParams: Promise<{ sub?: string; sub_cancelled?: string; session_id?: string }>;
 }) {
   const params = await searchParams;
   const isSub = params.sub === "1";
   const { current, next } = currentLevel();
+
+  // Cancelled membership checkout, or a direct visit with no Stripe session:
+  // nothing was charged, so never show the purchase-success content.
+  if (params.sub_cancelled === "1" || (!isSub && !params.session_id)) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-slate-900 px-6 py-24">
+        <div className="mx-auto max-w-xl text-center">
+          <h1 className="text-3xl font-bold text-white">Checkout cancelled — nothing was charged.</h1>
+          <p className="mt-4 text-slate-300">
+            No worries. Your card was not charged and nothing changed on your account.
+            Whenever you are ready:
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <Link
+              href="/academy"
+              className="inline-flex rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white hover:bg-orange-600"
+            >
+              See the Academy membership
+            </Link>
+            <Link
+              href="/vault"
+              className="inline-flex rounded-xl border border-slate-600 px-6 py-3 font-semibold text-slate-200 hover:bg-slate-800"
+            >
+              Get the Vault for $17
+            </Link>
+          </div>
+          <p className="mt-8 text-sm text-slate-500">
+            Something put you off at checkout? Tell us: {siteConfig.email}.
+          </p>
+        </div>
+      </main>
+    );
+  }
 
   if (isSub) {
     return (

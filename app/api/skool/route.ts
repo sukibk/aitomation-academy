@@ -6,6 +6,7 @@ import {
   upsertContact,
   updateContact,
   sendEmail,
+  getContact,
   type MemberAttributes,
 } from "@/lib/brevo";
 import { SEQUENCE, PAID_WELCOME, type Ctx } from "@/lib/sequence";
@@ -79,9 +80,10 @@ export async function POST(req: NextRequest) {
         MEMBER_STATUS: "paid",
         SEQ_STATUS: "paid",
       };
-      await updateContact(email, attrs).catch(() =>
-        upsertContact(email, { FIRSTNAME: firstName, ...attrs }),
-      );
+      // List 20 = paid customers regardless of billing route (Stripe or Skool).
+      // Brevo automations use "added to list 20" as the universal purchased-exit,
+      // so Skool-billed upgrades must land there too.
+      await upsertContact(email, { FIRSTNAME: firstName, ...attrs }, [20]);
       const ctx: Ctx = {
         firstName,
         role: normalizeRole(body.role),
@@ -100,6 +102,25 @@ export async function POST(req: NextRequest) {
     // join
     const role = normalizeRole(body.role);
     const experience = normalizeExperience(body.experience);
+
+    // Website buyers (Vault or membership) join Skool AFTER purchasing, so the
+    // join event must not restart them as free-tier nurture targets.
+    const existing = await getContact(email);
+    const isCustomer =
+      existing !== null &&
+      ((existing.listIds || []).includes(20) ||
+        String(existing.attributes?.MEMBER_STATUS || "") === "paid");
+    if (isCustomer) {
+      await updateContact(email, {
+        FIRSTNAME: firstName,
+        LASTNAME: lastName,
+        ROLE: role,
+        EXPERIENCE: experience,
+        SKOOL_JOINED_AT: today(),
+      } as MemberAttributes);
+      return NextResponse.json({ ok: true, event: "join", skipped: "existing customer" });
+    }
+
     const attrs: MemberAttributes = {
       FIRSTNAME: firstName,
       LASTNAME: lastName,
