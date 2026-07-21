@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Trophy, ArrowRight } from "lucide-react";
 import { Mark } from "@/app/components/mark";
+import { VAULT } from "@/lib/pricing";
 
 // Real screenshots of member posts and comments from inside the community.
 const wins = [
@@ -11,7 +12,7 @@ const wins = [
   { src: "/images/creatives/wins/win5.png", alt: "Member post: skeptic converted after trying Claude Cowork" },
   { src: "/images/creatives/wins/win10.png", alt: "Member post: AI trading bot built with Claude Code running on a Raspberry Pi" },
   { src: "/images/creatives/wins/win1.png", alt: "Member post: custom CRM and sales tracker built with Claude in an hour" },
-  { src: "/images/creatives/wins/win11.png", alt: "Member post: CLAUDE.md setup called a total game-changer for a clean workflow" },
+  { src: "/images/creatives/wins/win11.png", alt: "Member post: CLAUDE.md setup that keeps every project workflow clean" },
   { src: "/images/creatives/wins/win12.png", alt: "Member comment: the course path is exactly the next step I need" },
   { src: "/images/creatives/wins/win4.png", alt: "Member post: lead generation and CRM automation flow built with Claude over a weekend" },
   { src: "/images/creatives/wins/win2.png", alt: "Member post: free AI slide generator tool built as a Claude artifact and shared with the community" },
@@ -70,13 +71,26 @@ export function CommunityWins() {
 
         {/* End-of-wall CTA */}
         <div className="mt-10 text-center">
-          <a
-            href="/skool-redirect"
-            className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-colors hover:border-orange-400 hover:text-orange-600"
-          >
-            Read hundreds more member posts inside the community
-            <ArrowRight className="h-4 w-4" />
-          </a>
+          {VAULT.salesPaused ? (
+            <a
+              href="/academy"
+              data-cta="community_wins_academy"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-colors hover:border-orange-400 hover:text-orange-600"
+            >
+              Build your own win: see the Academy membership
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          ) : (
+            <a
+              href="/vault"
+              data-cta="community_wins_vault"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-colors hover:border-orange-400 hover:text-orange-600"
+            >
+              Get the prompts &amp; skills these members use:{" "}
+              <s className="text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          )}
         </div>
       </div>
     </section>

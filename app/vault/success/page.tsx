@@ -26,7 +26,7 @@ export default async function VaultSuccess({
     return (
       <main className="flex min-h-screen items-center justify-center bg-slate-900 px-6 py-24">
         <div className="mx-auto max-w-xl text-center">
-          <h1 className="text-3xl font-bold text-white">Checkout cancelled — nothing was charged.</h1>
+          <h1 className="text-3xl font-bold text-white">Checkout cancelled. Nothing was charged.</h1>
           <p className="mt-4 text-slate-300">
             No worries. Your card was not charged and nothing changed on your account.
             Whenever you are ready:
@@ -62,7 +62,7 @@ export default async function VaultSuccess({
             Welcome to the Academy. You&apos;re a full member.
           </h1>
           <p className="mt-4 text-slate-300">
-            Your ${current.price}/mo founder rate is locked. Check your inbox — your
+            Your ${current.price}/mo founder rate is locked. Check your inbox: your
             welcome email walks you through joining the community space, and full
             access (all courses + the Vault + the weekly call) gets switched on for
             your account right after, usually within the hour.
@@ -89,8 +89,8 @@ export default async function VaultSuccess({
         <p className="mt-4 text-slate-300">
           Your payment went through. Within a few minutes you&apos;ll get an email with your
           next steps: join the community space, and your Vault access gets unlocked on your
-          account — usually within the hour. Then start with your job&apos;s section: copy one
-          recipe and run it today.
+          account, usually within the hour. Then start with your job&apos;s section: copy one
+          prompt and run it today.
         </p>
 
         <div className="mt-8 rounded-2xl border border-orange-500/40 bg-slate-800/60 p-6 text-left">
@@ -102,13 +102,13 @@ export default async function VaultSuccess({
           </p>
           <p className="mt-2 text-slate-300">
             Full membership adds every course (the 7-Day Challenge, Cowork, Claude Code),
-            the weekly live call, and keeps your Vault growing — for ${MEMBERSHIP.price}/mo,
+            the weekly live call, and keeps your Vault growing, for ${MEMBERSHIP.price}/mo,
             locked at the founder rate for life.{" "}
             {next ? `The rate rises to $${next.price}/mo as the community grows.` : "The rate rises as the community grows."}
           </p>
           <CheckoutButton
             product="membership"
-            label={`Upgrade — $${MEMBERSHIP.price}/mo, locked for life`}
+            label={`Upgrade: $${MEMBERSHIP.price}/mo, locked for life`}
             className="mt-4"
           />
           <p className="mt-3 text-xs text-slate-500">

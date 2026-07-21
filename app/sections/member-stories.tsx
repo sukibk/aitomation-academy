@@ -1,4 +1,5 @@
-import { Trophy } from "lucide-react";
+import Link from "next/link";
+import { Trophy, ArrowRight } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { approvedTestimonials } from "@/lib/testimonials";
 
@@ -19,7 +20,7 @@ export function MemberStories() {
           <div className="flex items-center justify-center gap-3">
             <span className="h-0.5 w-8 rounded bg-orange-400" />
             <span className="text-sm font-semibold uppercase tracking-widest text-orange-600">
-              Live from the community
+              Member stories
             </span>
           </div>
           <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -50,6 +51,16 @@ export function MemberStories() {
               <blockquote className="mt-4 text-slate-700">“{t.quote}”</blockquote>
             </figure>
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link
+            href="/academy"
+            data-cta="member_stories_academy"
+            className="inline-flex items-center gap-2 font-semibold text-orange-600 transition-colors hover:text-orange-700"
+          >
+            Build something like this: see the Academy membership
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

@@ -1,24 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { VAULT, currentLevel } from "@/lib/pricing";
 
+const { current, next } = currentLevel();
+
+// Purchase-objection FAQ: every question is something a buyer asks before
+// paying for the Vault or the membership. Honest answers only.
 const faqs = [
   {
-    question: "I've tried AI already. Why does it still feel random?",
+    question: "There's endless free Claude content. Why pay for anything?",
     answer:
-      "Because most people aren't using a real system. They open Claude or ChatGPT, type something vague, get mixed results, and never build a repeatable workflow.\n\nThis is different. AItomation Academy gives you practical Claude workflows you can actually reuse for writing, research, content, planning, and day-to-day work.",
+      "Free content is how most members started, including Marko's own tutorials (1M+ views). The problem isn't information, it's order and feedback: YouTube has no path, nobody looks at your work, and most people stall in week two.\n\nThe Academy is a sequence. Courses that end with something built, a weekly live call where your actual project gets fixed, and the Vault so you never start from a blank box.",
+  },
+  {
+    question: "What's the difference between the Vault and the membership?",
+    answer: `The Vault ($${VAULT.launchPrice} one-time, $${VAULT.anchorPrice} list price) is the library: ${VAULT.itemCount} Claude prompts & skills sorted by your job, updated weekly.\n\nThe membership ($${current.price}/mo) is the whole workshop: every course (the 7-Day Claude Challenge, Cowork, and Claude Code), the weekly live call, the community, with the full Vault included.\n\nNot sure? Start with the Vault. You can upgrade any time.`,
   },
   {
     question: "I'm not technical. Is this actually for me?",
     answer:
-      "Yes. That's exactly who this is for.\n\nYou do not need to code, automate, or set anything complicated up. If you can use email, copy and paste, and follow simple instructions, you can use these workflows.",
+      "Yes, that's exactly who it's built for. No coding, no setup rabbit holes. The 7-Day Challenge assumes zero experience and ends with a live website. A first-time builder in the community shipped a working billing app.",
   },
   {
-    question: "What would I actually use Claude for in my real work?",
-    answer:
-      "Most people use it for the things that keep eating time every week:\n\n• Turning messy notes into drafts\n• Researching faster\n• Improving writing\n• Brainstorming content\n• Organizing thoughts before making decisions\n• Repurposing one idea into multiple pieces of content\n\nThe goal is simple: make Claude useful in the work you're already doing.",
+    question: `Is $${current.price} a month actually worth it?`,
+    answer: `Here's the honest math. The membership includes the full Vault, every course, and a live call every single week where your project gets worked on. One member landed a commercial deal using what he learned. Another built a CRM in an hour.\n\nIf one workflow saves you an afternoon a week, it pays for itself. And $${current.price}/mo is the founder rate, locked for life: at ${next ? next.threshold.toLocaleString() : ""} members, new joiners pay $${next ? next.price : ""}/mo.`,
+  },
+  {
+    question: "What if I cancel? What if the Vault isn't for me?",
+    answer: `Cancel the membership in two clicks. No emails, no retention forms, and everything you built stays yours.\n\nThe Vault comes with a ${VAULT.guaranteeDays}-day refund: if it doesn't save you real time, reply to your receipt and we refund you.`,
   },
 ];
 
@@ -42,7 +55,7 @@ function FAQItem({ question, answer, defaultOpen }: { question: string; answer: 
       </button>
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-96 pb-6" : "max-h-0"
+          isOpen ? "max-h-[40rem] pb-6" : "max-h-0"
         }`}
       >
         <div className="text-slate-500 leading-relaxed whitespace-pre-line">{answer}</div>
@@ -65,7 +78,7 @@ export function FAQ() {
               </span>
             </div>
             <h2 className="text-3xl font-display tracking-tight text-slate-900 sm:text-4xl leading-[1.1]">
-              Questions people actually ask before joining
+              Questions people actually ask before buying
             </h2>
           </div>
 
@@ -81,8 +94,30 @@ export function FAQ() {
             ))}
           </div>
 
+          {/* CTA */}
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
+            <Link
+              href="/academy"
+              data-cta="faq_academy"
+              className="group inline-flex items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-600 transition-colors"
+            >
+              Lock ${current.price}/mo for life
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            {!VAULT.salesPaused && (
+              <Link
+                href="/vault"
+                data-cta="faq_vault"
+                className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
+              >
+                Get {VAULT.itemCount} prompts &amp; skills for{" "}
+                <s className="mx-1 text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
+              </Link>
+            )}
+          </div>
+
           {/* Still have questions */}
-          <div className="mt-10">
+          <div className="mt-8">
             <p className="text-slate-500">
               Still have questions?{" "}
               <a

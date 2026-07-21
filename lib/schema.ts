@@ -23,7 +23,7 @@ export function organizationSchema() {
         "@type": "Course",
         name: "Claude Code Academy",
         description:
-          "Practice-first Claude education for non-technical professionals: the 7-Day Claude Challenge, Claude Cowork course, Claude Code course, the 550+ recipe Claude Vault, and a weekly live call. 1,200+ member community.",
+          "Practice-first Claude education for non-technical professionals: the 7-Day Claude Challenge, Claude Cowork course, Claude Code course, the 550+ prompt & skill Claude Vault, and a weekly live call. 1,200+ member community.",
         provider: {
           "@type": "Organization",
           name: siteConfig.name,

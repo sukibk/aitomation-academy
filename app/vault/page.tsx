@@ -4,10 +4,9 @@ import { Check, Star, ShieldCheck, RefreshCw, Zap, Lock } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
-import { VAULT, currentLevel } from "@/lib/pricing";
+import { VAULT } from "@/lib/pricing";
 import { CheckoutButton } from "./checkout-button";
 import { CommunityWins } from "@/app/sections/community-wins";
-import { MemberStories } from "@/app/sections/member-stories";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
 
@@ -25,7 +24,7 @@ const INSIDE = [
   ["New prompts & skills every week", "The Vault grows every Tuesday. A prompt pack goes stale the month you buy it. This one doesn't."],
 ];
 
-// Concrete outcomes — each one is a real recipe category in the Vault.
+// Concrete outcomes — each one is a real prompt category in the Vault.
 const OUTCOMES = [
   ["A client-ready report", "Paste the research-report prompt with your notes. Minutes later: a structured document with an executive summary, findings, and next steps. Formatted, not a wall of chat text."],
   ["A working dashboard", "The dashboard prompt returns a live artifact with KPI cards, breakdowns by category, and a working filter, from a description and a CSV. No code, no installation."],
@@ -51,7 +50,7 @@ const PAINS = [
 ];
 
 const FAQ = [
-  ["Why pay when there are free prompts everywhere?", "Because free prompt lists are written for ChatGPT and dumped in bulk: untested, unorganized, and generic. The Vault is 550 prompts & skills curated for how Claude actually works, sorted by your job, and updated weekly. You aren't buying prompts; you're buying the filing system and the hours back."],
+  ["Why pay when there are free prompts everywhere?", `Because free prompt lists are written for ChatGPT and dumped in bulk: untested, unorganized, and generic. The Vault is ${VAULT.itemCount} prompts & skills curated for how Claude actually works, sorted by your job, and updated weekly. You aren't buying prompts; you're buying the filing system and the hours back.`],
   ["Isn't Anthropic's own prompt library free?", "It is, and it's good for learning what Claude can do. It's a general-purpose showcase, not a work system: it isn't organized by profession, it doesn't cover Cowork skills or multi-step client workflows, and it doesn't grow with your job. The Vault starts where the free library stops."],
   ["Isn't prompt engineering dead?", "The magic-words era is, yes. Claude understands plain language fine. What still separates a chat reply from finished work is context, structure, and the right ask: skills, project setups, multi-step workflows. That's what a Vault prompt is: the system around the prompt, not a clever sentence."],
   ["Which Claude plan do I need?", "Any paid Claude plan works for most prompts. A few Cowork and Claude Code items assume the desktop app. Each one says what it needs."],
@@ -61,7 +60,6 @@ const FAQ = [
 ];
 
 export default function VaultPage() {
-  const { current } = currentLevel();
   return (
     <>
     <Navbar />
@@ -163,16 +161,15 @@ export default function VaultPage() {
             ))}
           </ul>
           <p className="mt-8 text-slate-600">
-            &ldquo;Complete AI bundles&rdquo; with less Claude in them sell for $99–$150.
-            You don&apos;t need 30,000 generic prompts. You need the {VAULT.itemCount} prompts
-            that actually work in Claude, for ${VAULT.launchPrice}.
+            You don&apos;t need a 30,000-prompt dump you&apos;ll never open twice. You need
+            the {VAULT.itemCount} prompts &amp; skills that actually work in Claude, sorted
+            so you find yours in a minute. That&apos;s what ${VAULT.launchPrice} buys.
           </p>
         </div>
       </section>
 
-      {/* Social proof: real member posts (+ consent-gated quote wall) */}
+      {/* Social proof: real member posts */}
       <CommunityWins />
-      <MemberStories />
 
       {/* Anchor + guarantee */}
       <section className="bg-slate-50 px-6 py-16 sm:px-12">
@@ -248,9 +245,9 @@ export default function VaultPage() {
             <FaqAccordion items={FAQ} />
           </div>
           <p className="mt-10 text-center text-sm text-slate-500">
-            Prefer the free taste first?{" "}
-            <Link href="/free" className="text-orange-600 underline">Grab the free Claude starter</Link>{" "}
-            and grab the full Vault ({current.label.toLowerCase()} pricing) any time.
+            Prefer a free taste first?{" "}
+            <Link href="/free" className="text-orange-600 underline">Download the free Claude starter</Link>{" "}
+            and come back for the full Vault at the ${VAULT.launchPrice} launch price.
           </p>
         </div>
       </section>

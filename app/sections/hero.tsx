@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Volume2, X } from "lucide-react";
 import posthog from "posthog-js";
+import { VAULT } from "@/lib/pricing";
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -192,13 +193,16 @@ export function Hero() {
               Explore the Academy
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link
-              href="/vault"
-              data-cta="hero_vault"
-              className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
-            >
-              550+ Claude prompts for <s className="mx-1 text-slate-400">$49</s> $17
-            </Link>
+            {!VAULT.salesPaused && (
+              <Link
+                href="/vault"
+                data-cta="hero_vault"
+                className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
+              >
+                {VAULT.itemCount} prompts &amp; skills for{" "}
+                <s className="mx-1 text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
+              </Link>
+            )}
           </div>
 
           {/* Trust signal */}

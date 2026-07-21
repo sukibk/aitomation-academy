@@ -6,7 +6,6 @@ import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
 import { MEMBERSHIP, VAULT, currentLevel } from "@/lib/pricing";
 import { FounderPricing } from "@/app/sections/founder-pricing";
-import { MemberStories } from "@/app/sections/member-stories";
 import { CommunityWins } from "@/app/sections/community-wins";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
@@ -51,11 +50,13 @@ const STACK = [
   },
 ];
 
+const LEVEL = currentLevel();
+
 const FAQ = [
   ["Why not just learn from YouTube?", "You can, and most members tried. The problem isn't information, it's order and feedback: YouTube has no path, nobody looks at your work, and you quit in week two. The Academy is a sequence that ends with things built, plus a weekly call where your actual project gets fixed."],
   ["Do I need to be technical?", "No. Everything is built for non-technical professionals. The Challenge assumes zero coding and ends with a live website."],
   ["Which Claude plan do I need?", "Any paid Claude plan covers most of the curriculum. Each lesson says what it needs."],
-  ["What does it cost?", "Your rate locks for life at the level you join. See the ladder below. Cancel anytime."],
+  ["What does it cost?", `$${LEVEL.current.price}/mo, locked for life at that rate.${LEVEL.next ? ` At ${LEVEL.next.threshold.toLocaleString()} members, new joiners pay $${LEVEL.next.price}/mo; your rate never changes.` : ""} Cancel in two clicks, any time.`],
   ["How is this different from the Vault?", `The Vault ($${VAULT.launchPrice}) is the prompt & skill library. The Academy is the whole workshop: the courses, the live calls, the community, with the Vault included.`],
   ["Is this affiliated with Anthropic?", "No. AItomation Academy is independent and not endorsed by Anthropic."],
 ];
@@ -129,8 +130,6 @@ export default function AcademyPage() {
         </section>
 
         <CommunityWins />
-
-        <MemberStories />
 
         <FounderPricing />
 

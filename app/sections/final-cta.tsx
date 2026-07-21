@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { VAULT } from "@/lib/pricing";
+import { VAULT, currentLevel } from "@/lib/pricing";
 
 export function FinalCTA() {
+  const { current } = currentLevel();
   return (
     <section data-section="final_cta" className="relative py-28 bg-slate-900">
 
@@ -35,7 +36,7 @@ export function FinalCTA() {
               data-cta="final_academy"
               className="inline-flex items-center justify-center rounded-xl border border-slate-600 px-8 py-4 text-base font-semibold text-slate-200 cursor-pointer hover:bg-slate-800 transition-colors"
             >
-              Or join the Academy
+              Or lock the Academy at ${current.price}/mo for life
             </Link>
           </div>
 

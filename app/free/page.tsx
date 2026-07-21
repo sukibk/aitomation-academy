@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
+import { VAULT, currentLevel } from "@/lib/pricing";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
 import { LeadMagnetSection } from "@/app/sections/lead-magnet-section";
@@ -22,6 +23,7 @@ const GUIDES = [
 ];
 
 export default function FreePage() {
+  const { current } = currentLevel();
   return (
     <>
       <Navbar />
@@ -45,13 +47,18 @@ export default function FreePage() {
               ))}
             </div>
             <p className="mt-10 text-center text-slate-500">
-              Ready for the full library?{" "}
-              <Link href="/vault" className="font-semibold text-orange-600 underline">
-                The Claude Vault
-              </Link>{" "}
-              · Want the whole path?{" "}
+              {!VAULT.salesPaused && (
+                <>
+                  Ready for the full library?{" "}
+                  <Link href="/vault" className="font-semibold text-orange-600 underline">
+                    Get {VAULT.itemCount} prompts &amp; skills for ${VAULT.launchPrice}
+                  </Link>{" "}
+                  ·{" "}
+                </>
+              )}
+              Want the whole path?{" "}
               <Link href="/academy" className="font-semibold text-orange-600 underline">
-                The Academy
+                Join the Academy at ${current.price}/mo, locked for life
               </Link>
             </p>
           </div>

@@ -49,7 +49,7 @@ export function CheckoutButton({
       <div className={className}>
         <p className="rounded-xl border border-slate-600 px-6 py-4 text-sm text-slate-300">
           Purchases are paused for a few days while we onboard the current batch of
-          buyers. Check back shortly — the launch price will still be here.
+          buyers. Check back shortly: the launch price will still be here.
         </p>
       </div>
     );
