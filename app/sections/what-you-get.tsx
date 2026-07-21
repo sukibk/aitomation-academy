@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Mark } from "@/app/components/mark";
+import { BuyLink } from "@/app/components/buy-link";
 import { VAULT, currentLevel } from "@/lib/pricing";
 
 // Sells the two products block by block: what the membership and the Vault
@@ -245,23 +246,23 @@ export function WhatYouGet() {
 
         {/* Bottom CTA */}
         <div className="mt-16 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/academy"
-            data-cta="what_you_get_academy"
+          <BuyLink
+            product="membership"
+            dataCta="what_you_get_academy"
             className="group inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white hover:bg-orange-600 transition-colors"
           >
             Lock ${current.price}/mo for life
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Link>
+          </BuyLink>
           {!VAULT.salesPaused && (
-            <Link
-              href="/vault"
-              data-cta="what_you_get_vault"
+            <BuyLink
+              product="vault"
+              dataCta="what_you_get_vault"
               className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-8 py-4 text-base font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
             >
               Get {VAULT.itemCount} prompts &amp; skills for{" "}
               <s className="mx-1 text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
-            </Link>
+            </BuyLink>
           )}
         </div>
         <p className="mt-4 text-center text-sm text-slate-500">

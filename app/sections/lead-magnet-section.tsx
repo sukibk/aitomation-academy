@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { LeadMagnetForm } from "../components/lead-magnet-form";
 import { Check } from "lucide-react";
 import { VAULT } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 const benefits = [
   "12 prompts that end in a deliverable, not a chat reply",
@@ -64,13 +64,13 @@ export function LeadMagnetSection() {
               {!VAULT.salesPaused && (
                 <p className="mt-5 border-t border-slate-100 pt-4 text-center text-sm text-slate-500">
                   Want the full library instead?{" "}
-                  <Link
-                    href="/vault"
-                    data-cta="lead_magnet_vault"
+                  <BuyLink
+                    product="vault"
+                    dataCta="lead_magnet_vault"
                     className="font-semibold text-orange-600 underline hover:text-orange-700"
                   >
                     Get {VAULT.itemCount} prompts &amp; skills for ${VAULT.launchPrice}
-                  </Link>
+                  </BuyLink>
                 </p>
               )}
             </div>

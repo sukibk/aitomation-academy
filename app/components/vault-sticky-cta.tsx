@@ -1,10 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { X, ArrowRight } from "lucide-react";
-import posthog from "posthog-js";
 import { VAULT } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 const DISMISS_KEY = "vault_sticky_dismissed";
 
@@ -35,19 +34,14 @@ export function VaultStickyCta() {
           <span className="hidden sm:inline">, sorted by your job, updated weekly.</span>
         </p>
         <div className="flex items-center gap-2">
-          <Link
-            href="/vault"
-            data-cta="vault_sticky"
-            onClick={() => {
-              try {
-                posthog.capture("vault_sticky_click");
-              } catch {}
-            }}
+          <BuyLink
+            product="vault"
+            dataCta="vault_sticky"
             className="inline-flex items-center whitespace-nowrap rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
           >
             <s className="mr-1 text-orange-200/80">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}: Get it
             <ArrowRight className="ml-1.5 h-4 w-4" />
-          </Link>
+          </BuyLink>
           <button
             aria-label="Dismiss"
             onClick={() => {

@@ -4,6 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { MEMBERSHIP, currentLevel } from "@/lib/pricing";
 import { CheckoutButton } from "../checkout-button";
+import { BuyLink } from "@/app/components/buy-link";
 import { PurchaseTracker } from "./purchase-tracker";
 
 export const metadata: Metadata = {
@@ -39,12 +40,13 @@ export default async function VaultSuccess({
             >
               See the Academy membership
             </Link>
-            <Link
-              href="/vault"
+            <BuyLink
+              product="vault"
+              dataCta="cancelled_retry_vault"
               className="inline-flex rounded-xl border border-slate-600 px-6 py-3 font-semibold text-slate-200 hover:bg-slate-800"
             >
               Get the Vault for $17
-            </Link>
+            </BuyLink>
           </div>
           <p className="mt-8 text-sm text-slate-500">
             Something put you off at checkout? Tell us: {siteConfig.email}.

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { VAULT, currentLevel } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 const { current, next } = currentLevel();
 
@@ -96,23 +97,23 @@ export function FAQ() {
 
           {/* CTA */}
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <Link
-              href="/academy"
-              data-cta="faq_academy"
+            <BuyLink
+              product="membership"
+              dataCta="faq_academy"
               className="group inline-flex items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-600 transition-colors"
             >
               Lock ${current.price}/mo for life
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </BuyLink>
             {!VAULT.salesPaused && (
-              <Link
-                href="/vault"
-                data-cta="faq_vault"
+              <BuyLink
+                product="vault"
+                dataCta="faq_vault"
                 className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
               >
                 Get {VAULT.itemCount} prompts &amp; skills for{" "}
                 <s className="mx-1 text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
-              </Link>
+              </BuyLink>
             )}
           </div>
 

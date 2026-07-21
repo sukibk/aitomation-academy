@@ -4,7 +4,8 @@ import { Check, Calendar, BookOpen, Wrench, Users } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
-import { MEMBERSHIP, VAULT, currentLevel } from "@/lib/pricing";
+import { MEMBERSHIP, VAULT, MEMBER_COUNT, currentLevel } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 import { FounderPricing } from "@/app/sections/founder-pricing";
 import { CommunityWins } from "@/app/sections/community-wins";
 import { Navbar } from "@/app/components/navbar";
@@ -45,7 +46,7 @@ const STACK = [
   },
   {
     icon: Users,
-    title: "1,200+ professionals",
+    title: `${MEMBER_COUNT.toLocaleString()}+ professionals`,
     desc: "Consultants, marketers, creators, founders, and agency operators building the same systems you are.",
   },
 ];
@@ -77,16 +78,17 @@ export default function AcademyPage() {
               <span className="text-orange-400">Start delegating to it.</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
-              The exact courses, prompts, and weekly calls 1,200+ non-technical professionals
+              The exact courses, prompts, and weekly calls {MEMBER_COUNT.toLocaleString()}+ non-technical professionals
               use to put real work on Claude. Every course ends with something built,
               not something watched.
             </p>
-            <Link
-              href="#membership"
+            <BuyLink
+              product="membership"
+              dataCta="academy_hero_join"
               className="mt-8 inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
             >
               Join at ${current.price}/mo, locked for life
-            </Link>
+            </BuyLink>
             <p className="mt-4 text-sm text-slate-500">${MEMBERSHIP.price}/mo · cancel anytime</p>
           </div>
         </section>

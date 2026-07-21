@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { VAULT, currentLevel } from "@/lib/pricing";
+import { VAULT, MEMBER_COUNT, currentLevel } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 export function FinalCTA() {
   const { current } = currentLevel();
@@ -17,27 +17,27 @@ export function FinalCTA() {
           </h2>
           <p className="mb-10 text-lg text-slate-400 max-w-2xl mx-auto">
             {VAULT.itemCount} Claude prompts &amp; skills, sorted by your job, that turn a blank
-            chat into finished work. Join 1,200+ professionals already using them.
+            chat into finished work. Join {MEMBER_COUNT.toLocaleString()}+ professionals already using them.
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             {!VAULT.salesPaused && (
-            <Link
-              href="/vault"
-              data-cta="final_vault"
+            <BuyLink
+              product="vault"
+              dataCta="final_vault"
               className="group inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
             >
               Get 550+ prompts for <s className="mx-1 text-orange-200/80">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </BuyLink>
             )}
-            <Link
-              href="/academy"
-              data-cta="final_academy"
+            <BuyLink
+              product="membership"
+              dataCta="final_academy"
               className="inline-flex items-center justify-center rounded-xl border border-slate-600 px-8 py-4 text-base font-semibold text-slate-200 cursor-pointer hover:bg-slate-800 transition-colors"
             >
               Or lock the Academy at ${current.price}/mo for life
-            </Link>
+            </BuyLink>
           </div>
 
           <p className="mt-6 text-sm text-slate-500">

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { currentLevel } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 const footerLinks = {
   product: [
@@ -42,14 +43,14 @@ export function Footer() {
                 Courses that end with something built, 550+ prompts &amp; skills, weekly live calls.
               </p>
             </div>
-            <Link
-              href="/academy"
-              data-cta="footer_academy"
+            <BuyLink
+              product="membership"
+              dataCta="footer_academy"
               className="group inline-flex shrink-0 items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-600 transition-colors"
             >
               Lock ${current.price}/mo for life
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </BuyLink>
           </div>
         </div>
       </div>

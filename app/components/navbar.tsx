@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { VAULT, MEMBER_COUNT } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 import Image from "next/image";
 
 const NAV = [
@@ -17,24 +18,14 @@ const NAV = [
 export function Navbar() {
   const pathname = usePathname();
   // Header CTA matches the page's job: sell on sales pages, free elsewhere.
+  // Priced CTAs open Stripe checkout directly — a click on a price is intent.
   const cta = (() => {
     if (pathname.startsWith("/vault") && !VAULT.salesPaused)
-      return { href: "#buy", label: `Get the Vault · $${VAULT.launchPrice}` };
+      return { product: "vault" as const, label: `Get the Vault · $${VAULT.launchPrice}` };
     if (pathname.startsWith("/academy"))
-      return { href: "#membership", label: "Lock $69/mo" };
-    return { href: "/skool-redirect", label: "Get Free Access" };
+      return { product: "membership" as const, label: "Lock $69/mo" };
+    return { product: null, href: "/skool-redirect", label: "Get Free Access" };
   })();
-
-  // Same-page hash CTAs: scroll ourselves and replace (not push) the history
-  // entry, so repeated clicks don't stack #buy/#membership in the back stack.
-  const handleCta = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!cta.href.startsWith("#")) return;
-    const target = document.getElementById(cta.href.slice(1));
-    if (!target) return;
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    history.replaceState(null, "", cta.href);
-  };
 
   const linkCls = (href: string) => {
     const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -76,24 +67,42 @@ export function Navbar() {
               {MEMBER_COUNT.toLocaleString()}+ professionals already learning
             </span>
           </div>
-          <a
-            href={cta.href}
-            onClick={handleCta}
-            className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
-          >
-            {cta.label}
-          </a>
+          {cta.product ? (
+            <BuyLink
+              product={cta.product}
+              dataCta="navbar_buy"
+              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
+            >
+              {cta.label}
+            </BuyLink>
+          ) : (
+            <a
+              href={cta.href}
+              className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 transition-colors"
+            >
+              {cta.label}
+            </a>
+          )}
         </div>
 
         {/* Mobile — CTA only */}
         <div className="md:hidden">
-          <a
-            href={cta.href}
-            onClick={handleCta}
-            className="inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-600 transition-colors"
-          >
-            {cta.label}
-          </a>
+          {cta.product ? (
+            <BuyLink
+              product={cta.product}
+              dataCta="navbar_buy_mobile"
+              className="inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-600 transition-colors"
+            >
+              {cta.label}
+            </BuyLink>
+          ) : (
+            <a
+              href={cta.href}
+              className="inline-flex items-center justify-center rounded-lg bg-orange-500 px-4 py-2 text-sm font-medium text-white hover:bg-orange-600 transition-colors"
+            >
+              {cta.label}
+            </a>
+          )}
         </div>
       </div>
     </header>
