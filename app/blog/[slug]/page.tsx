@@ -42,11 +42,13 @@ export async function generateMetadata({
       publishedTime: post.publishedAt,
       ...(post.updatedAt && { modifiedTime: post.updatedAt }),
       authors: [post.author],
+      images: ["/og.png"],
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
+      images: ["/og.png"],
     },
   };
 }

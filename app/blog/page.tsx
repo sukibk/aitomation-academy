@@ -19,12 +19,14 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/blog`,
     siteName: siteConfig.name,
     type: "website",
+    images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Blog — AItomation Academy",
     description:
       "Practical guides and workflows for using Claude AI in real work.",
+    images: ["/og.png"],
   },
 };
 
