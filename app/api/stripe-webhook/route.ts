@@ -132,9 +132,10 @@ export async function POST(req: NextRequest) {
   // email: existing contacts/members, or visitors who ticked the promotions consent).
   if (event.type === "checkout.session.expired") {
     const session = event.data?.object ?? {};
-    const details = (session.customer_details ?? {}) as { email?: string };
+    const details = (session.customer_details ?? {}) as { email?: string; name?: string };
     const email = (details.email || (session.customer_email as string) || "").toLowerCase();
     if (!email) return NextResponse.json({ received: true });
+    const abandonFirstName = (details.name || "").split(" ")[0] || "";
 
     const consent = (session.consent ?? {}) as { promotions?: string };
     const recovery = ((session.after_expiration ?? {}) as {
@@ -149,6 +150,7 @@ export async function POST(req: NextRequest) {
         // Adding to list 23 triggers the Brevo "Checkout abandon" automation
         // (list trigger is more reliable than the custom-event trigger in the builder).
         await upsertContact(email, {
+          ...(abandonFirstName ? { FIRSTNAME: abandonFirstName } : {}),
           ABANDONED_AT: new Date().toISOString().slice(0, 10),
           CART: cart,
           RECOVERY_URL: recovery?.url || "",
