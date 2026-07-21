@@ -1,11 +1,13 @@
 import type { BlogPost } from "@/lib/blog";
+import { BuyLink } from "@/app/components/buy-link";
+import { MEMBER_COUNT } from "@/lib/pricing";
 
 export const post: BlogPost = {
   slug: "is-claude-ai-free-pricing-guide",
   title: "Claude Pricing in 2026: Free vs Pro vs Max",
   description: "A clear breakdown of Claude AI pricing: free plan, Pro, Max, Team, and Enterprise. What each tier includes and whether upgrading is worth it.",
   publishedAt: "2026-04-05",
-  updatedAt: "2026-07-19",
+  updatedAt: "2026-07-21",
   author: "Marko Sudar",
   category: "Claude Guides",
   tags: [
@@ -74,6 +76,27 @@ export const post: BlogPost = {
           Anthropic added a safety classifier addressing the underlying
           concern. Pricing and plan details below reflect the current lineup.
         </p>
+      </div>
+
+      <div className="not-prose my-8 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <p className="text-xs font-semibold uppercase tracking-wider text-orange-600 mb-2">
+          Before you pick a plan
+        </p>
+        <p className="text-slate-700">
+          The plan decides how <em>much</em> Claude you get. What decides how{" "}
+          <em>useful</em> every message is: what you feed it. The Claude Vault is
+          550+ prompts &amp; skills sorted by your job, and they work on the free
+          plan too — most readers of this guide get more from Free + the Vault
+          than from an upgrade they don&apos;t need yet.
+        </p>
+        <BuyLink
+          product="vault"
+          dataCta="pricing_guide_top_vault"
+          className="mt-3 inline-block rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-600"
+        >
+          Get the Vault · $17 one time
+        </BuyLink>
+        <p className="mt-2 text-xs text-slate-400">7-day refund guarantee. Yours forever.</p>
       </div>
 
       <h2>Claude pricing tiers at a glance</h2>
@@ -294,13 +317,14 @@ export const post: BlogPost = {
       {/* --------------- Subtle CTA 1 --------------- */}
       <div className="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
         <p className="text-sm text-amber-900">
-          Want to see what Claude can do before upgrading? We put together 7 free
-          workflows you can try right now — no paid plan needed.{" "}
+          Want to see what Claude can do before upgrading? The free Claude
+          Starter System has 12 prompts, 3 skills, and 5 guides you can run on
+          the free plan today — instant PDF, no paid plan needed.{" "}
           <a
-            href="/skool-redirect"
+            href="/free"
             className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900 transition-colors"
           >
-            Get the free workflows
+            Get the free Starter System
           </a>
         </p>
       </div>
@@ -447,16 +471,20 @@ export const post: BlogPost = {
           Whichever plan you pick, get more out of every message
         </p>
         <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts and skills, sorted by your job —
-          consultant, marketer, founder, freelancer, or operator. Copy-paste
-          recipes that work on Free, Pro, or Max.
+          The Claude Vault has 550+ prompts &amp; skills, sorted by your job —
+          consultant, marketer, founder, freelancer, or operator. Copy, fill the
+          blanks, get finished work. They run on Free, Pro, or Max.
         </p>
-        <a
-          href="/vault"
+        <BuyLink
+          product="vault"
+          dataCta="pricing_guide_table_vault"
           className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
         >
-          See the Vault
-        </a>
+          Get 550+ prompts &amp; skills · $17
+        </BuyLink>
+        <p className="mt-2 text-xs text-slate-500">
+          Lists at $49. One-time purchase, 7-day refund guarantee.
+        </p>
       </div>
 
       <h2>Who should stay on the free plan</h2>
@@ -575,14 +603,16 @@ export const post: BlogPost = {
       {/* --------------- Subtle CTA 2 --------------- */}
       <div className="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
         <p className="text-sm text-amber-900">
-          1200+ professionals in our free community are already using these
-          workflows daily to get more from Claude.{" "}
-          <a
-            href="/skool-redirect"
+          Same math applies to the Claude Vault: it costs $17 once, so the first
+          prompt that saves you an hour has already paid for it several times
+          over. {MEMBER_COUNT.toLocaleString()}+ professionals use it daily.{" "}
+          <BuyLink
+            product="vault"
+            dataCta="pricing_guide_roi_vault"
             className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900 transition-colors"
           >
-            Join the free community
-          </a>
+            Get the Vault for $17
+          </BuyLink>
         </p>
       </div>
 
@@ -862,19 +892,26 @@ export const post: BlogPost = {
 
       <div className="not-prose my-12 rounded-2xl bg-slate-900 p-6 sm:p-10 text-center">
         <h2 className="text-xl sm:text-2xl font-bold text-white mb-3">
-          Learn to get more from Claude — free or paid
+          You picked your plan. Now make it pay for itself.
         </h2>
         <p className="text-slate-400 max-w-xl mx-auto mb-6">
-          AItomation Academy teaches non-technical professionals how to use Claude
-          for real work. Copy-paste workflows, prompting strategies, and practical
-          systems you can start using today.
+          The Claude Vault: 550+ prompts &amp; skills sorted by your job, built
+          for real work on any plan — including Free. One-time $17, lists at
+          $49, updated weekly, 7-day refund guarantee.
         </p>
-        <a
-          href="/skool-redirect"
+        <BuyLink
+          product="vault"
+          dataCta="pricing_guide_end_vault"
           className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white hover:bg-orange-600 transition-colors"
         >
-          Join the Free Community
-        </a>
+          Get the Vault · $17
+        </BuyLink>
+        <p className="mt-4 text-sm text-slate-500">
+          Not ready to buy?{" "}
+          <a href="/skool-redirect" className="text-slate-300 underline hover:text-white">
+            Join {MEMBER_COUNT.toLocaleString()}+ professionals in the free community
+          </a>
+        </p>
       </div>
     </>
   ),
