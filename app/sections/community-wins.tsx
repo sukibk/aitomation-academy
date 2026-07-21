@@ -44,7 +44,7 @@ export function CommunityWins() {
         </div>
 
         {/* Masonry grid of post screenshots */}
-        <div className="mt-10 columns-1 gap-4 sm:columns-2 lg:columns-3">
+        <div className="mx-auto mt-10 max-w-4xl columns-1 gap-5 sm:columns-2">
           {wins.map((win) => (
             <div
               key={win.src}

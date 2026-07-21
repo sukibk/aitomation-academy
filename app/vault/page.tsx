@@ -6,7 +6,8 @@ import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
 import { VAULT, currentLevel } from "@/lib/pricing";
 import { CheckoutButton } from "./checkout-button";
-import { FounderPricing } from "@/app/sections/founder-pricing";
+import { CommunityWins } from "@/app/sections/community-wins";
+import { MemberStories } from "@/app/sections/member-stories";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
 
@@ -214,8 +215,20 @@ export default function VaultPage() {
         </div>
       </section>
 
-      {/* Community upsell via founder ladder */}
-      <FounderPricing />
+      {/* Social proof: real member posts (+ consent-gated quote wall) */}
+      <CommunityWins />
+      <MemberStories />
+
+      {/* Compact cross-link instead of a second pricing block: one page, one job */}
+      <section className="px-6 py-12 text-center sm:px-12">
+        <p className="mx-auto max-w-xl text-slate-600">
+          Want the whole workshop, not just the prompts? The Academy includes the Vault,
+          every course, and the weekly live call.{" "}
+          <Link href="/academy" className="font-semibold text-orange-600 underline">
+            See the membership
+          </Link>
+        </p>
+      </section>
 
       {/* FAQ */}
       <section className="px-6 py-16 sm:px-12">
