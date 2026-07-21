@@ -1,6 +1,7 @@
 import { siteConfig } from "@/lib/site";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
+import { CommunityWins } from "@/app/sections/community-wins";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -14,28 +15,29 @@ export const metadata = {
 
 const credentials = [
   {
+    stat: "1M+",
+    label: "views on my online Claude and AI tutorials",
+  },
+  {
+    stat: "1,200+",
+    label: "students mentored inside the Academy",
+  },
+  {
     stat: "$1.8M",
-    label: "GenAI startup acquisition as Founding Engineer",
+    label: "GenAI startup acquired, I was the founding engineer",
   },
   {
-    stat: "AUVSI",
-    label: "AI Engineer building production systems daily",
-  },
-  {
-    stat: "Oracle",
-    label: "Former Cloud Engineer and Web Developer",
-  },
-  {
-    stat: "4.0 GPA",
-    label: "BS Computer Science, Catawba College",
+    stat: "Daily",
+    label: "I ship production AI systems with Claude every workday",
   },
 ];
 
 const highlights = [
-  "AWS Machine Learning for NLP certified",
-  "Published researcher on Generative AI for uncrewed systems",
-  "Hosted Generative AI panel at AUVSI XPONENTIAL 2025",
-  "Writes production code with Claude every single day",
+  "1M+ views on tutorials teaching Claude, Cowork, and Claude Code",
+  "1,200+ professionals mentored, from first prompt to shipped projects",
+  "Weekly live calls where members' real projects get fixed on screen",
+  "Students have landed commercial deals, ranked on page 1 of Google, and shipped their first apps",
+  "Every lesson comes from work I shipped myself, not theory",
 ];
 
 export default function AboutPage() {
@@ -88,10 +90,12 @@ export default function AboutPage() {
                     Hey, I&apos;m Marko Sudar
                   </h1>
                   <p className="text-lg text-slate-500 leading-relaxed mb-8">
-                    Software engineer based in the US. I build
-                    AI-powered production systems at AUVSI by day and teach
-                    non-technical professionals how to use Claude for real work
-                    at AItomation Academy.
+                    I teach non-technical professionals how to get finished work
+                    out of Claude. Over a million people have watched my
+                    tutorials, and 1,200+ of them learn with me inside the
+                    Academy. By day I build production AI systems as an
+                    engineer, so everything I teach is something I shipped
+                    myself first.
                   </p>
 
                   {/* Quick stats */}
@@ -125,24 +129,30 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-5 text-slate-600 text-lg leading-relaxed">
                 <p>
-                  I was the founding engineer behind a Generative AI startup that
-                  got acquired for $1.8M. Now I work at AUVSI, the world&apos;s
-                  largest organization for uncrewed systems and robotics, where I
-                  build AI-powered systems every day.
+                  I started posting Claude tutorials because I was using it every
+                  day as an engineer and kept watching non-technical people get
+                  left behind. Those tutorials passed a million views, and the
+                  same question kept landing in my inbox: this is great, but
+                  where do I actually start?
                 </p>
                 <p>
-                  I&apos;ve worked at Oracle as a Cloud Engineer, built
-                  full-stack applications at Vectal, published research on
-                  Generative AI, and hosted panels on AI at major industry
-                  conferences. I write production code with Claude daily.
+                  Everything published out there was either written for
+                  developers or too shallow to produce anything real. The people
+                  who could benefit most from Claude (consultants, marketers,
+                  creators, founders) had the least usable guidance.
                 </p>
                 <p>
-                  The problem I kept seeing? The people who could benefit most
-                  from AI tools like Claude &mdash; consultants, marketers,
-                  creators, founders &mdash; were the ones who had the least
-                  guidance on how to actually use them. Everything out there was
-                  either too technical or too surface-level. So I built AItomation
-                  Academy to fix that.
+                  So I built the Academy: a path that starts at zero and ends
+                  with things you built yourself. 1,200+ members are on it now.
+                  Some of them have landed commercial deals with what they
+                  learned, put their new websites on page 1 of Google, and
+                  shipped their first working apps without a line of code they
+                  wrote by hand.
+                </p>
+                <p>
+                  My background, for the record: founding engineer of a GenAI
+                  startup that was acquired for $1.8M, and I still build
+                  production AI systems every day. I teach it because I do it.
                 </p>
               </div>
             </div>
@@ -154,7 +164,7 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-3xl">
               <h2 className="text-3xl font-display tracking-tight text-slate-900 mb-8">
-                More about me
+                Why people learn from me
               </h2>
               <ul className="space-y-4">
                 {highlights.map((item) => (
@@ -193,6 +203,8 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+
+        <CommunityWins />
 
         {/* CTA */}
         <section data-section="about_cta" className="py-28 bg-slate-900">
