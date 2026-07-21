@@ -4,6 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { MEMBERSHIP, currentLevel } from "@/lib/pricing";
 import { CheckoutButton } from "../checkout-button";
+import { PurchaseTracker } from "./purchase-tracker";
 
 export const metadata: Metadata = {
   title: "Welcome to the Claude Vault",
@@ -57,6 +58,7 @@ export default async function VaultSuccess({
     return (
       <main className="flex min-h-screen items-center justify-center bg-slate-900 px-6 py-24">
         <div className="mx-auto max-w-xl text-center">
+          <PurchaseTracker product="membership" />
           <CheckCircle2 className="mx-auto h-16 w-16 text-orange-400" />
           <h1 className="mt-6 text-3xl font-bold text-white">
             Welcome to the Academy. You&apos;re a full member.
@@ -84,6 +86,7 @@ export default async function VaultSuccess({
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-900 px-6 py-24">
       <div className="mx-auto max-w-xl text-center">
+        <PurchaseTracker product="vault" />
         <CheckCircle2 className="mx-auto h-16 w-16 text-orange-400" />
         <h1 className="mt-6 text-3xl font-bold text-white">You&apos;re in. Check your inbox.</h1>
         <p className="mt-4 text-slate-300">
