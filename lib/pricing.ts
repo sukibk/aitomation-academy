@@ -23,8 +23,8 @@ export const MEMBERSHIP = {
   currency: "usd",
 };
 
-// Current member count (update from Skool; ~1,200 as of 2026-07). Drives the ladder.
-export const MEMBER_COUNT = 1200;
+// Current member count (update from Skool; 1,276 as of 2026-07-21). Drives the ladder.
+export const MEMBER_COUNT = 1276;
 
 // Membership founder-rate ladder. Price locked for life at the tier you join.
 export interface Level {
