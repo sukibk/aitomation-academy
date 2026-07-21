@@ -58,9 +58,9 @@ export interface Step {
 // Experience-branched line used on Day 2.
 function experienceBlock(c: Ctx): string {
   if (c.experience === "expert" || c.experience === "built") {
-    return `<p>You're past the basics, so skip the intro track. What you want is the Claude Code course and the Vault's power-setup section — CLAUDE.md templates, custom commands, subagents, and hooks that most people never configure. Both are inside Academy Premium, and the 7-day free trial covers all of it.</p>${btn(URL.plans, "Start the free trial")}`;
+    return `<p>You're past the basics, so skip the intro track. What you want is the Claude Code course and the Vault's power-setup section — CLAUDE.md templates, custom commands, subagents, and hooks that most people never configure. Both are inside Academy Premium, with a 7-day refund guarantee, so you can try all of it risk free.</p>${btn(URL.plans, "Unlock Premium")}`;
   }
-  return `<p>Start with the 7-Day Claude Challenge. By the end you'll have a real website live on the internet, built by talking to Claude — no coding. It's inside Academy Premium, and the 7-day free trial covers it, so you can finish the whole Challenge before you pay anything.</p>${btn(URL.plans, "Start Day 1 free")}`;
+  return `<p>Start with the 7-Day Claude Challenge. By the end you'll have a real website live on the internet, built by talking to Claude — no coding. It's inside Academy Premium, with a 7-day refund guarantee: if it's not for you in the first week, I refund you, no questions asked.</p>${btn(URL.plans, "Start Day 1")}`;
 }
 
 export const SEQUENCE: Step[] = [
@@ -146,7 +146,7 @@ ${btn(URL.plans, "Unlock everything")}`,
 <li>The Claude Vault — 550+ prompts & skills, new ones every week ($49 on its own)</li>
 <li>The weekly live call — bring your project, we fix it live</li>
 </ul>
-<p>The founder rate is $69/mo, locked for life. At 1,300 members it rises to $99/mo for new joiners. There's a 7-day free trial, and you can cancel anytime.</p>
+<p>The founder rate is $69/mo, locked for life. At 1,300 members it rises to $99/mo for new joiners. There's a 7-day refund guarantee, no questions asked, and you can cancel anytime.</p>
 ${btn(URL.plans, "Join Academy Premium")}`,
       ),
   },
