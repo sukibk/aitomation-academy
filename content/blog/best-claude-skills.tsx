@@ -25,7 +25,7 @@ export const post: BlogPost = {
         Most &quot;awesome Claude skills&quot; roundups are a wall of links
         with no context on which ones are worth your five minutes of setup.
         This list is twelve, chosen by the job they solve — writing, research,
-        ops, design, document work, and LinkedIn content — with exactly what
+        ops, design, <a href="/blog/claude-pdf-skill">document and PDF work</a>, and LinkedIn content — with exactly what
         each one does and how to install it, so you can skip the ones that do
         not apply to you.
       </p>

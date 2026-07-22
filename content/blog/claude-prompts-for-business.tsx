@@ -836,7 +836,7 @@ Be opinionated about priorities. If I listed 20 ideas but only 3 matter, tell me
         These prompts are most powerful when you don't treat them as one-offs. If you want ready-to-go versions you can use immediately, check out our <a href="/blog/5-claude-workflows-for-non-technical-professionals">5 ready-made Claude workflows</a>. Here's how to build a system:
       </p>
       <ol>
-        <li><strong>Create a Claude Project for each area of your business.</strong> One for sales, one for marketing, one for operations, one for client work. Add the relevant prompts to each project's instructions.</li>
+        <li><strong>Create a Claude Project for each area of your business.</strong> One for sales, one for marketing, one for operations, one for client work. Add the relevant prompts to each project's instructions — and for the projects you use most, write a proper <a href="/blog/claude-system-prompt-guide">system prompt</a> so Claude stays in character every time.</li>
         <li><strong>Upload your context once.</strong> Your brand guide, pricing sheet, past proposals, customer research — upload these as project files. Claude will reference them automatically.</li>
         <li><strong>Save your best outputs.</strong> When Claude produces something great, save it as an artifact or download it. Next time, you can reference it: "Write another proposal in the same style as the Acme Corp proposal we did last month."</li>
         <li><strong>Iterate and customize.</strong> These prompts are starting points. After using each one 2-3 times, you'll know what to add or remove for your specific business. Edit the prompt in your Project Instructions to make it yours.</li>

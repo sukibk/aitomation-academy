@@ -38,7 +38,7 @@ export const post: BlogPost = {
         Longer answer: the free plan is genuinely useful, but it has limits that
         matter depending on what kind of work you do. This guide breaks down
         exactly what you get at each pricing tier so you can make an informed
-        decision — whether you are a consultant, marketer, founder, freelancer,
+        decision — whether you are a <a href="/blog/ai-for-consultants">consultant</a>, marketer, founder, freelancer,
         or anyone else <a href="/blog/claude-for-business">using Claude in your business</a>.
       </p>
 
