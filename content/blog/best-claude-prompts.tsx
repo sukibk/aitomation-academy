@@ -24,7 +24,7 @@ export const post: BlogPost = {
     <>
       <p>
         The best Claude prompts are not clever one-liners — they are
-        finished templates that specify the role, the inputs, the structure,
+        finished <a href="/blog/claude-templates">Claude templates</a> that specify the role, the inputs, the structure,
         and the format, so Claude returns a deliverable instead of a rough
         draft you still have to rebuild. Below are 15 of the highest-value
         prompts we use across decks, reports, email sequences, content, and

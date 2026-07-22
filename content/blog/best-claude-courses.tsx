@@ -194,7 +194,7 @@ export const post: BlogPost = {
 
       <h2>The 7 options, in detail</h2>
       <p>
-        Anthropic Academy is the free course library Anthropic itself
+<a href="/blog/anthropic-courses">Anthropic Academy</a> is the free course library Anthropic itself
         publishes, and it is the right starting point for almost everyone
         before paying for anything. Hosted on Skilljar and linked from{" "}
         <a href="https://claude.com" target="_blank" rel="noopener noreferrer">
@@ -289,10 +289,11 @@ export const post: BlogPost = {
       <p>
         AItomation Academy — also called Claude Code Academy — is our own
         community: 1,200+ members as of July 2026, on Skool, teaching
-        Claude, Claude Cowork, and Claude Code specifically for
+        Claude, the <a href="/blog/claude-cowork-course">Claude Cowork course</a>, and the{" "}
+        <a href="/blog/claude-code-course">Claude Code course</a> specifically for
         non-technical professionals (consultants, marketers, creators,
         founders, operators). Membership includes the courses, the 550+
-        recipe Claude Vault, and a weekly live call, at a founder rate around
+        prompt Claude Vault, and a weekly live call, at a founder rate around
         $69/month that rises in tiers as membership grows (locked for life
         at whatever tier you join). The honest tradeoffs: it is smaller than
         AI Automation Society, so there is less peer volume to learn from,
