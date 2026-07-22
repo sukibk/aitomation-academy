@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { VAULT, currentLevel } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 const { current } = currentLevel();
 
@@ -121,23 +122,23 @@ export function HowItWorks() {
             <div className="flex gap-8 sm:gap-12">
               <div className="shrink-0 w-12 sm:w-16" />
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link
-                  href="/academy"
-                  data-cta="how_it_works_academy"
+                <BuyLink
+                  product="membership"
+                  dataCta="how_it_works_academy"
                   className="group inline-flex items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white cursor-pointer hover:bg-orange-600 transition-colors whitespace-nowrap"
                 >
                   Lock ${current.price}/mo for life
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                </BuyLink>
                 {!VAULT.salesPaused && (
-                  <Link
-                    href="/vault"
-                    data-cta="how_it_works_vault"
+                  <BuyLink
+                    product="vault"
+                    dataCta="how_it_works_vault"
                     className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-6 py-3 text-sm font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors whitespace-nowrap"
                   >
                     Get {VAULT.itemCount} prompts &amp; skills for{" "}
                     <s className="mx-1 text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
-                  </Link>
+                  </BuyLink>
                 )}
               </div>
             </div>

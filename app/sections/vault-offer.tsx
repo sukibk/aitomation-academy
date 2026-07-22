@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { ArrowRight, Check, Lock } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { VAULT } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 const BULLETS = [
   "35 installable Claude Cowork skills + 500+ prompts & workflows",
@@ -60,9 +60,9 @@ export function VaultOffer() {
                 <Lock className="h-4 w-4" /> Launch price, locked when you buy
               </span>
             </div>
-            <Link
-              href="/vault"
-              data-cta="vault_offer"
+            <BuyLink
+              product="vault"
+              dataCta="vault_offer"
               className="group mt-7 inline-flex w-full flex-col items-center justify-center rounded-full bg-orange-500 px-10 py-4 font-semibold text-white transition-colors hover:bg-orange-600"
             >
               <span className="inline-flex items-center text-lg">
@@ -72,7 +72,7 @@ export function VaultOffer() {
               <span className="mt-0.5 text-xs font-medium text-orange-100">
                 Instant access · {VAULT.guaranteeDays}-day money-back guarantee
               </span>
-            </Link>
+            </BuyLink>
           </div>
         </div>
       </div>

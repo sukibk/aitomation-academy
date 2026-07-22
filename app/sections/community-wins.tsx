@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Trophy, ArrowRight } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { VAULT } from "@/lib/pricing";
+import { BuyLink } from "@/app/components/buy-link";
 
 // Real screenshots of member posts and comments from inside the community.
 const wins = [
@@ -82,15 +83,15 @@ export function CommunityWins() {
               <ArrowRight className="h-4 w-4" />
             </a>
           ) : (
-            <a
-              href="/vault"
-              data-cta="community_wins_vault"
+            <BuyLink
+              product="vault"
+              dataCta="community_wins_vault"
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-colors hover:border-orange-400 hover:text-orange-600"
             >
               Get the prompts &amp; skills these members use:{" "}
               <s className="text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
               <ArrowRight className="h-4 w-4" />
-            </a>
+            </BuyLink>
           )}
         </div>
       </div>
