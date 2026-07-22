@@ -83,7 +83,7 @@ export async function POST(req: NextRequest) {
     form.set("mode", "subscription");
     form.set("success_url", `${base}/vault/success?sub=1&session_id={CHECKOUT_SESSION_ID}`);
     form.set("cancel_url", `${base}/vault/success?sub_cancelled=1`);
-    const priceId = process.env.STRIPE_MEMBERSHIP_PRICE;
+    const priceId = process.env.STRIPE_MEMBERSHIP_PRICE || MEMBERSHIP.priceId;
     if (priceId) {
       form.set("line_items[0][price]", priceId);
     } else {
