@@ -84,7 +84,7 @@ export const post: BlogPost = {
         </p>
         <p className="text-slate-700">
           Your plan decides how much Claude you get. The prompts you use decide
-          how good the results are. <strong>The Claude Vault</strong> is 550+
+          how good the results are. <strong>The Claude Vault</strong>{" "}is 550+
           prompts &amp; skills sorted by your job, and they work on the free
           plan too — most readers of this guide get more from Free plus the
           Vault than from an upgrade they don&apos;t need yet.
