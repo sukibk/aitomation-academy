@@ -71,7 +71,9 @@ export async function POST(req: NextRequest) {
   // checkout.session.expired then carries the typed email + a recovery_url.
   form.set("expires_at", String(Math.floor(Date.now() / 1000) + 2 * 60 * 60)); // 2h
   form.set("after_expiration[recovery][enabled]", "true");
-  form.set("after_expiration[recovery][allow_promotion_codes]", "true");
+  // Stripe rejects any allow_promotion_codes (even inside recovery) combined
+  // with an auto-applied discount, so only offer the field on undiscounted sessions.
+  if (!promoId) form.set("after_expiration[recovery][allow_promotion_codes]", "true");
   // Promotions consent checkbox (Stripe ToS accepted 2026-07-21): buyers can
   // opt in to marketing email at checkout; opted-in abandoners get recovery emails.
   form.set("consent_collection[promotions]", "auto");
