@@ -8,11 +8,13 @@ import posthog from "posthog-js";
 // product page if the checkout API is unavailable.
 export function BuyLink({
   product,
+  plan,
   className = "",
   dataCta,
   children,
 }: {
   product: "vault" | "membership";
+  plan?: "monthly" | "annual";
   className?: string;
   dataCta?: string;
   children: React.ReactNode;
@@ -25,14 +27,14 @@ export function BuyLink({
     if (loading) return;
     setLoading(true);
     try {
-      posthog.capture("vault_checkout_start", { product, source: dataCta });
+      posthog.capture("vault_checkout_start", { product, source: dataCta, plan });
     } catch {}
     try {
       const promo = new URLSearchParams(window.location.search).get("promo") || undefined;
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product, promo }),
+        body: JSON.stringify({ product, promo, plan }),
       });
       const data = await res.json();
       if (res.ok && data.url) {

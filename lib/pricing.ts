@@ -20,11 +20,13 @@ export const MEMBERSHIP = {
   name: "Claude Code Academy — Membership",
   tagline: "Every course, the full Claude Vault, and the weekly live call",
   price: 69, // $/mo — keep in sync with LADDER current level
+  annualPrice: 649, // $/yr — save $179 vs 12 x $69 (828)
   currency: "usd",
-  // Live Stripe catalog price (product prod_UvpOH91byN7C0D, verified 2026-07-22).
-  // Checkout prefers this; if it's ever blank the route falls back to an inline
-  // price so a bad ID can never break checkout. Env STRIPE_MEMBERSHIP_PRICE overrides.
-  priceId: "price_1Tvxk6QgUMvxzjy7NlpkL1pq",
+  // Live Stripe catalog prices (product prod_UvpOH91byN7C0D, verified 2026-07-22).
+  // Checkout prefers these; if one is blank the route falls back to an inline
+  // price so a bad/missing ID can never break checkout. Env vars override.
+  priceId: "price_1Tvxk6QgUMvxzjy7NlpkL1pq", // monthly
+  priceIdAnnual: "", // yearly — set once you create the $690/yr price; empty = inline $690/yr
 };
 
 // Current member count (update from Skool; 1,276 as of 2026-07-21). Drives the ladder.

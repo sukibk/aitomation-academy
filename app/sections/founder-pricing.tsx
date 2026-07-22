@@ -1,7 +1,7 @@
-import { CheckoutButton } from "@/app/vault/checkout-button";
 import { Check, Lock, ShieldCheck, ArrowRight } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { MEMBER_COUNT, currentLevel } from "@/lib/pricing";
+import { MembershipCta } from "@/app/components/membership-cta";
 
 const PERKS = [
   "The 7-Day Claude Challenge: zero to a live website",
@@ -99,11 +99,7 @@ export function FounderPricing() {
 
             {/* CTA */}
             <div className="mt-10 flex flex-col items-center">
-              <CheckoutButton
-                product="membership"
-                label={`Join the Academy for $${current.price}/mo`}
-                sublabel="Card payment via Stripe · cancel in two clicks"
-              />
+              <MembershipCta />
               <p className="mt-4 flex items-center gap-2 text-sm text-slate-500">
                 <ShieldCheck className="h-4 w-4 text-orange-500" />
                 Your rate never rises. No emails, no retention forms.

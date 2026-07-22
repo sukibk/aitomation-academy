@@ -30,10 +30,12 @@ export async function POST(req: NextRequest) {
   let email: string | undefined;
   let product: "vault" | "membership" = "vault";
   let promo: string | undefined;
+  let plan: "monthly" | "annual" = "monthly";
   try {
     const body = await req.json();
     if (typeof body?.email === "string") email = body.email;
     if (body?.product === "membership") product = "membership";
+    if (body?.plan === "annual") plan = "annual";
     if (typeof body?.promo === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(body.promo))
       promo = body.promo;
   } catch {
@@ -80,16 +82,23 @@ export async function POST(req: NextRequest) {
   form.set("metadata[product]", product);
 
   if (product === "membership") {
+    const isAnnual = plan === "annual";
     form.set("mode", "subscription");
     form.set("success_url", `${base}/vault/success?sub=1&session_id={CHECKOUT_SESSION_ID}`);
     form.set("cancel_url", `${base}/vault/success?sub_cancelled=1`);
-    const priceId = process.env.STRIPE_MEMBERSHIP_PRICE || MEMBERSHIP.priceId;
+    const priceId = isAnnual
+      ? process.env.STRIPE_MEMBERSHIP_PRICE_ANNUAL || MEMBERSHIP.priceIdAnnual
+      : process.env.STRIPE_MEMBERSHIP_PRICE || MEMBERSHIP.priceId;
     if (priceId) {
       form.set("line_items[0][price]", priceId);
     } else {
+      // Inline fallback — used for annual until a catalog yearly price exists.
       form.set("line_items[0][price_data][currency]", MEMBERSHIP.currency);
-      form.set("line_items[0][price_data][unit_amount]", String(MEMBERSHIP.price * 100));
-      form.set("line_items[0][price_data][recurring][interval]", "month");
+      form.set(
+        "line_items[0][price_data][unit_amount]",
+        String((isAnnual ? MEMBERSHIP.annualPrice : MEMBERSHIP.price) * 100),
+      );
+      form.set("line_items[0][price_data][recurring][interval]", isAnnual ? "year" : "month");
       form.set("line_items[0][price_data][product_data][name]", MEMBERSHIP.name);
       form.set(
         "line_items[0][price_data][product_data][description]",
