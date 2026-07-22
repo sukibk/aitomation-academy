@@ -83,11 +83,11 @@ export const post: BlogPost = {
           Before you pick a plan
         </p>
         <p className="text-slate-700">
-          The plan decides how <em>much</em> Claude you get. What decides how{" "}
-          <em>useful</em> every message is: what you feed it. The Claude Vault is
-          550+ prompts &amp; skills sorted by your job, and they work on the free
-          plan too — most readers of this guide get more from Free + the Vault
-          than from an upgrade they don&apos;t need yet.
+          Your plan decides how much Claude you get. What you feed it decides
+          how useful every message is. The Claude Vault is 550+ prompts &amp;
+          skills sorted by your job, and they work on the free plan too — most
+          readers of this guide get more from Free plus the Vault than from an
+          upgrade they don&apos;t need yet.
         </p>
         <BuyLink
           product="vault"
