@@ -12,6 +12,9 @@ export const dynamic = "force-dynamic";
 
 const VAULT_BUYERS_LIST = 20; // Brevo list for external Vault buyers
 const SKOOL_INVITE = "https://www.skool.com/claude-academy";
+// Where sale/cancellation alerts land. Set ADMIN_NOTIFY_EMAIL in Vercel to an
+// inbox you actually watch; falls back to the site contact address.
+const ADMIN_EMAIL = process.env.ADMIN_NOTIFY_EMAIL || siteConfig.email;
 
 // Verify Stripe-Signature (t=timestamp,v1=hmac) without the SDK.
 function verifyStripeSignature(payload: string, header: string | null, secret: string): boolean {
@@ -117,7 +120,7 @@ export async function POST(req: NextRequest) {
     const sub = event.data?.object ?? {};
     try {
       await sendEmail({
-        to: siteConfig.email,
+        to: ADMIN_EMAIL,
         subject: "Membership cancelled — remove Skool access",
         htmlContent: `<p>A site-billed membership was cancelled (Stripe customer: ${String(sub.customer || "?")}). Remove their premium access in Skool.</p>`,
         tag: "membership-cancelled-admin",
@@ -230,7 +233,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await sendEmail({
-      to: siteConfig.email,
+      to: ADMIN_EMAIL,
       subject: isSubscription
         ? `NEW MEMBER ($69/mo via site) — grant full Skool access: ${email}`
         : `Vault sale — unlock Skool for ${email}`,
