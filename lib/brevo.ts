@@ -107,7 +107,12 @@ export async function sendEmail(params: {
     headers: headers(),
     body: JSON.stringify({
       sender: SENDER,
-      to: [{ email: params.to, name: params.name || undefined }],
+      // `to` may be a comma-separated list; each address becomes a recipient.
+      to: params.to
+        .split(",")
+        .map((e) => e.trim())
+        .filter(Boolean)
+        .map((email) => ({ email, name: params.name || undefined })),
       subject: params.subject,
       htmlContent: params.htmlContent,
       tags: [params.tag],
