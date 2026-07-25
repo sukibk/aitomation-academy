@@ -91,7 +91,7 @@ export async function POST(req: NextRequest) {
     // Skool account. Optional — brand-new buyers may not have an account yet.
     form.set("custom_fields[0][key]", "skoolemail");
     form.set("custom_fields[0][label][type]", "custom");
-    form.set("custom_fields[0][label][custom]", "Community login email (if you have one)");
+    form.set("custom_fields[0][label][custom]", "Skool login email (if you already have one)");
     form.set("custom_fields[0][type]", "text");
     form.set("custom_fields[0][optional]", "true");
     const priceId = isAnnual
