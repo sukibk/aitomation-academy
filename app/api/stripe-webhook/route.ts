@@ -217,6 +217,36 @@ export async function POST(req: NextRequest) {
     console.error("stripe-webhook: brevo upsert failed", err);
   }
 
+  // If the buyer entered their community (Skool) login email at checkout and it
+  // differs from the payment email, flag THAT contact as paid too. This adds the
+  // Skool identity to the paid list, which fires the upgrade-campaign exit so a
+  // member who paid under a different email stops getting "upgrade" emails.
+  try {
+    const fields = (session.custom_fields ?? []) as Array<{
+      key?: string;
+      text?: { value?: string };
+    }>;
+    const skoolEmail = (fields.find((f) => f.key === "skoolemail")?.text?.value || "")
+      .trim()
+      .toLowerCase();
+    const validEmail = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(skoolEmail);
+    if (skoolEmail && validEmail && skoolEmail !== email) {
+      await upsertContact(
+        skoolEmail,
+        {
+          MEMBER_STATUS: isSubscription ? "paid" : "free",
+          PURCHASED: isSubscription ? "membership" : "vault",
+        } as never,
+        [VAULT_BUYERS_LIST],
+      );
+      await trackEvent(skoolEmail, "purchased", {
+        product: isSubscription ? "membership" : "vault",
+      });
+    }
+  } catch (err) {
+    console.error("stripe-webhook: skool-email flag failed", err);
+  }
+
   try {
     await sendEmail({
       to: email,

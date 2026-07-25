@@ -86,6 +86,14 @@ export async function POST(req: NextRequest) {
     form.set("mode", "subscription");
     form.set("success_url", `${base}/vault/success?sub=1&session_id={CHECKOUT_SESSION_ID}`);
     form.set("cancel_url", `${base}/vault/success?sub_cancelled=1`);
+    // Ask for the community (Skool) login email so the webhook can flag the RIGHT
+    // contact as paid when a member checks out with a different email than their
+    // Skool account. Optional — brand-new buyers may not have an account yet.
+    form.set("custom_fields[0][key]", "skoolemail");
+    form.set("custom_fields[0][label][type]", "custom");
+    form.set("custom_fields[0][label][custom]", "Community login email (if you have one)");
+    form.set("custom_fields[0][type]", "text");
+    form.set("custom_fields[0][optional]", "true");
     const priceId = isAnnual
       ? process.env.STRIPE_MEMBERSHIP_PRICE_ANNUAL || MEMBERSHIP.priceIdAnnual
       : process.env.STRIPE_MEMBERSHIP_PRICE || MEMBERSHIP.priceId;
