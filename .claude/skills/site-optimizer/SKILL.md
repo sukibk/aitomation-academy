@@ -88,15 +88,22 @@ ORDER BY count DESC
 LIMIT 20
 ```
 
-### 1d. Traffic Sources (paid vs organic Google split)
+### 1d. Traffic Sources (paid / organic / answer-engine split)
 
 Google Ads clicks arrive with `www.google.com` as the referrer, so the `gclid`/`gad_source` check must come before the referring domain check. Getting this order wrong misclassifies paid traffic as organic.
+
+**Answer engines are a first-class source for this site, not a footnote** (verified 2026-07-26): the domain has authority score ~8, so Google organic sends almost nothing to blog posts — a new post got ~184 visitors/week with claude.ai citations + Bing (IndexNow) + AI-app direct traffic supplying ~99% and Google supplying 1 visit. Never judge a blog page as "failing" from Google organic alone. Also note `Direct` is inflated by AI assistant apps that strip referrers — treat a Direct spike on an informational blog page as probable AI-citation traffic, not type-ins.
 
 ```sql
 SELECT
   CASE
     WHEN properties.$current_url LIKE '%gclid%' OR properties.$current_url LIKE '%gad_source%' THEN 'Google Ads (paid)'
     WHEN properties.$referring_domain = 'www.google.com' THEN 'Google Organic'
+    WHEN properties.$referring_domain = 'claude.ai' THEN 'Claude (AI citation)'
+    WHEN properties.$referring_domain = 'chatgpt.com' THEN 'ChatGPT (AI citation)'
+    WHEN properties.$referring_domain LIKE '%perplexity%' THEN 'Perplexity (AI citation)'
+    WHEN properties.$referring_domain LIKE '%bing.com' THEN 'Bing'
+    WHEN properties.$referring_domain = 'duckduckgo.com' THEN 'DuckDuckGo'
     WHEN properties.$referring_domain = 'www.youtube.com' THEN 'YouTube'
     WHEN properties.$referring_domain = 'app.brevo.com' THEN 'Brevo (email)'
     WHEN properties.$referring_domain = 'www.facebook.com' THEN 'Facebook'
@@ -114,6 +121,29 @@ WHERE event = '$pageview'
 GROUP BY source
 ORDER BY pageviews DESC
 ```
+
+### 1d-ii. Answer-engine citation tracking (per blog page, week over week)
+
+Retrieval ≠ citation: a page can appear in an AI model's search results without earning the visible citation that drives the click. The measurable proxy for citation wins is AI referrals per page, tracked weekly. After any content edit aimed at AI answers (question-form H2s, facts moved into prose, meta description changes), this is the number that tells you whether it worked — expect movement in 1-2 weeks, not days.
+
+```sql
+SELECT
+  properties.$pathname AS page,
+  countIf(properties.$referring_domain = 'claude.ai') AS claude_refs,
+  countIf(properties.$referring_domain = 'chatgpt.com') AS chatgpt_refs,
+  countIf(properties.$referring_domain LIKE '%bing.com') AS bing_refs,
+  count() AS total_views
+FROM events
+WHERE event = '$pageview'
+  AND properties.$pathname LIKE '/blog/%'
+  AND timestamp >= now() - INTERVAL 7 DAY
+  AND properties.$ip != '137.103.50.217'
+GROUP BY page
+HAVING claude_refs + chatgpt_refs + bing_refs > 0
+ORDER BY claude_refs + chatgpt_refs DESC
+```
+
+Record the top rows in the weekly file and diff against last week. Baseline (week of 2026-07-26): /blog/claude-certification had ~43 claude.ai + 2 chatgpt + 16 bing referrals. If a page's AI referrals are flat two weeks after content edits, the next lever is its meta description (often the literal snippet models read), not more body edits.
 
 ### 1e. Lead Form Funnel
 
@@ -178,6 +208,8 @@ Calculate these metrics from the data you pulled:
 4. **Paid traffic with no conversions** — pages receiving Google Ads traffic that produce zero form submissions (wasted ad spend)
 
 **Compare to last week.** For each metric, compute the delta vs the values loaded in Step 0. A metric getting worse week-over-week is a higher-priority issue than a flat one, even if the absolute number looks fine. If you shipped a change last week targeting a specific metric, explicitly verify whether it moved — if the change didn't work, don't ship a similar one this week.
+
+**Heatmap data (available from 2026-07-26 onward).** `enable_heatmaps: true` was added to the PostHog init on 2026-07-26 — `$heatmap` events (clicks, dead/rage clicks, mouse movement, scroll) exist only from that date; nothing earlier. View overlays via the PostHog Toolbar on the live site or the Heatmaps section in the app. Caveat: at ~125 pageviews/day the heatmap is statistically thin — treat it as directional corroboration for a hypothesis you already have from funnel/scroll data, never as the primary evidence for a change. For scroll-depth analysis, the `$pageleave` event's `$prev_pageview_max_scroll_percentage` property works for ALL historical data and is usually the better tool.
 
 ## Step 3: Generate a Change Plan
 
