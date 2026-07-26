@@ -6,6 +6,7 @@ export const post: BlogPost = {
   description:
     "What Claude certification actually exists as of July 2026 — Anthropic's real programs, third-party certificates, and what employers actually check.",
   publishedAt: "2026-07-19",
+  updatedAt: "2026-07-26",
   author: "Marko Sudar",
   category: "Claude Guides",
   tags: [
@@ -56,11 +57,13 @@ export const post: BlogPost = {
         Anthropic-issued completion certificate with your name and the
         completion date. The second is the Claude Certification Program, a
         proctored exam series administered through Pearson VUE with four
-        exams — Claude Certified Associate, Claude Certified Developer
-        (Foundations), Claude Certified Architect (Foundations), and Claude
-        Certified Architect (Professional) — each with a real syllabus, a
-        120-minute scenario-based exam, and a passing scaled score of 720
-        out of 1,000.
+        exams — Claude Certified Associate Foundations (CCAO-F), Claude
+        Certified Developer Foundations (CCDV-F), Claude Certified
+        Architect Foundations (CCAR-F), and Claude Certified Architect
+        Professional (CCAR-P) — each with a real syllabus, a 120-minute
+        scenario-based exam, and a passing scaled score of 720 out of
+        1,000. Passing earns a digital certification badge issued through
+        Credly, Anthropic&apos;s official badging partner.
       </p>
       <p>
         The catch that trips people up: the Claude Certification Program is
@@ -173,7 +176,8 @@ export const post: BlogPost = {
       </div>
       <p>
         Retakes on the paid exams follow a waiting period — 14 days after a
-        first fail, 30 after a second, 90 after a third — and partner-tier
+        first fail, 30 after a second, 90 after a third, capped at four
+        attempts per exam in any 12-month period — and partner-tier
         organizations get discounts of up to 50% off list price. None of
         that matters if you cannot register in the first place because your
         employer or business is not in the Partner Network. The two
