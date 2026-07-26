@@ -78,10 +78,15 @@ export const post: BlogPost = {
 
       <h2>How much does Claude certification cost, and who can take it?</h2>
       <p>
-        The two official tracks differ on nearly every dimension that
-        matters — cost, access, proof produced, and who it is realistically
-        for. Here is the comparison, including where third-party options
-        fit in the same picture.
+        Claude certification exams cost $99 to $175 per attempt as of July
+        2026: the Associate Foundations exam (CCAO-F) is $99, the Developer
+        and Architect Foundations exams (CCDV-F, CCAR-F) are $125 each, and
+        Architect Professional (CCAR-P) is $175 — while Anthropic
+        Academy&apos;s courses and completion certificates are free. The two
+        official tracks differ on nearly every dimension that matters —
+        cost, access, proof produced, and who it is realistically for. Here
+        is the comparison, including where third-party options fit in the
+        same picture.
       </p>
 
       <div className="not-prose my-10 overflow-x-auto rounded-xl border border-slate-200">
