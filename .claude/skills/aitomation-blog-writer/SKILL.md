@@ -32,7 +32,22 @@ Read the keyword tracker at `lib/AItomation Academy - SEO Keyword Tracker.xlsx` 
 | Cluster Map | Hub pages, supporting pages, linking rules, CTAs per cluster |
 | Current Articles | Everything published — check to avoid duplicates |
 
-If Semrush MCP is available, use `mcp__semrush__semrush_keyword_overview` and `mcp__semrush__semrush_keyword_difficulty` to pull fresh data for the target keyword and related terms.
+If the Semrush MCP connector is available, pull fresh volume/difficulty data with its discovery → schema → execute flow: call `keyword_research`, then `get_report_schema(report="phrase_these")`, then `execute_report` with semicolon-separated keywords (batch up to 100). Use `phrase_kdi` for difficulty. (The old `mcp__semrush__semrush_keyword_*` tool names no longer exist.)
+
+## What actually ranks for this domain (verified 2026-07-26 — read before picking angles)
+
+The domain's authority score is ~8/100 with almost no follow links. That gates which SERPs are winnable:
+
+- **Winnable:** (1) hyper-specific queries where we'd be the ONLY dedicated page ("chatgpt vs claude summarizing transcripts" ranks #1 for exactly this reason); (2) pricing/freshness SERPs that churn constantly (the pricing guide ranks top-10 on a KD-67 term because Google rewards fresh pricing data); (3) exact-phrase long-tails matching our title tokens.
+- **NOT winnable (yet):** head terms whose top-10 is Anthropic docs, Reddit, YouTube, Coursera. No amount of content quality compensates for authority there. Don't pick those keywords; note them for later.
+- **The "transcripts test" for every new article:** would this be the only dedicated page for the exact query? If yes, write it. If the SERP is big-domain territory, narrow the angle until the answer is yes.
+
+**Answer engines outrank Google for us.** Live referrer data (July 2026): a new post got ~184 visitors/week — claude.ai citations + Bing (via IndexNow) + AI-app direct traffic sent ~99% of it; Google sent 1 visit. Write every post to be the citable answer:
+
+- **Retrieval matches title/heading tokens near-literally.** The pages that get surfaced are the ones whose title or an H2 contains the query phrase. Question-shaped queries ("is there a...", "is it worth it", "which should I buy") miss us unless a heading carries that exact question wording.
+- **1–2 H2s per post MUST be phrased as the literal question a person would ask a chatbot**, e.g. `<h2>Is there a Claude certification? Yes — two, actually</h2>`. Declarative SEO titles alone are not retrievable for question queries.
+- **Only verified facts.** Never copy claims/prices from other AI answers or third-party blogs — verify against the primary source (vendor docs, Pearson VUE, anthropic.com) and omit what can't be verified. One wrong fact and answer engines stop citing the page; being the accurate source is the entire moat.
+- **Include specific, verifiable tokens** (official exam codes, exact prices, dates, version-free model family names) — concrete tokens are what make a page the definitive citable source.
 
 ## Step 2: Research (mandatory — never skip)
 
@@ -111,6 +126,9 @@ Good vs bad examples:
 - No generic AI fluff ("game-changer", "revolutionize", "unlock potential", "delve")
 - No emojis — ever, anywhere
 - Keyword in: title, first paragraph, 1-2 h2 headings, meta description
+- **1-2 H2s phrased as the literal chatbot question** (see "What actually ranks" section above)
+- **Never hardcode the member count.** Import `MEMBER_COUNT_LABEL` from `@/lib/pricing` and render `{MEMBER_COUNT_LABEL}` — hardcoded counts went stale twice (400+ → 700+ → 1,200+) and search engines cached the old numbers, undercounting the community to prospects
+- **When meaningfully editing an existing post, set `updatedAt` (YYYY-MM-DD)** in its metadata — freshness signaling for both Google and answer engines
 
 ### External Links
 
@@ -128,33 +146,17 @@ Add 3-5 FAQs at the bottom of the article (before the closing `</>`), inside an 
 
 Before writing FAQs, research what real people are actually asking about the topic. This ensures FAQs match genuine search intent instead of guessing. Run these searches using the article's primary keyword:
 
-**Reddit (via Composio MCP):**
+**Web search (always available):**
 
-Use `REDDIT_SEARCH_ACROSS_SUBREDDITS` to find real questions. Run 2-3 searches:
+1. `is [keyword] ...` / `[keyword] worth it` / `[keyword] vs` — the question-shaped variants; note which sites answer them (those are the queries to steal with question H2s)
+2. `[keyword] reddit` — surfaces the real Reddit threads without needing a Reddit API; open the top threads and read the questions in comments
+3. Semrush `phrase_questions` report (keyword_research toolkit) — returns actual question queries with volumes for the keyword
 
-1. `"[keyword] how"` or `"[keyword] can I"` — catches how-to questions
-2. `"[keyword] vs"` or `"[keyword] or"` — catches comparison/decision questions
-3. `"[keyword] worth it"` or `"[keyword] problem"` — catches objection/concern questions
-
-Target these subreddits by including them in the query with the `subreddit:` operator:
-- `ClaudeAI`, `ChatGPT`, `artificial`, `nocode`, `smallbusiness`, `marketing`, `freelance`, `Entrepreneurs`
-
-Set `limit` to 10-15 per search, `sort` to `relevance`. Look at both post titles AND the top comments — follow-up questions in comments are often better FAQ candidates than the post itself. Use `REDDIT_RETRIEVE_POST_COMMENTS` on the most relevant posts to find these.
-
-**X / Twitter (via xurl CLI):**
-
-Use xurl search to find questions people tweet about the topic. Run 1-2 searches:
-
-```bash
-xurl search "[keyword] ?" -n 15
-xurl search "how do I [keyword]" -n 15
-```
-
-The `?` in the query catches question-format tweets. Look for questions with engagement (likes/replies) — those indicate genuine interest.
+If a Reddit or X search tool is connected in the current session, use it the same way (search the keyword + question words, read top comments for follow-up questions). Do not assume any specific Reddit/X tool exists — check what's available first.
 
 **How to use the research:**
 
-1. Collect all questions found across Reddit and X
+1. Collect all questions found across searches
 2. Group by theme — you'll see the same questions phrased differently
 3. Pick the 3-5 most common/upvoted that are NOT already answered in the article body
 4. Write the FAQ answer as a direct, quotable response — AI models pull from concise, authoritative answers
@@ -241,6 +243,13 @@ Copy buttons are auto-injected by CodeCopyEnhancer.
 2. **`public/llms-full.txt`** — add `- Title — https://www.aitomationacademy.com/blog/{slug}` to Published articles. This is how LLMs discover and recommend content.
 3. **`public/llms.txt`** — add topic to Blog topics line if new area
 4. **`npm run build`** — verify the route appears and build passes
+5. **After deploy, ping IndexNow** so Bing re-crawls immediately (Bing's index feeds ChatGPT browsing, and Bing+AI referrers outperform Google for this domain):
+
+```bash
+curl -s -X POST "https://api.indexnow.org/indexnow" -H "Content-Type: application/json" -d '{"host":"www.aitomationacademy.com","key":"f04f65edb3d944329cde374bc52d365a","keyLocation":"https://www.aitomationacademy.com/f04f65edb3d944329cde374bc52d365a.txt","urlList":["https://www.aitomationacademy.com/blog/{slug}"]}'
+```
+
+Do this for updated posts too, not just new ones.
 
 ## Step 6: Report
 

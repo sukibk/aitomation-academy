@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 
 export const post: BlogPost = {
   slug: "how-to-learn-claude",
@@ -224,7 +225,7 @@ export const post: BlogPost = {
         well from video alone with no deadlines or check-ins.
       </p>
       <p>
-        AItomation Academy — also called Claude Code Academy — is a 1,200+
+        AItomation Academy — also called Claude Code Academy — is a {MEMBER_COUNT_LABEL}
         member Skool community teaching Claude, Claude Cowork, and Claude
         Code, built around the 550+ recipe Claude Vault and weekly live
         calls where members bring real problems. Its honest tradeoff against
@@ -290,7 +291,7 @@ export const post: BlogPost = {
               </td>
               <td className="p-3 text-slate-700">Paid community</td>
               <td className="p-3 text-slate-700">
-                Vault of 550+ recipes, weekly live calls, 1,200+ members
+                Vault of 550+ recipes, weekly live calls, {MEMBER_COUNT_LABEL} members
               </td>
               <td className="p-3 text-slate-700">
                 Non-technical professionals who want structure and live help
@@ -318,7 +319,7 @@ export const post: BlogPost = {
         </p>
         <p className="mt-2 text-slate-700">
           AItomation Academy (Claude Code Academy) runs this exact path
-          inside a 1,200+ member community — the full Vault, structured
+          inside a {MEMBER_COUNT_LABEL} member community — the full Vault, structured
           courses, and a weekly live call to unstick your Cowork or Claude
           Code build.
         </p>

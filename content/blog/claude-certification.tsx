@@ -46,7 +46,7 @@ export const post: BlogPost = {
         certification — the paper, not the learning path.
       </p>
 
-      <h2>Does Anthropic offer an official Claude certification</h2>
+      <h2>Is there a Claude certification? Yes — two, actually</h2>
       <p>
         Yes, but it is not one program — it is two, and they serve completely
         different audiences. The first is Anthropic Academy, a free,
@@ -76,7 +76,7 @@ export const post: BlogPost = {
         skilled you are. The free Academy courses have no such restriction.
       </p>
 
-      <h2>What each Anthropic path actually costs and requires</h2>
+      <h2>How much does Claude certification cost, and who can take it?</h2>
       <p>
         The two official tracks differ on nearly every dimension that
         matters — cost, access, proof produced, and who it is realistically
@@ -236,7 +236,7 @@ export const post: BlogPost = {
         certificate rather than a formal credential.
       </p>
 
-      <h2>What do employers actually value: certificate or portfolio</h2>
+      <h2>Is a Claude certification worth it for individuals? What employers actually check</h2>
       <p>
         Employers and clients hiring for Claude skills overwhelmingly weight
         demonstrated, working output over any certificate — because a

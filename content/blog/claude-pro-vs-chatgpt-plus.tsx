@@ -5,7 +5,7 @@ export const post: BlogPost = {
   title: "Claude Pro vs ChatGPT Plus: Which Is Worth It?",
   description: "A no-fluff comparison of Claude Pro and ChatGPT Plus. Real differences in writing, context, and daily work — with a clear verdict.",
   publishedAt: "2026-04-05",
-  updatedAt: "2026-07-19",
+  updatedAt: "2026-07-26",
   author: "Marko Sudar",
   category: "Comparisons",
   tags: [
@@ -648,7 +648,7 @@ export const post: BlogPost = {
         </ul>
       </div>
 
-      <h2>The real verdict for non-technical professionals</h2>
+      <h2>Which should you buy: Claude Pro or ChatGPT Plus?</h2>
 
       {/* ── Final verdict box ── */}
       <div className="my-8 rounded-xl border-2 border-orange-400 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-50 p-6 sm:p-8">

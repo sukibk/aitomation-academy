@@ -4,7 +4,7 @@ import { Check, Star, ShieldCheck, RefreshCw, Zap, Lock } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
-import { VAULT } from "@/lib/pricing";
+import { VAULT, MEMBER_COUNT_LABEL } from "@/lib/pricing";
 import { CheckoutButton } from "./checkout-button";
 import { CommunityWins } from "@/app/sections/community-wins";
 import { Navbar } from "@/app/components/navbar";
@@ -210,7 +210,7 @@ export default function VaultPage() {
             <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
               <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-orange-500" /> {VAULT.guaranteeDays}-day refund</span>
               <span className="flex items-center gap-2"><RefreshCw className="h-4 w-4 text-orange-500" /> Free weekly updates</span>
-              <span className="flex items-center gap-2"><Star className="h-4 w-4 text-orange-500" /> 1,200+ members</span>
+              <span className="flex items-center gap-2"><Star className="h-4 w-4 text-orange-500" /> {MEMBER_COUNT_LABEL} members</span>
             </div>
           </div>
         </div>

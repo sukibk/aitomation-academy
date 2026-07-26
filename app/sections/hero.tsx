@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Volume2, X } from "lucide-react";
 import posthog from "posthog-js";
-import { VAULT } from "@/lib/pricing";
+import { VAULT, MEMBER_COUNT_LABEL } from "@/lib/pricing";
 import { BuyLink } from "@/app/components/buy-link";
 
 export function Hero() {
@@ -181,7 +181,7 @@ export function Hero() {
           <p className="mx-auto mb-5 max-w-2xl text-base text-slate-600 md:text-lg leading-relaxed">
             Most people piece Claude together from YouTube and get stuck in two weeks. No order,
             no feedback, no results. The Academy gives you the exact prompts, skills, courses, and
-            weekly calls that 1,200+ non-technical professionals use to get finished work out of Claude.
+            weekly calls that {MEMBER_COUNT_LABEL} non-technical professionals use to get finished work out of Claude.
           </p>
 
           {/* CTA — two paths */}
@@ -208,7 +208,7 @@ export function Hero() {
 
           {/* Trust signal */}
           <p className="mt-3 text-sm text-slate-500">
-            1,200+ members · courses, 550+ Claude prompts &amp; skills, weekly live calls
+            {MEMBER_COUNT_LABEL} members · courses, 550+ Claude prompts &amp; skills, weekly live calls
           </p>
 
         </div>

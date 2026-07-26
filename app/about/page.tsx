@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/site";
+import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 import { Navbar } from "@/app/components/navbar";
 import { Footer } from "@/app/sections/footer";
 import { CommunityWins } from "@/app/sections/community-wins";
@@ -19,7 +20,7 @@ const credentials = [
     label: "views on my online Claude and AI tutorials",
   },
   {
-    stat: "1,200+",
+    stat: MEMBER_COUNT_LABEL,
     label: "students mentored inside the Academy",
   },
   {
@@ -34,7 +35,7 @@ const credentials = [
 
 const highlights = [
   "1M+ views on tutorials teaching Claude, Cowork, and Claude Code",
-  "1,200+ professionals mentored, from first prompt to shipped projects",
+  `${MEMBER_COUNT_LABEL} professionals mentored, from first prompt to shipped projects`,
   "Weekly live calls where members' real projects get fixed on screen",
   "Students have landed commercial deals, ranked on page 1 of Google, and shipped their first apps",
   "Every lesson comes from work I shipped myself, not theory",
@@ -92,7 +93,7 @@ export default function AboutPage() {
                   <p className="text-lg text-slate-500 leading-relaxed mb-8">
                     I teach non-technical professionals how to get finished work
                     out of Claude. Over a million people have watched my
-                    tutorials, and 1,200+ of them learn with me inside the
+                    tutorials, and {MEMBER_COUNT_LABEL} of them learn with me inside the
                     Academy. By day I build production AI systems as an
                     engineer, so everything I teach is something I shipped
                     myself first.
@@ -143,7 +144,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   So I built the Academy: a path that starts at zero and ends
-                  with things you built yourself. 1,200+ members are on it now.
+                  with things you built yourself. {MEMBER_COUNT_LABEL} members are on it now.
                   Some of them have landed commercial deals with what they
                   learned, put their new websites on page 1 of Google, and
                   shipped their first working apps without a line of code they

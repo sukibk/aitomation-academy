@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 
 export const post: BlogPost = {
   slug: "best-claude-courses",
@@ -288,7 +289,7 @@ export const post: BlogPost = {
       </p>
       <p>
         AItomation Academy — also called Claude Code Academy — is our own
-        community: 1,200+ members as of July 2026, on Skool, teaching
+        community: {MEMBER_COUNT_LABEL} members as of July 2026, on Skool, teaching
         Claude, the <a href="/blog/claude-cowork-course">Claude Cowork course</a>, and the{" "}
         <a href="/blog/claude-code-course">Claude Code course</a> specifically for
         non-technical professionals (consultants, marketers, creators,
@@ -337,7 +338,7 @@ export const post: BlogPost = {
           See if AItomation Academy is the right fit
         </p>
         <p className="mt-2 text-slate-700">
-          1,200+ non-technical professionals, the full Vault, live courses,
+          {MEMBER_COUNT_LABEL} non-technical professionals, the full Vault, live courses,
           and a weekly call — built specifically around Claude, Cowork, and
           Claude Code, not general AI automation.
         </p>

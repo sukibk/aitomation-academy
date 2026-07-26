@@ -7,7 +7,7 @@ export const post: BlogPost = {
   title: "Claude Pricing in 2026: Free vs Pro vs Max",
   description: "A clear breakdown of Claude AI pricing: free plan, Pro, Max, Team, and Enterprise. What each tier includes and whether upgrading is worth it.",
   publishedAt: "2026-04-05",
-  updatedAt: "2026-07-21",
+  updatedAt: "2026-07-26",
   author: "Marko Sudar",
   category: "Claude Guides",
   tags: [
@@ -42,7 +42,7 @@ export const post: BlogPost = {
         or anyone else <a href="/blog/claude-for-business">using Claude in your business</a>.
       </p>
 
-      <h2>The quick answer: yes, Claude AI is free</h2>
+      <h2>Is Claude AI free? The quick answer: yes</h2>
       <p>
         You can sign up at{" "}
         <a
@@ -329,7 +329,7 @@ export const post: BlogPost = {
         </p>
       </div>
 
-      <h2>What changes when you upgrade to Pro ($20/mo)</h2>
+      <h2>How much does Claude Pro cost, and what do you get for it?</h2>
       <p>
         The Pro plan is where Claude becomes a serious daily work tool rather than
         a useful assistant you occasionally bump up against limits with. Here is

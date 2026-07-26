@@ -32,6 +32,14 @@ export const MEMBERSHIP = {
 // Current member count (update from Skool; 1,276 as of 2026-07-21). Drives the ladder.
 export const MEMBER_COUNT = 1276;
 
+// "1,200+" style label, rounded down to the nearest 100. Use this everywhere a
+// member count appears in copy so updating MEMBER_COUNT updates the whole site
+// (hardcoded counts went stale twice: 400+ → 700+ → 1,200+).
+export const MEMBER_COUNT_LABEL = `${Math.floor(MEMBER_COUNT / 100) * 100}+`.replace(
+  /^(\d)(\d{3})/,
+  "$1,$2",
+);
+
 // Membership founder-rate ladder. Price locked for life at the tier you join.
 export interface Level {
   threshold: number; // members at/after which this price applies
