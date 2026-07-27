@@ -96,21 +96,24 @@ export function WinsCarousel() {
         {WINS.map((file) => (
           <div
             key={file}
-            className="w-[86%] shrink-0 snap-start overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-white/10"
+            className="relative h-44 w-[86%] shrink-0 snap-start overflow-hidden rounded-xl bg-white p-2 shadow-lg ring-1 ring-white/10 sm:h-48"
           >
+            {/* Screenshots vary wildly in aspect ratio (some are tall posts,
+                some one-liners) — contain + center keeps the card height
+                steady and the white card is the constant frame. */}
             <Image
               src={`/images/creatives/wins/${file}`}
               alt="Real member post from inside the community"
-              width={560}
-              height={200}
-              className="h-auto w-full"
+              fill
+              sizes="(min-width: 1024px) 480px, 86vw"
+              className="object-contain p-2"
             />
           </div>
         ))}
         {/* Final slide: the rest live inside */}
         <a
           href="/skool-redirect"
-          className="flex w-[86%] shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-xl bg-white/5 py-10 ring-1 ring-white/10 transition-colors hover:bg-white/10"
+          className="flex h-44 w-[86%] shrink-0 snap-start flex-col items-center justify-center gap-2 rounded-xl bg-white/5 ring-1 ring-white/10 transition-colors hover:bg-white/10 sm:h-48"
         >
           <span className="text-2xl font-bold text-white">200+ more</span>
           <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-400">
