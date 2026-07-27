@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { ArrowRight, Check, Lock } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Mark } from "@/app/components/mark";
-import { VAULT } from "@/lib/pricing";
+import { VAULT, VAULT_PRICE_RISES_AT } from "@/lib/pricing";
 import { BuyLink } from "@/app/components/buy-link";
+import { CountdownBar } from "@/app/components/countdown-bar";
 
 const BULLETS = [
   "35 installable Claude Cowork skills + 500+ prompts & workflows",
@@ -63,10 +64,15 @@ export function VaultOffer() {
                 <div className="mt-2 text-slate-500">one-time · yours forever</div>
               </div>
             </div>
-            <div className="mt-5 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
-                <Lock className="h-4 w-4" /> Launch price, locked when you buy
-              </span>
+            <div className="mt-5 flex flex-col items-center gap-2">
+              <CountdownBar
+                deadline={VAULT_PRICE_RISES_AT}
+                label="Price increases in"
+              />
+              <p className="text-center text-xs text-slate-500">
+                After the deadline the Vault lists at ${VAULT.anchorPrice}. Buy now and
+                ${VAULT.launchPrice} is what you ever pay.
+              </p>
             </div>
             <BuyLink
               product="vault"

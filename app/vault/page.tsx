@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check, Star, ShieldCheck, RefreshCw, Zap, Lock } from "lucide-react";
+import { Check, Star, ShieldCheck, RefreshCw, Zap } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
@@ -208,14 +208,15 @@ export default function VaultPage() {
                   <div className="mt-2 text-slate-500">one-time · yours forever</div>
                 </div>
               </div>
-              <div className="mt-6 flex flex-col items-center gap-3">
+              <div className="mt-6 flex flex-col items-center gap-2">
                 <CountdownBar
                   deadline={VAULT_PRICE_RISES_AT}
                   label="Price increases in"
                 />
-                <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
-                  <Lock className="h-4 w-4" /> Launch price, locked when you buy
-                </span>
+                <p className="text-center text-xs text-slate-500">
+                  After the deadline the Vault lists at ${VAULT.anchorPrice}. Buy now and
+                  ${VAULT.launchPrice} is what you ever pay — updates included forever.
+                </p>
               </div>
               <div className="mt-8">
                 <CheckoutButton
