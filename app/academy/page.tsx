@@ -70,42 +70,75 @@ export default function AcademyPage() {
     <>
       <Navbar />
       <main className="min-h-screen bg-white">
-        <section className="bg-slate-900 px-6 py-20 text-center sm:px-12">
-          <div className="mx-auto max-w-3xl">
-            <span className="inline-block rounded-full bg-orange-500/15 px-4 py-1 text-sm font-medium text-orange-400">
-              Claude Code Academy
-            </span>
-            <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Stop chatting with AI.{" "}
-              <span className="text-orange-400">Start delegating to it.</span>
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
-              The exact courses, prompts, and weekly calls {MEMBER_COUNT.toLocaleString()}+ non-technical professionals
-              use to put real work on Claude. Every course ends with something built,
-              not something watched.
-            </p>
-            <Image
-              src="/images/academy-cover.jpg"
-              alt="Claude Code Academy — courses, Vault, and weekly live calls"
-              width={210}
-              height={280}
-              priority
-              className="mx-auto mt-8 rounded-2xl shadow-2xl ring-1 ring-white/10"
-            />
-            <div className="mt-8 flex flex-col items-center gap-3">
-              <CountdownBar
-                deadline={FOUNDER_RATE_ENDS_AT}
-                label="Price increases in"
-              />
-              <BuyLink
-                product="membership"
-                dataCta="academy_hero_join"
-                className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
-              >
-                Join at ${current.price}/mo, locked for life
-              </BuyLink>
-              <p className="text-sm text-slate-500">${MEMBERSHIP.price}/mo · cancel anytime</p>
+        <section className="bg-slate-900 px-6 py-20 sm:px-12">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+            {/* Left: the pitch */}
+            <div className="text-center lg:text-left">
+              <span className="inline-block rounded-full bg-orange-500/15 px-4 py-1 text-sm font-medium text-orange-400">
+                Claude Code Academy
+              </span>
+              <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                Stop chatting with AI.{" "}
+                <span className="text-orange-400">Start delegating to it.</span>
+              </h1>
+              <p className="mt-6 text-lg text-slate-300">
+                The exact courses, prompts, and weekly calls {MEMBER_COUNT.toLocaleString()}+ non-technical professionals
+                use to put real work on Claude. Every course ends with something built,
+                not something watched.
+              </p>
+              <div className="mt-8 flex flex-col items-center gap-3 lg:items-start">
+                <CountdownBar
+                  deadline={FOUNDER_RATE_ENDS_AT}
+                  label="Price increases in"
+                />
+                <BuyLink
+                  product="membership"
+                  dataCta="academy_hero_join"
+                  className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
+                >
+                  Join at ${current.price}/mo, locked for life
+                </BuyLink>
+                <p className="text-sm text-slate-500">${MEMBERSHIP.price}/mo · cancel anytime</p>
+              </div>
             </div>
+
+            {/* Right: real people, not a render — Marko on video + a real member win */}
+            <div>
+              <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-video w-full bg-black"
+                >
+                  <source src="/videos/intro-web.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="mt-4 overflow-hidden rounded-xl shadow-lg ring-1 ring-white/10">
+                <Image
+                  src="/images/creatives/wins/win1.png"
+                  alt="Real member post from inside the community"
+                  width={1390}
+                  height={414}
+                  className="w-full"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Real numbers strip */}
+          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-8 text-center sm:grid-cols-4">
+            {[
+              [`${MEMBER_COUNT.toLocaleString()}+`, "members inside"],
+              ["550+", "prompts & skills"],
+              ["Weekly", "live calls"],
+              ["7 days", "to your first build"],
+            ].map(([stat, label]) => (
+              <div key={label}>
+                <div className="text-3xl font-bold text-white">{stat}</div>
+                <div className="mt-1 text-sm text-slate-400">{label}</div>
+              </div>
+            ))}
           </div>
         </section>
 
