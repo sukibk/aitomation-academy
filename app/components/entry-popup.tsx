@@ -88,14 +88,14 @@ export function EntryPopup() {
             </div>
           ) : (
             <>
-              {/* Visual: what the kit looks like (free-kit mockup, brand palette) */}
-              <div className="relative -mx-8 -mt-8 mb-6 h-40 overflow-hidden bg-[#f5f1e8]">
+              {/* Visual: the Starter System cover (dark product mockup) */}
+              <div className="relative -mx-8 -mt-8 mb-6 h-52 overflow-hidden bg-[#0b0e14]">
                 <Image
                   src="/images/free-kit-visual.png"
-                  alt="The Claude Starter System — free PDF kit preview"
+                  alt="The Claude Starter System — free PDF kit"
                   fill
                   sizes="448px"
-                  className="object-cover object-center"
+                  className="object-contain py-3"
                   priority
                 />
               </div>

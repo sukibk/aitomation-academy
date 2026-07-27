@@ -28,3 +28,9 @@ researcher-intent traffic) x copy (ad-style price banner).
 - If <=2 captures/week attributable: conclude mid-article CTAs are dead on this audience
   regardless of offer; strip them and rely on top banner + popup + end CTA.
 - Do NOT edit these components/pages while this runs.
+
+## Amendment 2026-07-27 (same day, pre-data)
+Owner rejected the light free-kit mockup as off-brand. All visuals replaced with a dark
+premium cover family (free-kit-visual.png overwritten, vault-cover.png added; vault card
+on /vault got the cover too). Experiment metrics and decision rule unchanged — visuals
+swapped before any experiment data accrued, so the read stays clean.

@@ -98,8 +98,8 @@ export const post: BlogPost = {
           <Image
             src="/images/free-kit-visual.png"
             alt="The Claude Starter System free PDF preview"
-            width={170}
-            height={170}
+            width={160}
+            height={213}
             className="mx-6 mb-6 hidden rounded-lg sm:my-6 sm:block"
           />
         </div>
@@ -227,7 +227,7 @@ export const post: BlogPost = {
       <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
         <div className="grid items-center sm:grid-cols-[auto_1fr]">
           <Image
-            src="/images/vault-visual-sq.png"
+            src="/images/vault-cover.png"
             alt="The Claude Vault — 550+ prompts and skills"
             width={190}
             height={190}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Check, Star, ShieldCheck, RefreshCw, Zap, Lock } from "lucide-react";
 import { Mark } from "@/app/components/mark";
@@ -176,6 +177,13 @@ export default function VaultPage() {
         <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white text-center shadow-xl ring-1 ring-slate-200">
           <div className="h-2 w-full bg-orange-400" />
           <div className="px-8 py-10">
+            <Image
+              src="/images/vault-cover.png"
+              alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
+              width={210}
+              height={280}
+              className="mx-auto mb-8 rounded-xl shadow-lg"
+            />
             <div className="flex items-end justify-center gap-8 sm:gap-12">
               <div className="pb-2 text-center">
                 <div className="text-3xl font-bold text-slate-400 sm:text-4xl">

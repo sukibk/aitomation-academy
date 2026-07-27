@@ -54,8 +54,8 @@ export function LeadMagnetSection() {
               <Image
                 src="/images/free-kit-visual.png"
                 alt="Preview of The Claude Starter System PDF pages"
-                width={360}
-                height={360}
+                width={320}
+                height={427}
                 className="mt-10 hidden lg:block rounded-2xl shadow-2xl"
               />
             </div>

@@ -121,8 +121,8 @@ export const post: BlogPost = {
           <Image
             src="/images/free-kit-visual.png"
             alt="The Claude Starter System free PDF preview"
-            width={170}
-            height={170}
+            width={160}
+            height={213}
             className="mx-6 mb-6 hidden rounded-lg sm:my-6 sm:block"
           />
         </div>
