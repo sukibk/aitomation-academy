@@ -36,6 +36,7 @@ const OUTCOMES = [
 // Honest value stack: named packs with real item counts. No invented dollar values —
 // the market anchor below (competitor bundle prices) does the price work truthfully.
 const STACK = [
+  ["500+ copy-paste prompts & workflows", "every one ends in a finished deliverable: a report, a deck, a page, a dataset"],
   ["35 installable Cowork skills", "inbox triage, meeting prep, weekly review, file organizer, content repurposer…"],
   ["Role packs for 6 professions", "consultant, marketer, creator, founder, agency, operations. Your job has its own section"],
   ["Multi-step workflows", "research → draft → polish chains that produce deliverables, not replies"],
@@ -79,6 +80,20 @@ export default function VaultPage() {
             The Claude Vault is {VAULT.itemCount} copy-paste skills, prompts, and workflows,
             organized by your job. Paste one, fill the blanks, get a real deliverable.
           </p>
+          {/* What's included, at a glance */}
+          <div className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {[
+              "500+ prompts & workflows",
+              "35 Cowork skills",
+              "Role packs for 6 professions",
+              "Weekly updates, forever",
+            ].map((item) => (
+              <span key={item} className="inline-flex items-center gap-1.5 text-sm text-slate-300">
+                <Check className="h-4 w-4 shrink-0 text-orange-400" />
+                {item}
+              </span>
+            ))}
+          </div>
           <Image
             src="/images/vault-cover.jpg"
             alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
