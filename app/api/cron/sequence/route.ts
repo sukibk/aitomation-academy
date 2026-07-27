@@ -10,6 +10,7 @@ import {
 } from "@/lib/brevo";
 import { SEQUENCE, LAST_DAY, type Ctx } from "@/lib/sequence";
 import { siteConfig } from "@/lib/site";
+import { FOUNDER_RATE_ENDS_AT, VAULT_PRICE_RISES_AT } from "@/lib/pricing";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -36,6 +37,26 @@ function daysSince(dateStr?: string): number {
 export async function GET(req: NextRequest) {
   if (!authorized(req)) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
+  }
+
+  // Deadline-enforcement nag: the site's countdowns promised a real price rise.
+  // Once a configured deadline is in the past but hasn't been cleared from
+  // lib/pricing.ts (which the enforcement commit does), email the admin EVERY
+  // DAY until the flip ships. Self-silences when the dates are nulled.
+  const expired = [FOUNDER_RATE_ENDS_AT, VAULT_PRICE_RISES_AT].some(
+    (d) => d && Date.now() > new Date(d).getTime(),
+  );
+  if (expired) {
+    try {
+      await sendEmail({
+        to: process.env.ADMIN_NOTIFY_EMAIL || siteConfig.email,
+        subject: "PRICE RISE ENFORCEMENT OVERDUE — countdowns hit zero, prices unchanged",
+        htmlContent: `<p><b>The promised deadline passed and the site still sells at old prices.</b> Until enforced, the countdown campaign is retroactively fake. Do today:</p><ol><li>lib/pricing.ts: membership 69 &rarr; 99, VAULT.launchPrice 17 &rarr; 49, set FOUNDER_RATE_ENDS_AT and VAULT_PRICE_RISES_AT to null, refresh MEMBER_COUNT — push to main (static site, needs the deploy).</li><li>Stripe: create $99/mo price (+ annual), wire via STRIPE_MEMBERSHIP_PRICE; confirm existing $69 subscribers keep their rate.</li><li>Skool: plan to $99/mo for new joiners.</li><li>Publish the "as promised" rise announcement post + email.</li></ol><p>This email repeats daily until the dates are cleared from pricing.ts.</p>`,
+        tag: "price-rise-enforcement",
+      });
+    } catch (e) {
+      console.error("enforcement reminder failed:", e);
+    }
   }
 
   const contacts = await getListContacts(FREE_LIST_ID);
