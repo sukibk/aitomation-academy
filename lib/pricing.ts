@@ -29,14 +29,19 @@ export const MEMBERSHIP = {
   priceIdAnnual: "", // yearly — set once you create the $690/yr price; empty = inline $690/yr
 };
 
-// HONEST-URGENCY CONFIG: when set (ISO string, e.g. "2026-08-03T23:59:00-04:00"),
-// countdown bars render on the Vault surfaces counting down to this moment.
-// RULE: only set this with a real, enforced price change behind it — when the
-// timer hits zero, launchPrice actually rises. Fake timers are never used.
-export const VAULT_PRICE_RISES_AT: string | null = null;
+// HONEST-URGENCY CONFIG. These are real, enforced deadlines — when a timer
+// hits zero, the price actually changes. Fake timers are never used.
+//
+// 2026-07-27: the community crossed the 1,300-member threshold while the
+// founder rate was still live. Marko's call: honor a public two-week
+// extension, announced as such, then enforce the rise for good.
+// On 2026-08-11: membership rises to $99/mo (Stripe + Skool), Vault rises
+// to its $49 list price, MEMBER_COUNT gets refreshed, and these dates clear.
+export const FOUNDER_RATE_ENDS_AT: string | null = "2026-08-10T23:59:59-04:00";
+export const VAULT_PRICE_RISES_AT: string | null = "2026-08-10T23:59:59-04:00";
 
-// Current member count (update from Skool; 1,276 as of 2026-07-21). Drives the ladder.
-export const MEMBER_COUNT = 1276;
+// Current member count (update from Skool; crossed 1,300 as of 2026-07-27). Drives the ladder.
+export const MEMBER_COUNT = 1300;
 
 // "1,200+" style label, rounded down to the nearest 100. Use this everywhere a
 // member count appears in copy so updating MEMBER_COUNT updates the whole site
@@ -64,6 +69,16 @@ export function currentLevel(members: number = MEMBER_COUNT): {
   next: Level | null;
   spotsToNext: number | null;
 } {
+  // Founder-rate extension: we crossed the 1,300 threshold, but the rise is
+  // publicly deferred to FOUNDER_RATE_ENDS_AT. Until that moment the founder
+  // rate stays the live price (evaluated at build/render time — the flip on
+  // Aug 11 ships with the scheduled price-change deploy).
+  if (
+    FOUNDER_RATE_ENDS_AT &&
+    Date.now() < new Date(FOUNDER_RATE_ENDS_AT).getTime()
+  ) {
+    return { current: LADDER[0], next: LADDER[1], spotsToNext: null };
+  }
   let current = LADDER[0];
   for (const lvl of LADDER) if (members >= lvl.threshold) current = lvl;
   const next = LADDER.find((l) => l.threshold > members) ?? null;

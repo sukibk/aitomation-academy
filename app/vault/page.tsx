@@ -82,10 +82,10 @@ export default function VaultPage() {
           <Image
             src="/images/vault-cover.jpg"
             alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
-            width={230}
-            height={307}
+            width={210}
+            height={280}
             priority
-            className="mx-auto mt-10 rounded-xl"
+            className="mx-auto mt-8 rounded-2xl shadow-2xl ring-1 ring-white/10"
           />
           <div className="mt-8 flex flex-col items-center gap-3">
             <div className="flex items-baseline gap-3">
@@ -241,7 +241,7 @@ export default function VaultPage() {
                 alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
                 width={170}
                 height={227}
-                className="mx-auto rounded-lg"
+                className="mx-auto rounded-xl shadow-xl ring-1 ring-white/10"
               />
               <p className="mt-6 text-center text-sm font-semibold uppercase tracking-wider text-orange-400">
                 What&apos;s inside

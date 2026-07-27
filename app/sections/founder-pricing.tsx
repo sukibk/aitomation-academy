@@ -1,6 +1,7 @@
 import { Check, Lock, ShieldCheck } from "lucide-react";
 import { Mark } from "@/app/components/mark";
-import { MEMBER_COUNT, currentLevel } from "@/lib/pricing";
+import { MEMBER_COUNT, currentLevel, FOUNDER_RATE_ENDS_AT } from "@/lib/pricing";
+import { CountdownBar } from "@/app/components/countdown-bar";
 import { MembershipCta } from "@/app/components/membership-cta";
 
 const PERKS = [
@@ -17,7 +18,7 @@ const PERKS = [
 // the future price is labeled as the price at the next member threshold, not a
 // fake past price.
 export function FounderPricing() {
-  const { current, next, spotsToNext } = currentLevel();
+  const { current, next } = currentLevel();
   return (
     <section id="membership" className="scroll-mt-20 bg-slate-50 px-6 py-20 sm:px-12" data-section="founder_pricing">
       <div className="mx-auto max-w-3xl">
@@ -32,11 +33,14 @@ export function FounderPricing() {
           <h2 className="mt-5 text-3xl font-bold text-slate-900 sm:text-4xl">
             Join the Academy at <Mark>${current.price}/mo</Mark>, locked for life.
           </h2>
-          {next && spotsToNext !== null && (
+          {next && (
             <p className="mx-auto mt-4 max-w-xl text-slate-600">
-              {MEMBER_COUNT.toLocaleString()} members are in. At{" "}
-              {next.threshold.toLocaleString()} members, new joiners pay ${next.price}/mo.
-              Your rate never changes.
+              We said the rate rises to ${next.price}/mo at{" "}
+              {next.threshold.toLocaleString()} members — and we just crossed{" "}
+              {next.threshold.toLocaleString()}. Out of fairness to everyone
+              mid-decision, the ${current.price} founder rate stays open two
+              more weeks. Then it rises for good. Your rate never changes once
+              you&apos;re in.
             </p>
           )}
         </div>
@@ -72,26 +76,17 @@ export function FounderPricing() {
               </span>
             </div>
 
-            {/* Ladder urgency: real member count vs. the enforced threshold */}
-            {next && spotsToNext !== null && (
-              <div className="mx-auto mt-6 max-w-md">
-                <div className="flex items-baseline justify-between text-sm">
-                  <span className="font-bold text-slate-900">
-                    Only {spotsToNext.toLocaleString()} founder seats left at ${current.price}/mo
-                  </span>
-                  <span className="text-slate-500">
-                    then ${next.price}/mo
-                  </span>
-                </div>
-                <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
-                  <div
-                    className="h-full rounded-full bg-gradient-to-r from-orange-400 to-orange-600"
-                    style={{ width: `${Math.min(100, Math.round((MEMBER_COUNT / next.threshold) * 100))}%` }}
-                  />
-                </div>
-                <p className="mt-2 text-center text-xs text-slate-500">
-                  {MEMBER_COUNT.toLocaleString()} of {next.threshold.toLocaleString()} members —
-                  your rate locks for life the day you join
+            {/* Real deadline: 1,300 crossed, publicly-announced two-week extension */}
+            {next && (
+              <div className="mx-auto mt-6 flex max-w-md flex-col items-center gap-2">
+                <CountdownBar
+                  deadline={FOUNDER_RATE_ENDS_AT}
+                  label={`$${current.price}/mo founder rate ends in`}
+                />
+                <p className="text-center text-xs text-slate-500">
+                  {MEMBER_COUNT.toLocaleString()}+ members — threshold crossed. After the
+                  deadline, new joiners pay ${next.price}/mo. Your rate locks for life the
+                  day you join.
                 </p>
               </div>
             )}

@@ -58,34 +58,25 @@ export function CheckoutButton({
 
   return (
     <div className={className}>
+      {/* Button carries ONLY the action; guarantee copy lives below it. */}
       <button
         onClick={start}
         disabled={loading}
-        className={`group inline-flex w-full items-center justify-center bg-orange-500 font-semibold text-white transition-colors hover:bg-orange-600 disabled:opacity-70 sm:w-auto ${
-          sublabel ? "flex-col rounded-full px-6 py-3.5 sm:px-10 sm:py-4" : "rounded-xl px-6 py-3.5 text-base sm:px-8 sm:py-4"
-        }`}
+        className="group inline-flex w-full items-center justify-center rounded-xl bg-orange-500 px-6 py-3.5 text-base font-semibold text-white transition-colors hover:bg-orange-600 disabled:opacity-70 sm:w-auto sm:px-10 sm:py-4 sm:text-lg"
       >
         {loading ? (
-          <span className="inline-flex items-center text-base">
+          <span className="inline-flex items-center">
             <Loader2 className="mr-2 h-5 w-5 animate-spin" /> Starting checkout…
           </span>
-        ) : sublabel ? (
-          <>
-            <span className="inline-flex items-center text-center text-base leading-snug sm:text-lg">
-              {label}
-              <ArrowRight className="ml-2 h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
-            </span>
-            <span className="mt-0.5 hidden text-xs font-medium text-orange-100 sm:block">{sublabel}</span>
-          </>
         ) : (
           <>
             {label}
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="ml-2 h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
           </>
         )}
       </button>
       {sublabel && (
-        <p className="mt-2 text-center text-xs text-slate-400 sm:hidden">{sublabel}</p>
+        <p className="mt-2.5 text-center text-xs text-slate-500">{sublabel}</p>
       )}
       {error && <p className="mt-3 text-sm text-red-500">{error}</p>}
     </div>
