@@ -95,7 +95,7 @@ export default function VaultPage() {
             </div>
             <CountdownBar
               deadline={VAULT_PRICE_RISES_AT}
-              label="Launch price ends in"
+              label="Price increases in"
             />
             <CheckoutButton label="Get instant access" />
             <p className="text-sm text-slate-500">
@@ -211,7 +211,7 @@ export default function VaultPage() {
               <div className="mt-6 flex flex-col items-center gap-3">
                 <CountdownBar
                   deadline={VAULT_PRICE_RISES_AT}
-                  label="Launch price ends in"
+                  label="Price increases in"
                 />
                 <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
                   <Lock className="h-4 w-4" /> Launch price, locked when you buy

@@ -1,4 +1,4 @@
-import { Check, Lock, ShieldCheck } from "lucide-react";
+import { Check, ShieldCheck } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { MEMBER_COUNT, currentLevel, FOUNDER_RATE_ENDS_AT } from "@/lib/pricing";
 import { CountdownBar } from "@/app/components/countdown-bar";
@@ -27,7 +27,7 @@ export function FounderPricing() {
           <div className="flex items-center justify-center gap-3">
             <span className="h-0.5 w-8 rounded bg-orange-400" />
             <span className="text-sm font-semibold uppercase tracking-widest text-orange-600">
-              Founder pricing · the rate only goes up
+              Lock your price · it only goes up
             </span>
           </div>
           <h2 className="mt-5 text-3xl font-bold text-slate-900 sm:text-4xl">
@@ -35,11 +35,11 @@ export function FounderPricing() {
           </h2>
           {next && (
             <p className="mx-auto mt-4 max-w-xl text-slate-600">
-              We said the rate rises to ${next.price}/mo at{" "}
+              We said the price rises to ${next.price}/mo at{" "}
               {next.threshold.toLocaleString()} members — and we just crossed{" "}
               {next.threshold.toLocaleString()}. Out of fairness to everyone
-              mid-decision, the ${current.price} founder rate stays open two
-              more weeks. Then it rises for good. Your rate never changes once
+              mid-decision, the ${current.price} rate stays open two more
+              weeks. Then it rises for good. Your rate never changes once
               you&apos;re in.
             </p>
           )}
@@ -69,19 +69,12 @@ export function FounderPricing() {
               </div>
             </div>
 
-            {/* Locked badge */}
-            <div className="mt-6 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
-                <Lock className="h-4 w-4" /> {current.label}, locked for you
-              </span>
-            </div>
-
             {/* Real deadline: 1,300 crossed, publicly-announced two-week extension */}
             {next && (
               <div className="mx-auto mt-6 flex max-w-md flex-col items-center gap-2">
                 <CountdownBar
                   deadline={FOUNDER_RATE_ENDS_AT}
-                  label={`$${current.price}/mo founder rate ends in`}
+                  label="Price increases in"
                 />
                 <p className="text-center text-xs text-slate-500">
                   {MEMBER_COUNT.toLocaleString()}+ members — threshold crossed. After the
