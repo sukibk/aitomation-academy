@@ -1,19 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Clock } from "lucide-react";
 
 // Honest countdown: renders ONLY when a real deadline is configured
-// (VAULT.priceRisesAt in lib/pricing). If the date passes, it disappears
-// on its own — never a fake reset. The deadline must be enforced: when it
-// hits, the price actually changes, or this component gets removed.
+// (lib/pricing). If the date passes, it disappears on its own — never a fake
+// reset. The deadline must be enforced: when it hits, the price actually
+// changes, or this component gets removed.
+//
+// Design: segmented unit blocks (days / hrs / min / sec), theme-aware via
+// `variant` so it sits on dark heroes and white cards without looking like
+// a coupon widget.
 export function CountdownBar({
   deadline,
   label,
+  variant = "light",
   className = "",
 }: {
   deadline: string | null | undefined;
   label: string;
+  variant?: "light" | "dark";
   className?: string;
 }) {
   const [remaining, setRemaining] = useState<number | null>(null);
@@ -30,22 +35,43 @@ export function CountdownBar({
 
   if (!deadline || remaining === null || remaining <= 0) return null;
 
-  const d = Math.floor(remaining / 86_400_000);
-  const h = Math.floor((remaining % 86_400_000) / 3_600_000);
-  const m = Math.floor((remaining % 3_600_000) / 60_000);
-  const s = Math.floor((remaining % 60_000) / 1_000);
-  const pad = (n: number) => String(n).padStart(2, "0");
+  const units: [string, number][] = [
+    ["days", Math.floor(remaining / 86_400_000)],
+    ["hrs", Math.floor((remaining % 86_400_000) / 3_600_000)],
+    ["min", Math.floor((remaining % 3_600_000) / 60_000)],
+    ["sec", Math.floor((remaining % 60_000) / 1_000)],
+  ];
+
+  const dark = variant === "dark";
 
   return (
-    <div
-      className={`inline-flex items-center gap-3 rounded-full border border-orange-300 bg-orange-50 px-5 py-2.5 text-sm font-semibold text-orange-800 ${className}`}
-    >
-      <Clock className="h-4 w-4 shrink-0" />
-      <span>{label}</span>
-      <span className="font-mono text-base font-bold tabular-nums text-orange-700">
-        {d > 0 ? `${d}d ` : ""}
-        {pad(h)}:{pad(m)}:{pad(s)}
+    <div className={`flex flex-col items-center gap-2.5 ${className}`}>
+      <span
+        className={`text-xs font-semibold uppercase tracking-widest ${
+          dark ? "text-slate-400" : "text-slate-500"
+        }`}
+      >
+        {label}
       </span>
+      <div className="flex items-start gap-2">
+        {units.map(([unit, value]) => (
+          <div
+            key={unit}
+            className={`flex w-14 flex-col items-center rounded-xl py-2.5 ${
+              dark
+                ? "bg-white/5 ring-1 ring-white/10"
+                : "bg-slate-900 ring-1 ring-slate-800"
+            }`}
+          >
+            <span className="font-mono text-2xl font-bold leading-none tabular-nums text-orange-400">
+              {String(value).padStart(2, "0")}
+            </span>
+            <span className="mt-1 text-[10px] font-medium uppercase tracking-wider text-slate-400">
+              {unit}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

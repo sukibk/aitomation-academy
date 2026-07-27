@@ -96,6 +96,7 @@ export default function VaultPage() {
             <CountdownBar
               deadline={VAULT_PRICE_RISES_AT}
               label="Price increases in"
+              variant="dark"
             />
             <CheckoutButton label="Get instant access" />
             <p className="text-sm text-slate-500">

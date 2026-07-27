@@ -7,6 +7,7 @@ import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
 import { MEMBERSHIP, VAULT, MEMBER_COUNT, currentLevel, FOUNDER_RATE_ENDS_AT } from "@/lib/pricing";
 import { CountdownBar } from "@/app/components/countdown-bar";
+import { WinsMarquee } from "@/app/components/wins-marquee";
 import { BuyLink } from "@/app/components/buy-link";
 import { FounderPricing } from "@/app/sections/founder-pricing";
 import { CommunityWins } from "@/app/sections/community-wins";
@@ -86,10 +87,11 @@ export default function AcademyPage() {
                 use to put real work on Claude. Every course ends with something built,
                 not something watched.
               </p>
-              <div className="mt-8 flex flex-col items-center gap-3 lg:items-start">
+              <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
                 <CountdownBar
                   deadline={FOUNDER_RATE_ENDS_AT}
                   label="Price increases in"
+                  variant="dark"
                 />
                 <BuyLink
                   product="membership"
@@ -114,16 +116,12 @@ export default function AcademyPage() {
                   <source src="/videos/intro-web.mp4" type="video/mp4" />
                 </video>
               </div>
-              <div className="mt-4 overflow-hidden rounded-xl shadow-lg ring-1 ring-white/10">
-                <Image
-                  src="/images/creatives/wins/win1.png"
-                  alt="Real member post from inside the community"
-                  width={1390}
-                  height={414}
-                  className="w-full"
-                />
-              </div>
             </div>
+          </div>
+
+          {/* Real member wins, drifting past */}
+          <div className="mx-auto mt-14 max-w-6xl">
+            <WinsMarquee />
           </div>
 
           {/* Real numbers strip */}
