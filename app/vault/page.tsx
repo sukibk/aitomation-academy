@@ -80,28 +80,31 @@ export default function VaultPage() {
             The Claude Vault is {VAULT.itemCount} copy-paste skills, prompts, and workflows,
             organized by your job. Paste one, fill the blanks, get a real deliverable.
           </p>
-          {/* What's included, at a glance */}
-          <div className="mx-auto mt-6 flex max-w-2xl flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            {[
-              "500+ prompts & workflows",
-              "35 Cowork skills",
-              "Role packs for 6 professions",
-              "Weekly updates, forever",
-            ].map((item) => (
-              <span key={item} className="inline-flex items-center gap-1.5 text-sm text-slate-300">
-                <Check className="h-4 w-4 shrink-0 text-orange-400" />
-                {item}
-              </span>
-            ))}
+          {/* Cover + what's included, side by side on desktop */}
+          <div className="mx-auto mt-8 flex max-w-2xl flex-col items-center justify-center gap-8 lg:flex-row lg:gap-12">
+            <Image
+              src="/images/vault-cover.jpg"
+              alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
+              width={210}
+              height={280}
+              priority
+              className="shrink-0 rounded-2xl shadow-2xl ring-1 ring-white/10"
+            />
+            <ul className="flex flex-col gap-3 text-left">
+              {[
+                "500+ prompts & workflows",
+                "35 Cowork skills",
+                "Role packs for 6 professions",
+                "Multi-step workflows & artifacts",
+                "Weekly updates, forever",
+              ].map((item) => (
+                <li key={item} className="inline-flex items-center gap-2.5 text-base text-slate-300">
+                  <Check className="h-5 w-5 shrink-0 text-orange-400" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-          <Image
-            src="/images/vault-cover.jpg"
-            alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
-            width={210}
-            height={280}
-            priority
-            className="mx-auto mt-8 rounded-2xl shadow-2xl ring-1 ring-white/10"
-          />
           <div className="mt-8 flex flex-col items-center gap-3">
             <div className="flex items-baseline gap-3">
               <span className="text-2xl font-semibold text-slate-300 line-through decoration-red-400 decoration-2">${VAULT.anchorPrice}</span>
