@@ -70,10 +70,11 @@ export default function VaultPage() {
       {/* Hero */}
       <section className="bg-slate-900 px-6 py-20 text-center sm:px-12">
         <div className="mx-auto max-w-3xl">
-          <span className="inline-block rounded-full bg-orange-500/15 px-4 py-1 text-sm font-medium text-orange-400">
-            {VAULT.itemCount} prompts & skills · {VAULT.sectionCount} sections · updated weekly
-          </span>
-          <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <p className="text-base font-semibold text-orange-400">
+            Consultant? Marketer? Creator? Founder? Agency? Ops?{" "}
+            <span className="font-normal text-slate-300">Then this is built for you.</span>
+          </p>
+          <h1 className="mt-5 text-4xl font-bold tracking-tight text-white sm:text-5xl">
             Get <span className="text-orange-400">finished work</span> out of Claude, not chat replies
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-300">
