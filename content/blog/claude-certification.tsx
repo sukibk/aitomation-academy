@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { BlogPost } from "@/lib/blog";
 
 export const post: BlogPost = {
@@ -75,6 +76,34 @@ export const post: BlogPost = {
         the paid exam track is currently closed to you regardless of how
         skilled you are. The free Academy courses have no such restriction.
       </p>
+
+      <div className="not-prose my-10 overflow-hidden rounded-xl border border-orange-200 bg-orange-50">
+        <div className="grid items-center sm:grid-cols-[1fr_auto]">
+          <div className="p-6">
+            <p className="font-semibold text-slate-900">
+              No Partner Network access? Start with the free kit
+            </p>
+            <p className="mt-2 text-slate-700">
+              The Claude Starter System is a free PDF: 20 prompts, skills,
+              and five-minute guides that build the same practical Claude
+              ability the exams test — no company email required.
+            </p>
+            <a
+              href="/free"
+              className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+            >
+              Get the free kit
+            </a>
+          </div>
+          <Image
+            src="/images/free-kit-visual.png"
+            alt="The Claude Starter System free PDF preview"
+            width={170}
+            height={170}
+            className="mx-6 mb-6 hidden rounded-lg sm:my-6 sm:block"
+          />
+        </div>
+      </div>
 
       <h2>How much does Claude certification cost, and who can take it?</h2>
       <p>
@@ -195,22 +224,33 @@ export const post: BlogPost = {
         to prove general competence.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip the exam gatekeeping — build the proof directly
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ ready-to-run recipes across marketing,
-          ops, writing, and analysis. Every one produces a finished piece of
-          work you can put in a portfolio — the thing that actually gets
-          checked in an interview, not a certificate number.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
+      <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
+        <div className="grid items-center sm:grid-cols-[auto_1fr]">
+          <Image
+            src="/images/vault-visual-sq.png"
+            alt="The Claude Vault — 550+ prompts and skills"
+            width={190}
+            height={190}
+            className="hidden h-full w-auto object-cover sm:block"
+          />
+          <div className="p-6">
+            <p className="font-semibold text-white">
+              Skip the exam gatekeeping — build the proof directly
+            </p>
+            <p className="mt-2 text-slate-300">
+              The Claude Vault has 550+ ready-to-run recipes across marketing,
+              ops, writing, and analysis. Every one produces a finished piece of
+              work you can put in a portfolio — the thing that actually gets
+              checked in an interview, not a certificate number.
+            </p>
+            <a
+              href="/vault"
+              className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+            >
+              See the Vault
+            </a>
+          </div>
+        </div>
       </div>
 
       <h2>What about the &quot;Claude Certified&quot; prep sites that show up in search</h2>

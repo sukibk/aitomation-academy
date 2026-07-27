@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { BlogPost } from "@/lib/blog";
 import { BuyLink } from "@/app/components/buy-link";
 import { MEMBER_COUNT } from "@/lib/pricing";
@@ -97,6 +98,34 @@ export const post: BlogPost = {
           Get the Vault · $17 one time
         </BuyLink>
         <p className="mt-2 text-xs text-slate-400">7-day refund guarantee. Yours forever.</p>
+      </div>
+
+      <div className="not-prose my-10 overflow-hidden rounded-xl border border-orange-200 bg-orange-50">
+        <div className="grid items-center sm:grid-cols-[1fr_auto]">
+          <div className="p-6">
+            <p className="font-semibold text-slate-900">
+              On the free plan? Make every message count
+            </p>
+            <p className="mt-2 text-slate-700">
+              The Claude Starter System is a free PDF: 20 prompts, skills,
+              and five-minute guides that get finished work out of Claude —
+              on the free plan, Pro, or Max.
+            </p>
+            <a
+              href="/free"
+              className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+            >
+              Get the free kit
+            </a>
+          </div>
+          <Image
+            src="/images/free-kit-visual.png"
+            alt="The Claude Starter System free PDF preview"
+            width={170}
+            height={170}
+            className="mx-6 mb-6 hidden rounded-lg sm:my-6 sm:block"
+          />
+        </div>
       </div>
 
       <h2>Claude pricing tiers at a glance</h2>
@@ -466,11 +495,20 @@ export const post: BlogPost = {
         </table>
       </div>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
+      <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-900 p-6">
+        <div className="mb-4 -mx-6 -mt-6 relative h-36 overflow-hidden">
+          <Image
+            src="/images/vault-visual.png"
+            alt="The Claude Vault — 550+ prompts and skills"
+            fill
+            sizes="720px"
+            className="object-cover object-left"
+          />
+        </div>
+        <p className="font-semibold text-white">
           Whichever plan you pick, get more out of every message
         </p>
-        <p className="mt-2 text-slate-700">
+        <p className="mt-2 text-slate-300">
           The Claude Vault has 550+ prompts &amp; skills, sorted by your job —
           consultant, marketer, founder, freelancer, or operator. Copy, fill the
           blanks, get finished work. They run on Free, Pro, or Max.
@@ -482,7 +520,7 @@ export const post: BlogPost = {
         >
           Get 550+ prompts &amp; skills · $17
         </BuyLink>
-        <p className="mt-2 text-xs text-slate-500">
+        <p className="mt-2 text-xs text-slate-400">
           Lists at $49. One-time purchase, 7-day refund guarantee.
         </p>
       </div>

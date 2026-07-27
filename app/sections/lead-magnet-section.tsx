@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { LeadMagnetForm } from "../components/lead-magnet-form";
 import { Check } from "lucide-react";
 import { VAULT } from "@/lib/pricing";
@@ -49,6 +50,14 @@ export function LeadMagnetSection() {
                   </li>
                 ))}
               </ul>
+
+              <Image
+                src="/images/free-kit-visual.png"
+                alt="Preview of The Claude Starter System PDF pages"
+                width={360}
+                height={360}
+                className="mt-10 hidden lg:block rounded-2xl shadow-2xl"
+              />
             </div>
 
             {/* Right side — Form */}

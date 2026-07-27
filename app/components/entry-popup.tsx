@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { X, ArrowRight, Loader2, Mail } from "lucide-react";
 import posthog from "posthog-js";
 
@@ -87,6 +88,17 @@ export function EntryPopup() {
             </div>
           ) : (
             <>
+              {/* Visual: what the kit looks like (free-kit mockup, brand palette) */}
+              <div className="relative -mx-8 -mt-8 mb-6 h-40 overflow-hidden bg-[#f5f1e8]">
+                <Image
+                  src="/images/free-kit-visual.png"
+                  alt="The Claude Starter System — free PDF kit preview"
+                  fill
+                  sizes="448px"
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
               <div className="mb-6">
                 <p className="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-2">Free PDF</p>
                 <h2 className="text-2xl font-bold text-slate-900 mb-2">
