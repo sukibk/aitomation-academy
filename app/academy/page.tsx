@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Check, Calendar, BookOpen, Wrench, Users } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
-import { MEMBERSHIP, VAULT, MEMBER_COUNT, currentLevel } from "@/lib/pricing";
+import { MEMBERSHIP, VAULT, MEMBER_COUNT, currentLevel, FOUNDER_RATE_ENDS_AT } from "@/lib/pricing";
+import { CountdownBar } from "@/app/components/countdown-bar";
 import { BuyLink } from "@/app/components/buy-link";
 import { FounderPricing } from "@/app/sections/founder-pricing";
 import { CommunityWins } from "@/app/sections/community-wins";
@@ -82,14 +84,28 @@ export default function AcademyPage() {
               use to put real work on Claude. Every course ends with something built,
               not something watched.
             </p>
-            <BuyLink
-              product="membership"
-              dataCta="academy_hero_join"
-              className="mt-8 inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
-            >
-              Join at ${current.price}/mo, locked for life
-            </BuyLink>
-            <p className="mt-4 text-sm text-slate-500">${MEMBERSHIP.price}/mo · cancel anytime</p>
+            <Image
+              src="/images/academy-cover.jpg"
+              alt="Claude Code Academy — courses, Vault, and weekly live calls"
+              width={210}
+              height={280}
+              priority
+              className="mx-auto mt-8 rounded-2xl shadow-2xl ring-1 ring-white/10"
+            />
+            <div className="mt-8 flex flex-col items-center gap-3">
+              <CountdownBar
+                deadline={FOUNDER_RATE_ENDS_AT}
+                label="Price increases in"
+              />
+              <BuyLink
+                product="membership"
+                dataCta="academy_hero_join"
+                className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-orange-600"
+              >
+                Join at ${current.price}/mo, locked for life
+              </BuyLink>
+              <p className="text-sm text-slate-500">${MEMBERSHIP.price}/mo · cancel anytime</p>
+            </div>
           </div>
         </section>
 

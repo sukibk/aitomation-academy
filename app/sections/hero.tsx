@@ -200,8 +200,7 @@ export function Hero() {
                 dataCta="hero_vault"
                 className="inline-flex items-center justify-center rounded-xl border-2 border-slate-300 px-8 py-3.5 text-base font-semibold text-slate-800 hover:border-orange-400 hover:text-orange-600 transition-colors"
               >
-                {VAULT.itemCount} prompts &amp; skills for{" "}
-                <s className="mx-1 text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
+                Get the Vault — {VAULT.itemCount} prompts &amp; skills
               </BuyLink>
             )}
           </div>
