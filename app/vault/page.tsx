@@ -178,7 +178,7 @@ export default function VaultPage() {
           <div className="h-2 w-full bg-orange-400" />
           <div className="px-8 py-10">
             <Image
-              src="/images/vault-cover.png"
+              src="/images/vault-cover.jpg"
               alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
               width={210}
               height={280}

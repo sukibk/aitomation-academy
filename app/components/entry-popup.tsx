@@ -88,14 +88,16 @@ export function EntryPopup() {
             </div>
           ) : (
             <>
-              {/* Visual: the Starter System cover (dark product mockup) */}
-              <div className="relative -mx-8 -mt-8 mb-6 h-52 overflow-hidden bg-[#0b0e14]">
+              {/* Visual: wide banner render of the Starter System cover.
+                  Composed for this slot — edges fade to pure black, so
+                  object-cover fills the band with no visible seams. */}
+              <div className="relative -mx-8 -mt-8 mb-6 h-48 overflow-hidden bg-black">
                 <Image
-                  src="/images/free-kit-visual.png"
+                  src="/images/free-kit-banner.jpg"
                   alt="The Claude Starter System — free PDF kit"
                   fill
                   sizes="448px"
-                  className="object-contain py-3"
+                  className="object-cover object-center"
                   priority
                 />
               </div>

@@ -52,7 +52,7 @@ export function LeadMagnetSection() {
               </ul>
 
               <Image
-                src="/images/free-kit-visual.png"
+                src="/images/free-kit-visual.jpg"
                 alt="Preview of The Claude Starter System PDF pages"
                 width={320}
                 height={427}

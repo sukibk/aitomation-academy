@@ -119,7 +119,7 @@ export const post: BlogPost = {
             </a>
           </div>
           <Image
-            src="/images/free-kit-visual.png"
+            src="/images/free-kit-visual.jpg"
             alt="The Claude Starter System free PDF preview"
             width={160}
             height={213}
@@ -498,7 +498,7 @@ export const post: BlogPost = {
       <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-900 p-6">
         <div className="mb-4 -mx-6 -mt-6 relative h-36 overflow-hidden">
           <Image
-            src="/images/vault-visual.png"
+            src="/images/vault-visual.jpg"
             alt="The Claude Vault — 550+ prompts and skills"
             fill
             sizes="720px"
