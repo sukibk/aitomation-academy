@@ -77,16 +77,14 @@ export function VaultOffer() {
             <BuyLink
               product="vault"
               dataCta="vault_offer"
-              className="group mt-7 inline-flex w-full flex-col items-center justify-center rounded-full bg-orange-500 px-10 py-4 font-semibold text-white transition-colors hover:bg-orange-600"
+              className="group mt-7 inline-flex w-full items-center justify-center rounded-xl bg-orange-500 px-10 py-4 text-lg font-semibold text-white transition-colors hover:bg-orange-600"
             >
-              <span className="inline-flex items-center text-lg">
-                Get instant access
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </span>
-              <span className="mt-0.5 text-xs font-medium text-orange-100">
-                Instant access · {VAULT.guaranteeDays}-day money-back guarantee
-              </span>
+              Get instant access
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </BuyLink>
+            <p className="mt-2.5 text-xs text-slate-500">
+              {VAULT.guaranteeDays}-day money-back guarantee
+            </p>
           </div>
         </div>
       </div>
