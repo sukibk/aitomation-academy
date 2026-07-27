@@ -495,34 +495,36 @@ export const post: BlogPost = {
         </table>
       </div>
 
-      <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-900 p-6">
-        <div className="mb-4 -mx-6 -mt-6 relative h-36 overflow-hidden">
+      <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
+        <div className="grid items-center sm:grid-cols-[auto_1fr]">
           <Image
-            src="/images/vault-visual.jpg"
+            src="/images/vault-cover.jpg"
             alt="The Claude Vault — 550+ prompts and skills"
-            fill
-            sizes="720px"
-            className="object-cover object-left"
+            width={180}
+            height={240}
+            className="mx-auto mt-6 rounded-lg sm:my-6 sm:ml-6 sm:mr-0"
           />
+          <div className="p-6">
+            <p className="font-semibold text-white">
+              Whichever plan you pick, get more out of every message
+            </p>
+            <p className="mt-2 text-slate-300">
+              The Claude Vault has 550+ prompts &amp; skills, sorted by your job —
+              consultant, marketer, founder, freelancer, or operator. Copy, fill the
+              blanks, get finished work. They run on Free, Pro, or Max.
+            </p>
+            <BuyLink
+              product="vault"
+              dataCta="pricing_guide_table_vault"
+              className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
+            >
+              Get 550+ prompts &amp; skills · $17
+            </BuyLink>
+            <p className="mt-2 text-xs text-slate-400">
+              Lists at $49. One-time purchase, 7-day refund guarantee.
+            </p>
+          </div>
         </div>
-        <p className="font-semibold text-white">
-          Whichever plan you pick, get more out of every message
-        </p>
-        <p className="mt-2 text-slate-300">
-          The Claude Vault has 550+ prompts &amp; skills, sorted by your job —
-          consultant, marketer, founder, freelancer, or operator. Copy, fill the
-          blanks, get finished work. They run on Free, Pro, or Max.
-        </p>
-        <BuyLink
-          product="vault"
-          dataCta="pricing_guide_table_vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Get 550+ prompts &amp; skills · $17
-        </BuyLink>
-        <p className="mt-2 text-xs text-slate-400">
-          Lists at $49. One-time purchase, 7-day refund guarantee.
-        </p>
       </div>
 
       <h2>Who should stay on the free plan</h2>

@@ -78,6 +78,14 @@ export default function VaultPage() {
             The Claude Vault is {VAULT.itemCount} copy-paste skills, prompts, and workflows,
             organized by your job. Paste one, fill the blanks, get a real deliverable.
           </p>
+          <Image
+            src="/images/vault-cover.jpg"
+            alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
+            width={230}
+            height={307}
+            priority
+            className="mx-auto mt-10 rounded-xl"
+          />
           <div className="mt-8 flex flex-col items-center gap-3">
             <div className="flex items-baseline gap-3">
               <span className="text-slate-500 line-through">${VAULT.anchorPrice}</span>

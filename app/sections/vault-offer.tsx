@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, Check, Lock } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { VAULT } from "@/lib/pricing";
@@ -39,6 +40,13 @@ export function VaultOffer() {
         <div className="overflow-hidden rounded-3xl bg-white text-center shadow-xl ring-1 ring-slate-200">
           <div className="h-2 w-full bg-orange-400" />
           <div className="px-8 py-10">
+            <Image
+              src="/images/vault-cover.jpg"
+              alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
+              width={190}
+              height={254}
+              className="mx-auto mb-8 rounded-xl shadow-lg"
+            />
             <div className="flex items-end justify-center gap-8">
               <div className="pb-2 text-center">
                 <div className="text-3xl font-bold text-slate-400">
