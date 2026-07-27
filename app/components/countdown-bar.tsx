@@ -35,17 +35,16 @@ export function CountdownBar({
 
   if (!deadline || remaining === null || remaining <= 0) return null;
 
-  const units: [string, number][] = [
-    ["days", Math.floor(remaining / 86_400_000)],
-    ["hrs", Math.floor((remaining % 86_400_000) / 3_600_000)],
-    ["min", Math.floor((remaining % 3_600_000) / 60_000)],
-    ["sec", Math.floor((remaining % 60_000) / 1_000)],
-  ];
-
+  const d = Math.floor(remaining / 86_400_000);
+  const h = Math.floor((remaining % 86_400_000) / 3_600_000);
+  const m = Math.floor((remaining % 3_600_000) / 60_000);
+  const s = Math.floor((remaining % 60_000) / 1_000);
+  const pad = (n: number) => String(n).padStart(2, "0");
   const dark = variant === "dark";
 
+  // Quiet, editorial: one small line, no boxes, no pill.
   return (
-    <div className={`flex flex-col items-center gap-2.5 ${className}`}>
+    <div className={`flex items-baseline gap-2.5 ${className}`}>
       <span
         className={`text-xs font-semibold uppercase tracking-widest ${
           dark ? "text-slate-400" : "text-slate-500"
@@ -53,25 +52,13 @@ export function CountdownBar({
       >
         {label}
       </span>
-      <div className="flex items-start gap-2">
-        {units.map(([unit, value]) => (
-          <div
-            key={unit}
-            className={`flex w-14 flex-col items-center rounded-xl py-2.5 ${
-              dark
-                ? "bg-white/5 ring-1 ring-white/10"
-                : "bg-slate-900 ring-1 ring-slate-800"
-            }`}
-          >
-            <span className="font-mono text-2xl font-bold leading-none tabular-nums text-orange-400">
-              {String(value).padStart(2, "0")}
-            </span>
-            <span className="mt-1 text-[10px] font-medium uppercase tracking-wider text-slate-400">
-              {unit}
-            </span>
-          </div>
-        ))}
-      </div>
+      <span
+        className={`font-mono text-base font-semibold tabular-nums ${
+          dark ? "text-orange-400" : "text-orange-600"
+        }`}
+      >
+        {d}d {pad(h)}:{pad(m)}:{pad(s)}
+      </span>
     </div>
   );
 }

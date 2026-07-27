@@ -19,25 +19,34 @@ const WINS = [
 
 export function WinsMarquee() {
   return (
-    <div className="group relative overflow-hidden">
-      {/* Edge fades so cards emerge from / dissolve into the section bg */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-slate-900 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-slate-900 to-transparent" />
-      <div className="flex w-max animate-marquee gap-4 group-hover:[animation-play-state:paused]">
-        {[...WINS, ...WINS].map((file, i) => (
-          <div
-            key={`${file}-${i}`}
-            className="w-[320px] shrink-0 overflow-hidden rounded-xl bg-white shadow-lg ring-1 ring-white/10 sm:w-[380px]"
-          >
-            <Image
-              src={`/images/creatives/wins/${file}`}
-              alt="Real member post from inside the community"
-              width={380}
-              height={140}
-              className="h-auto w-full"
-            />
-          </div>
-        ))}
+    <div>
+      <div className="mb-5 flex items-center justify-center gap-3">
+        <span className="h-0.5 w-8 rounded bg-orange-400" />
+        <span className="text-sm font-semibold uppercase tracking-widest text-orange-400">
+          Member wins
+        </span>
+        <span className="h-0.5 w-8 rounded bg-orange-400" />
+      </div>
+      <div className="group relative overflow-hidden">
+        {/* Edge fades so cards emerge from / dissolve into the section bg */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-slate-900 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-slate-900 to-transparent" />
+        <div className="flex w-max animate-marquee gap-3 group-hover:[animation-play-state:paused]">
+          {[...WINS, ...WINS].map((file, i) => (
+            <div
+              key={`${file}-${i}`}
+              className="w-[240px] shrink-0 overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-white/10 sm:w-[270px]"
+            >
+              <Image
+                src={`/images/creatives/wins/${file}`}
+                alt="Real member post from inside the community"
+                width={270}
+                height={100}
+                className="h-auto w-full"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
