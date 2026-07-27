@@ -28,7 +28,7 @@ export function Navbar() {
   // Priced CTAs open Stripe checkout directly — a click on a price is intent.
   const cta = (() => {
     if (pathname.startsWith("/vault") && !VAULT.salesPaused)
-      return { product: "vault" as const, label: `Get the Vault · $${VAULT.launchPrice}` };
+      return { product: "vault" as const, label: "Get the Vault" };
     if (pathname.startsWith("/academy"))
       return { product: "membership" as const, label: "Lock $69/mo" };
     return { product: null, href: "/skool-redirect", label: "Get Free Access" };

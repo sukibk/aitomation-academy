@@ -1,4 +1,4 @@
-import { Check, Lock, ShieldCheck, ArrowRight } from "lucide-react";
+import { Check, Lock, ShieldCheck } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { MEMBER_COUNT, currentLevel } from "@/lib/pricing";
 import { MembershipCta } from "@/app/components/membership-cta";
@@ -72,17 +72,28 @@ export function FounderPricing() {
               </span>
             </div>
 
-            {/* Ladder note */}
+            {/* Ladder urgency: real member count vs. the enforced threshold */}
             {next && spotsToNext !== null && (
-              <p className="mt-6 flex items-start justify-center gap-2 text-center text-slate-600">
-                <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-emerald-600" />
-                <span>
-                  Just <span className="font-bold text-slate-900">{spotsToNext.toLocaleString()} more members</span>{" "}
-                  until new joiners pay{" "}
-                  <span className="font-bold text-emerald-600">${next.price}/mo</span>. You stay
-                  at ${current.price}.
-                </span>
-              </p>
+              <div className="mx-auto mt-6 max-w-md">
+                <div className="flex items-baseline justify-between text-sm">
+                  <span className="font-bold text-slate-900">
+                    Only {spotsToNext.toLocaleString()} founder seats left at ${current.price}/mo
+                  </span>
+                  <span className="text-slate-500">
+                    then ${next.price}/mo
+                  </span>
+                </div>
+                <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-orange-400 to-orange-600"
+                    style={{ width: `${Math.min(100, Math.round((MEMBER_COUNT / next.threshold) * 100))}%` }}
+                  />
+                </div>
+                <p className="mt-2 text-center text-xs text-slate-500">
+                  {MEMBER_COUNT.toLocaleString()} of {next.threshold.toLocaleString()} members —
+                  your rate locks for life the day you join
+                </p>
+              </div>
             )}
 
             {/* Benefit grid */}

@@ -78,7 +78,7 @@ export function LeadMagnetSection() {
                     dataCta="lead_magnet_vault"
                     className="font-semibold text-orange-600 underline hover:text-orange-700"
                   >
-                    Get {VAULT.itemCount} prompts &amp; skills for ${VAULT.launchPrice}
+                    Get the full Vault instead
                   </BuyLink>
                 </p>
               )}

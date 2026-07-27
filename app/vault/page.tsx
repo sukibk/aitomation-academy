@@ -5,7 +5,8 @@ import { Check, Star, ShieldCheck, RefreshCw, Zap, Lock } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
-import { VAULT, MEMBER_COUNT_LABEL } from "@/lib/pricing";
+import { VAULT, MEMBER_COUNT_LABEL, VAULT_PRICE_RISES_AT } from "@/lib/pricing";
+import { CountdownBar } from "@/app/components/countdown-bar";
 import { CheckoutButton } from "./checkout-button";
 import { CommunityWins } from "@/app/sections/community-wins";
 import { Navbar } from "@/app/components/navbar";
@@ -92,7 +93,11 @@ export default function VaultPage() {
               <span className="text-4xl font-bold text-white">${VAULT.launchPrice}</span>
               <span className="text-slate-400">one-time</span>
             </div>
-            <CheckoutButton label={`Get ${VAULT.itemCount} prompts · $${VAULT.launchPrice}`} />
+            <CountdownBar
+              deadline={VAULT_PRICE_RISES_AT}
+              label="Launch price ends in"
+            />
+            <CheckoutButton label="Get instant access" />
             <p className="text-sm text-slate-500">
               {VAULT.guaranteeDays}-day refund. Instant access. No subscription.
             </p>
@@ -180,53 +185,79 @@ export default function VaultPage() {
       {/* Social proof: real member posts */}
       <CommunityWins />
 
-      {/* Anchor + guarantee */}
+      {/* Anchor + guarantee: price/CTA left, what-you're-buying right */}
       <section id="buy" className="scroll-mt-20 bg-slate-50 px-6 py-16 sm:px-12">
-        <div className="mx-auto max-w-2xl overflow-hidden rounded-3xl bg-white text-center shadow-xl ring-1 ring-slate-200">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl bg-white shadow-xl ring-1 ring-slate-200">
           <div className="h-2 w-full bg-orange-400" />
-          <div className="px-8 py-10">
-            <Image
-              src="/images/vault-cover.jpg"
-              alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
-              width={210}
-              height={280}
-              className="mx-auto mb-8 rounded-xl shadow-lg"
-            />
-            <div className="flex items-end justify-center gap-8 sm:gap-12">
-              <div className="pb-2 text-center">
-                <div className="text-3xl font-bold text-slate-400 sm:text-4xl">
-                  <s className="decoration-red-400 decoration-2">${VAULT.anchorPrice}</s>
+          <div className="grid lg:grid-cols-[1.1fr_1fr]">
+            {/* Left: the decision */}
+            <div className="px-8 py-10 text-center lg:border-r lg:border-slate-100">
+              <div className="flex items-end justify-center gap-8 sm:gap-12">
+                <div className="pb-2 text-center">
+                  <div className="text-3xl font-bold text-slate-400 sm:text-4xl">
+                    <s className="decoration-red-400 decoration-2">${VAULT.anchorPrice}</s>
+                  </div>
+                  <div className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
+                    list price
+                  </div>
                 </div>
-                <div className="mt-2 text-xs font-semibold uppercase tracking-widest text-slate-400">
-                  list price
+                <div>
+                  <div className="text-6xl font-extrabold tracking-tight text-slate-900 sm:text-7xl">
+                    <Mark>${VAULT.launchPrice}</Mark>
+                  </div>
+                  <div className="mt-2 text-slate-500">one-time · yours forever</div>
                 </div>
               </div>
-              <div>
-                <div className="text-6xl font-extrabold tracking-tight text-slate-900 sm:text-7xl">
-                  <Mark>${VAULT.launchPrice}</Mark>
-                </div>
-                <div className="mt-2 text-slate-500">one-time · yours forever</div>
+              <div className="mt-6 flex flex-col items-center gap-3">
+                <CountdownBar
+                  deadline={VAULT_PRICE_RISES_AT}
+                  label="Launch price ends in"
+                />
+                <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
+                  <Lock className="h-4 w-4" /> Launch price, locked when you buy
+                </span>
+              </div>
+              <div className="mt-8">
+                <CheckoutButton
+                  label="Get instant access"
+                  sublabel={`${VAULT.guaranteeDays}-day money-back guarantee`}
+                />
+              </div>
+              <p className="mx-auto mt-6 max-w-md text-sm text-slate-600">
+                Try three prompts from your section in the next {VAULT.guaranteeDays} days.
+                If they don&apos;t save you real time, reply to your receipt and we refund you.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+                <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-orange-500" /> {VAULT.guaranteeDays}-day refund</span>
+                <span className="flex items-center gap-2"><RefreshCw className="h-4 w-4 text-orange-500" /> Free weekly updates</span>
+                <span className="flex items-center gap-2"><Star className="h-4 w-4 text-orange-500" /> {MEMBER_COUNT_LABEL} members</span>
               </div>
             </div>
-            <div className="mt-6 flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-4 py-2 text-sm font-semibold text-orange-700">
-                <Lock className="h-4 w-4" /> Launch price, locked when you buy
-              </span>
-            </div>
-            <div className="mt-8">
-              <CheckoutButton
-                label={`Get instant access · $${VAULT.launchPrice}`}
-                sublabel={`Instant access · ${VAULT.guaranteeDays}-day money-back guarantee`}
+
+            {/* Right: exactly what you're buying */}
+            <div className="bg-slate-900 px-8 py-10">
+              <Image
+                src="/images/vault-cover.jpg"
+                alt={`The Claude Vault — ${VAULT.itemCount} prompts & skills`}
+                width={170}
+                height={227}
+                className="mx-auto rounded-lg"
               />
-            </div>
-            <p className="mx-auto mt-6 max-w-md text-sm text-slate-600">
-              Try three prompts from your section in the next {VAULT.guaranteeDays} days.
-              If they don&apos;t save you real time, reply to your receipt and we refund you.
-            </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-6 text-sm text-slate-500">
-              <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-orange-500" /> {VAULT.guaranteeDays}-day refund</span>
-              <span className="flex items-center gap-2"><RefreshCw className="h-4 w-4 text-orange-500" /> Free weekly updates</span>
-              <span className="flex items-center gap-2"><Star className="h-4 w-4 text-orange-500" /> {MEMBER_COUNT_LABEL} members</span>
+              <p className="mt-6 text-center text-sm font-semibold uppercase tracking-wider text-orange-400">
+                What&apos;s inside
+              </p>
+              <ul className="mx-auto mt-4 max-w-sm space-y-2.5">
+                {STACK.map(([title]) => (
+                  <li key={title} className="flex items-start gap-2.5 text-sm text-slate-200">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                    <span>{title}</span>
+                  </li>
+                ))}
+                <li className="flex items-start gap-2.5 text-sm text-slate-200">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                  <span>{VAULT.sectionCount} sections, one for every kind of work</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

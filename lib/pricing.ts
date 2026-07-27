@@ -29,6 +29,12 @@ export const MEMBERSHIP = {
   priceIdAnnual: "", // yearly — set once you create the $690/yr price; empty = inline $690/yr
 };
 
+// HONEST-URGENCY CONFIG: when set (ISO string, e.g. "2026-08-03T23:59:00-04:00"),
+// countdown bars render on the Vault surfaces counting down to this moment.
+// RULE: only set this with a real, enforced price change behind it — when the
+// timer hits zero, launchPrice actually rises. Fake timers are never used.
+export const VAULT_PRICE_RISES_AT: string | null = null;
+
 // Current member count (update from Skool; 1,276 as of 2026-07-21). Drives the ladder.
 export const MEMBER_COUNT = 1276;
 

@@ -95,7 +95,7 @@ export const post: BlogPost = {
           dataCta="pricing_guide_top_vault"
           className="mt-3 inline-block rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-600"
         >
-          Get the Vault · $17 one time
+          Get the Vault
         </BuyLink>
         <p className="mt-2 text-xs text-slate-400">7-day refund guarantee. Yours forever.</p>
       </div>
@@ -518,7 +518,7 @@ export const post: BlogPost = {
               dataCta="pricing_guide_table_vault"
               className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
             >
-              Get 550+ prompts &amp; skills · $17
+              Get instant access
             </BuyLink>
             <p className="mt-2 text-xs text-slate-400">
               Lists at $49. One-time purchase, 7-day refund guarantee.
@@ -944,7 +944,7 @@ export const post: BlogPost = {
           dataCta="pricing_guide_end_vault"
           className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-8 py-4 text-base font-semibold text-white hover:bg-orange-600 transition-colors"
         >
-          Get the Vault · $17
+          Get the Vault
         </BuyLink>
         <p className="mt-4 text-sm text-slate-500">
           Not ready to buy?{" "}

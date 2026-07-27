@@ -88,8 +88,7 @@ export function CommunityWins() {
               dataCta="community_wins_vault"
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 shadow-sm transition-colors hover:border-orange-400 hover:text-orange-600"
             >
-              Get the prompts &amp; skills these members use:{" "}
-              <s className="text-slate-400">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}
+              Get the prompts &amp; skills these members use
               <ArrowRight className="h-4 w-4" />
             </BuyLink>
           )}

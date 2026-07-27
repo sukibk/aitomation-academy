@@ -74,7 +74,7 @@ export function VaultOffer() {
               className="group mt-7 inline-flex w-full flex-col items-center justify-center rounded-full bg-orange-500 px-10 py-4 font-semibold text-white transition-colors hover:bg-orange-600"
             >
               <span className="inline-flex items-center text-lg">
-                Get 550+ prompts for ${VAULT.launchPrice}
+                Get instant access
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </span>
               <span className="mt-0.5 text-xs font-medium text-orange-100">

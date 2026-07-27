@@ -39,7 +39,7 @@ export function VaultStickyCta() {
             dataCta="vault_sticky"
             className="inline-flex items-center whitespace-nowrap rounded-lg bg-orange-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-orange-600"
           >
-            <s className="mr-1 text-orange-200/80">${VAULT.anchorPrice}</s> ${VAULT.launchPrice}: Get it
+            Get instant access
             <ArrowRight className="ml-1.5 h-4 w-4" />
           </BuyLink>
           <button

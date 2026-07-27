@@ -40,7 +40,7 @@ const features: {
       "Stop starting from a blank box. Find your job, paste the prompt, get a real deliverable: a client report, a deck, a week of content. Sorted into 20 sections, updated weekly.",
     linkLabel: VAULT.salesPaused
       ? "See the Vault"
-      : `Get it for $${VAULT.launchPrice}`,
+      : "Explore the Vault",
     href: "/vault",
   },
   {
