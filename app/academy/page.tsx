@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Check, Calendar, BookOpen, Wrench, Users } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
-import { MEMBERSHIP, VAULT, MEMBER_COUNT, currentLevel, FOUNDER_RATE_ENDS_AT } from "@/lib/pricing";
+import { VAULT, MEMBER_COUNT, currentLevel, FOUNDER_RATE_ENDS_AT } from "@/lib/pricing";
 import { CountdownBar } from "@/app/components/countdown-bar";
-import { WinsMarquee } from "@/app/components/wins-marquee";
+import { AcademyVsl } from "@/app/components/academy-vsl";
+import { WinsCarousel } from "@/app/components/wins-carousel";
 import { BuyLink } from "@/app/components/buy-link";
 import { FounderPricing } from "@/app/sections/founder-pricing";
 import { CommunityWins } from "@/app/sections/community-wins";
@@ -71,14 +71,11 @@ export default function AcademyPage() {
     <>
       <Navbar />
       <main className="min-h-screen bg-white">
-        <section className="bg-slate-900 px-6 py-20 sm:px-12">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-            {/* Left: the pitch */}
+        <section className="bg-slate-900 px-6 py-16 sm:px-12 sm:py-20">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            {/* Left: pitch + real numbers */}
             <div className="text-center lg:text-left">
-              <span className="inline-block rounded-full bg-orange-500/15 px-4 py-1 text-sm font-medium text-orange-400">
-                Claude Code Academy
-              </span>
-              <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
                 Stop chatting with AI.{" "}
                 <span className="text-orange-400">Start delegating to it.</span>
               </h1>
@@ -100,43 +97,30 @@ export default function AcademyPage() {
                 >
                   Join at ${current.price}/mo, locked for life
                 </BuyLink>
-                <p className="text-sm text-slate-500">${MEMBERSHIP.price}/mo · cancel anytime</p>
+                <p className="text-sm text-slate-500">7-day money-back guarantee · cancel anytime</p>
+              </div>
+
+              {/* Real numbers */}
+              <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 border-t border-white/10 pt-8 text-center sm:grid-cols-4 lg:text-left">
+                {[
+                  [`${MEMBER_COUNT.toLocaleString()}+`, "members inside"],
+                  ["550+", "prompts & skills"],
+                  ["Weekly", "live calls"],
+                  ["7 days", "to your first build"],
+                ].map(([stat, label]) => (
+                  <div key={label}>
+                    <div className="text-2xl font-bold text-white">{stat}</div>
+                    <div className="mt-1 text-sm text-slate-400">{label}</div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Right: real people, not a render — Marko on video + a real member win */}
+            {/* Right: real people — Marko on autoplay + member wins below */}
             <div>
-              <div className="overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10">
-                <video
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="aspect-video w-full bg-black"
-                >
-                  <source src="/videos/intro-web.mp4" type="video/mp4" />
-                </video>
-              </div>
+              <AcademyVsl />
+              <WinsCarousel />
             </div>
-          </div>
-
-          {/* Real member wins, drifting past */}
-          <div className="mx-auto mt-14 max-w-6xl">
-            <WinsMarquee />
-          </div>
-
-          {/* Real numbers strip */}
-          <div className="mx-auto mt-14 grid max-w-4xl grid-cols-2 gap-8 text-center sm:grid-cols-4">
-            {[
-              [`${MEMBER_COUNT.toLocaleString()}+`, "members inside"],
-              ["550+", "prompts & skills"],
-              ["Weekly", "live calls"],
-              ["7 days", "to your first build"],
-            ].map(([stat, label]) => (
-              <div key={label}>
-                <div className="text-3xl font-bold text-white">{stat}</div>
-                <div className="mt-1 text-sm text-slate-400">{label}</div>
-              </div>
-            ))}
           </div>
         </section>
 
