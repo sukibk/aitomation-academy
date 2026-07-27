@@ -74,7 +74,7 @@ export function FounderPricing() {
               <div className="mx-auto mt-6 flex max-w-md flex-col items-center gap-2">
                 <CountdownBar
                   deadline={FOUNDER_RATE_ENDS_AT}
-                  label="Price increases in"
+                  label="Discount ends in"
                 />
                 <p className="text-center text-xs text-slate-500">
                   {MEMBER_COUNT.toLocaleString()}+ members — threshold crossed. After the

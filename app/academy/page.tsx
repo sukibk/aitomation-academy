@@ -90,7 +90,7 @@ export default function AcademyPage() {
               <div className="mt-8 flex flex-col items-center gap-4 lg:items-start">
                 <CountdownBar
                   deadline={FOUNDER_RATE_ENDS_AT}
-                  label="Price increases in"
+                  label="Discount ends in"
                   variant="dark"
                 />
                 <BuyLink

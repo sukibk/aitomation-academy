@@ -67,7 +67,7 @@ export function VaultOffer() {
             <div className="mt-5 flex flex-col items-center gap-2">
               <CountdownBar
                 deadline={VAULT_PRICE_RISES_AT}
-                label="Price increases in"
+                label="Discount ends in"
               />
               <p className="text-center text-xs text-slate-500">
                 After the deadline the Vault lists at ${VAULT.anchorPrice}. Buy now and

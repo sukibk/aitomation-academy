@@ -89,13 +89,13 @@ export default function VaultPage() {
           />
           <div className="mt-8 flex flex-col items-center gap-3">
             <div className="flex items-baseline gap-3">
-              <span className="text-slate-500 line-through">${VAULT.anchorPrice}</span>
+              <span className="text-2xl font-semibold text-slate-300 line-through decoration-red-400 decoration-2">${VAULT.anchorPrice}</span>
               <span className="text-4xl font-bold text-white">${VAULT.launchPrice}</span>
               <span className="text-slate-400">one-time</span>
             </div>
             <CountdownBar
               deadline={VAULT_PRICE_RISES_AT}
-              label="Price increases in"
+              label="Discount ends in"
               variant="dark"
             />
             <CheckoutButton label="Get instant access" />
@@ -212,7 +212,7 @@ export default function VaultPage() {
               <div className="mt-6 flex flex-col items-center gap-2">
                 <CountdownBar
                   deadline={VAULT_PRICE_RISES_AT}
-                  label="Price increases in"
+                  label="Discount ends in"
                 />
                 <p className="text-center text-xs text-slate-500">
                   After the deadline the Vault lists at ${VAULT.anchorPrice}. Buy now and
