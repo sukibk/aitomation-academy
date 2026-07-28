@@ -135,9 +135,6 @@ export function LeadCaptureTrigger({
                     </>
                   )}
                 </button>
-                <p className="text-xs text-slate-400 text-center">
-                  No spam. Unsubscribe anytime.
-                </p>
               </form>
             )}
           </div>

@@ -192,10 +192,6 @@ export function LeadMagnetForm({
           </>
         )}
       </button>
-
-      <p className="text-center text-xs text-slate-500">
-        No spam. Unsubscribe anytime. We&apos;ll never share your info.
-      </p>
     </form>
   );
 }

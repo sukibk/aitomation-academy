@@ -149,10 +149,6 @@ export function EntryPopup() {
                     </>
                   )}
                 </button>
-
-                <p className="text-center text-xs text-slate-400">
-                  No spam. Unsubscribe anytime.
-                </p>
               </form>
             </>
           )}
