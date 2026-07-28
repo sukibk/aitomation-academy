@@ -4,6 +4,8 @@
 // Premium. Free-member CTAs go to the Skool plans page (lowest-friction upgrade,
 // includes the 7-day trial) — NEVER to classroom pages, which are tier-locked.
 
+import { FOUNDER_RATE_ENDS_AT } from "./pricing";
+
 const URL = {
   plans: "https://www.skool.com/claude-academy/plans",
   challenge: "https://www.skool.com/claude-academy/classroom/22147c21", // paid members only
@@ -58,9 +60,21 @@ export interface Step {
 // Experience-branched line used on Day 2.
 function experienceBlock(c: Ctx): string {
   if (c.experience === "expert" || c.experience === "built") {
-    return `<p>You're past the basics, so skip the intro track. What you want is the Claude Code course and the Vault's power-setup section — CLAUDE.md templates, custom commands, subagents, and hooks that most people never configure. Both are inside Academy Premium, with a 7-day refund guarantee, so you can try all of it risk free.</p>${btn(URL.plans, "Unlock Premium")}`;
+    return `<p>You're past the basics, so skip the intro track. What you want is the Claude Code course and the Vault's power-setup section — CLAUDE.md templates, custom commands, subagents, and hooks that most people never configure. Both are inside Academy Premium, with a 7-day refund guarantee, so you can try all of it risk free.</p>${deadlineBlock()}${btn(URL.plans, "Unlock Premium")}`;
   }
-  return `<p>Start with the 7-Day Claude Challenge. By the end you'll have a real website live on the internet, built by talking to Claude — no coding. It's inside Academy Premium, with a 7-day refund guarantee: if it's not for you in the first week, I refund you, no questions asked.</p>${btn(URL.plans, "Start Day 1")}`;
+  return `<p>Start with the 7-Day Claude Challenge. By the end you'll have a real website live on the internet, built by talking to Claude — no coding. It's inside Academy Premium, with a 7-day refund guarantee: if it's not for you in the first week, I refund you, no questions asked.</p>${deadlineBlock()}${btn(URL.plans, "Start Day 1")}`;
+}
+
+
+// Real, enforced deadline (see lib/pricing). Rendered fresh at send time by
+// the daily cron: shows days remaining while the founder-rate window is open,
+// renders nothing after it closes. Never a fake timer.
+function deadlineBlock(): string {
+  if (!FOUNDER_RATE_ENDS_AT) return "";
+  const ms = new Date(FOUNDER_RATE_ENDS_AT).getTime() - Date.now();
+  if (ms <= 0) return "";
+  const days = Math.max(1, Math.ceil(ms / 86_400_000));
+  return `<div style="margin:18px 0;padding:12px 16px;border:1px solid #f5c9a8;border-radius:8px;background:#fdf3ec"><p style="margin:0;font-size:15px;color:#7c3a12"><b>Heads up:</b> we crossed 1,300 members, so the $69/mo founder rate is closing. <b>${days} day${days === 1 ? "" : "s"} left</b>, then new members pay $99/mo. Join now and your rate never rises.</p></div>`;
 }
 
 export const SEQUENCE: Step[] = [
@@ -91,7 +105,7 @@ ${btn(URL.community, "Post your intro")}`,
 <p><b>Inside Academy Premium:</b> the 7-Day Challenge, the Cowork course, the Claude Code course, the weekly live call, and the Claude Vault.</p>
 <p>Based on what you told me, the part of the Vault you'll get the most from is ${roleLine(c.role)}.</p>
 <p>The Vault alone lists at $49 on our site. Premium members get it included — and it grows every week.</p>
-${btn(URL.plans, "See what Premium includes")}`,
+${deadlineBlock()}${btn(URL.plans, "See what Premium includes")}`,
       ),
   },
   {
@@ -114,7 +128,7 @@ ${btn(URL.plans, "See what Premium includes")}`,
 <p>Most people use Claude like a search box. Quick question in, generic answer out — about 5% of what it can do.</p>
 <p>The members getting results treat it differently: they hand it a whole job with the context and the format, and it hands back a finished deliverable. A client report. A working dashboard. A week of content.</p>
 <p>That shift is the entire game, and it's what every course and prompt inside Academy Premium is built to teach.</p>
-${btn(URL.plans, "See what's inside")}`,
+${deadlineBlock()}${btn(URL.plans, "See what's inside")}`,
       ),
   },
   {
@@ -128,7 +142,7 @@ ${btn(URL.plans, "See what's inside")}`,
 <p><b>"I don't have time."</b> That's the reason to be inside, not to wait. The whole point is Claude doing the work you don't have time for. Most members start with one prompt that saves them an afternoon a week.</p>
 <p><b>"I'm not technical enough."</b> Neither are most members. The 7-Day Challenge assumes zero coding and ends with a live website. If you can write an email, you can do this.</p>
 <p>Reply to this email and tell me what you're working on — I'll point you at the exact prompt for it.</p>
-${btn(URL.plans, "Unlock everything")}`,
+${deadlineBlock()}${btn(URL.plans, "Unlock everything")}`,
       ),
   },
   {
@@ -147,7 +161,7 @@ ${btn(URL.plans, "Unlock everything")}`,
 <li>The weekly live call — bring your project, we fix it live</li>
 </ul>
 <p>The founder rate is $69/mo, locked for life. At 1,300 members it rises to $99/mo for new joiners. There's a 7-day refund guarantee, no questions asked, and you can cancel anytime.</p>
-${btn(URL.plans, "Join Academy Premium")}`,
+${deadlineBlock()}${btn(URL.plans, "Join Academy Premium")}`,
       ),
   },
   {
@@ -160,7 +174,7 @@ ${btn(URL.plans, "Join Academy Premium")}`,
 <p>One more, then I'll leave your inbox alone.</p>
 <p>The gap between people who "use AI" and people who get paid for it isn't knowledge — it's knowing which jobs to hand it and exactly how. That's the whole reason the Vault is organized by your role instead of dumped in a folder.</p>
 <p>You told me your world is ${roleLine(c.role)}. That's where I'd start you.</p>
-${btn(URL.plans, "Start there")}`,
+${deadlineBlock()}${btn(URL.plans, "Start there")}`,
       ),
   },
   {
@@ -172,7 +186,7 @@ ${btn(URL.plans, "Start there")}`,
         `<p>Hey ${c.firstName},</p>
 <p>This is the last email in the welcome series — after this you'll just hear from me when new prompts & skills drop.</p>
 <p>The free stuff is yours to keep. But the people who actually change how they work are the ones inside, using it every week. If that's you, the door's open.</p>
-${btn(URL.plans, "Join Academy Premium")}
+${deadlineBlock()}${btn(URL.plans, "Join Academy Premium")}
 <p>Either way — glad you're here.</p>`,
       ),
   },
