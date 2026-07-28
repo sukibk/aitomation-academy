@@ -229,9 +229,9 @@ export const post: BlogPost = {
           <Image
             src="/images/vault-cover.jpg"
             alt="The Claude Vault — 550+ prompts and skills"
-            width={190}
-            height={190}
-            className="hidden h-full w-auto object-cover sm:block"
+            width={180}
+            height={240}
+            className="mx-auto mt-6 w-[180px] shrink-0 rounded-lg sm:my-6 sm:ml-6 sm:mr-0"
           />
           <div className="p-6">
             <p className="font-semibold text-white">
