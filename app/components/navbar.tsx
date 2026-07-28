@@ -31,7 +31,7 @@ export function Navbar() {
       return { product: "vault" as const, label: "Get the Vault" };
     if (pathname.startsWith("/academy"))
       return { product: "membership" as const, label: "Lock $69/mo" };
-    return { product: null, href: "/skool-redirect", label: "Get Free Access" };
+    return { product: null, href: "/academy", label: "Join the Academy" };
   })();
 
   const linkCls = (href: string) => {
