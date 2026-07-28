@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Check, ArrowRight } from "lucide-react";
 import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 
-// THE standard community promo card for blog posts. Real person (Marko),
+// THE standard Academy promo card for blog posts (routes to /academy). Real person (Marko),
 // dynamic member count, what-you-get checklist, CTA bottom-right. Same
 // family as VaultCta/FreeKitCta — don't hand-roll per-page variants.
 const GETS = [
@@ -41,11 +41,11 @@ export function CommunityCta({
           </ul>
           <div className="mt-5 flex sm:justify-end">
             <a
-              href="/skool-redirect"
+              href="/academy"
               data-cta={dataCta}
               className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600 sm:w-auto"
             >
-              Join the community
+              Join the Academy
               <ArrowRight className="h-4 w-4" />
             </a>
           </div>
