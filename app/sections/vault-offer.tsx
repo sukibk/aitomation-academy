@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import { Mark } from "@/app/components/mark";
-import { VAULT, VAULT_PRICE_RISES_AT } from "@/lib/pricing";
+import { VAULT } from "@/lib/pricing";
 import { BuyLink } from "@/app/components/buy-link";
-import { CountdownBar } from "@/app/components/countdown-bar";
+import { SeatsCounter } from "@/app/components/seats-counter";
 
 const BULLETS = [
   "35 installable Claude Cowork skills + 500+ prompts & workflows",
@@ -65,10 +65,7 @@ export function VaultOffer() {
               </div>
             </div>
             <div className="mt-5 flex flex-col items-center gap-2">
-              <CountdownBar
-                deadline={VAULT_PRICE_RISES_AT}
-                label="Discount ends in"
-              />
+              <SeatsCounter />
               <p className="text-center text-xs text-slate-500">
                 Lists at ${VAULT.anchorPrice} — the launch discount is live today. Buy
                 now and ${VAULT.launchPrice} is what you ever pay.

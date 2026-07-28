@@ -5,8 +5,8 @@ import { Check, Star, ShieldCheck, RefreshCw, Zap } from "lucide-react";
 import { Mark } from "@/app/components/mark";
 import { FaqAccordion } from "@/app/components/faq-accordion";
 import { siteConfig } from "@/lib/site";
-import { VAULT, MEMBER_COUNT_LABEL, VAULT_PRICE_RISES_AT } from "@/lib/pricing";
-import { CountdownBar } from "@/app/components/countdown-bar";
+import { VAULT, MEMBER_COUNT_LABEL } from "@/lib/pricing";
+import { SeatsCounter } from "@/app/components/seats-counter";
 import { CheckoutButton } from "./checkout-button";
 import { CommunityWins } from "@/app/sections/community-wins";
 import { Navbar } from "@/app/components/navbar";
@@ -112,11 +112,7 @@ export default function VaultPage() {
               <span className="text-4xl font-bold text-white">${VAULT.launchPrice}</span>
               <span className="text-slate-400">one-time</span>
             </div>
-            <CountdownBar
-              deadline={VAULT_PRICE_RISES_AT}
-              label="Discount ends in"
-              variant="dark"
-            />
+            <SeatsCounter variant="dark" />
             <CheckoutButton label="Get instant access" />
             <p className="text-sm text-slate-500">
               {VAULT.guaranteeDays}-day refund. Instant access. No subscription.
@@ -229,10 +225,7 @@ export default function VaultPage() {
                 </div>
               </div>
               <div className="mt-6 flex flex-col items-center gap-2">
-                <CountdownBar
-                  deadline={VAULT_PRICE_RISES_AT}
-                  label="Discount ends in"
-                />
+                <SeatsCounter />
                 <p className="text-center text-xs text-slate-500">
                   Lists at ${VAULT.anchorPrice} — the launch discount is live today. Buy
                   now and ${VAULT.launchPrice} is what you ever pay, updates included forever.

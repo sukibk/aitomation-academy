@@ -43,6 +43,17 @@ export const FOUNDER_RATE_ENDS_AT: string | null = "2026-08-10T23:59:59-04:00";
 // this again with a real, enforced rise behind it.
 export const VAULT_PRICE_RISES_AT: string | null = null;
 
+// Vault seat ladder (REAL counter): the launch price covers the next
+// VAULT_SEATS.total completed Vault purchases counted from `since` via the
+// Stripe API (/api/vault-seats). The site renders the live remaining count.
+// COMMITMENT: when remaining hits 0, launchPrice actually rises — same
+// contract as the member ladder. Never display a number that isn't derived
+// from real purchases.
+export const VAULT_SEATS = {
+  total: 98,
+  since: "2026-07-28T00:00:00Z",
+};
+
 // Current member count (update from Skool; crossed 1,300 as of 2026-07-27). Drives the ladder.
 export const MEMBER_COUNT = 1300;
 
