@@ -42,6 +42,8 @@ export function LeadMagnetForm({
           sendinblue?: { identify: (email: string) => void };
         }).sendinblue?.identify(email);
       } catch {}
+      // They have the kit — the timed entry popup (same offer) is done forever.
+      try { localStorage.setItem("popup_dismissed", "1"); } catch {}
       setStatus("success");
     } catch {
       setStatus("error");

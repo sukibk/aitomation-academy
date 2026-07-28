@@ -16,15 +16,13 @@ export function FreeKitCta({
 }) {
   return (
     <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-      <div className="relative h-40 bg-black">
-        <Image
-          src="/images/free-kit-banner.jpg"
-          alt="The Claude Starter System — free PDF kit"
-          fill
-          sizes="720px"
-          className="object-cover object-center"
-        />
-      </div>
+      <Image
+        src="/images/free-kit-banner.jpg"
+        alt="The Claude Starter System — free PDF kit"
+        width={1584}
+        height={672}
+        className="w-full bg-black"
+      />
       <div className="p-6">
         <p className="font-semibold text-slate-900">{title}</p>
         <p className="mt-2 text-slate-700">{children}</p>

@@ -39,7 +39,16 @@ export function LeadCaptureTrigger({
 
   return (
     <>
-      <button onClick={() => { setOpen(true); posthog.capture("blog_lead_capture_opened", { blog_slug: blogSlug }); }} className={className}>
+      <button
+        onClick={() => {
+          setOpen(true);
+          // The visitor is now looking at the free-kit offer — make sure the
+          // timed entry popup (same offer) never stacks on top of this modal.
+          try { localStorage.setItem("popup_dismissed", "1"); } catch {}
+          posthog.capture("blog_lead_capture_opened", { blog_slug: blogSlug });
+        }}
+        className={className}
+      >
         {children}
       </button>
 

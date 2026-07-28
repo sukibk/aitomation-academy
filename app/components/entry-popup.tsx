@@ -21,6 +21,9 @@ export function EntryPopup() {
     const delayMs = isBlog ? 20000 : 2000;
 
     const timer = setTimeout(() => {
+      // Re-check at fire time: the visitor may have opened or submitted a
+      // lead-capture modal since this timer was armed (stacked-popups bug).
+      if (localStorage.getItem("popup_dismissed")) return;
       setIsVisible(true);
       posthog.capture("popup_shown");
     }, delayMs);

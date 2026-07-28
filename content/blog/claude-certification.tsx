@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { FreeKitCta } from "@/app/components/free-kit-cta";
+import { VaultCta } from "@/app/components/vault-cta";
 import type { BlogPost } from "@/lib/blog";
 
 export const post: BlogPost = {
@@ -206,34 +206,11 @@ export const post: BlogPost = {
         to prove general competence.
       </p>
 
-      <div className="not-prose my-10 overflow-hidden rounded-xl border border-slate-700 bg-slate-900">
-        <div className="grid items-center sm:grid-cols-[auto_1fr]">
-          <Image
-            src="/images/vault-cover.jpg"
-            alt="The Claude Vault — 550+ prompts and skills"
-            width={180}
-            height={240}
-            className="mx-auto mt-6 w-[180px] shrink-0 rounded-lg sm:my-6 sm:ml-6 sm:mr-0"
-          />
-          <div className="p-6">
-            <p className="font-semibold text-white">
-              Skip the exam gatekeeping — build the proof directly
-            </p>
-            <p className="mt-2 text-slate-300">
-              The Claude Vault has 550+ ready-to-run recipes across marketing,
-              ops, writing, and analysis. Every one produces a finished piece of
-              work you can put in a portfolio — the thing that actually gets
-              checked in an interview, not a certificate number.
-            </p>
-            <a
-              href="/vault"
-              className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-            >
-              See the Vault
-            </a>
-          </div>
-        </div>
-      </div>
+      <VaultCta
+        title="Skip the exam gatekeeping — build the proof directly"
+        lede="Portfolio proof beats a certificate number in an interview. Here's what you walk away with:"
+        dataCta="cert_vault_cta"
+      />
 
       <h2>What about the &quot;Claude Certified&quot; prep sites that show up in search</h2>
       <p>

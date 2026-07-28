@@ -51,15 +51,13 @@ export function LeadMagnetSection() {
                 ))}
               </ul>
 
-              <div className="relative mt-10 hidden h-44 overflow-hidden rounded-2xl bg-black shadow-2xl lg:block">
-                <Image
-                  src="/images/free-kit-banner.jpg"
-                  alt="The Claude Starter System — free PDF kit"
-                  fill
-                  sizes="480px"
-                  className="object-cover object-center"
-                />
-              </div>
+              <Image
+                src="/images/free-kit-banner.jpg"
+                alt="The Claude Starter System — free PDF kit"
+                width={1584}
+                height={672}
+                className="mt-10 hidden w-full rounded-2xl shadow-2xl ring-1 ring-white/10 lg:block"
+              />
             </div>
 
             {/* Right side — Form */}
