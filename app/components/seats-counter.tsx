@@ -44,7 +44,7 @@ export function SeatsCounter({
           dark ? "text-orange-400" : "text-orange-600"
         }`}
       >
-        {remaining}{total ? ` of ${total}` : ""}
+        {remaining}
       </span>
       <span
         className={`text-xs font-semibold uppercase tracking-widest ${
