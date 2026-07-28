@@ -10,20 +10,20 @@ export function BlogPostFooter({ blogSlug }: { blogSlug?: string }) {
     <div className="mt-12 grid gap-4 md:grid-cols-2">
       {/* Community CTA */}
       <Link
-        href="/skool-redirect"
+        href="/academy"
         className="group rounded-2xl border border-slate-200 bg-white p-6 sm:p-8 hover:border-orange-400 hover:shadow-lg transition-all"
       >
         <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-orange-100">
           <Users className="h-5 w-5 text-orange-600" />
         </div>
         <h3 className="mb-1 text-lg font-display normal-case text-slate-900">
-          Join the free community
+          Join the Academy
         </h3>
         <p className="mb-3 text-sm text-slate-500">
-          {MEMBER_COUNT_LABEL} professionals learning Claude together. Free to join.
+          {MEMBER_COUNT_LABEL} professionals, the courses, the full Vault, and a weekly live call.
         </p>
         <span className="inline-flex items-center gap-1 text-sm font-semibold text-orange-600 group-hover:underline">
-          Open community
+          Join the Academy
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </span>
       </Link>
