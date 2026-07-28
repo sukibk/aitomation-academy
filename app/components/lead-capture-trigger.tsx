@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { X, ArrowRight, Loader2, Mail } from "lucide-react";
 import posthog from "posthog-js";
 
@@ -61,13 +62,25 @@ export function LeadCaptureTrigger({
           />
 
           {/* Modal */}
-          <div className="relative w-full max-w-md rounded-2xl bg-white shadow-2xl p-6 sm:p-8">
+          <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl p-6 sm:p-8">
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 cursor-pointer"
+              className="absolute top-4 right-4 z-20 text-slate-400 hover:text-white cursor-pointer"
             >
               <X className="h-5 w-5" />
             </button>
+
+            {/* Same visual as the entry popup: the kit banner, edge to edge */}
+            <div className="relative -mx-6 -mt-6 mb-6 h-44 bg-black sm:-mx-8 sm:-mt-8">
+              <Image
+                src="/images/free-kit-banner.jpg"
+                alt="The Claude Starter System — free PDF kit"
+                fill
+                sizes="448px"
+                className="object-cover object-center"
+                priority
+              />
+            </div>
 
             <div className="text-center mb-6">
               <span className="inline-block text-xs font-semibold uppercase tracking-wider text-orange-600 mb-2">

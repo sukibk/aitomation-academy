@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "what-are-claude-skills",
@@ -229,23 +231,7 @@ Rules:
         differently.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Do not build your skill library from a blank page
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts and skills already built and
-          sorted by job — including formatting, reporting, and
-          client-workflow skills you can install today instead of writing
-          your own from scratch.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Do not build your skill library from a blank page"} dataCta="what_are_claude_skills_vault" />
 
       <h2>Build your first skill in 10 minutes</h2>
       <p>
@@ -441,22 +427,7 @@ unrelated tasks. Return only the finished SKILL.md content.`}
         come up again, a skill just adds a file you never reopen.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the skills library built for you and kept current?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault of prompts and
-          skills, the courses on building your own, and a weekly live call —
-          with 1,200+ professionals already using this daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the skills library built for you and kept current?"} dataCta="what_are_claude_skills_community" />
 
       <h2>Frequently asked questions</h2>
 

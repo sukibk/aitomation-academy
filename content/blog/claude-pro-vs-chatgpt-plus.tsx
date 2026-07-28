@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "claude-pro-vs-chatgpt-plus",
@@ -390,22 +391,7 @@ export const post: BlogPost = {
         decisively.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip the trial and error of figuring out what to ask Claude
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts &amp; skills, sorted by your job —
-          proposals, client research, reports, and everything else this
-          comparison covers, ready to paste in and run.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip the trial and error of figuring out what to ask Claude"} dataCta="claude_pro_vs_chatgpt_plus_vault" />
 
       <h2>Memory and personalization</h2>
       <p>

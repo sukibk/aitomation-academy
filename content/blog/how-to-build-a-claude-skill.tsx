@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "how-to-build-a-claude-skill",
@@ -252,22 +254,7 @@ description: >
         does.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Do not want to draft descriptions by hand
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ ready-made prompts and skills, sorted by
-          job, including trigger-tested descriptions you can adapt instead of
-          starting from a blank file.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Do not want to draft descriptions by hand"} dataCta="how_to_build_a_claude_skill_vault" />
 
       <h2>The rules-file pattern keeps SKILL.md thin as it grows</h2>
       <p>
@@ -427,22 +414,7 @@ meeting.`}
         build from zero.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the skill-building workflows built for you and updated weekly
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault, step-by-step
-          courses, and a weekly live call — with 1,200+ professionals
-          building and sharing skills daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the skill-building workflows built for you and updated weekly"} dataCta="how_to_build_a_claude_skill_community" />
 
       <h2>Common mistakes that keep a skill from triggering</h2>
       <p>

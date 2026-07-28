@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-prompt-library",
@@ -200,23 +202,7 @@ v3 (2026-06-20): Added a tone instruction ("mirror the client's own
         output starts to matter to a client or a manager.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building the library from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault is 550+ prompts and skills, already sorted by job
-          — not by tool or department — with tested outputs and version notes
-          built in. Search by what you need to produce, not which folder it
-          might be hiding in.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building the library from scratch"} dataCta="claude_prompt_library_vault" />
 
       <h2>DIY vs curated: the honest comparison</h2>
       <p>
@@ -443,22 +429,7 @@ Keep the client email under 200 words. No hedging language.`}
         from there.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the library already built and kept current?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault, the courses on
-          organizing and versioning your own prompts, and a weekly live call
-          — with 1,200+ professionals using this daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the library already built and kept current?"} dataCta="claude_prompt_library_community" />
 
       <h2>Frequently asked questions</h2>
 

@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 
 export const post: BlogPost = {
@@ -135,22 +137,7 @@ export const post: BlogPost = {
         walks through building your first one step by step.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building Skills from a blank page
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ ready-made prompts and Skills sorted by
-          job — marketing, ops, consulting, content — so week two of this path
-          takes an afternoon instead of a weekend of trial and error.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building Skills from a blank page"} dataCta="how_to_learn_claude_vault" />
 
       <h2>Week 3: Claude Cowork — automate one real workflow</h2>
       <p>
@@ -313,23 +300,7 @@ export const post: BlogPost = {
         yourself in week one through four.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the 30-day path done for you, with live help?
-        </p>
-        <p className="mt-2 text-slate-700">
-          AItomation Academy (Claude Code Academy) runs this exact path
-          inside a {MEMBER_COUNT_LABEL} member community — the full Vault, structured
-          courses, and a weekly live call to unstick your Cowork or Claude
-          Code build.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the 30-day path done for you, with live help?"} dataCta="how_to_learn_claude_community" />
 
       <h2>Frequently asked questions</h2>
 

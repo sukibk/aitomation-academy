@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "what-is-claude-cowork",
@@ -239,22 +241,7 @@ export const post: BlogPost = {
         before continuing.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Not sure which prompts actually work inside Cowork
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ recipes sorted by job, including the
-          exact task prompts and skill setups people use to get Cowork
-          producing finished output on the first try.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Not sure which prompts actually work inside Cowork"} dataCta="what_is_claude_cowork_vault" />
 
       <h2>Skills and plugins: how Cowork learns your workflows</h2>
       <p>
@@ -500,22 +487,7 @@ Save the result as summary-[today's date].md in this folder.
 Show me your plan before you start.`}
       </pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want a live walkthrough instead of reading one more guide?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy, 1,200+ professionals share their actual
-          Cowork setups on a weekly live call — folder structures, skills,
-          and the automations that stuck.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want a live walkthrough instead of reading one more guide?"} dataCta="what_is_claude_cowork_community" />
 
       <h2>Frequently asked questions</h2>
 

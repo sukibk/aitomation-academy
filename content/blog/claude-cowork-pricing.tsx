@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-cowork-pricing",
@@ -254,22 +256,7 @@ Calculate:
 5. A one-line verdict: worth it, marginal, or not yet — and why`}
       </pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip figuring out prompts like this from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ ready-to-run prompts and skills, sorted by
-          job — including ROI calculators, admin workflows, and Cowork task
-          templates you can copy in under a minute.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip figuring out prompts like this from scratch"} dataCta="claude_cowork_pricing_vault" />
 
       <h2>Is Claude Cowork worth it for your use case</h2>
       <p>
@@ -348,23 +335,7 @@ Calculate:
         so there is little risk in moving up a tier to test it for a month.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want a second opinion before you upgrade?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy, 1,200+ professionals compare notes on
-          exactly this — which plan they actually use, where they hit limits,
-          and what upgraded it for them. Plus the full Vault and a weekly
-          live call.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want a second opinion before you upgrade?"} dataCta="claude_cowork_pricing_community" />
 
       <h2>Frequently asked questions</h2>
 

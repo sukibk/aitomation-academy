@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-prompt-generator",
@@ -114,22 +116,7 @@ Return only the finished prompt in a code block, followed by your note.`}
         something you can actually edit with confidence next time.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts and skills already built and
-          sorted by job — so you can compare a hand-built prompt against a
-          proven one instead of generating from scratch every time.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_prompt_generator_vault" />
 
       <h2>The improver workflow: fixing a prompt that half-works</h2>
       <p>
@@ -314,22 +301,7 @@ manually versus which Claude should infer from context I paste in.`}
         <a href="/blog/claude-prompt-templates">Claude prompt templates</a>.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want a shortcut past building your own generators?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault, courses on
-          prompting and workflows, and a weekly live call — with 1,200+
-          professionals sharing what is working right now.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want a shortcut past building your own generators?"} dataCta="claude_prompt_generator_community" />
 
       <h2>Frequently asked questions</h2>
 

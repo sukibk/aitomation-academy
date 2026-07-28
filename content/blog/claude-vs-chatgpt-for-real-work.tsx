@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "claude-vs-chatgpt-for-real-work",
@@ -35,22 +36,7 @@ export const post: BlogPost = {
         Claude is unusually good at helping you think. Give it a genuinely complex situation — a business decision with competing factors, a communication problem with a difficult stakeholder — and it will actually engage with the nuance rather than giving you a generic framework.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Already sold on Claude? Skip the trial and error
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
-          your job, so you get a finished draft instead of a blank prompt
-          box.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Already sold on Claude? Skip the trial and error"} dataCta="claude_vs_chatgpt_for_real_wor_vault" />
 
       <h2>Where ChatGPT has an edge</h2>
 

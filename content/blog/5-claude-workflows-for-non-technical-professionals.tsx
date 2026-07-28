@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "5-claude-workflows-for-non-technical-professionals",
@@ -56,22 +57,7 @@ export const post: BlogPost = {
       </blockquote>
       <p>One long piece becomes a week of content. You wrote it once. For more on this, check out our <a href="/blog/claude-for-content-creation">content creation workflows</a>.</p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building your own workflow library
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
-          your job — draft-from-chaos, research digests, repurposing, and
-          dozens more ready to copy-paste.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building your own workflow library"} dataCta="5_claude_workflows_for_non_tec_vault" />
 
       <h2>4. The Decision Clarity workflow</h2>
       <p><strong>Best for:</strong> making better decisions when you have too much in your head</p>

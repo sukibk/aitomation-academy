@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-templates",
@@ -189,22 +191,7 @@ FORMAT DEFAULTS (unless a specific prompt says otherwise):
         collection has instructions built for common roles.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building these templates from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ ready-to-paste recipes, sorted by job —
-          including a dedicated section of project instructions, styles, and
-          skill templates already written for common roles.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building these templates from scratch"} dataCta="claude_templates_vault" />
 
       <h2>Template 2: A custom style that travels with you</h2>
       <p>
@@ -373,22 +360,7 @@ paragraph longer than 3 sentences.`}
         use.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want a library of these already built, plus a place to ask questions?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault, structured
-          courses on Projects, styles, and skills, and a weekly live call —
-          with 1,200+ professionals using these templates daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want a library of these already built, plus a place to ask questions?"} dataCta="claude_templates_community" />
 
       <h2>Keeping templates from going stale</h2>
       <p>

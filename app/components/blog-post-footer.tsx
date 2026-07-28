@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Mail, Users, ArrowRight } from "lucide-react";
 import { LeadMagnetForm } from "./lead-magnet-form";
+import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 
 export function BlogPostFooter({ blogSlug }: { blogSlug?: string }) {
   return (
@@ -19,7 +20,7 @@ export function BlogPostFooter({ blogSlug }: { blogSlug?: string }) {
           Join the free community
         </h3>
         <p className="mb-3 text-sm text-slate-500">
-          1200+ professionals learning Claude together. Free to join.
+          {MEMBER_COUNT_LABEL} professionals learning Claude together. Free to join.
         </p>
         <span className="inline-flex items-center gap-1 text-sm font-semibold text-orange-600 group-hover:underline">
           Open community

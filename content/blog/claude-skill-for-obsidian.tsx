@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-skill-for-obsidian",
@@ -235,22 +237,7 @@ properly tagged, filed, and linked permanent notes.
         confident guess.&quot;
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building skills from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has ready-made skills and prompts for note-taking,
-          writing, and vault organization — 550+ recipes total, sorted by
-          your job, so you copy instead of drafting from a blank file.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building skills from scratch"} dataCta="claude_skill_for_obsidian_vault" />
 
       <p>
         A second thing worth deciding up front is scope. You do not have to
@@ -345,22 +332,7 @@ properly tagged, filed, and linked permanent notes.
         are worth skipping.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the vault skills and workflows built for you?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy you get the full Vault, step-by-step
-          courses, and a weekly live call — with 1,200+ professionals
-          building workflows like this one daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the vault skills and workflows built for you?"} dataCta="claude_skill_for_obsidian_community" />
 
       <h2>Frequently asked questions</h2>
       <h3>Do I need Claude Code, or is Cowork enough on its own?</h3>

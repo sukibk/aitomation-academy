@@ -65,7 +65,7 @@ export function LeadMagnetForm({
       <div className="w-full">
         <form
           onSubmit={handleSubmit}
-          className="mx-auto flex w-full max-w-md flex-col sm:flex-row gap-2"
+          className="mx-auto flex w-full max-w-md flex-col gap-2"
         >
           <input
             type="email"
@@ -81,7 +81,7 @@ export function LeadMagnetForm({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="group inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 cursor-pointer hover:border-orange-500 hover:text-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group inline-flex w-full items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 cursor-pointer hover:border-orange-500 hover:text-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {status === "loading" ? (
               <>

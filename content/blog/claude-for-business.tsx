@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "claude-for-business",
@@ -458,23 +459,7 @@ export const post: BlogPost = {
         week, that is hours saved across a team.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building these Projects from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has ready-made prompts for proposals, SOPs, client
-          updates, and strategy docs — 550+ recipes total, sorted by your
-          job, so your team can paste in a finished workflow instead of
-          drafting Project instructions from a blank page.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building these Projects from scratch"} dataCta="claude_for_business_vault" />
 
       <h2>The Team plan: what you get and how to set it up</h2>
       <p>

@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-ai-use-cases",
@@ -235,22 +237,7 @@ If you had to guess at something instead of using what I gave
 you, flag it at the end so I know what to check.`}
       </pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompt and skill recipes sorted by job
-          function — marketing, sales, support, HR, finance, and more — each
-          one built to produce a finished deliverable like the ones above.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_ai_use_cases_vault" />
 
       <h2>Customer support and HR use cases</h2>
       <p>
@@ -384,22 +371,7 @@ you, flag it at the end so I know what to check.`}
         Deliverable: a one-page operating review draft.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want these use cases built for your role, not just described?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy you get the full Vault, structured
-          courses, and a weekly live call — with 1,200+ professionals turning
-          use cases like these into daily workflows.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want these use cases built for your role, not just described?"} dataCta="claude_ai_use_cases_community" />
 
       <h2>Creator and Cowork automation use cases</h2>
       <p>

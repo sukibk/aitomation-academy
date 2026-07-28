@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-code-skills",
@@ -198,22 +200,7 @@ export const post: BlogPost = {
         automatically.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the skill written for you instead of from scratch?
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has ready-to-drop SKILL.md files and prompt
-          recipes for exactly the workflows below — 550+ recipes total,
-          sorted by your job, no YAML fiddling required.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Want the skill written for you instead of from scratch?"} dataCta="claude_code_skills_vault" />
 
       <h2>Six skills a non-developer can be using this week</h2>
       <p>
@@ -423,22 +410,7 @@ no jargon, no filler like "circling back" or "touching base."`}
         travel — or don&apos;t — between the two.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want a weekly walkthrough instead of figuring this out solo?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault, step-by-step
-          courses, and a weekly live call — with 1,200+ professionals
-          building skills and workflows the same week you do.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want a weekly walkthrough instead of figuring this out solo?"} dataCta="claude_code_skills_community" />
 
       <h2>Getting your first skill running today</h2>
       <p>

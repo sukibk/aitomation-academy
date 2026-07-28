@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-system-prompt-guide",
@@ -201,23 +203,7 @@ NEVER:
         setup, not creativity.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want instructions and prompts you do not have to write from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has ready-made Project instruction sets and
-          prompt templates across 550+ recipes, sorted by your job — copy,
-          adjust the bracketed parts, and skip the blank-page problem
-          entirely.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Want instructions and prompts you do not have to write from scratch"} dataCta="claude_system_prompt_guide_vault" />
 
       <h2>Styles: your persistent instruction for voice and format</h2>
       <p>
@@ -398,23 +384,7 @@ NEVER:
         people share a workspace.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Get the Project instruction sets other members already built
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy, 1,200+ professionals share the exact
-          Project setups, Styles, and instruction templates they use every
-          day — plus a weekly live call where you can bring your own setup
-          for feedback.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Get the Project instruction sets other members already built"} dataCta="claude_system_prompt_guide_community" />
 
       <h2>Where to start this week</h2>
       <p>

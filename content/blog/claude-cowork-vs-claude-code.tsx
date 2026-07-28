@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-cowork-vs-claude-code",
@@ -108,22 +110,7 @@ file outside the /Clients folder.`}
         described in plain language, run on a schedule, no code involved.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the Cowork setup done for you?
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has ready-made Cowork tasks and skill folders for
-          reporting, client ops, and content — 550+ recipes total, sorted by
-          your job, so you are not starting from a blank prompt.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Want the Cowork setup done for you?"} dataCta="claude_cowork_vs_claude_code_vault" />
 
       <h2>What Claude Code is actually built for</h2>
       <p>
@@ -336,23 +323,7 @@ file outside the /Clients folder.`}
         buys you nothing over a Cowork scheduled task.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want to see both set up correctly, live?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy, 1,200+ professionals get the full
-          Vault, step-by-step Cowork and Claude Code setups, and a weekly
-          live call where members walk through exactly this kind of
-          tool-choice question.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want to see both set up correctly, live?"} dataCta="claude_cowork_vs_claude_code_community" />
 
       <h2>Where to start this week</h2>
       <p>

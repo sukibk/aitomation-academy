@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-linkedin-skill",
@@ -136,22 +138,7 @@ Give me:
         skills cheap to keep installed even when you are not using them.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building this from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a tuned LinkedIn skill plus 550+ prompts and
-          skills for the rest of your content stack, sorted by job — ads,
-          email, SEO, repurposing, and more.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building this from scratch"} dataCta="claude_linkedin_skill_vault" />
 
       <h2>Making the voice section actually work</h2>
       <p>
@@ -345,22 +332,7 @@ SOURCE MATERIAL:
         </li>
       </ul>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the skill library and a weekly working session?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault, tuned skills for
-          content, design, and business, and a weekly live call — with
-          1,200+ professionals building with Claude daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the skill library and a weekly working session?"} dataCta="claude_linkedin_skill_community" />
 
       <h2>Where to go from here</h2>
       <p>

@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-code-course",
@@ -245,23 +247,7 @@ export const post: BlogPost = {
         actually teach.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the setup, CLAUDE.md template, and skills already built?
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ Claude prompts, skills, and recipes,
-          sorted by your job — including ready-made CLAUDE.md starters and
-          Claude Code skill folders you can drop straight into a project
-          instead of writing from a blank file.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Want the setup, CLAUDE.md template, and skills already built?"} dataCta="claude_code_course_vault" />
 
       <h2>Is the free route enough, or should you pay for a course?</h2>
       <p>
@@ -323,23 +309,7 @@ export const post: BlogPost = {
         actual time savings show up.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the course, the Vault, and a weekly live call in one place?
-        </p>
-        <p className="mt-2 text-slate-700">
-          AItomation Academy (Claude Code Academy) is the 1,200+ member Skool
-          community built for non-technical professionals — Claude, Claude
-          Cowork, and Claude Code training, the full Vault, and a weekly live
-          call to get unstuck.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the course, the Vault, and a weekly live call in one place?"} dataCta="claude_code_course_community" />
 
       <h2>FAQ: Claude Code courses</h2>
       <h3>Do I need to know how to code to take a Claude Code course?</h3>

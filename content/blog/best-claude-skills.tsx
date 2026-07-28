@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "best-claude-skills",
@@ -144,22 +145,7 @@ export const post: BlogPost = {
         typed roughly the same instructions three or four times.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip evaluating skills one by one
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts and skills pre-sorted by job —
-          writing, research, ops, design, and more — so you install what
-          matches your actual week instead of guessing from a list.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip evaluating skills one by one"} dataCta="best_claude_skills_vault" />
 
       <h2>1. Writing: doc-coauthoring and internal-comms</h2>
       <p>

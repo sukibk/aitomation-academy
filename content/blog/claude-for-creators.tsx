@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-for-creators",
@@ -161,23 +163,7 @@ hook under 12 words, first 3 words must not be throwaway.`}
         actually worked.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a creator section pre-built — scripts, hooks,
-          repurposing passes, thumbnail briefs, and newsletter templates,
-          each producing a finished deliverable. 550+ recipes total, sorted
-          by your job.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_creators_vault" />
 
       <h2>3. The repurposing engine: one asset into a week of content</h2>
       <p>
@@ -340,22 +326,7 @@ Length: 400-600 words. Subject line: give me 3 options.`}
         less time than writing the whole issue from nothing.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the workflows built for you and updated weekly?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy you get the full Vault, the courses,
-          and a weekly live call — with 1,200+ professionals using this
-          daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the workflows built for you and updated weekly?"} dataCta="claude_for_creators_community" />
 
       <h2>Repeating a voice across every platform, not just one post</h2>
       <p>

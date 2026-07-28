@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 
 export const post: BlogPost = {
@@ -245,22 +247,7 @@ export const post: BlogPost = {
         and Claude Cowork have changed in 2026.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the workflows instead of another video course?
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault is 550+ ready-to-use Claude prompts, skills, and
-          recipes sorted by job — no watching hours of video to extract one
-          usable prompt.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Want the workflows instead of another video course?"} dataCta="best_claude_courses_vault" />
 
       <p>
         Claude Code Club is a Skool community focused specifically on
@@ -333,22 +320,7 @@ export const post: BlogPost = {
         a course on top of it.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          See if AItomation Academy is the right fit
-        </p>
-        <p className="mt-2 text-slate-700">
-          {MEMBER_COUNT_LABEL} non-technical professionals, the full Vault, live courses,
-          and a weekly call — built specifically around Claude, Cowork, and
-          Claude Code, not general AI automation.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Check out the community
-        </a>
-      </div>
+      <CommunityCta title={"See if AItomation Academy is the right fit"} dataCta="best_claude_courses_community" />
 
       <h2>FAQ: Claude courses in 2026</h2>
       <h3>Is there an official Claude certification?</h3>

@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "claude-prompts-for-business",
@@ -360,22 +361,7 @@ ANALYZE FOR:
 
 Be direct in your analysis. If the data is inconclusive, say so. If only one person said something, don't present it as a pattern.`}</code></pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing prompts like these from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
-          your job — proposals, SOPs, pricing analysis, sales prep, and more,
-          each ready to copy and customize.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing prompts like these from scratch"} dataCta="claude_prompts_for_business_vault" />
 
       <h2>8. Standard operating procedure (SOP) builder</h2>
       <p>

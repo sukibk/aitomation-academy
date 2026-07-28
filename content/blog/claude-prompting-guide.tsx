@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "claude-prompting-guide",
@@ -499,22 +500,7 @@ export const post: BlogPost = {
         reference it every time.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building these prompts from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ Claude prompts &amp; skills, sorted by
-          your job &mdash; ready to paste in and adapt instead of writing the
-          5-element framework yourself every time.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building these prompts from scratch"} dataCta="claude_prompting_guide_vault" />
 
       <h2>How to use Styles to maintain consistent voice</h2>
       <p>

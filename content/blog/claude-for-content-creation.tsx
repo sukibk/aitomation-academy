@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "claude-for-content-creation",
@@ -408,23 +409,7 @@ Create the following assets from this source material:
 
 For each piece, explain which idea from the source content you chose to highlight and why it works best for that platform.`}</code></pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a content creator&apos;s section pre-built —
-          recipes for blog posts, repurposing, newsletters, and SEO drafts,
-          each producing a finished deliverable. 550+ recipes total, sorted
-          by your job.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_content_creation_vault" />
 
       <h2>Workflow 3: Social media content calendar</h2>
       <p>

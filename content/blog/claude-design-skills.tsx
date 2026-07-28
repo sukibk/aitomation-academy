@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-design-skills",
@@ -147,22 +149,7 @@ Return the artifact, then a short note on the one risk you took and why.`}
         whenever you touch a component file.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the skill yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a pre-built design section — frontend UI
-          recipes, brand-system prompts, and mockup workflows, each producing
-          a finished artifact. 550+ recipes total, sorted by your job.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the skill yourself"} dataCta="claude_design_skills_vault" />
 
       <h2>Brand-voice design systems: teach Claude your brand once</h2>
       <p>
@@ -336,21 +323,7 @@ Requirements:
         same place.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the skills built for you and updated weekly?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy you get the full Vault, the courses, and
-          a weekly live call — with 1,200+ professionals using this daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the skills built for you and updated weekly?"} dataCta="claude_design_skills_community" />
 
       <h2>Where to start this week</h2>
       <p>

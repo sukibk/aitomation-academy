@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-cowork-automations",
@@ -145,22 +147,7 @@ Skip internal recurring meetings with no notes history. Order
 briefings by meeting time. Keep each one under half a page.`}
       </pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a Cowork automations section pre-built — ready
-          scheduled-task instructions for triage, reporting, meeting prep,
-          and file hygiene. 550+ recipes total, sorted by your job.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_cowork_automations_vault" />
 
       <h2>3. The Friday status report that writes itself from your project folder</h2>
       <p>
@@ -294,22 +281,7 @@ named after the source asset plus the channel.`}
         <a href="/blog/claude-ai-use-cases">Claude AI use cases guide</a>.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want these automations built for you and kept current?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy you get the full Vault of scheduled-task
-          instructions, the courses, and a weekly live call — with 1,200+
-          professionals using this daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want these automations built for you and kept current?"} dataCta="claude_cowork_automations_community" />
 
       <h2>Setting up your first scheduled task this week</h2>
       <p>

@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-cowork-course",
@@ -257,23 +259,7 @@ export const post: BlogPost = {
         , if you want the wider comparison before picking one.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip the course debate and start with the recipes
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a Cowork section already built — folder
-          setups, skill files, and scheduled-task prompts sorted by job.
-          550+ recipes total, so you are working from what already works
-          instead of a syllabus.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip the course debate and start with the recipes"} dataCta="claude_cowork_course_vault" />
 
       <h2>What to automate first, by role</h2>
       <p>
@@ -402,23 +388,7 @@ review only.`}
         structured option using the table above.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the recipes and the community instead of a syllabus
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy (Claude Code Academy) you get the full
-          Vault, courses covering Claude, Cowork, and Claude Code, and a
-          weekly live call — with 1,200+ professionals building real
-          automations, not watching a course they never finish.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the recipes and the community instead of a syllabus"} dataCta="claude_cowork_course_community" />
 
       <h2>Frequently asked questions about learning Claude Cowork</h2>
 

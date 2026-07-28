@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-skills-marketplace",
@@ -176,23 +178,7 @@ Tell me:
         using the GitHub ecosystem safely.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip the sorting entirely
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault is 550+ tested prompts and skills, sorted by job —
-          marketing, consulting, ops, content, sales — so you are not
-          evaluating five GitHub candidates to find one good one. Every
-          entry is built and checked before it ships.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip the sorting entirely"} dataCta="claude_skills_marketplace_vault" />
 
       <h2>Option 3: Curated paid libraries, and what you are actually paying for</h2>
       <p>
@@ -339,22 +325,7 @@ Tell me:
         covers that adjacent territory.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the sorting done and a place to ask questions?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Claude Vault, structured
-          courses, and a weekly live call — with 1,200+ professionals
-          comparing notes on what actually works.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the sorting done and a place to ask questions?"} dataCta="claude_skills_marketplace_community" />
 
       <h2>Frequently asked questions</h2>
 

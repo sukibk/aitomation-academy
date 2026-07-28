@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-skills-vs-mcp",
@@ -192,22 +194,7 @@ export const post: BlogPost = {
         </table>
       </div>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building this stack from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts and skills already sorted by job
-          — pull a working skill instead of writing SKILL.md from a blank
-          file.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building this stack from scratch"} dataCta="claude_skills_vs_mcp_vault" />
 
       <h2>A worked example: research report for a client</h2>
       <p>
@@ -360,22 +347,7 @@ Rules:
         covers the practical differences beyond just this feature set.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the setup built for you, with a weekly call to ask questions?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy you get the full Vault, courses on
-          exactly this stack, and a weekly live call — with 1,200+
-          professionals using it daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the setup built for you, with a weekly call to ask questions?"} dataCta="claude_skills_vs_mcp_community" />
 
       <h2>Which one should you set up first</h2>
       <p>

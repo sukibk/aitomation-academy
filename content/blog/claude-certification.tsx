@@ -1,4 +1,5 @@
 import { FreeKitCta } from "@/app/components/free-kit-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 import { VaultCta } from "@/app/components/vault-cta";
 import type { BlogPost } from "@/lib/blog";
 
@@ -358,27 +359,7 @@ export const post: BlogPost = {
         Network access — it is the same free catalog everyone gets.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want feedback on your portfolio pieces, not just a certificate?
-        </p>
-        <p className="mt-2 text-slate-700">
-          AItomation Academy — also called Claude Code Academy — is a
-          1,200+ member Skool community teaching Claude, Claude Cowork, and
-          Claude Code, with the 550+ recipe Claude Vault and a weekly live
-          call where members bring real work and get it reviewed. It is not
-          a substitute for the official Anthropic exams if your goal is
-          specifically the Partner Network credential — but for the much
-          larger group building a portfolio and practical fluency, it is a
-          faster feedback loop than a solo certificate track.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want feedback on your portfolio pieces, not just a certificate?"} dataCta="claude_certification_community" />
 
       <h2>Where to start this week</h2>
       <p>

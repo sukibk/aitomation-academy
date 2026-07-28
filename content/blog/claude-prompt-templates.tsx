@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-prompt-templates",
@@ -114,22 +116,7 @@ repeating the questions back to me.`}
         the guessing.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip building templates from scratch
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts and skills already structured
-          this way, sorted by job — so you copy a finished prompt instead of
-          filling in a skeleton every time.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip building templates from scratch"} dataCta="claude_prompt_templates_vault" />
 
       <h2>Template 3: Critique loop</h2>
       <p>
@@ -412,22 +399,7 @@ producing an output that violates it.`}
         the slots; the work is still filling them in with real detail.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want these templates built into finished prompts?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside AItomation Academy you get the full Vault, live weekly
-          calls, and 1,200+ professionals sharing what prompt structures are
-          actually working for their work right now.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want these templates built into finished prompts?"} dataCta="claude_prompt_templates_community" />
 
       <h2>Common mistakes that break these templates</h2>
       <p>

@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "anthropic-courses",
@@ -169,22 +171,7 @@ export const post: BlogPost = {
         </table>
       </div>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the workflows instead of just the theory?
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ ready-to-run recipes sorted by job — no
-          course structure to sit through, just the prompt or skill you need
-          right now.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Want the workflows instead of just the theory?"} dataCta="anthropic_courses_vault" />
 
       <p>
         By July 2026 the program covers four exams across three roles —
@@ -275,21 +262,7 @@ export const post: BlogPost = {
         a self-paced video library, official or not.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want the practice and the peer group, not just the videos?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Claude Code Academy has the courses, the full Vault, and a weekly
-          live call — 1,200+ non-technical professionals using this daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want the practice and the peer group, not just the videos?"} dataCta="anthropic_courses_community" />
 
       <h2>Which path should you actually take?</h2>
       <p>

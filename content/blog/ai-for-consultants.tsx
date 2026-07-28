@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "ai-for-consultants",
@@ -372,23 +373,7 @@ FORMATTING REQUIREMENTS:
         structured writing.
       </p>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a consultant section pre-built — recipes for
-          research, proposals, deliverables, and meeting prep, each producing
-          a finished document. 550+ Claude prompts &amp; skills total, sorted
-          by your job.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="ai_for_consultants_vault" />
 
       <h2>Workflow 4: Meeting prep and follow-up</h2>
       <p>

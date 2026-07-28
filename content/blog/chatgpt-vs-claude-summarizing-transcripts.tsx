@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "chatgpt-vs-claude-summarizing-transcripts",
@@ -188,23 +189,7 @@ export const post: BlogPost = {
         </p>
       </div>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a summarization and document-analysis section
-          pre-built — recipes for transcripts, research papers, and contract
-          review, each producing a finished deliverable. 550+ recipes total,
-          sorted by your job.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="chatgpt_vs_claude_summarizing__vault" />
 
       <h2>Test 2: Research paper analysis</h2>
       <p>

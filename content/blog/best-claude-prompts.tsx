@@ -1,4 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "best-claude-prompts",
@@ -267,21 +269,7 @@ with a one-page summary slide and a list of 5 follow-up questions
 a sharp learner would ask, with brief answers.`}
       </pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing prompts from scratch every time
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has 550+ prompts and skills like these, pre-built
-          and sorted by job — decks, reports, email, content, and more.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing prompts from scratch every time"} dataCta="best_claude_prompts_vault" />
 
       <h2>Reports and analysis</h2>
       <p>
@@ -542,22 +530,7 @@ framed as insights not status updates, and the one decision I
 should try to leave with. Keep the whole thing under one page.`}
       </pre>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Want new prompts like these delivered weekly, not searched for?
-        </p>
-        <p className="mt-2 text-slate-700">
-          Inside Claude Code Academy you get the full Vault, structured
-          courses, and a weekly live call — with 1,200+ professionals using
-          these workflows daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          Join the community
-        </a>
-      </div>
+      <CommunityCta title={"Want new prompts like these delivered weekly, not searched for?"} dataCta="best_claude_prompts_community" />
 
       <h2>How to adapt any of these prompts to your own job</h2>
       <p>

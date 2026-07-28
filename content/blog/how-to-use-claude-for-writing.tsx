@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { VaultCta } from "@/app/components/vault-cta";
 
 export const post: BlogPost = {
   slug: "how-to-use-claude-for-writing",
@@ -54,22 +55,7 @@ export const post: BlogPost = {
         <li><strong>Asking for a final draft in one go.</strong> Break it into structure → draft → refinement. You'll get better output and stay in control.</li>
       </ul>
 
-      <div className="not-prose my-10 rounded-xl border border-orange-200 bg-orange-50 p-6">
-        <p className="font-semibold text-slate-900">
-          Skip writing the prompts yourself
-        </p>
-        <p className="mt-2 text-slate-700">
-          The Claude Vault has a writing section pre-built — structure,
-          draft, and refinement prompts you can copy in and run today.
-          550+ recipes total, sorted by your job.
-        </p>
-        <a
-          href="/vault"
-          className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-        >
-          See the Vault
-        </a>
-      </div>
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="how_to_use_claude_for_writing_vault" />
 
       <h2>What this looks like in practice</h2>
       <p>
