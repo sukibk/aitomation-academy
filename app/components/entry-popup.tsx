@@ -52,6 +52,7 @@ export function EntryPopup() {
     }
     posthog.identify(email, { name, email });
     posthog.capture("popup_form_submitted", { name, email, source: "entry_popup" });
+    try { (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead"); } catch {}
     setStatus("success");
     localStorage.setItem("popup_dismissed", "1");
   };

@@ -35,6 +35,7 @@ export function LeadCaptureTrigger({
     }
     posthog.identify(email, { name, email });
     posthog.capture("blog_lead_capture_submitted", { name, email, source: "blog_cta", blog_slug: blogSlug });
+    try { (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.("track", "Lead"); } catch {}
     setStatus("success");
   };
 
