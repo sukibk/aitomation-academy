@@ -70,8 +70,8 @@ export function VaultOffer() {
                 label="Discount ends in"
               />
               <p className="text-center text-xs text-slate-500">
-                After the deadline the Vault lists at ${VAULT.anchorPrice}. Buy now and
-                ${VAULT.launchPrice} is what you ever pay.
+                Lists at ${VAULT.anchorPrice} — the launch discount is live today. Buy
+                now and ${VAULT.launchPrice} is what you ever pay.
               </p>
             </div>
             <BuyLink

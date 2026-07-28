@@ -35,10 +35,13 @@ export const MEMBERSHIP = {
 // 2026-07-27: the community crossed the 1,300-member threshold while the
 // founder rate was still live. Marko's call: honor a public two-week
 // extension, announced as such, then enforce the rise for good.
-// On 2026-08-11: membership rises to $99/mo (Stripe + Skool), Vault rises
-// to its $49 list price, MEMBER_COUNT gets refreshed, and these dates clear.
+// On 2026-08-11: membership rises to $99/mo (Stripe + Skool), MEMBER_COUNT
+// gets refreshed, and the date clears.
 export const FOUNDER_RATE_ENDS_AT: string | null = "2026-08-10T23:59:59-04:00";
-export const VAULT_PRICE_RISES_AT: string | null = "2026-08-10T23:59:59-04:00";
+// 2026-07-29: Vault stays at launch price indefinitely as an open-ended
+// discount off the $49 list price (no deadline claimed anywhere). Only set
+// this again with a real, enforced rise behind it.
+export const VAULT_PRICE_RISES_AT: string | null = null;
 
 // Current member count (update from Skool; crossed 1,300 as of 2026-07-27). Drives the ladder.
 export const MEMBER_COUNT = 1300;

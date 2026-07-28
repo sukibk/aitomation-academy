@@ -234,8 +234,8 @@ export default function VaultPage() {
                   label="Discount ends in"
                 />
                 <p className="text-center text-xs text-slate-500">
-                  After the deadline the Vault lists at ${VAULT.anchorPrice}. Buy now and
-                  ${VAULT.launchPrice} is what you ever pay — updates included forever.
+                  Lists at ${VAULT.anchorPrice} — the launch discount is live today. Buy
+                  now and ${VAULT.launchPrice} is what you ever pay, updates included forever.
                 </p>
               </div>
               <div className="mt-8">
