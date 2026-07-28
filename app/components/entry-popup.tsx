@@ -141,7 +141,7 @@ export function EntryPopup() {
                     </>
                   ) : (
                     <>
-                      Get Free PDF
+                      Download for free
                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </>
                   )}

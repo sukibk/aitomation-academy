@@ -108,7 +108,7 @@ export default async function BlogPostPage({
                 </p>
               </div>
               <LeadCaptureTrigger blogSlug={slug} className="inline-flex items-center justify-center rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-600 transition-colors shrink-0 cursor-pointer">
-                Download Free PDF
+                Download for free
               </LeadCaptureTrigger>
             </div>
 

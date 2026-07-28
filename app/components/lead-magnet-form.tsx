@@ -88,7 +88,7 @@ export function LeadMagnetForm({
               </>
             ) : (
               <>
-                Get Free PDF
+                Download for free
                 <ArrowRight className="ml-1.5 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </>
             )}
@@ -185,7 +185,7 @@ export function LeadMagnetForm({
           </>
         ) : (
           <>
-            Get Free PDF
+            Download for free
             <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </>
         )}

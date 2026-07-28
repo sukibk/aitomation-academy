@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FreeKitCta } from "@/app/components/free-kit-cta";
 import type { BlogPost } from "@/lib/blog";
 import { BuyLink } from "@/app/components/buy-link";
 import { MEMBER_COUNT } from "@/lib/pricing";
@@ -100,33 +101,14 @@ export const post: BlogPost = {
         <p className="mt-2 text-xs text-slate-400">7-day refund guarantee. Yours forever.</p>
       </div>
 
-      <div className="not-prose my-10 overflow-hidden rounded-xl border border-orange-200 bg-orange-50">
-        <div className="grid items-center sm:grid-cols-[1fr_auto]">
-          <div className="p-6">
-            <p className="font-semibold text-slate-900">
-              On the free plan? Make every message count
-            </p>
-            <p className="mt-2 text-slate-700">
-              The Claude Starter System is a free PDF: 20 prompts, skills,
-              and five-minute guides that get finished work out of Claude —
-              on the free plan, Pro, or Max.
-            </p>
-            <a
-              href="/free"
-              className="mt-4 inline-block rounded-lg bg-orange-500 px-5 py-2.5 font-semibold text-white hover:bg-orange-600"
-            >
-              Get the free kit
-            </a>
-          </div>
-          <Image
-            src="/images/free-kit-visual.jpg"
-            alt="The Claude Starter System free PDF preview"
-            width={160}
-            height={213}
-            className="mx-6 mb-6 hidden rounded-lg sm:my-6 sm:block"
-          />
-        </div>
-      </div>
+      <FreeKitCta
+        title="On the free plan? Make every message count"
+        dataCta="pricing_free_kit"
+      >
+        The Claude Starter System is a free PDF: 20 prompts, skills, and
+        five-minute guides that get finished work out of Claude — on the free
+        plan, Pro, or Max.
+      </FreeKitCta>
 
       <h2>Claude pricing tiers at a glance</h2>
       <p>
