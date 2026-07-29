@@ -3,12 +3,31 @@
 import { useState } from "react";
 import posthog from "posthog-js";
 
-// One-field feedback form for checkout cancellers. Captures straight into
-// PostHog (event: checkout_feedback) so the answer sits next to the funnel
-// data instead of dying in an inbox. No backend, no mail client.
+// Multiple-choice feedback for checkout cancellers. One tap = answer captured
+// (event: checkout_feedback) into PostHog next to the funnel data. "Something
+// else" reveals a free-text field.
+const REASONS = [
+  "The price is too high for me",
+  "Not ready yet, still deciding",
+  "I have a question that wasn't answered",
+  "My payment method isn't supported",
+];
+
 export function CheckoutFeedback({ context = "membership" }: { context?: string }) {
+  const [other, setOther] = useState(false);
   const [text, setText] = useState("");
   const [sent, setSent] = useState(false);
+
+  const send = (reason: string, detail?: string) => {
+    try {
+      posthog.capture("checkout_feedback", {
+        reason,
+        detail: detail?.trim() || undefined,
+        context,
+      });
+    } catch {}
+    setSent(true);
+  };
 
   if (sent) {
     return (
@@ -19,36 +38,55 @@ export function CheckoutFeedback({ context = "membership" }: { context?: string 
   }
 
   return (
-    <form
-      className="mx-auto mt-8 max-w-md"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (!text.trim()) return;
-        try {
-          posthog.capture("checkout_feedback", { feedback: text.trim(), context });
-        } catch {}
-        setSent(true);
-      }}
-    >
-      <label htmlFor="checkout-feedback" className="text-sm text-slate-500">
-        Something put you off at checkout? Tell me what it was — I read every one.
-      </label>
-      <div className="mt-3 flex flex-col gap-2 sm:flex-row">
-        <input
-          id="checkout-feedback"
-          type="text"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="It was the price / I had a question about… / etc."
-          className="flex-1 rounded-lg border border-slate-600 bg-slate-800 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
-        />
-        <button
-          type="submit"
-          className="rounded-lg border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-200 hover:border-orange-400 hover:text-orange-400"
-        >
-          Send
-        </button>
+    <div className="mx-auto mt-8 max-w-md">
+      <p className="text-sm text-slate-500">
+        Something put you off at checkout? One tap helps me fix it:
+      </p>
+      <div className="mt-3 flex flex-col gap-2">
+        {REASONS.map((reason) => (
+          <button
+            key={reason}
+            type="button"
+            onClick={() => send(reason)}
+            className="rounded-lg border border-slate-600 px-4 py-2.5 text-left text-sm text-slate-300 transition-colors hover:border-orange-400 hover:text-orange-400"
+          >
+            {reason}
+          </button>
+        ))}
+        {!other ? (
+          <button
+            type="button"
+            onClick={() => setOther(true)}
+            className="rounded-lg border border-slate-600 px-4 py-2.5 text-left text-sm text-slate-300 transition-colors hover:border-orange-400 hover:text-orange-400"
+          >
+            Something else…
+          </button>
+        ) : (
+          <form
+            className="flex flex-col gap-2 sm:flex-row"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (!text.trim()) return;
+              send("Something else", text);
+            }}
+          >
+            <input
+              autoFocus
+              type="text"
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+              placeholder="Tell me in a sentence…"
+              className="flex-1 rounded-lg border border-slate-600 bg-slate-800 px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-500/20"
+            />
+            <button
+              type="submit"
+              className="rounded-lg border border-slate-600 px-5 py-2.5 text-sm font-semibold text-slate-200 hover:border-orange-400 hover:text-orange-400"
+            >
+              Send
+            </button>
+          </form>
+        )}
       </div>
-    </form>
+    </div>
   );
 }
