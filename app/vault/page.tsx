@@ -72,17 +72,17 @@ export default async function VaultPage({
     <>
     <Navbar />
     <main className="min-h-screen bg-white">
+      {params.cancelled === "1" && (
+        /* Checkout canceller: answer the only question on their mind first,
+           then the page below re-makes the pitch. */
+        <div className="border-b border-white/10 bg-slate-800 px-6 py-2.5 text-center text-sm text-slate-300">
+          Checkout closed. <span className="font-semibold text-white">Nothing was charged.</span>{" "}
+          The launch price below is still yours.
+        </div>
+      )}
       {/* Hero */}
       <section className="bg-slate-900 px-6 py-20 text-center sm:px-12">
         <div className="mx-auto max-w-3xl">
-          {params.cancelled === "1" && (
-            /* Checkout canceller: answer the only question on their mind
-               first, then the page below re-makes the pitch. */
-            <div className="mx-auto mb-8 max-w-md rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-5 py-3 text-sm text-emerald-200">
-              Checkout closed — nothing was charged and your card wasn&apos;t touched.
-              The launch price below is still yours.
-            </div>
-          )}
           <p className="text-base font-semibold text-orange-400">
             Consultant? Marketer? Creator? Founder? Agency? Ops?{" "}
             <span className="font-normal text-slate-300">Then this is built for you.</span>
