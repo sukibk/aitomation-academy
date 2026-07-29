@@ -11,11 +11,15 @@ This skill builds on top of the performance-analytics skill's data but goes furt
 
 ## Owner IP Filter
 
-The site owner browses the site frequently across multiple browsers and devices, which inflates pageview counts and creates noise in conversion metrics. Exclude this IP from every PostHog query:
+The site owner browses the site frequently across multiple browsers and devices, which inflates pageview counts and creates noise in conversion metrics. He also tests checkout flows from Croatia (confirmed 2026-07-29: 10 of 15 "checkout starts" that day were his QA). Exclude BOTH from every PostHog query:
 
 ```
 AND properties.$ip != '137.103.50.217'
+AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 ```
+
+Known tradeoff (owner-approved): this hides any real Croatian visitors too. Also
+ignore `checkout_feedback` events from HR — those are owner QA, not customers.
 
 ## Analytics Archive
 
