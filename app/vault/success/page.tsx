@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/lib/site";
-import { MEMBERSHIP, currentLevel } from "@/lib/pricing";
+import { MEMBERSHIP, currentLevel, FOUNDER_RATE_ENDS_AT } from "@/lib/pricing";
+import { CountdownBar } from "@/app/components/countdown-bar";
 import { CheckoutButton } from "../checkout-button";
 import { BuyLink } from "@/app/components/buy-link";
 import { PurchaseTracker } from "./purchase-tracker";
@@ -28,28 +29,43 @@ export default async function VaultSuccess({
     return (
       <main className="flex min-h-screen items-center justify-center bg-slate-900 px-6 py-24">
         <div className="mx-auto max-w-xl text-center">
-          <h1 className="text-3xl font-bold text-white">Checkout cancelled. Nothing was charged.</h1>
+          <h1 className="text-3xl font-bold text-white">Nothing was charged.</h1>
           <p className="mt-4 text-slate-300">
-            No worries. Your card was not charged and nothing changed on your account.
-            Whenever you are ready:
+            Your card wasn&apos;t touched and nothing changed on your account. But your
+            spot at the founder rate is still open — and the clock on it is real:
           </p>
+          <div className="mt-6 flex justify-center">
+            <CountdownBar
+              deadline={FOUNDER_RATE_ENDS_AT}
+              label="$69/mo ends in"
+              variant="dark"
+            />
+          </div>
           <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link
-              href="/academy"
+            <BuyLink
+              product="membership"
+              dataCta="cancelled_resume_membership"
               className="inline-flex rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white hover:bg-orange-600"
             >
-              See the Academy membership
-            </Link>
+              Pick up where you left off
+            </BuyLink>
             <BuyLink
               product="vault"
               dataCta="cancelled_retry_vault"
               className="inline-flex rounded-xl border border-slate-600 px-6 py-3 font-semibold text-slate-200 hover:bg-slate-800"
             >
-              Get the Vault for $17
+              Or start with the Vault · $17
             </BuyLink>
           </div>
+          <p className="mt-4 text-sm text-slate-500">
+            7-day money-back guarantee either way. Cancel anytime in two clicks.
+          </p>
           <p className="mt-8 text-sm text-slate-500">
-            Something put you off at checkout? Tell us: {siteConfig.email}.
+            Something put you off at checkout?{" "}
+            <a href={`mailto:${siteConfig.email}?subject=Checkout%20feedback`} className="underline hover:text-slate-300">
+              Tell me what it was
+            </a>{" "}
+            — I read every reply.
           </p>
         </div>
       </main>
