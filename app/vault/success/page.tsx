@@ -67,6 +67,11 @@ export default async function VaultSuccess({
             </a>{" "}
             — I read every reply.
           </p>
+          <p className="mt-6 text-sm text-slate-500">
+            <Link href="/" className="underline hover:text-slate-300">
+              Or just head back to the homepage
+            </Link>
+          </p>
         </div>
       </main>
     );
