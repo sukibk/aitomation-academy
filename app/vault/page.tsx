@@ -62,7 +62,12 @@ const FAQ = [
   ["Is this affiliated with Anthropic?", "No. AItomation Academy is independent and not endorsed by Anthropic."],
 ];
 
-export default function VaultPage() {
+export default async function VaultPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ cancelled?: string }>;
+}) {
+  const params = await searchParams;
   return (
     <>
     <Navbar />
@@ -70,6 +75,14 @@ export default function VaultPage() {
       {/* Hero */}
       <section className="bg-slate-900 px-6 py-20 text-center sm:px-12">
         <div className="mx-auto max-w-3xl">
+          {params.cancelled === "1" && (
+            /* Checkout canceller: answer the only question on their mind
+               first, then the page below re-makes the pitch. */
+            <div className="mx-auto mb-8 max-w-md rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-5 py-3 text-sm text-emerald-200">
+              Checkout closed — nothing was charged and your card wasn&apos;t touched.
+              The launch price below is still yours.
+            </div>
+          )}
           <p className="text-base font-semibold text-orange-400">
             Consultant? Marketer? Creator? Founder? Agency? Ops?{" "}
             <span className="font-normal text-slate-300">Then this is built for you.</span>
