@@ -61,6 +61,7 @@ FROM events
 WHERE event = '$pageview'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
+  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 ```
 
 ### 1b. Page-Level Performance
@@ -74,6 +75,7 @@ FROM events
 WHERE event = '$pageview'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
+  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 GROUP BY page
 ORDER BY pageviews DESC
 LIMIT 20
@@ -87,6 +89,7 @@ FROM events
 WHERE timestamp >= now() - INTERVAL 7 DAY
   AND event NOT LIKE '$%'
   AND properties.$ip != '137.103.50.217'
+  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 GROUP BY event
 ORDER BY count DESC
 LIMIT 20
@@ -122,6 +125,7 @@ FROM events
 WHERE event = '$pageview'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
+  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 GROUP BY source
 ORDER BY pageviews DESC
 ```
@@ -142,6 +146,7 @@ WHERE event = '$pageview'
   AND properties.$pathname LIKE '/blog/%'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
+  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 GROUP BY page
 HAVING claude_refs + chatgpt_refs + bing_refs > 0
 ORDER BY claude_refs + chatgpt_refs DESC
@@ -171,6 +176,7 @@ WHERE event IN (
 )
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
+  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 GROUP BY event
 ORDER BY count DESC
 ```
@@ -188,6 +194,7 @@ FROM events
 WHERE event = 'cta_click'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
+  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 GROUP BY section, cta_text
 ORDER BY clicks DESC
 ```
