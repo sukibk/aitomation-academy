@@ -7,6 +7,7 @@ import { CountdownBar } from "@/app/components/countdown-bar";
 import { CheckoutButton } from "../checkout-button";
 import { BuyLink } from "@/app/components/buy-link";
 import { PurchaseTracker } from "./purchase-tracker";
+import { CheckoutFeedback } from "@/app/components/checkout-feedback";
 
 export const metadata: Metadata = {
   title: "Welcome to the Claude Vault",
@@ -60,13 +61,7 @@ export default async function VaultSuccess({
           <p className="mt-4 text-sm text-slate-500">
             7-day money-back guarantee either way. Cancel anytime in two clicks.
           </p>
-          <p className="mt-8 text-sm text-slate-500">
-            Something put you off at checkout?{" "}
-            <a href={`mailto:${siteConfig.email}?subject=Checkout%20feedback`} className="underline hover:text-slate-300">
-              Tell me what it was
-            </a>{" "}
-            — I read every reply.
-          </p>
+          <CheckoutFeedback context="membership" />
           <p className="mt-6 text-sm text-slate-500">
             <Link href="/" className="underline hover:text-slate-300">
               Or just head back to the homepage
