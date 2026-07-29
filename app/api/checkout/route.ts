@@ -63,9 +63,9 @@ export async function POST(req: NextRequest) {
   const form = new URLSearchParams();
   if (promoId) {
     form.set("discounts[0][promotion_code]", promoId);
-  } else {
-    form.set("allow_promotion_codes", "true");
   }
+  // No open "Add promotion code" field: it's a classic abandonment trigger
+  // (buyers leave to hunt codes). Promo links (?promo=CODE) still auto-apply.
   form.set("billing_address_collection", "auto");
   if (email) form.set("customer_email", email);
   // Abandoned-checkout recovery: keep the session recoverable after it expires
@@ -73,9 +73,6 @@ export async function POST(req: NextRequest) {
   // checkout.session.expired then carries the typed email + a recovery_url.
   form.set("expires_at", String(Math.floor(Date.now() / 1000) + 2 * 60 * 60)); // 2h
   form.set("after_expiration[recovery][enabled]", "true");
-  // Stripe rejects any allow_promotion_codes (even inside recovery) combined
-  // with an auto-applied discount, so only offer the field on undiscounted sessions.
-  if (!promoId) form.set("after_expiration[recovery][allow_promotion_codes]", "true");
   // Promotions consent checkbox (Stripe ToS accepted 2026-07-21): buyers can
   // opt in to marketing email at checkout; opted-in abandoners get recovery emails.
   form.set("consent_collection[promotions]", "auto");
@@ -84,6 +81,11 @@ export async function POST(req: NextRequest) {
   if (product === "membership") {
     const isAnnual = plan === "annual";
     form.set("mode", "subscription");
+    // Reassurance on the Stripe page itself, where hesitation happens.
+    form.set(
+      "custom_text[submit][message]",
+      "7-day money-back guarantee. Cancel anytime in two clicks. Your rate is locked for life.",
+    );
     form.set("success_url", `${base}/vault/success?sub=1&session_id={CHECKOUT_SESSION_ID}`);
     form.set("cancel_url", `${base}/vault/success?sub_cancelled=1`);
     // Ask for the community (Skool) login email so the webhook can flag the RIGHT
@@ -116,6 +118,10 @@ export async function POST(req: NextRequest) {
     form.set("line_items[0][quantity]", "1");
   } else {
     form.set("mode", "payment");
+    form.set(
+      "custom_text[submit][message]",
+      "Instant access after payment. 7-day money-back guarantee, no questions asked.",
+    );
     form.set("success_url", `${base}/vault/success?session_id={CHECKOUT_SESSION_ID}`);
     form.set("cancel_url", `${base}/vault?cancelled=1`);
     const priceId = process.env.STRIPE_VAULT_PRICE;
