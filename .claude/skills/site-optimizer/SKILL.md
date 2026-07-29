@@ -11,15 +11,21 @@ This skill builds on top of the performance-analytics skill's data but goes furt
 
 ## Owner IP Filter
 
-The site owner browses the site frequently across multiple browsers and devices, which inflates pageview counts and creates noise in conversion metrics. He also tests checkout flows from Croatia (confirmed 2026-07-29: 10 of 15 "checkout starts" that day were his QA). Exclude BOTH from every PostHog query:
+The site owner browses and QA-tests the site heavily (confirmed 2026-07-29:
+10 of 15 "checkout starts" that day were his testing). His devices stamp every
+event with the super property `internal: true` (set once per browser via
+?internal=1). Exclude from every PostHog query:
 
 ```
 AND properties.$ip != '137.103.50.217'
+AND properties.internal IS NULL
 AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
 ```
 
-Known tradeoff (owner-approved): this hides any real Croatian visitors too. Also
-ignore `checkout_feedback` events from HR — those are owner QA, not customers.
+The HR geo clause only exists to cover events from BEFORE the device tag
+shipped (2026-07-29) — drop it from queries whose window starts after
+2026-08-06. Also ignore `checkout_feedback` events carrying internal:true —
+owner QA, not customers.
 
 ## Analytics Archive
 
