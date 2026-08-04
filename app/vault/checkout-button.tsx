@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import posthog from "posthog-js";
+import { getFirstTouch } from "@/lib/attribution";
 import { VAULT } from "@/lib/pricing";
 
 export function CheckoutButton({
@@ -30,7 +31,7 @@ export function CheckoutButton({
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product, promo }),
+        body: JSON.stringify({ product, promo, attrib: getFirstTouch() }),
       });
       const data = await res.json();
       if (res.ok && data.url) {

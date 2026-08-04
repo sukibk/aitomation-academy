@@ -31,6 +31,9 @@ export async function POST(req: NextRequest) {
   let product: "vault" | "membership" = "vault";
   let promo: string | undefined;
   let plan: "monthly" | "annual" = "monthly";
+  // First-party first-touch attribution (see lib/attribution.ts): survives ad
+  // blockers, lands in Stripe metadata so every buyer carries their origin.
+  let attrib: { landing?: string; ref?: string; utm?: string; ts?: string } = {};
   try {
     const body = await req.json();
     if (typeof body?.email === "string") email = body.email;
@@ -38,6 +41,16 @@ export async function POST(req: NextRequest) {
     if (body?.plan === "annual") plan = "annual";
     if (typeof body?.promo === "string" && /^[A-Za-z0-9_-]{1,40}$/.test(body.promo))
       promo = body.promo;
+    if (body?.attrib && typeof body.attrib === "object") {
+      const clean = (v: unknown) =>
+        typeof v === "string" ? v.slice(0, 180).replace(/[^\x20-\x7E]/g, "") : "";
+      attrib = {
+        landing: clean(body.attrib.landing),
+        ref: clean(body.attrib.ref),
+        utm: clean(body.attrib.utm),
+        ts: clean(body.attrib.ts),
+      };
+    }
   } catch {
     // no body is fine — defaults to vault
   }
@@ -77,6 +90,10 @@ export async function POST(req: NextRequest) {
   // opt in to marketing email at checkout; opted-in abandoners get recovery emails.
   form.set("consent_collection[promotions]", "auto");
   form.set("metadata[product]", product);
+  if (attrib.landing) form.set("metadata[first_landing]", attrib.landing);
+  if (attrib.ref) form.set("metadata[first_ref]", attrib.ref);
+  if (attrib.utm) form.set("metadata[first_utm]", attrib.utm);
+  if (attrib.ts) form.set("metadata[first_ts]", attrib.ts);
 
   if (product === "membership") {
     const isAnnual = plan === "annual";

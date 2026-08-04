@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import posthog from "posthog-js";
+import { getFirstTouch } from "@/lib/attribution";
 
 // A priced CTA opens Stripe checkout directly: a buyer clicking a price has
 // intent, so no scroll-to-pricing or page hop in between. Falls back to the
@@ -34,7 +35,7 @@ export function BuyLink({
       const res = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ product, promo, plan }),
+        body: JSON.stringify({ product, promo, plan, attrib: getFirstTouch() }),
       });
       const data = await res.json();
       if (res.ok && data.url) {

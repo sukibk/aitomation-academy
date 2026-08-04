@@ -1,3 +1,4 @@
+import { FirstTouch } from "@/app/components/first-touch";
 import type { Metadata } from "next";
 import { Barlow, Geist } from "next/font/google";
 import Script from "next/script";
@@ -60,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`font-sans ${geist.variable}`}>
       <body className={`${barlow.variable} ${barlow.className}`} suppressHydrationWarning>
+        <FirstTouch />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CWZ738MZYH"
           strategy="afterInteractive"

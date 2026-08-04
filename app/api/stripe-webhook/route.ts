@@ -261,6 +261,13 @@ export async function POST(req: NextRequest) {
     console.error("stripe-webhook: delivery email failed", err);
   }
 
+  // First-touch attribution captured at checkout (see lib/attribution.ts)
+  const md = (session.metadata || {}) as Record<string, string>;
+  const attribLine =
+    md.first_landing || md.first_ref || md.first_utm
+      ? `<p><b>Attribution:</b> landed on <b>${md.first_landing || "?"}</b> from <b>${md.first_ref || "?"}</b>${md.first_utm ? ` (${md.first_utm})` : ""}${md.first_ts ? ` on ${md.first_ts.slice(0, 10)}` : ""}</p>`
+      : `<p><b>Attribution:</b> none captured (blocked or pre-rollout visitor)</p>`;
+
   try {
     await sendEmail({
       to: ADMIN_EMAIL,
@@ -268,8 +275,8 @@ export async function POST(req: NextRequest) {
         ? `NEW MEMBER ($69/mo via site) — grant full Skool access: ${email}`
         : `Vault sale — unlock Skool for ${email}`,
       htmlContent: isSubscription
-        ? `<p>New site-billed membership.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>Skool auto-invite: <b>${invited ? "SENT" : "NOT SENT (webhook not configured/failed)"}</b>.</p><p>To do: when they join Skool, unlock ALL premium courses (Vault, 7DC, Cowork, Claude Code) on their account. They pay via Stripe, not Skool — make sure they never also subscribe inside Skool.</p>`
-        : `<p>New Vault purchase.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>Skool auto-invite: <b>${invited ? "SENT" : "NOT SENT (webhook not configured/failed)"}</b>.</p><p>To do (2 min): when they join Skool, unlock the Claude Vault course on their account.</p>`,
+        ? `<p>New site-billed membership.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>Skool auto-invite: <b>${invited ? "SENT" : "NOT SENT (webhook not configured/failed)"}</b>.</p><p>To do: when they join Skool, unlock ALL premium courses (Vault, 7DC, Cowork, Claude Code) on their account. They pay via Stripe, not Skool — make sure they never also subscribe inside Skool.</p>${attribLine}`
+        : `<p>New Vault purchase.</p><p><b>${name || "(no name)"} — ${email}</b></p><p>Skool auto-invite: <b>${invited ? "SENT" : "NOT SENT (webhook not configured/failed)"}</b>.</p><p>To do (2 min): when they join Skool, unlock the Claude Vault course on their account.</p>${attribLine}`,
       tag: isSubscription ? "membership-sale-admin" : "vault-sale-admin",
     });
   } catch (err) {
