@@ -173,6 +173,8 @@ CONTENT PRINCIPLES:
 AUDIENCE CONTEXT:
 [Paste key findings from your audience research — what they care about, what they've tried, what frustrates them]`}</code></pre>
 
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_content_creation_vault" />
+
       <h2>Workflow 1: Writing a blog post from scratch</h2>
       <p>
         The biggest mistake people make with Claude for content creation is
@@ -398,8 +400,6 @@ Create the following assets from this source material:
    - Write it as spoken words — casual, direct, no written-English formality
 
 For each piece, explain which idea from the source content you chose to highlight and why it works best for that platform.`}</code></pre>
-
-      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_content_creation_vault" />
 
       <h2>Workflow 3: Social media content calendar</h2>
       <p>

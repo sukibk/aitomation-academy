@@ -120,6 +120,8 @@ Structure the script as:
 Mark suggested pauses or emphasis with [PAUSE] or [EMPHASIS].
 Match the voice sample above — do not default to a generic tone.`}
       </pre>
+
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_creators_vault" />
       <p>
         A 12-minute video script that used to take two to three hours of
         staring at a blinking cursor now takes about 40 minutes: 10 minutes
@@ -162,8 +164,6 @@ hook under 12 words, first 3 words must not be throwaway.`}
         toward those"). The prompt gets sharper every time you tell it what
         actually worked.
       </p>
-
-      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_creators_vault" />
 
       <h2>3. The repurposing engine: one asset into a week of content</h2>
       <p>

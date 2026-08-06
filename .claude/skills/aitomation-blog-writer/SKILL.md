@@ -78,10 +78,12 @@ The reason research comes first is that training data goes stale. Claude's free 
 - Place where they naturally fit — don't force
 - If unsure which articles exist, read `lib/blog.ts` for the full list of imports, or scan `content/blog/` for all post files
 
-**Plan 2-3 mid-article CTAs:**
-- Subtle amber callout boxes linking to `/skool-redirect`
-- Place after roughly 1/3 and 2/3 of the article
-- Tone: helpful, not salesy
+**Plan exactly 2 mid-article CTAs — the standardized components, NEVER hand-rolled boxes:**
+- One `<VaultCta title={"..."} dataCta="{slug}_vault" />` and one `<CommunityCta title={"..."} dataCta="{slug}_community" />` (imports: `@/app/components/vault-cta`, `@/app/components/community-cta`)
+- NEVER link CTAs to `/skool-redirect` (legacy pattern, fully removed 2026-08-06). VaultCta routes to /vault, CommunityCta to /academy — built into the components.
+- **Prompt/template posts (any post with `<pre>` prompt blocks): VaultCta goes IMMEDIATELY after the FIRST prompt block.** Readers must see the Vault before they scroll through free prompts. Deep placement gets ~0 clicks (heatmap-verified).
+- Non-prompt posts: VaultCta after roughly 1/3 of the article; CommunityCta after roughly 2/3.
+- Titles are contextual to the article; member counts come from the component (`MEMBER_COUNT_LABEL`) — never hardcode "1,200+"/"1,300+" in prose.
 
 ## Step 4: Write the Article
 
@@ -197,7 +199,7 @@ The blog post page template (`app/blog/[slug]/page.tsx`) automatically wraps eve
 - **Bottom (after article body):** Newsletter signup form ("Get more articles like this")
 - **Below newsletter:** Related articles (auto-calculated from tags/category)
 
-You do NOT need to add these in the article body — they're injected by the page template. The article body just contains the content, internal links, and 2-3 mid-article amber CTA callouts.
+You do NOT need to add these in the article body — they're injected by the page template. The article body just contains the content, internal links, and the two standardized CTA components (VaultCta + CommunityCta) per the placement rules in Step 3.
 
 ### Styling Rules
 
@@ -222,17 +224,15 @@ shrink-0 w-8 h-8 rounded-full bg-orange-500 text-white flex items-center justify
 ```
 Copy buttons are auto-injected by CodeCopyEnhancer.
 
-**Mid-article CTA callout boxes:**
+**Mid-article CTAs — use the components only:**
 ```tsx
-<div className="not-prose mt-10 mb-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-  <p className="text-sm text-amber-900">
-    CTA text.{" "}
-    <a href="/skool-redirect" className="font-semibold text-amber-700 underline underline-offset-2">
-      Join the free community &rarr;
-    </a>
-  </p>
-</div>
+import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
+
+<VaultCta title={"Skip writing prompts like these from scratch"} dataCta="{slug}_vault" />
+<CommunityCta title={"See the exact workflows professionals use daily"} dataCta="{slug}_community" />
 ```
+Do NOT hand-roll CTA boxes (amber boxes are the removed legacy pattern). Do NOT link to `/skool-redirect`. On prompt posts the VaultCta sits immediately after the first prompt block.
 
 **Orange CTA buttons inside prose:** MUST be wrapped in a `not-prose` div — otherwise `prose-a:text-orange-600` overrides `text-white`.
 

@@ -77,6 +77,8 @@ For each: a scroll-stopping first line (no question openers),
 average across all five. No emojis, no hashtags.`}
       </pre>
 
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_marketers_vault" />
+
       <h2>2. Landing pages as a finished artifact</h2>
       <p>
         Ask Claude to build the page as an artifact and you get a structured,
@@ -91,8 +93,6 @@ social proof slot, objection-handling FAQ (6 Qs), closing CTA.
 Voice: [2-3 adjectives]. Return the page, then list the 3 headline
 options you considered and why you picked the one you did.`}
       </pre>
-
-      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_for_marketers_vault" />
 
       <h2>3. Email sequences with one job per email</h2>
       <p>

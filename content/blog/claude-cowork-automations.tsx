@@ -124,6 +124,8 @@ Keep the whole digest under one page. Flag anything time-sensitive
 (deadline mentioned, "urgent" in subject/body) at the very top.`}
       </pre>
 
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_cowork_automations_vault" />
+
       <h2>2. Meeting prep briefings that beat scrambling five minutes before</h2>
       <p>
         Meeting prep is the automation people notice fastest, because
@@ -146,8 +148,6 @@ external or client meeting today, produce a one-page briefing:
 Skip internal recurring meetings with no notes history. Order
 briefings by meeting time. Keep each one under half a page.`}
       </pre>
-
-      <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_cowork_automations_vault" />
 
       <h2>3. The Friday status report that writes itself from your project folder</h2>
       <p>

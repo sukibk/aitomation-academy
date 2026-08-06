@@ -224,6 +224,8 @@ on what visual would work best. End with 3 alternate closing
 slides for different objection scenarios.`}
       </pre>
 
+      <VaultCta title={"Skip writing prompts from scratch every time"} dataCta="best_claude_prompts_vault" />
+
       <h3>2. Board or investor update deck</h3>
       <p>
         Board updates fail when they bury the one number that matters under
@@ -268,8 +270,6 @@ why it matters to THEM specifically (1 slide), a worked example
 with a one-page summary slide and a list of 5 follow-up questions
 a sharp learner would ask, with brief answers.`}
       </pre>
-
-      <VaultCta title={"Skip writing prompts from scratch every time"} dataCta="best_claude_prompts_vault" />
 
       <h2>Reports and analysis</h2>
       <p>

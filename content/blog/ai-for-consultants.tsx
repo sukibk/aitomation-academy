@@ -201,6 +201,8 @@ FORMAT REQUIREMENTS:
 - Where you are drawing on general knowledge vs. uploaded documents, note the distinction
 - If any claim is uncertain, flag it explicitly rather than presenting it as fact`}</code></pre>
 
+      <VaultCta title={"Skip writing the prompts yourself"} dataCta="ai_for_consultants_vault" />
+
       <p>
         What used to take 3-4 hours of Googling, reading reports, and
         compiling notes now takes about 30 minutes: 5 minutes to set up the
@@ -359,8 +361,6 @@ FORMATTING REQUIREMENTS:
         You are still doing the hard thinking — Claude handles the
         structured writing.
       </p>
-
-      <VaultCta title={"Skip writing the prompts yourself"} dataCta="ai_for_consultants_vault" />
 
       <h2>Workflow 4: Meeting prep and follow-up</h2>
       <p>

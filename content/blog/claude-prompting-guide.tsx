@@ -154,6 +154,8 @@ export const post: BlogPost = {
         vocabulary, depth, perspective, and what it prioritizes.
       </p>
       <pre><code>{`You are a senior financial analyst who prepares board-ready reports for SaaS companies.`}</code></pre>
+
+      <VaultCta title={"Skip building these prompts from scratch"} dataCta="claude_prompting_guide_vault" />
       <p>
         Without the role, Claude defaults to a general-purpose assistant. With
         it, Claude writes the way a financial analyst actually writes &mdash;
@@ -489,8 +491,6 @@ export const post: BlogPost = {
         to find that prompt that worked well, store it in the project and
         reference it every time.
       </p>
-
-      <VaultCta title={"Skip building these prompts from scratch"} dataCta="claude_prompting_guide_vault" />
 
       <h2>How to use Styles to maintain consistent voice</h2>
       <p>

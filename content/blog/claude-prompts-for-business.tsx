@@ -83,6 +83,8 @@ FORMAT: Write this as a structured brief with clear headers. Use specific exampl
 
 LENGTH: Comprehensive but scannable — a senior leader should be able to read this in 15 minutes and walk away with clear next steps.`}</code></pre>
 
+      <VaultCta title={"Skip writing prompts like these from scratch"} dataCta="claude_prompts_for_business_vault" />
+
       <h2>2. Competitive positioning analysis</h2>
       <p>
         This prompt doesn't just list competitors — it maps out the strategic landscape so you can find your actual differentiation.
@@ -354,8 +356,6 @@ ANALYZE FOR:
 - What messaging changes would better match how customers actually think about us?
 
 Be direct in your analysis. If the data is inconclusive, say so. If only one person said something, don't present it as a pattern.`}</code></pre>
-
-      <VaultCta title={"Skip writing prompts like these from scratch"} dataCta="claude_prompts_for_business_vault" />
 
       <h2>8. Standard operating procedure (SOP) builder</h2>
       <p>

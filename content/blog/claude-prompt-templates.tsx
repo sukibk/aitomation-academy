@@ -85,6 +85,8 @@ body, conversational tone, one CTA."]
 
 Ask me clarifying questions first if this brief is incomplete.`}
       </pre>
+
+      <VaultCta title={"Skip building templates from scratch"} dataCta="claude_prompt_templates_vault" />
       <p>
         The last line matters more than it looks. Without it, Claude will
         fill gaps with reasonable-sounding guesses instead of flagging them.
@@ -115,8 +117,6 @@ repeating the questions back to me.`}
         Claude tells you what it is missing. Ask-then-act inverts who does
         the guessing.
       </p>
-
-      <VaultCta title={"Skip building templates from scratch"} dataCta="claude_prompt_templates_vault" />
 
       <h2>Template 3: Critique loop</h2>
       <p>
