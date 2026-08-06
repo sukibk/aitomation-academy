@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "chatgpt-vs-claude-summarizing-transcripts",
@@ -241,18 +242,6 @@ export const post: BlogPost = {
         </p>
       </div>
 
-      {/* ── CTA 1 ── */}
-      <div className="my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
-        <p className="text-sm text-slate-700">
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            See how 1200+ professionals use Claude for document analysis &rarr;
-          </a>
-        </p>
-      </div>
-
       <h2>Test 3: Legal and contract review</h2>
       <p>
         A 30-page commercial lease agreement. Not a standardized template —
@@ -387,17 +376,7 @@ Important: If any decision made earlier in the meeting was contradicted or rever
 
 Be specific — reference section numbers and quote exact language when identifying issues.`}</code></pre>
 
-      {/* ── CTA 2 ── */}
-      <div className="not-prose mt-10 mb-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
-        <p className="text-sm text-slate-700">
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Get the free summarization workflow template used by our community &rarr;
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"Want the summarization workflows behind these results?"} dataCta="chatgpt_vs_claude_summarizing_community" />
 
       <p>
         These prompts work because they give Claude a specific structure to
@@ -742,18 +721,6 @@ Be specific — reference section numbers and quote exact language when identify
         </p>
       </div>
 
-      {/* ── CTA 3 ── */}
-      <div className="not-prose mt-10 mb-10 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
-        <p className="text-sm text-slate-700">
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join 1200+ professionals mastering Claude for real business workflows &rarr;
-          </a>
-        </p>
-      </div>
-
       <h2>Learn to build real summarization workflows</h2>
       <p>
         Knowing that Claude is better at summarization is the easy part.
@@ -772,7 +739,7 @@ Be specific — reference section numbers and quote exact language when identify
       </p>
       <p>
         <a
-          href="/skool-redirect"
+          href="/academy"
           className="inline-block mt-2 font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
         >
           Join AItomation Academy and master Claude for document

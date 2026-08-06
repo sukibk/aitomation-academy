@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-pro-vs-chatgpt-plus",
@@ -259,18 +260,7 @@ export const post: BlogPost = {
         </div>
       </div>
 
-      {/* ── CTA: Writing workflows ── */}
-      <div className="not-prose mt-10 mb-8 rounded-lg border border-orange-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-slate-700">
-          See the exact Claude writing workflows 1200+ professionals use daily.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join AItomation Academy (free) &rarr;
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"See the exact Claude workflows professionals run daily"} dataCta="claude_pro_vs_chatgpt_plus_community" />
 
       <h2>Context window: the most underrated advantage</h2>
       <p>
@@ -482,19 +472,6 @@ export const post: BlogPost = {
         reliable.
       </p>
 
-      {/* ── CTA: Instruction-following ── */}
-      <div className="my-8 rounded-lg border border-orange-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-slate-700">
-          Want to see how professionals set up Claude Projects with custom instructions for client work?{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Get free workflow templates inside AItomation Academy &rarr;
-          </a>
-        </p>
-      </div>
-
       <h2>The thinking modes compared</h2>
       <p>
         Both tools now offer advanced reasoning modes: Claude has Extended
@@ -660,19 +637,6 @@ export const post: BlogPost = {
         <p className="text-slate-700">
           ChatGPT Plus is the Swiss Army knife. Claude Pro is the chef&apos;s
           knife. If you cook for a living, you want the chef&apos;s knife.
-        </p>
-      </div>
-
-      {/* ── CTA: Post-verdict ── */}
-      <div className="my-8 rounded-lg border border-orange-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-slate-700">
-          Ready to make the switch? Join our free community for Claude workflow templates and see how 1200+ professionals use Claude Pro daily.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join AItomation Academy (free) &rarr;
-          </a>
         </p>
       </div>
 
@@ -880,7 +844,7 @@ export const post: BlogPost = {
       </p>
       <p>
         <a
-          href="/skool-redirect"
+          href="/academy"
           className="inline-block mt-2 font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
         >
           Join AItomation Academy and learn how to get the most out of Claude

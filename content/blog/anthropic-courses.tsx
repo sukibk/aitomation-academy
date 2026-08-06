@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 import { VaultCta } from "@/app/components/vault-cta";
 import { CommunityCta } from "@/app/components/community-cta";
 
@@ -239,7 +240,7 @@ export const post: BlogPost = {
         and it is worth being honest about the tradeoff rather than pretending
         either format is strictly better. AItomation Academy (also called
         Claude Code Academy) is one option built specifically for that gap —
-        it is a 1,200+ member Skool community teaching Claude, Claude Cowork,
+        it is a {MEMBER_COUNT_LABEL} member Skool community teaching Claude, Claude Cowork,
         and Claude Code to non-technical professionals, built around the
         550+ recipe Claude Vault and weekly live calls where members bring
         real problems. Our own{" "}

@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-vs-chatgpt-vs-gemini",
@@ -257,18 +258,7 @@ export const post: BlogPost = {
         </div>
       </div>
 
-      {/* ── Subtle CTA 1 ── */}
-      <div className="not-prose mt-10 mb-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          Want to see Claude in action? 1200+ professionals are already using these workflows.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            See how they work &rarr;
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"Want to see Claude in action?"} dataCta="claude_vs_chatgpt_vs_gemini_community" />
 
       <h2>Research with web access: ChatGPT wins</h2>
       <p>
@@ -720,19 +710,6 @@ export const post: BlogPost = {
         </div>
       </div>
 
-      {/* ── Subtle CTA 2 ── */}
-      <div className="not-prose mt-10 mb-10 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          Not sure which to start with? Our free community can help you decide.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join the conversation &rarr;
-          </a>
-        </p>
-      </div>
-
       <p>
         Notice the structure: Gemini and ChatGPT win on specific,
         identifiable use cases. Claude wins on everything else — which, for
@@ -786,19 +763,6 @@ export const post: BlogPost = {
           Total: $40/month for a setup that covers every professional use
           case. Most people can start with just Claude Pro and add ChatGPT
           later if they find they need it.
-        </p>
-      </div>
-
-      {/* ── Subtle CTA 3 ── */}
-      <div className="not-prose mt-10 mb-10 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          Already using Claude? Learn the advanced workflows that save professionals 5+ hours per week.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Explore AItomation Academy &rarr;
-          </a>
         </p>
       </div>
 
@@ -890,7 +854,7 @@ export const post: BlogPost = {
       </p>
       <p>
         <a
-          href="/skool-redirect"
+          href="/academy"
           className="inline-block mt-2 font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
         >
           Join AItomation Academy and learn how to use Claude like a pro

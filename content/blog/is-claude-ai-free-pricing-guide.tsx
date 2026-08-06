@@ -1,5 +1,6 @@
 import { FreeKitCta } from "@/app/components/free-kit-cta";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 import type { BlogPost } from "@/lib/blog";
 import { BuyLink } from "@/app/components/buy-link";
 import { MEMBER_COUNT } from "@/lib/pricing";
@@ -781,20 +782,7 @@ export const post: BlogPost = {
         conversation until you change it.
       </p>
 
-      {/* --------------- Subtle CTA 3 --------------- */}
-      <div className="not-prose my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
-        <p className="text-sm text-amber-900">
-          Not sure which features matter most for your work? Our free community
-          has ready-made Claude setups for consultants, marketers, and
-          freelancers.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-900 transition-colors"
-          >
-            See the setups
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"Ready-made Claude setups for consultants, marketers, and freelancers"} dataCta="pricing_guide_community" />
 
       <h2>Common questions about Claude pricing</h2>
 
@@ -904,8 +892,8 @@ export const post: BlogPost = {
         </BuyLink>
         <p className="mt-4 text-sm text-slate-500">
           Not ready to buy?{" "}
-          <a href="/skool-redirect" className="text-slate-300 underline hover:text-white">
-            Join {MEMBER_COUNT.toLocaleString()}+ professionals in the free community
+          <a href="/free" className="text-slate-300 underline hover:text-white">
+            Start with the free Claude Starter System instead
           </a>
         </p>
       </div>

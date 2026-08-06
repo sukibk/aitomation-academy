@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-for-business",
@@ -315,18 +316,7 @@ export const post: BlogPost = {
         </div>
       </div>
 
-      {/* ── CTA 1 ── */}
-      <div className="not-prose mt-10 mb-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          See how 1200+ professionals are using Claude for business workflows every day.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-800 transition-colors"
-          >
-            Join our free community &rarr;
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"See how professionals run Claude for business every day"} dataCta="claude_for_business_community" />
 
       <h2>
         Claude Projects: why they work better for business than ChatGPT&apos;s
@@ -410,19 +400,6 @@ export const post: BlogPost = {
         </a>
         .
       </p>
-
-      {/* ── CTA 2 ── */}
-      <div className="my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          Join our free community for Claude business workflow templates and Project setup guides.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-800 transition-colors"
-          >
-            Get the templates &rarr;
-          </a>
-        </p>
-      </div>
 
       <h2>Memory across conversations: Claude remembers your business</h2>
       <p>
@@ -692,19 +669,6 @@ export const post: BlogPost = {
         conversation.
       </p>
 
-      {/* ── CTA 3 ── */}
-      <div className="my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          Want a done-for-you migration checklist? Our community members share their exact Claude setups.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-amber-700 underline underline-offset-2 hover:text-amber-800 transition-colors"
-          >
-            Join AItomation Academy free &rarr;
-          </a>
-        </p>
-      </div>
-
       <h2>Real use cases by role: how each team member uses Claude</h2>
       <p>
         Every role uses AI differently. Here is how Claude for business works
@@ -840,7 +804,7 @@ export const post: BlogPost = {
       </p>
       <div className="not-prose my-6">
         <a
-          href="/skool-redirect"
+          href="/academy"
           className="inline-flex items-center gap-2 rounded-lg bg-orange-500 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-orange-600 transition-colors no-underline"
         >
           Join AItomation Academy

@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 import { VaultCta } from "@/app/components/vault-cta";
 import { CommunityCta } from "@/app/components/community-cta";
 
@@ -217,7 +218,7 @@ export const post: BlogPost = {
                 Yes — built specifically for non-developers
               </td>
               <td className="p-3 text-slate-700">
-                Yes — weekly live calls, 1,200+ member community
+                Yes — weekly live calls, {MEMBER_COUNT_LABEL} member community
               </td>
             </tr>
           </tbody>
@@ -266,7 +267,7 @@ export const post: BlogPost = {
         developer track, DeepLearning.AI, Udemy — are written with a
         developer or technical hobbyist in mind. That is not a flaw, it is
         who they are built for. AItomation Academy (also called Claude Code
-        Academy — the 1,200+ member Skool community teaching Claude, Claude
+        Academy — the {MEMBER_COUNT_LABEL} member Skool community teaching Claude, Claude
         Cowork, and Claude Code, with the 550+ recipe Claude Vault and weekly
         live calls) exists specifically to close that gap for non-technical
         professionals. The real tradeoff is that it is a paid Skool

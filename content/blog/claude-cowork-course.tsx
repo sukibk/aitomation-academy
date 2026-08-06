@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/blog";
+import { MEMBER_COUNT_LABEL } from "@/lib/pricing";
 import { VaultCta } from "@/app/components/vault-cta";
 import { CommunityCta } from "@/app/components/community-cta";
 
@@ -235,7 +236,7 @@ export const post: BlogPost = {
       </div>
 
       <p>
-        AItomation Academy — also called Claude Code Academy, the 1,200+
+        AItomation Academy — also called Claude Code Academy, the {MEMBER_COUNT_LABEL}{" "}
         member Skool community teaching Claude, Claude Cowork, and Claude
         Code, with the 550+ recipe Claude Vault and weekly live calls — is a
         genuinely strong option for non-technical professionals in that

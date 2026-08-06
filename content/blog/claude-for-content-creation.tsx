@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-for-content-creation",
@@ -308,18 +309,7 @@ Write it to match the voice in my writing sample. Specific guidelines:
 
 Do NOT write the other sections yet — just this one.`}</code></pre>
 
-      {/* ── Mid-article CTA 1 ── */}
-      <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 md:p-6">
-        <p className="text-sm text-amber-900">
-          These workflows are part of what 1200+ professionals use inside our free community to create content faster with Claude.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join AItomation Academy for free &rarr;
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"The community behind these content workflows"} dataCta="claude_for_content_creation_community" />
 
       <h2>Workflow 2: Content repurposing pipeline</h2>
       <p>
@@ -509,19 +499,6 @@ Pick the 5 strongest concepts from the calendar and write full, ready-to-publish
 - Instagram: Caption under 150 words, include a call to action, suggest a visual concept
 
 Present the calendar in a table format I can copy into a spreadsheet.`}</code></pre>
-
-      {/* ── Mid-article CTA 2 ── */}
-      <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 md:p-6">
-        <p className="text-sm text-amber-900">
-          Want to see these workflows in action? Members get access to live walkthroughs and prompt libraries.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join AItomation Academy for free &rarr;
-          </a>
-        </p>
-      </div>
 
       <h2>Workflow 4: Email newsletter writing</h2>
       <p>
@@ -845,19 +822,6 @@ Important: I'd rather rank position 4 with an article I'm proud of than rank pos
         </li>
       </ol>
 
-      {/* ── Mid-article CTA 3 ── */}
-      <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/60 p-4 md:p-6">
-        <p className="text-sm text-amber-900">
-          These pro tips scratch the surface. Inside the community, members share their best-performing prompts and content systems daily.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join AItomation Academy for free &rarr;
-          </a>
-        </p>
-      </div>
-
       <h2>Putting it all together</h2>
       <p>
         The workflows above aren&apos;t theoretical — they&apos;re the exact
@@ -884,7 +848,7 @@ Important: I'd rather rank position 4 with an article I'm proud of than rank pos
       </p>
       <p>
         <a
-          href="/skool-redirect"
+          href="/academy"
           className="inline-block mt-2 font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
         >
           Join AItomation Academy and build your Claude content system &rarr;

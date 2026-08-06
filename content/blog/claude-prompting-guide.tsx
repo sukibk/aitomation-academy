@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-prompting-guide",
@@ -402,18 +403,7 @@ export const post: BlogPost = {
       </div>
       </div>
 
-      {/* ── CTA 1 ── */}
-      <div className="not-prose mt-10 mb-10 rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5 md:p-6">
-        <p className="text-sm md:text-base text-slate-800">
-          Get 7 ready-to-use Claude prompts built on these principles &mdash; plus access to a library of templates for every business function.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="inline-block mt-3 text-sm font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-        >
-          Join AItomation Academy for free &rarr;
-        </a>
-      </div>
+      <CommunityCta title={"Learn these techniques with people who use them daily"} dataCta="claude_prompting_guide_community" />
 
       <h2>How to use Claude Projects to avoid repeating yourself</h2>
       <p>
@@ -705,19 +695,6 @@ export const post: BlogPost = {
         </p>
       </div>
 
-      {/* ── CTA 2 ── */}
-      <div className="my-8 rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-4 md:p-6">
-        <p className="text-sm md:text-base text-slate-800">
-          1200+ professionals are using these techniques daily in our free community. See what they are building with Claude.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="inline-block mt-3 text-sm font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-        >
-          Explore the community &rarr;
-        </a>
-      </div>
-
       <h2>Common mistakes non-technical users make</h2>
       <p>
         After working with hundreds of professionals learning Claude, these
@@ -779,19 +756,6 @@ export const post: BlogPost = {
             </p>
           </div>
         </div>
-      </div>
-
-      {/* ── CTA 3 ── */}
-      <div className="not-prose mt-10 mb-10 rounded-xl border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 p-5 md:p-6">
-        <p className="text-sm md:text-base text-slate-800">
-          Want a done-for-you Claude setup? Inside AItomation Academy we build your Projects, Styles, and prompt templates together step by step.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="inline-block mt-3 text-sm font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-        >
-          Get your Claude system set up &rarr;
-        </a>
       </div>
 
       <h2>Advanced techniques in plain English</h2>
@@ -980,7 +944,7 @@ export const post: BlogPost = {
       </p>
       <p>
         <a
-          href="/skool-redirect"
+          href="/academy"
           className="inline-block mt-2 font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
         >
           Join AItomation Academy and master Claude prompting &rarr;

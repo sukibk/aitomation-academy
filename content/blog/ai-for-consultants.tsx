@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "ai-for-consultants",
@@ -292,21 +293,7 @@ LENGTH: 4-6 pages when formatted.`}</code></pre>
         are outsourcing the first-draft writing. For more templates like this, check out our <a href="/blog/claude-prompts-for-business">business prompt templates</a>.
       </p>
 
-      {/* ── CTA 1 ── */}
-      <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/70 p-4 md:p-6">
-        <p className="text-sm font-semibold text-amber-900 mb-1">
-          See the exact workflows consultants use in our free community
-        </p>
-        <p className="text-sm text-amber-800">
-          1200+ consultants and professionals are already sharing prompt templates, proposal frameworks, and time-saving setups inside AItomation Academy.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-3 inline-block rounded-lg bg-amber-600 px-5 py-2 text-sm font-semibold text-white hover:bg-amber-700 transition-colors"
-        >
-          Join the free community &rarr;
-        </a>
-      </div>
+      <CommunityCta title={"See the exact workflows consultants use daily"} dataCta="ai_for_consultants_community" />
 
       <h2>Workflow 3: Client deliverable drafting</h2>
       <p>
@@ -461,22 +448,6 @@ OUTPUT 2: INTERNAL ENGAGEMENT NOTES
         client meetings per week, that is 3-5 hours saved — from a single
         workflow.
       </p>
-
-      {/* ── CTA 2 ── */}
-      <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/70 p-4 md:p-6">
-        <p className="text-sm font-semibold text-amber-900 mb-1">
-          1200+ consultants and professionals are already saving hours weekly
-        </p>
-        <p className="text-sm text-amber-800">
-          Get access to ready-made prompt libraries, live workflow demos, and a community of people who actually use these tools daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-3 inline-block rounded-lg bg-amber-600 px-5 py-2 text-sm font-semibold text-white hover:bg-amber-700 transition-colors"
-        >
-          Join for free &rarr;
-        </a>
-      </div>
 
       <h2>Workflow 5: Business development content</h2>
       <p>
@@ -797,22 +768,6 @@ ALSO GENERATE:
         quality of work in half the time, at lower prices, or both.
       </p>
 
-      {/* ── CTA 3 ── */}
-      <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/70 p-4 md:p-6">
-        <p className="text-sm font-semibold text-amber-900 mb-1">
-          Stop experimenting alone — learn with consultants who are already using AI daily
-        </p>
-        <p className="text-sm text-amber-800">
-          Inside AItomation Academy, consultants share real workflows, prompt libraries, and results. Free to join, no fluff.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-3 inline-block rounded-lg bg-amber-600 px-5 py-2 text-sm font-semibold text-white hover:bg-amber-700 transition-colors"
-        >
-          See what members are building &rarr;
-        </a>
-      </div>
-
       <h2>Go deeper: learn the full AI consulting workflow</h2>
       <p>
         This article covers the core workflows, but there is much more to
@@ -823,7 +778,7 @@ ALSO GENERATE:
       </p>
       <p>
         Inside the{" "}
-        <a href="/skool-redirect">AItomation Academy community</a>, we go
+        <a href="/academy">AItomation Academy community</a>, we go
         deep on all of this with live workshops, prompt template libraries,
         and a group of consultants, freelancers, and advisors who share what
         is actually working in their practices. If you want to go from
@@ -831,7 +786,7 @@ ALSO GENERATE:
         hours every week,&quot; it is the fastest path.
       </p>
       <p>
-        <a href="/skool-redirect">
+        <a href="/academy">
           Join AItomation Academy and start building your AI consulting
           toolkit &rarr;
         </a>

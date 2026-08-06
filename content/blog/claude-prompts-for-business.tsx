@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-prompts-for-business",
@@ -261,14 +262,7 @@ Format as a table with columns:
 - Anything that sounded like a potential problem, disagreement, or misalignment
 - Things that were said diplomatically but might be red flags`}</code></pre>
 
-      <div className="not-prose my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          These prompts are just the start. <strong>1200+ professionals</strong> share their best Claude workflows in our free community.{" "}
-          <a href="/skool-redirect" className="font-semibold text-amber-700 underline underline-offset-2">
-            Join the free AItomation Academy community &rarr;
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"These prompts are just the start"} dataCta="claude_prompts_for_business_community" />
 
       <h2>6. SOW/scope document from vague client request</h2>
       <p>
@@ -530,15 +524,6 @@ After you write the sequence, add a section called "SEQUENCE STRATEGY NOTES" exp
 - Where to expect the most unsubscribes and why that's okay
 - How to A/B test the most important elements
 - When to move non-converters to a different sequence`}</code></pre>
-
-      <div className="not-prose my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-6">
-        <p className="text-sm text-amber-900">
-          Want more templates like these? Our community members share prompt libraries, workflows, and real results every day.{" "}
-          <a href="/skool-redirect" className="font-semibold text-amber-700 underline underline-offset-2">
-            Join the free AItomation Academy community &rarr;
-          </a>
-        </p>
-      </div>
 
       <h2>11. Quarterly business review preparation</h2>
       <p>

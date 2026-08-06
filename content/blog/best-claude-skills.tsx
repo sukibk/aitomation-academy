@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "best-claude-skills",
@@ -295,22 +296,7 @@ Package this as a skill I can reuse across every future LinkedIn
 post, and tell me how to install it.`}
       </pre>
 
-      <div className="my-8 rounded-xl border border-amber-200 bg-amber-50/70 p-4 md:p-6 not-prose">
-        <p className="text-sm font-semibold text-amber-900 mb-1">
-          Want the LinkedIn skill and 550+ others already built?
-        </p>
-        <p className="text-sm text-amber-800">
-          Inside AItomation Academy you get the full Vault, live workshops,
-          and a weekly call with 1,200+ professionals already running these
-          skills daily.
-        </p>
-        <a
-          href="/skool-redirect"
-          className="mt-3 inline-block rounded-lg bg-amber-600 px-5 py-2 text-sm font-semibold text-white hover:bg-amber-700 transition-colors"
-        >
-          Join the free community &rarr;
-        </a>
-      </div>
+      <CommunityCta title={"Want the LinkedIn skill and 550+ others already built?"} dataCta="best_claude_skills_community" />
 
       <h2>Which one to install first</h2>
       <p>

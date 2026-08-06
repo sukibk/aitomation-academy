@@ -1,5 +1,6 @@
 import type { BlogPost } from "@/lib/blog";
 import { VaultCta } from "@/app/components/vault-cta";
+import { CommunityCta } from "@/app/components/community-cta";
 
 export const post: BlogPost = {
   slug: "claude-vs-chatgpt-for-writing",
@@ -276,19 +277,6 @@ export const post: BlogPost = {
         formal.
       </p>
 
-      {/* ── CTA 1 ── */}
-      <div className="my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
-        <p className="text-sm text-slate-700">
-          See the Claude writing workflows 1200+ professionals use daily.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Join the free community &rarr;
-          </a>
-        </p>
-      </div>
-
       <VaultCta title={"Skip writing the prompts yourself"} dataCta="claude_vs_chatgpt_for_writing_vault" />
 
       <h2>Test 3: Client proposal</h2>
@@ -445,18 +433,7 @@ export const post: BlogPost = {
         and volume can be useful.
       </p>
 
-      {/* ── CTA 2 ── */}
-      <div className="my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
-        <p className="text-sm text-slate-700">
-          Get free Claude writing templates in our community.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            Grab them here &rarr;
-          </a>
-        </p>
-      </div>
+      <CommunityCta title={"Get the writing templates professionals use daily"} dataCta="claude_vs_chatgpt_for_writing_community" />
 
       <h2>Test 5: Editing and rewriting</h2>
       <p>
@@ -607,19 +584,6 @@ export const post: BlogPost = {
         do the consistency work manually, which defeats the purpose of using
         AI in the first place.
       </p>
-
-      {/* ── CTA 3 ── */}
-      <div className="my-8 rounded-lg border border-amber-200 bg-amber-50/60 p-4 sm:p-5">
-        <p className="text-sm text-slate-700">
-          Learn how to set up Claude Projects for writing that sounds like you.{" "}
-          <a
-            href="/skool-redirect"
-            className="font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
-          >
-            See the step-by-step inside AItomation Academy &rarr;
-          </a>
-        </p>
-      </div>
 
       <h2>When ChatGPT is actually better for writing</h2>
       <p>
@@ -826,7 +790,7 @@ export const post: BlogPost = {
       </p>
       <p>
         <a
-          href="/skool-redirect"
+          href="/academy"
           className="inline-block mt-2 font-semibold text-orange-600 underline decoration-orange-300 underline-offset-4 hover:text-orange-700 hover:decoration-orange-400 transition-colors"
         >
           Join AItomation Academy and master professional AI writing
