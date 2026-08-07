@@ -19,12 +19,15 @@ event with the super property `internal: true` (set once per browser via
 ```
 AND properties.$ip != '137.103.50.217'
 AND properties.internal IS NULL
-AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 ```
 
-The HR geo clause only exists to cover events from BEFORE the device tag
-shipped (2026-07-29) — drop it from queries whose window starts after
-2026-08-06. Also ignore `checkout_feedback` events carrying internal:true —
+The HR/RS geo clause covers the owner's untagged devices (Marko browses
+from Croatia AND Serbia). Keep it until the owner confirms every device he
+uses is tagged via ?internal=1 — the earlier plan to drop it after
+2026-08-06 is REVOKED (2026-08-07: he flagged untagged Serbian devices).
+Real HR/RS visitor traffic measured at ~1-3/fortnight per page, so the
+false-exclusion cost is negligible. Also ignore `checkout_feedback` events carrying internal:true —
 owner QA, not customers.
 
 ## Analytics Archive
@@ -67,7 +70,7 @@ FROM events
 WHERE event = '$pageview'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
-  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+  AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 ```
 
 ### 1b. Page-Level Performance
@@ -81,7 +84,7 @@ FROM events
 WHERE event = '$pageview'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
-  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+  AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 GROUP BY page
 ORDER BY pageviews DESC
 LIMIT 20
@@ -95,7 +98,7 @@ FROM events
 WHERE timestamp >= now() - INTERVAL 7 DAY
   AND event NOT LIKE '$%'
   AND properties.$ip != '137.103.50.217'
-  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+  AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 GROUP BY event
 ORDER BY count DESC
 LIMIT 20
@@ -131,7 +134,7 @@ FROM events
 WHERE event = '$pageview'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
-  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+  AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 GROUP BY source
 ORDER BY pageviews DESC
 ```
@@ -152,7 +155,7 @@ WHERE event = '$pageview'
   AND properties.$pathname LIKE '/blog/%'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
-  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+  AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 GROUP BY page
 HAVING claude_refs + chatgpt_refs + bing_refs > 0
 ORDER BY claude_refs + chatgpt_refs DESC
@@ -182,7 +185,7 @@ WHERE event IN (
 )
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
-  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+  AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 GROUP BY event
 ORDER BY count DESC
 ```
@@ -200,7 +203,7 @@ FROM events
 WHERE event = 'cta_click'
   AND timestamp >= now() - INTERVAL 7 DAY
   AND properties.$ip != '137.103.50.217'
-  AND (properties.$geoip_country_code IS NULL OR properties.$geoip_country_code != 'HR')
+  AND coalesce(properties.$geoip_country_code,'') NOT IN ('HR','RS')
 GROUP BY section, cta_text
 ORDER BY clicks DESC
 ```
