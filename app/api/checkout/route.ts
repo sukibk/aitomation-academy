@@ -113,9 +113,11 @@ export async function POST(req: NextRequest) {
     form.set("custom_fields[0][label][custom]", "Skool login email (if you already have one)");
     form.set("custom_fields[0][type]", "text");
     form.set("custom_fields[0][optional]", "true");
+    // Monthly deliberately ignores env overrides: lib/pricing.ts is the single
+    // source of truth so a stale env var can never undercut an enforced rise.
     const priceId = isAnnual
       ? process.env.STRIPE_MEMBERSHIP_PRICE_ANNUAL || MEMBERSHIP.priceIdAnnual
-      : process.env.STRIPE_MEMBERSHIP_PRICE || MEMBERSHIP.priceId;
+      : MEMBERSHIP.priceId;
     if (priceId) {
       form.set("line_items[0][price]", priceId);
     } else {

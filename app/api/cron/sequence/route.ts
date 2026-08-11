@@ -41,17 +41,21 @@ export async function GET(req: NextRequest) {
 
   // Deadline-enforcement nag: the site's countdowns promised a real price rise.
   // Once a configured deadline is in the past but hasn't been cleared from
-  // lib/pricing.ts (which the enforcement commit does), email the admin EVERY
+  // lib/pricing.ts (which the enforcement commit does), email the admin ONCE A
   // DAY until the flip ships. Self-silences when the dates are nulled.
+  // Gated to Vercel's own scheduled invocation — external pingers also hit this
+  // route hourly with the secret (that's fine for the idempotent stepper), and
+  // ungated they turned one nag/day into ten (2026-08-11).
+  const isVercelCron = (req.headers.get("user-agent") ?? "").includes("vercel-cron");
   const expired = [FOUNDER_RATE_ENDS_AT, VAULT_PRICE_RISES_AT].some(
     (d) => d && Date.now() > new Date(d).getTime(),
   );
-  if (expired) {
+  if (expired && isVercelCron) {
     try {
       await sendEmail({
         to: process.env.ADMIN_NOTIFY_EMAIL || siteConfig.email,
         subject: "PRICE RISE ENFORCEMENT OVERDUE — countdowns hit zero, prices unchanged",
-        htmlContent: `<p><b>The promised deadline passed and the site still sells at old prices.</b> Until enforced, the countdown campaign is retroactively fake. Do today:</p><ol><li>lib/pricing.ts: membership 69 &rarr; 99, VAULT.launchPrice 17 &rarr; 49, set FOUNDER_RATE_ENDS_AT and VAULT_PRICE_RISES_AT to null, refresh MEMBER_COUNT — push to main (static site, needs the deploy).</li><li>Stripe: create $99/mo price (+ annual), wire via STRIPE_MEMBERSHIP_PRICE; confirm existing $69 subscribers keep their rate.</li><li>Skool: plan to $99/mo for new joiners.</li><li>Publish the "as promised" rise announcement post + email.</li></ol><p>This email repeats daily until the dates are cleared from pricing.ts.</p>`,
+        htmlContent: `<p><b>The promised deadline passed and the site still sells at old prices.</b> Until enforced, the countdown campaign is retroactively fake. Do today:</p><ol><li>lib/pricing.ts: raise the expired price to its promised level, null the expired *_ENDS_AT/*_RISES_AT date, refresh MEMBER_COUNT — push to main (static site, needs the deploy).</li><li>Confirm checkout charges the new amount (inline price_data follows pricing.ts; existing subscribers keep their rate).</li><li>Skool: raise the plan price for new joiners to match.</li><li>Publish the "as promised" rise announcement.</li></ol><p>This email repeats daily until the dates are cleared from pricing.ts.</p>`,
         tag: "price-rise-enforcement",
       });
     } catch (e) {

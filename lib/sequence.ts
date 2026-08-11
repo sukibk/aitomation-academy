@@ -4,7 +4,7 @@
 // Premium. Free-member CTAs go to the Skool plans page (lowest-friction upgrade,
 // includes the 7-day trial) — NEVER to classroom pages, which are tier-locked.
 
-import { FOUNDER_RATE_ENDS_AT } from "./pricing";
+import { FOUNDER_RATE_ENDS_AT, MEMBERSHIP } from "./pricing";
 
 const URL = {
   plans: "https://www.skool.com/claude-academy/plans",
@@ -160,7 +160,7 @@ ${deadlineBlock()}${btn(URL.plans, "Unlock everything")}`,
 <li>The Claude Vault — 550+ prompts & skills, new ones every week ($49 on its own)</li>
 <li>The weekly live call — bring your project, we fix it live</li>
 </ul>
-<p>The founder rate is $69/mo, locked for life. At 1,300 members it rises to $99/mo for new joiners. There's a 7-day refund guarantee, no questions asked, and you can cancel anytime.</p>
+<p>Membership is $${MEMBERSHIP.price}/mo, locked for life at the rate you join. There's a 7-day refund guarantee, no questions asked, and you can cancel anytime.</p>
 ${deadlineBlock()}${btn(URL.plans, "Join Academy Premium")}`,
       ),
   },

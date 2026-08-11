@@ -19,25 +19,25 @@ export const VAULT = {
 export const MEMBERSHIP = {
   name: "Claude Code Academy — Membership",
   tagline: "Every course, the full Claude Vault, and the weekly live call",
-  price: 69, // $/mo — keep in sync with LADDER current level
-  annualPrice: 649, // $/yr — save $179 vs 12 x $69 (828)
+  price: 99, // $/mo — Growth rate, enforced 2026-08-11 as publicly promised
+  annualPrice: 649, // $/yr — CALIBRATED TO THE $69 ERA; revisit before promoting annual anywhere
   currency: "usd",
-  // Live Stripe catalog prices (product prod_UvpOH91byN7C0D, verified 2026-07-22).
-  // Checkout prefers these; if one is blank the route falls back to an inline
-  // price so a bad/missing ID can never break checkout. Env vars override.
-  priceId: "price_1Tvxk6QgUMvxzjy7NlpkL1pq", // monthly
-  priceIdAnnual: "", // yearly — set once you create the $690/yr price; empty = inline $690/yr
+  // Monthly is charged via inline price_data from `price` above — the single
+  // source of truth, so a stale catalog price/env var can never undercut an
+  // enforced rise. The retired $69 catalog price was price_1Tvxk6QgUMvxzjy7NlpkL1pq
+  // (product prod_UvpOH91byN7C0D); existing $69 subscribers keep their rate.
+  priceId: "", // monthly — intentionally blank, see above
+  priceIdAnnual: "", // yearly — set once you create a catalog price; empty = inline annualPrice
 };
 
 // HONEST-URGENCY CONFIG. These are real, enforced deadlines — when a timer
 // hits zero, the price actually changes. Fake timers are never used.
 //
 // 2026-07-27: the community crossed the 1,300-member threshold while the
-// founder rate was still live. Marko's call: honor a public two-week
-// extension, announced as such, then enforce the rise for good.
-// On 2026-08-11: membership rises to $99/mo (Stripe + Skool), MEMBER_COUNT
-// gets refreshed, and the date clears.
-export const FOUNDER_RATE_ENDS_AT: string | null = "2026-08-10T23:59:59-04:00";
+// founder rate was still live. Marko honored a public two-week extension,
+// then the rise was ENFORCED on 2026-08-11 as promised: $69 → $99/mo.
+// Only set a date here again with a real, enforced change behind it.
+export const FOUNDER_RATE_ENDS_AT: string | null = null;
 // 2026-07-29: Vault stays at launch price indefinitely as an open-ended
 // discount off the $49 list price (no deadline claimed anywhere). Only set
 // this again with a real, enforced rise behind it.
@@ -54,8 +54,8 @@ export const VAULT_SEATS = {
   since: "2026-07-28T00:00:00Z",
 };
 
-// Current member count (update from Skool; crossed 1,300 as of 2026-07-27). Drives the ladder.
-export const MEMBER_COUNT = 1300;
+// Current member count (update from Skool; 1,349 verified 2026-08-10). Drives the ladder.
+export const MEMBER_COUNT = 1349;
 
 // "1,200+" style label, rounded down to the nearest 100. Use this everywhere a
 // member count appears in copy so updating MEMBER_COUNT updates the whole site

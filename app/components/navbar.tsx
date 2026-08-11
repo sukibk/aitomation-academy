@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { VAULT, MEMBER_COUNT } from "@/lib/pricing";
+import { VAULT, MEMBERSHIP, MEMBER_COUNT } from "@/lib/pricing";
 import { BuyLink } from "@/app/components/buy-link";
 import Image from "next/image";
 
@@ -30,7 +30,7 @@ export function Navbar() {
     if (pathname.startsWith("/vault") && !VAULT.salesPaused)
       return { product: "vault" as const, label: "Get the Vault" };
     if (pathname.startsWith("/academy"))
-      return { product: "membership" as const, label: "Lock $69/mo" };
+      return { product: "membership" as const, label: `Lock $${MEMBERSHIP.price}/mo` };
     return { product: null, href: "/academy", label: "Join the Academy" };
   })();
 
