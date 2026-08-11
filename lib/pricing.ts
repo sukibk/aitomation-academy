@@ -19,14 +19,14 @@ export const VAULT = {
 export const MEMBERSHIP = {
   name: "Claude Code Academy — Membership",
   tagline: "Every course, the full Claude Vault, and the weekly live call",
-  price: 99, // $/mo — Growth rate, enforced 2026-08-11 as publicly promised
+  price: 97, // $/mo — Growth rate; rise enforced 2026-08-11 (announced "up to $99", set at $97 on 2026-08-12)
   annualPrice: 649, // $/yr — CALIBRATED TO THE $69 ERA; revisit before promoting annual anywhere
   currency: "usd",
-  // Monthly is charged via inline price_data from `price` above — the single
-  // source of truth, so a stale catalog price/env var can never undercut an
-  // enforced rise. The retired $69 catalog price was price_1Tvxk6QgUMvxzjy7NlpkL1pq
-  // (product prod_UvpOH91byN7C0D); existing $69 subscribers keep their rate.
-  priceId: "", // monthly — intentionally blank, see above
+  // Monthly catalog price (product prod_UvpOH91byN7C0D). MUST match `price`
+  // above — checkout prefers the catalog id; if blank it falls back to inline
+  // price_data from `price`, so a bad id can never break checkout. The retired
+  // $69 price (price_1Tvxk6QgUMvxzjy7NlpkL1pq) stays on existing subscribers.
+  priceId: "price_1U3O8NQgUMvxzjy7cw75ehLK", // monthly $97
   priceIdAnnual: "", // yearly — set once you create a catalog price; empty = inline annualPrice
 };
 
@@ -35,7 +35,7 @@ export const MEMBERSHIP = {
 //
 // 2026-07-27: the community crossed the 1,300-member threshold while the
 // founder rate was still live. Marko honored a public two-week extension,
-// then the rise was ENFORCED on 2026-08-11 as promised: $69 → $99/mo.
+// then the rise was ENFORCED on 2026-08-11 as promised: $69 → $97/mo.
 // Only set a date here again with a real, enforced change behind it.
 export const FOUNDER_RATE_ENDS_AT: string | null = null;
 // 2026-07-29: Vault stays at launch price indefinitely as an open-ended
@@ -74,7 +74,7 @@ export interface Level {
 
 export const LADDER: Level[] = [
   { threshold: 0, price: 69, label: "Founder rate" },
-  { threshold: 1300, price: 99, label: "Growth rate" },
+  { threshold: 1300, price: 97, label: "Growth rate" },
   { threshold: 2000, price: 129, label: "Standard rate" },
 ];
 
