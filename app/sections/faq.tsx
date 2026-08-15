@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: "What if I cancel? What if the Vault isn't for me?",
-    answer: `Cancel the membership in two clicks. No emails, no retention forms, and everything you built stays yours.\n\nThe Vault comes with a ${VAULT.guaranteeDays}-day refund: if it doesn't save you real time, reply to your receipt and we refund you.`,
+    answer: `Cancel the membership in two clicks — the "Manage subscription" link in the footer opens your billing portal, no emails, no retention forms. Everything you built stays yours.\n\nThe Vault comes with a ${VAULT.guaranteeDays}-day refund: if it doesn't save you real time, reply to your receipt and we refund you.`,
   },
 ];
 

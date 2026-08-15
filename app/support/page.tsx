@@ -23,6 +23,17 @@ export default function SupportPage() {
             </p>
           </section>
           <section>
+            <h2 className="mb-3 text-2xl font-semibold text-slate-900">Manage your membership</h2>
+            <p>
+              Update your card, view invoices, or cancel your subscription yourself — no email needed:{" "}
+              <a className="text-orange-600 hover:text-orange-700" href={siteConfig.billingPortal}>
+                open the billing portal
+              </a>
+              . Enter the email you purchased with and Stripe sends you a secure sign-in link.
+              Members billed through Skool manage their plan in Skool&apos;s own settings instead.
+            </p>
+          </section>
+          <section>
             <h2 className="mb-3 text-2xl font-semibold text-slate-900">What to include</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>Your name and email address</li>

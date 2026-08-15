@@ -84,12 +84,12 @@ function membershipEmail(firstName: string): string {
   const hi = firstName ? `Hey ${firstName},` : "Hey,";
   return `<div style="max-width:560px;margin:0 auto;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#2a2420">
 <p>${hi}</p>
-<p>Welcome to Claude Code Academy — you're a full member, and your founder rate is locked for life. Two steps:</p>
+<p>Welcome to Claude Code Academy — you're a full member, and your rate is locked for life. Two steps:</p>
 <p><b>1. Join the community space (1 minute):</b></p>
 <p><a href="${SKOOL_INVITE}" style="background:#C2571B;color:#fff;padding:12px 22px;border-radius:6px;text-decoration:none;font-weight:600;display:inline-block">Join here</a></p>
 <p><b>2. Full access gets switched on for your account</b> — every course (the 7-Day Claude Challenge, Cowork, Claude Code), the complete Claude Vault, and the weekly live call. Usually within the hour.</p>
 <p>Start with Day 1 of the Challenge tonight — by next week you'll have built something real.</p>
-<p>One important note: your billing runs through our site, not Skool — so ignore any upgrade prompts inside Skool. You're already covered.</p>
+<p>One important note: your billing runs through our site, not Skool — so ignore any upgrade prompts inside Skool. You're already covered. Manage your card or subscription anytime at <a href="${siteConfig.billingPortal}">your billing portal</a>.</p>
 <p>Any problem — reply to this email.</p>
 <p>— Marko</p>
 <hr style="border:none;border-top:1px solid #e6dfd6;margin:28px 0 12px">

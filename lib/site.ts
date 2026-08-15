@@ -8,6 +8,8 @@ export const siteConfig = {
   tagline: "Claude for real work.",
   email: "contact@aitomationacademy.com",
   supportEmail: "contact@aitomationacademy.com",
+  // Stripe no-code customer portal (magic-link auth): update card, view invoices, cancel.
+  billingPortal: "https://billing.stripe.com/p/login/00wdRbgtS3vBatJ0uDb7y00",
   companyName: "AITOMATION LLC",
   social: {
     youtube: "https://www.youtube.com/@MarcoSudar",
